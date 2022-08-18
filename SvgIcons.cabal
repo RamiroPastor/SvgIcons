@@ -20,7 +20,9 @@ category:           Web
 extra-source-files: CHANGELOG.md
 
 library
-    exposed-modules:  MyLib
+    exposed-modules: 
+      Base,
+      Core
 
     -- Modules included in this library but not exported.
     -- other-modules:
