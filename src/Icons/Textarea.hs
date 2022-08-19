@@ -16,8 +16,8 @@ import Core
 
 svgTextarea :: [ (String , S.Svg) ]
 svgTextarea =
-  [ (,) "bold"    $ bold def{strokeSize = 0, fillColor = "black"}
-  , (,) "italic"  italic
+  [ (,) "bold"    $ bold def
+  , (,) "italic"  $ italic def{strokeSize = 0, fillColor = "black"}
   , (,) "link"    link
   , (,) "image"   imageIcon
   , (,) "video"   video
@@ -75,26 +75,43 @@ bold svgStyle =
 
 --------------------------------------------------------------------------------
 
-italic :: S.Svg
-italic =
-    S.path
-      ! fill "none"
-      ! (strokeWidth .: 2*w)
-      ! strokeLinecap "round"
-      ! d dirs
+italic :: SvgStyle -> S.Svg
+italic svgStyle =
+    applyStyle svgStyle $
+      S.path
+        ! d dirs
   where
-    w  = 0.07
-    kx = 0.2
-    ky = 0.2
-    ε  = 0.15
+    k1 = 0.12  -- half width of the line
+    k2 = 1     -- length of the horizontal lines
+    k3 = 0.2   -- distance from the center of the horizontal lines to y-axis
+    k4 = 0.65  -- distance from the center of the horizontal lines to x-axis
+    x1  = -k3 - 0.5 * k2
+    x1' = -k3 - k1
+    x2' = -k3 + k1
+    x2  = -k3 + 0.5 * k2
+    x3  =  k3 - 0.5 * k2
+    x3' =  k3 - k1
+    x4' =  k3 + k1
+    x4  =  k3 + 0.5 * k2
+    y1  =  k4 + k1
+    y2  =  k4 - k1
+    y3  = -k4 + k1
+    y4  = -k4 - k1
     dirs = mkPath $ do
-      m   (1 - kx)        ky
-      l   (1 - kx - 2*ε)  ky
-      m   kx              (1 - ky)
-      l   (kx + 2*ε)      (1 - ky)
-      m   (kx + ε)        (1 - ky)
-      l   (1 - kx - ε)    ky
-
+      m   x1  y1
+      l   x2  y1
+      aa  k1  k1  0  True  False x2  y2
+      l   x2' y2
+      l   x4' y3 
+      l   x4  y3
+      aa  k1  k1  0  True  False x4  y4
+      l   x3  y4
+      aa  k1  k1  0  True  False x3  y3
+      l   x3' y3
+      l   x1' y2
+      l   x1  y2
+      aa  k1  k1  0  True  False x1  y1
+      S.z 
 
 
 --------------------------------------------------------------------------------
