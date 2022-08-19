@@ -37,7 +37,7 @@ frame x y w h =
     S.path
       ! A.fill "none"
       ! A.stroke "black"
-      ! A.strokeWidth "0.01"
+      ! A.strokeWidth "0.002"
       ! A.d frameDirs
   where
     frameDirs = mkPath $ do
