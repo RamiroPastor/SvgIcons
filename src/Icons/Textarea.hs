@@ -21,8 +21,8 @@ svgTextarea =
   , (,) "video"   $ video strokeStyle
   , (,) "bulletL" $ bulletList strokeStyle
   , (,) "numberL" $ numberList strokeStyle
-  , (,) "header"  header
-  , (,) "hr"      horizontalRule
+  , (,) "header"  $ header strokeStyle
+  , (,) "hr"      $ horizontalRule strokeStyle
   , (,) "undo"    undo
   , (,) "redo"    redo
   , (,) "help"    questionMark
@@ -294,103 +294,105 @@ numberList svgStyle =
 
 --------------------------------------------------------------------------------
 
-header :: S.Svg
-header =
-    do
-      S.path ! d line1 ! stroke "none"
-      S.path ! d line2 ! stroke "none"
-      S.path ! d line3 ! stroke "none" ! opacity "0.4"
-      S.path ! d line4 ! stroke "none" ! opacity "0.4"
-      S.path ! d line5 ! stroke "none" ! opacity "0.4"
+header :: SvgStyle -> S.Svg
+header svgStyle =
+  applyStyle svgStyle $ 
+    S.g $ do
+      S.path ! d line1
+      S.path ! d line2
+      S.path ! d line3 ! opacity "0.4"
+      S.path ! d line4 ! opacity "0.4"
+      S.path ! d line5 ! opacity "0.4"
   where
-    l1 = 0.05
-    l2 = 0.25
-    r2 = 0.75
-    r1 = 0.95
-    h = 1/6
-    w = 0.1
+    l1 = -0.9
+    l2 = -0.5
+    r2 =  0.5
+    r1 =  0.9
+    h = 2/6
+    w = 0.2
     line1 = mkPath $ do
-       m l1 (1*h - w/2)
-       l r1 (1*h - w/2)
-       l r1 (1*h + w/2)
-       l l1 (1*h + w/2)
+       m l1 (-2*h - w/2)
+       l r1 (-2*h - w/2)
+       l r1 (-2*h + w/2)
+       l l1 (-2*h + w/2)
        S.z
     line2 = mkPath $ do
-       m l2 (2*h - w/2)
-       l r2 (2*h - w/2)
-       l r2 (2*h + w/2)
-       l l2 (2*h + w/2)
+       m l2 (-1*h - w/2)
+       l r2 (-1*h - w/2)
+       l r2 (-1*h + w/2)
+       l l2 (-1*h + w/2)
        S.z
     line3 = mkPath $ do
-       m l1 (3*h - w/2)
-       l r1 (3*h - w/2)
-       l r1 (3*h + w/2)
-       l l1 (3*h + w/2)
+       m l1 (   0 - w/2)
+       l r1 (   0 - w/2)
+       l r1 (   0 + w/2)
+       l l1 (   0 + w/2)
        S.z
     line4 = mkPath $ do
-       m l2 (4*h - w/2)
-       l r2 (4*h - w/2)
-       l r2 (4*h + w/2)
-       l l2 (4*h + w/2)
+       m l2 ( 1*h - w/2)
+       l r2 ( 1*h - w/2)
+       l r2 ( 1*h + w/2)
+       l l2 ( 1*h + w/2)
        S.z
     line5 = mkPath $ do
-       m l1 (5*h - w/2)
-       l r1 (5*h - w/2)
-       l r1 (5*h + w/2)
-       l l1 (5*h + w/2)
+       m l1 ( 2*h - w/2)
+       l r1 ( 2*h - w/2)
+       l r1 ( 2*h + w/2)
+       l l1 ( 2*h + w/2)
        S.z
 
 
-horizontalRule :: S.Svg
-horizontalRule =
-    do
-      S.path ! stroke "none" ! d line1 ! opacity "0.4"
-      S.path ! stroke "none" ! d line2 ! opacity "0.4"
-      line3  ! stroke "none"
-      S.path ! stroke "none" ! d line4 ! opacity "0.4"
-      S.path ! stroke "none" ! d line5 ! opacity "0.4"
+horizontalRule :: SvgStyle -> S.Svg
+horizontalRule svgStyle =
+  applyStyle svgStyle $
+    S.g $ do
+      S.path ! d line1 ! opacity "0.4"
+      S.path ! d line2 ! opacity "0.4"
+      line3 
+      S.path ! d line4 ! opacity "0.4"
+      S.path ! d line5 ! opacity "0.4"
   where
-    l1 = 0.05
-    l2 = 0.25
-    r2 = 0.75
-    r1 = 0.95
-    h = 1/6
-    w = 0.1
+    l1 = -0.9
+    l2 = -0.5
+    r2 =  0.5
+    r1 =  0.9
+    h = 2/6
+    w = 0.2
     line1 = mkPath $ do
-       m l1 (1*h - w/2)
-       l r1 (1*h - w/2)
-       l r1 (1*h + w/2)
-       l l1 (1*h + w/2)
+       m l1 (-2*h - w/2)
+       l r1 (-2*h - w/2)
+       l r1 (-2*h + w/2)
+       l l1 (-2*h + w/2)
        S.z
     line2 = mkPath $ do
-       m l2 (2*h - w/2)
-       l r2 (2*h - w/2)
-       l r2 (2*h + w/2)
-       l l2 (2*h + w/2)
+       m l2 (-1*h - w/2)
+       l r2 (-1*h - w/2)
+       l r2 (-1*h + w/2)
+       l l2 (-1*h + w/2)
        S.z
     square leftX =
       S.rect
         ! (A.x    .: leftX)
-        ! (A.y    .: 3*h - w/2)
+        ! (A.y    .: 0 - w/2)
         ! (width  .: w)
         ! (height .: w)
     line3 = do
       square l1
       square l2
-      square (0.5 - w/2)
+      square ( 0 - w/2)
       square (r2 - w)
       square (r1 - w)
     line4 = mkPath $ do
-       m l2 (4*h - w/2)
-       l r2 (4*h - w/2)
-       l r2 (4*h + w/2)
-       l l2 (4*h + w/2)
+       m l2 ( 1*h - w/2)
+       l r2 ( 1*h - w/2)
+       l r2 ( 1*h + w/2)
+       l l2 ( 1*h + w/2)
        S.z
     line5 = mkPath $ do
-       m l1 (5*h - w/2)
-       l r1 (5*h - w/2)
-       l r1 (5*h + w/2)
-       l l1 (5*h + w/2)
+       m l1 ( 2*h - w/2)
+       l r1 ( 2*h - w/2)
+       l r1 ( 2*h + w/2)
+       l l1 ( 2*h + w/2)
        S.z
 
 
