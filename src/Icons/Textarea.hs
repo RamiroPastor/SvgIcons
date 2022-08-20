@@ -4,6 +4,7 @@
 
 module Icons.Textarea where
 
+import           Control.Arrow (second)
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
@@ -14,32 +15,31 @@ import Core
 
 svgTextarea :: [ (String , S.Svg) ]
 svgTextarea =
-  [ (,) "bold"    $ bold strokeStyle 
-  , (,) "italic"  $ italic strokeStyle
-  , (,) "link"    link
-  , (,) "image"   $ imageIcon strokeStyle
-  , (,) "video"   $ video strokeStyle
-  , (,) "bulletL" $ bulletList strokeStyle
-  , (,) "numberL" $ numberList strokeStyle
-  , (,) "header"  $ header strokeStyle
-  , (,) "hr"      $ horizontalRule strokeStyle
-  , (,) "undo"    undo
-  , (,) "redo"    redo
-  , (,) "help"    questionMark
-  , (,) "screen"  fullscreen
-  , (,) "preview" preview
-  ]
+  map (second (applyStyle strokeStyle{strokeSize=0.1}))
+    [ (,) "bold"    bold
+    , (,) "italic"  italic
+    , (,) "link"    link
+    , (,) "image"   imageIcon
+    , (,) "video"   video
+    , (,) "bulletL" bulletList
+    , (,) "numberL" numberList
+    , (,) "header"  header
+    , (,) "hr"      horizontalRule
+    , (,) "undo"    undo
+    , (,) "redo"    redo
+    , (,) "help"    questionMark
+    , (,) "screen"  fullscreen
+    , (,) "preview" preview
+    ]
 
 
 --------------------------------------------------------------------------------
 
-bold :: SvgStyle -> S.Svg
-bold svgStyle =
-    applyStyle svgStyle $ 
-      S.path 
-        ! d dirs
+bold :: S.Svg
+bold =
+    S.path 
+      ! d dirs
   where
-    s = (strokeSize svgStyle) / 2
     k0 = 0.2
     k1 = (-0.15)
     k2 = 0.42
@@ -51,7 +51,7 @@ bold svgStyle =
       l   k1       (-1 + k0)
       l   k6       (-1 + k0)
       aa 0.25 0.25 0 True True  k6         0
-      l                         (k6 + 0.1)  0
+      l                        (k6 + 0.1)  0
       aa 0.4  0.35 0 True True (k6 + 0.1) (1 - k0)
       l   k1       ( 1 - k0)
       l  (-1 + k0) ( 1 - k0)
@@ -73,11 +73,10 @@ bold svgStyle =
 
 --------------------------------------------------------------------------------
 
-italic :: SvgStyle -> S.Svg
-italic svgStyle =
-    applyStyle svgStyle $
-      S.path
-        ! d dirs
+italic :: S.Svg
+italic =
+    S.path
+      ! d dirs
   where
     k1 = 0.12  -- half width of the line
     k2 = 1     -- length of the horizontal lines
@@ -145,14 +144,12 @@ link =
 
 --------------------------------------------------------------------------------
 
-imageIcon :: SvgStyle -> S.Svg
-imageIcon svgStyle =
-    do
+imageIcon :: S.Svg
+imageIcon =
+    S.g $ do
+      sun
+      mountain
       imageFrame
-        ! A.strokeWidth "0"
-        ! A.fill (strokeColor svgStyle)
-      applyStyle svgStyle $ mountain
-      applyStyle svgStyle $ sun
   where
     sun =
       circle
@@ -163,36 +160,31 @@ imageIcon svgStyle =
     x = 0.09
     imageFrame =
       S.path
+        ! A.fill "transparent"
         ! d framePath
     framePath = mkPath $ do
-      m (-1) (-1)
-      l   1  (-1)
-      l   1    1
-      l (-1)   1
-      S.z
-      m (-1 + x) (-1 + x)
-      l (-1 + x) ( 1 - x)
-      l ( 1 - x) ( 1 - x)
-      l ( 1 - x) (-1 + x)
+      m (-0.94) (-0.94)
+      l   0.94  (-0.94)
+      l   0.94    0.94
+      l (-0.94)   0.94
       S.z
     -------------------------
     mountain =
       S.path
         ! A.d mountainPath
     mountainPath = mkPath $ do
-      m   (-1   )   1
+      m   (-0.92)   0.92
       l   (-0.35) (-0.35)
       l     0       0.55
       l     0.45    0.2
-      l     1       1
+      l     0.92    0.92
       S.z
 
 --------------------------------------------------------------------------------
 
-video :: SvgStyle -> S.Svg
-video svgStyle =
-    applyStyle svgStyle $ 
-        S.path ! A.d boxPath
+video :: S.Svg
+video =
+    S.path ! A.d boxPath
   where
     h  = 1.2
     w  = 1.618 * h
@@ -250,11 +242,11 @@ horizontalBars =
       S.z
 
 
-bulletList :: SvgStyle -> S.Svg
-bulletList svgStyle =
-    do
-      applyStyle svgStyle horizontalBars
-      applyStyle svgStyle bullets 
+bulletList :: S.Svg
+bulletList =
+    S.g $ do
+      horizontalBars
+      bullets 
   where
     radius = 0.12
     x1 = -0.75
@@ -267,11 +259,11 @@ bulletList svgStyle =
       circle ! (cx .: x1) ! (cy .: y3) ! (r .: radius) 
 
 
-numberList :: SvgStyle -> Svg
-numberList svgStyle =
-    do
-      applyStyle svgStyle horizontalBars
-      applyStyle svgStyle numbers
+numberList :: Svg
+numberList =
+    S.g $ do
+      horizontalBars
+      numbers
   where
     x1 = -0.75
     y1 = -0.6
@@ -294,9 +286,8 @@ numberList svgStyle =
 
 --------------------------------------------------------------------------------
 
-header :: SvgStyle -> S.Svg
-header svgStyle =
-  applyStyle svgStyle $ 
+header :: S.Svg
+header =
     S.g $ do
       S.path ! d line1
       S.path ! d line2
@@ -342,9 +333,8 @@ header svgStyle =
        S.z
 
 
-horizontalRule :: SvgStyle -> S.Svg
-horizontalRule svgStyle =
-  applyStyle svgStyle $
+horizontalRule :: S.Svg
+horizontalRule =
     S.g $ do
       S.path ! d line1 ! opacity "0.4"
       S.path ! d line2 ! opacity "0.4"

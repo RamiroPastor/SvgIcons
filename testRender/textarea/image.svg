@@ -3,8 +3,10 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <path d="M -1,-1 L 1,-1 L 1,1 L -1,1 ZM -0.91,-0.91 L -0.91,0.91 L 0.91,0.91 L 0.91,-0.91 Z" stroke-width="0" fill="black" />
-    <path d="M -1,1 L -0.35,-0.35 L 0.0,0.55 L 0.45,0.2 L 1,1 Z" fill="none" stroke="black" stroke-width="4.0e-2" />
-    <circle cx="0.5" cy="-0.5" r="0.24" fill="none" stroke="black" stroke-width="4.0e-2" />
+    <g fill="none" stroke="black" stroke-width="0.1">
+        <circle cx="0.5" cy="-0.5" r="0.24" />
+        <path d="M -0.92,0.92 L -0.35,-0.35 L 0.0,0.55 L 0.45,0.2 L 0.92,0.92 Z" />
+        <path fill="transparent" d="M -0.94,-0.94 L 0.94,-0.94 L 0.94,0.94 L -0.94,0.94 Z" />
+    </g>
     <path fill="none" stroke="black" stroke-width="0.002" d="M -1.0,-1.0 L -1.0,1.0 L 1.0,1.0 L 1.0,-1.0 ZM 0.0,-1.0 L 0.0,1.0 M -1.0,0.0 L 1.0,0.0 " />
 </svg>
