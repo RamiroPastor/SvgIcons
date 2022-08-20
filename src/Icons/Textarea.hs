@@ -4,8 +4,6 @@
 
 module Icons.Textarea where
 
-import           Data.Default
-import           Data.List (intercalate)
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
@@ -16,22 +14,21 @@ import Core
 
 svgTextarea :: [ (String , S.Svg) ]
 svgTextarea =
-  -- map (\(a,b) -> (a, b strokeStyle))
-    [ (,) "bold"    $ bold strokeStyle 
-    , (,) "italic"  $ italic strokeStyle
-    , (,) "link"    link
-    , (,) "image"   $ imageIcon strokeStyle
-    , (,) "video"   video
-    , (,) "bulletL" bulletList
-    , (,) "numberL" numberList
-    , (,) "header"  header
-    , (,) "hr"      horizontalRule
-    , (,) "undo"    undo
-    , (,) "redo"    redo
-    , (,) "help"    questionMark
-    , (,) "screen"  fullscreen
-    , (,) "preview" preview
-    ]
+  [ (,) "bold"    $ bold strokeStyle 
+  , (,) "italic"  $ italic strokeStyle
+  , (,) "link"    link
+  , (,) "image"   $ imageIcon strokeStyle
+  , (,) "video"   $ video strokeStyle
+  , (,) "bulletL" bulletList
+  , (,) "numberL" numberList
+  , (,) "header"  header
+  , (,) "hr"      horizontalRule
+  , (,) "undo"    undo
+  , (,) "redo"    redo
+  , (,) "help"    questionMark
+  , (,) "screen"  fullscreen
+  , (,) "preview" preview
+  ]
 
 
 --------------------------------------------------------------------------------
@@ -192,59 +189,31 @@ imageIcon svgStyle =
 
 --------------------------------------------------------------------------------
 
-video :: S.Svg
-video =
-    do
-      topLeftCorner
-      botRightCorner
-      otherTwoCorners
-      triangle
+video :: SvgStyle -> S.Svg
+video svgStyle =
+    applyStyle svgStyle $ 
+        S.path ! A.d boxPath
   where
-    otherTwoCorners =
-      g (topLeftCorner >> botRightCorner)
-        ! A.transform horizontalMirrorMatrix
-    botRightCorner = 
-      topLeftCorner
-        ! A.transform (rotateAround 180 0 0)
-    ---------------------------------
-    topLeftCorner =
-      S.path
-        ! d boxPath
-        ! stroke "none"
-    y1 = 0.2
-    y2 = 1 - y1
-    w  = 1.618 * (y2 - y1)
-    x1 = 0.5 - w/2
+    h  = 1.2
+    w  = 1.618 * h
+    y1 = -0.5 * h
+    y2 =  0.5 * h
+    x1 = -0.5 * w
+    x2 =  0.5 * w
+    tx =  0.16
+    th =  3 * tx
     boxPath = mkPath $ do
-      m x1 0.5
-      c (x1)
-        (y1 + 0.15)
-        (x1 )
-        (y1 + 0.02)
-        (x1 + 0.11)
-        (y1)
-      s (x1 + 0.20)
-        (y1 - 0.01)
-        (0.5)
-        (y1 - 0.02)
-      l 0.51 0.51
+      m   x1  0
+      c  (x1 + 0) (y1 + 0.1 ) (x1 + 0) (y1 + 0  )       0  (y1 + 0)
+      c  (x2 + 0) (y1 + 0.0 ) (x2 + 0) (y1 + 0.1) (x2 + 0)       0
+      c  (x2 + 0) (y2 - 0.1 ) (x2 + 0) (y2 + 0  )       0  (y2 + 0)
+      c  (x1 + 0) (y2 + 0.0 ) (x1 + 0) (y2 - 0.1) (x1 + 0)       0
       S.z
-    ---------------------------------
-    triangle =
-      polygon
-        ! fill "#ffffff"
-        ! points ps
-        ! stroke "none"
-    t = 0.41
-    h = 0.26
-    t1 = (,)  t      (0.5 - h/2)
-    t2 = (,)  t      (0.5 + h/2)
-    t3 = (,) (t + h) (0.5)
-    ps =
-      toValue
-      $ intercalate " "
-      $ map (\ (p1,p2) -> show p1 ++ "," ++ show p2)
-        [t1, t2, t3]
+      m  (0 - tx) (0 - th/2)
+      l  (0 - tx) (0 + th/2)
+      l  (2*th/3)  0
+      S.z
+
 
 --------------------------------------------------------------------------------
 
