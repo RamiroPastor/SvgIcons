@@ -15,7 +15,7 @@ import Core
 
 svgTextarea :: [ (String , S.Svg) ]
 svgTextarea =
-  map (second (applyStyle strokeStyle{strokeSize=0.1}))
+  map ((applyStyle strokeStyle) `second`)
     [ (,) "bold"    bold
     , (,) "italic"  italic
     , (,) "link"    link
@@ -149,7 +149,8 @@ imageIcon =
     S.g $ do
       sun
       mountain
-      imageFrame
+      imageFrameStroked
+      imageFrameFilled
   where
     sun =
       circle
@@ -158,11 +159,26 @@ imageIcon =
         ! (r  .: 0.24)
     -------------------------
     x = 0.09
-    imageFrame =
+    imageFrameFilled =
       S.path
-        ! A.fill "transparent"
-        ! d framePath
-    framePath = mkPath $ do
+        ! d framePath1
+        ! A.stroke "none"
+    framePath1 = mkPath $ do
+      m (-1) (-1)
+      l   1  (-1)
+      l   1    1
+      l (-1)   1
+      S.z
+      m (-1 + x) (-1 + x)
+      l (-1 + x) ( 1 - x)
+      l ( 1 - x) ( 1 - x)
+      l ( 1 - x) (-1 + x)
+      S.z
+    imageFrameStroked =
+      S.path
+        ! A.fill "none"
+        ! d framePath2
+    framePath2 = mkPath $ do
       m (-0.94) (-0.94)
       l   0.94  (-0.94)
       l   0.94    0.94
