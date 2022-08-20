@@ -19,8 +19,8 @@ svgTextarea =
   , (,) "link"    link
   , (,) "image"   $ imageIcon strokeStyle
   , (,) "video"   $ video strokeStyle
-  , (,) "bulletL" bulletList
-  , (,) "numberL" numberList
+  , (,) "bulletL" $ bulletList strokeStyle
+  , (,) "numberL" $ numberList strokeStyle
   , (,) "header"  header
   , (,) "hr"      horizontalRule
   , (,) "undo"    undo
@@ -219,17 +219,17 @@ video svgStyle =
 
 horizontalBars :: S.Svg
 horizontalBars =
-    do
-      S.path ! d topLine ! stroke "none"
-      S.path ! d midLine ! stroke "none"
-      S.path ! d botLine ! stroke "none"
+    S.g $ do
+      S.path ! d topLine
+      S.path ! d midLine
+      S.path ! d botLine
   where
-    w  = 0.12
-    x1 = 0.35
-    x2 = 1
-    y1 = 0.2
-    y2 = 0.5
-    y3 = 0.8
+    w  =  0.20
+    x1 = -0.4
+    x2 =  0.92
+    y1 = -0.6
+    y2 =  0
+    y3 =  0.6
     topLine = mkPath $ do
       m x1 (y1 - w/2)
       l x2 (y1 - w/2)
@@ -250,41 +250,47 @@ horizontalBars =
       S.z
 
 
-bulletList :: S.Svg
-bulletList =
+bulletList :: SvgStyle -> S.Svg
+bulletList svgStyle =
     do
-      horizontalBars
-      bullets 
+      applyStyle svgStyle horizontalBars
+      applyStyle svgStyle bullets 
   where
-    radius = 0.09
-    x1 = 0.1
-    y1 = 0.2
-    y2 = 0.5
-    y3 = 0.8
-    bullets = do
-      circle ! (cx .: x1) ! (cy .: y1) ! (r .: radius) ! stroke "none"
-      circle ! (cx .: x1) ! (cy .: y2) ! (r .: radius) ! stroke "none"
-      circle ! (cx .: x1) ! (cy .: y3) ! (r .: radius) ! stroke "none"
+    radius = 0.12
+    x1 = -0.75
+    y1 = -0.6
+    y2 =  0
+    y3 =  0.6
+    bullets = S.g $ do
+      circle ! (cx .: x1) ! (cy .: y1) ! (r .: radius) 
+      circle ! (cx .: x1) ! (cy .: y2) ! (r .: radius) 
+      circle ! (cx .: x1) ! (cy .: y3) ! (r .: radius) 
 
 
-numberList :: Svg
-numberList =
+numberList :: SvgStyle -> Svg
+numberList svgStyle =
     do
-      horizontalBars
-      numbers
+      applyStyle svgStyle horizontalBars
+      applyStyle svgStyle numbers
   where
-    f x = x ! dominantBaseline "alphabetical"
-            ! textAnchor "middle"
-            ! fontWeight "bold"
-            ! fontSize   "0.3"
-    x1 = 0.05
-    y1 = 0.28
-    y2 = 0.58
-    y3 = 0.88
-    numbers = do
-      f $ S.text_ "1" ! (A.x .: x1) ! (A.y .: y1) ! stroke "none"
-      f $ S.text_ "2" ! (A.x .: x1) ! (A.y .: y2) ! stroke "none"
-      f $ S.text_ "3" ! (A.x .: x1) ! (A.y .: y3) ! stroke "none"
+    x1 = -0.75
+    y1 = -0.6
+    y2 =  0
+    y3 =  0.6
+    number k h = 
+      S.text_ k
+        ! dominantBaseline "central"
+        ! textAnchor "middle"
+        ! fontFamily "monospace"
+        ! fontWeight "bold"
+        ! fontSize   "0.5"
+        ! (A.x .: x1)
+        ! (A.y .: h)
+    numbers = 
+      S.g $ do
+        number "1" y1
+        number "2" y2
+        number "3" y3
 
 --------------------------------------------------------------------------------
 

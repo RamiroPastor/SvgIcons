@@ -3,17 +3,21 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <path d="M 0.35,0.14 L 1.0,0.14 L 1.0,0.26 L 0.35,0.26 Z" stroke="none" />
-    <path d="M 0.35,0.44 L 1.0,0.44 L 1.0,0.56 L 0.35,0.56 Z" stroke="none" />
-    <path d="M 0.35,0.74 L 1.0,0.74 L 1.0,0.8600000000000001 L 0.35,0.8600000000000001 Z" stroke="none" />
-    <text x="5.0e-2" y="0.28" stroke="none" dominant-baseline="alphabetical" text-anchor="middle" font-weight="bold" font-size="0.3">
-        1
-    </text>
-    <text x="5.0e-2" y="0.58" stroke="none" dominant-baseline="alphabetical" text-anchor="middle" font-weight="bold" font-size="0.3">
-        2
-    </text>
-    <text x="5.0e-2" y="0.88" stroke="none" dominant-baseline="alphabetical" text-anchor="middle" font-weight="bold" font-size="0.3">
-        3
-    </text>
+    <g fill="none" stroke="black" stroke-width="4.0e-2">
+        <path d="M -0.4,-0.7 L 0.92,-0.7 L 0.92,-0.5 L -0.4,-0.5 Z" />
+        <path d="M -0.4,-0.1 L 0.92,-0.1 L 0.92,0.1 L -0.4,0.1 Z" />
+        <path d="M -0.4,0.5 L 0.92,0.5 L 0.92,0.7 L -0.4,0.7 Z" />
+    </g>
+    <g fill="none" stroke="black" stroke-width="4.0e-2">
+        <text dominant-baseline="central" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="0.5" x="-0.75" y="-0.6">
+            1
+        </text>
+        <text dominant-baseline="central" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="0.5" x="-0.75" y="0.0">
+            2
+        </text>
+        <text dominant-baseline="central" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="0.5" x="-0.75" y="0.6">
+            3
+        </text>
+    </g>
     <path fill="none" stroke="black" stroke-width="0.002" d="M -1.0,-1.0 L -1.0,1.0 L 1.0,1.0 L 1.0,-1.0 ZM 0.0,-1.0 L 0.0,1.0 M -1.0,0.0 L 1.0,0.0 " />
 </svg>
