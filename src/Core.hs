@@ -23,9 +23,15 @@ data SvgStyle = SvgStyle
 instance Default SvgStyle where
   def = SvgStyle 
     { fillColor   = "none"
-    , strokeColor = "black"
-    , strokeSize  = 0.04
+    , strokeColor = "none"
+    , strokeSize  = 0
     }
+
+strokeStyle :: SvgStyle
+strokeStyle = SvgStyle "none" "black" 0.04
+
+fillStyle :: SvgStyle
+fillStyle = SvgStyle "black" "none" 0
 
 applyStyle :: SvgStyle -> S.Svg -> S.Svg
 applyStyle svgStyle svg =

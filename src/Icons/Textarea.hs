@@ -16,21 +16,22 @@ import Core
 
 svgTextarea :: [ (String , S.Svg) ]
 svgTextarea =
-  [ (,) "bold"    $ bold def
-  , (,) "italic"  $ italic def{strokeSize = 0, fillColor = "black"}
-  , (,) "link"    link
-  , (,) "image"   imageIcon
-  , (,) "video"   video
-  , (,) "bulletL" bulletList
-  , (,) "numberL" numberList
-  , (,) "header"  header
-  , (,) "hr"      horizontalRule
-  , (,) "undo"    undo
-  , (,) "redo"    redo
-  , (,) "help"    questionMark
-  , (,) "screen"  fullscreen
-  , (,) "preview" preview
-  ]
+  -- map (\(a,b) -> (a, b strokeStyle))
+    [ (,) "bold"    $ bold strokeStyle 
+    , (,) "italic"  $ italic strokeStyle
+    , (,) "link"    link
+    , (,) "image"   $ imageIcon strokeStyle
+    , (,) "video"   video
+    , (,) "bulletL" bulletList
+    , (,) "numberL" numberList
+    , (,) "header"  header
+    , (,) "hr"      horizontalRule
+    , (,) "undo"    undo
+    , (,) "redo"    redo
+    , (,) "help"    questionMark
+    , (,) "screen"  fullscreen
+    , (,) "preview" preview
+    ]
 
 
 --------------------------------------------------------------------------------
@@ -147,48 +148,46 @@ link =
 
 --------------------------------------------------------------------------------
 
-imageIcon :: S.Svg
-imageIcon =
+imageIcon :: SvgStyle -> S.Svg
+imageIcon svgStyle =
     do
       imageFrame
-      mountain
-      sun
+        ! A.strokeWidth "0"
+        ! A.fill (strokeColor svgStyle)
+      applyStyle svgStyle $ mountain
+      applyStyle svgStyle $ sun
   where
     sun =
       circle
-        ! (cx .: 0.75)
-        ! (cy .: 0.25)
-        ! (r  .: 0.12)
-        ! stroke "none"
+        ! (cx .: 0.5)
+        ! (cy .: (-0.5))
+        ! (r  .: 0.24)
     -------------------------
-    x = 0.06
+    x = 0.09
     imageFrame =
       S.path
         ! d framePath
-        ! stroke "none"
     framePath = mkPath $ do
-      m 0 0
-      l 1 0
-      l 1 1
-      l 0 1
-      l 0 0
-      m x     x
-      l x     (1-x)
-      l (1-x) (1-x)
-      l (1-x) x
-      l x     x
+      m (-1) (-1)
+      l   1  (-1)
+      l   1    1
+      l (-1)   1
+      S.z
+      m (-1 + x) (-1 + x)
+      l (-1 + x) ( 1 - x)
+      l ( 1 - x) ( 1 - x)
+      l ( 1 - x) (-1 + x)
       S.z
     -------------------------
     mountain =
       S.path
         ! A.d mountainPath
-        ! stroke "none"
     mountainPath = mkPath $ do
-      m   0      1
-      l   0.35   0.35
-      l   0.5    0.65
-      l   0.7    0.5
-      l   1      1
+      m   (-1   )   1
+      l   (-0.35) (-0.35)
+      l     0       0.55
+      l     0.45    0.2
+      l     1       1
       S.z
 
 --------------------------------------------------------------------------------
