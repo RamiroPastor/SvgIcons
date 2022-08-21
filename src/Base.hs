@@ -24,11 +24,11 @@ f .: x = f $ S.toValue x
 
 horizontalMirrorMatrix :: AttributeValue
 horizontalMirrorMatrix =
-  matrix (-1) 0 0 1 1 0
+  matrix (-1) 0 0 1 0 0
 
 verticalMirrorMatrix :: AttributeValue
 verticalMirrorMatrix =
-  matrix 1 0 0 (-1) 0 1
+  matrix 1 0 0 (-1) 0 0
 
 
 -- frame takes the parameters of the viewbox
