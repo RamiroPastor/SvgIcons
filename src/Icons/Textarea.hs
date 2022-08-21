@@ -16,20 +16,20 @@ import Core
 svgTextarea :: [ (String , S.Svg) ]
 svgTextarea =
   map ((applyStyle strokeStyle) `second`)
-    [ (,) "bold"    bold
-    , (,) "italic"  italic
-    , (,) "link"    link
-    , (,) "image"   imageIcon
-    , (,) "video"   video
-    , (,) "bulletL" bulletList
-    , (,) "numberL" numberList
-    , (,) "header"  header
-    , (,) "hr"      horizontalRule
-    , (,) "undo"    undo
-    , (,) "redo"    redo
-    , (,) "help"    questionMark
-    , (,) "screen"  fullscreen
-    , (,) "preview" preview
+    [ (,) "bold"       bold
+    , (,) "italic"     italic
+    , (,) "link"       link
+    , (,) "image"      imageIcon
+    , (,) "video"      video
+    , (,) "bulletList" bulletList
+    , (,) "numberList" numberList
+    , (,) "header"     header
+    , (,) "hr"         horizontalRule
+    , (,) "undo"       undo
+    , (,) "redo"       redo
+    , (,) "help"       questionMark
+    , (,) "fullscreen" fullscreen
+    , (,) "preview"    preview
     ]
 
 
@@ -473,23 +473,28 @@ questionMark =
 fullscreen :: S.Svg
 fullscreen =
     S.g $ do
-      topLeftCorner
-      topLeftCorner ! A.transform (rotateAround  90 0.5 0.5)
-      topLeftCorner ! A.transform (rotateAround 180 0.5 0.5)
-      topLeftCorner ! A.transform (rotateAround 270 0.5 0.5)
+      corner
+      corner ! A.transform (rotateAround  90 0 0)
+      corner ! A.transform (rotateAround 180 0 0)
+      corner ! A.transform (rotateAround 270 0 0)
  where
-   w = 0.05
-   k1 = 0.15
-   k2 = 0.35
-   topLeftCorner =
+   k1 = 0.9
+   k2 = 0.7
+   k3 = 0.3
+   km = k1 - k2
+   corner =
      S.path
-      ! d dirsTopLeft
-      ! (strokeWidth .: 2*w)
-      ! fill "none"
-   dirsTopLeft = mkPath $ do
-     m   k1  k2
-     l   k1  k1 
-     l   k2  k1
+      ! d dirs
+      ! strokeLinejoin "round"
+   dirs = mkPath $ do
+      m   k1     k1
+      l   k3     k1
+      aa (km/2) (km/2)  0  True  True  k3  k2
+      l   k2     k2
+      l   k2     k3
+      aa (km/2) (km/2)  0  True  True  k1  k3
+      S.z
+     
 
 
 --------------------------------------------------------------------------------
