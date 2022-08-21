@@ -411,44 +411,33 @@ undo =
 
 redo :: S.Svg
 redo =
-  curvyArrowRight
-
-
-curvyArrowLeft :: Svg
-curvyArrowLeft =
-  S.path 
-    ! d curvyArrowLeftPath
-    ! stroke "none"
-
-
-curvyArrowRight :: Svg
-curvyArrowRight =
-  S.path 
-    ! d curvyArrowLeftPath
-    ! stroke "none"
+  curvyArrowLeft
     ! A.transform horizontalMirrorMatrix
 
 
-curvyArrowLeftPath :: AttributeValue
-curvyArrowLeftPath =
-    mkPath $ do
+curvyArrowLeft :: S.Svg
+curvyArrowLeft =
+  S.path
+    ! d dirs
+  where
+    k1 = -0.1
+    r1 =  0.6
+    r2 =  0.45
+    (a1,a2) = (  0   ,  0.9 )
+    (b1,b2) = (  k1  , -0.5 )
+    (c1,c2) = (  k1  , -0.2 )
+    (d1,d2) = (  k1  , -0.8 )
+    (e1,e2) = (  k1  ,  0.1 )
+    (f1,f2) = ( -0.7 , (b2+c2)/2)
+    dirs = mkPath $ do
       m   a1  a2
       aa  r1  r1  0 False False b1 b2
       l   d1  d2
       l   f1  f2
       l   e1  e2
       l   c1  c2
-      aa  r2  r2  0 False True a1 a2
-  where
-    k1 = 0.45
-    r1 = 0.43
-    r2 = 0.305
-    (a1,a2) = ( 0.55 , 1    )
-    (b1,b2) = ( k1   , 0.15 )
-    (c1,c2) = ( k1   , 0.40 )
-    (d1,d2) = ( k1   , 0.00 )
-    (e1,e2) = ( k1   , 0.55 )
-    (f1,f2) = ( 0.15 , (b2+c2)/2)
+      aa  r2  r2  0 False True  a1 a2
+      S.z
 
 
 --------------------------------------------------------------------------------
