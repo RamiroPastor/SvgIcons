@@ -445,47 +445,30 @@ curvyArrowLeft =
 
 questionMark :: S.Svg
 questionMark =
-    do
-      topArm
-      dot
+    S.path
+      ! A.d dirs
   where
-    (a1,a2) = ( 0.40 ,  0.40 )
-    (b1,b2) = ( 0.30 ,  0.45 )
-    (c1,c2) = ( 0.25 ,  0.40 )
-    (d1,d2) = ( 0.25 ,  0.25 )
-    (e1,e2) = ( 0.25 ,  0.15 )
-    (f1,f2) = ( 0.25 ,  0.10 )
-    (g1,g2) = ( 0.50 ,  0.10 )
-    (h1,h2) = ( 0.60 ,  0.10 )
-    (i1,i2) = ( 0.80 ,  0.10 )
-    (j1,j2) = ( 0.80 ,  0.25 )
-    (k1,k2) = ( 0.80 ,  0.45 )
-    (l1,l2) = ( 0.40 ,  0.50 )
-    (m1,m2) = ( 0.50 ,  0.68 )
-    topArm =
-      S.path
-        ! d topArmPath
-        ! (strokeWidth .: 0.13)
-        ! fill "none"
-        ! strokeLinecap "round"
-    topArmPath = S.mkPath $ do
-      m a1 a2
-      c b1 b2 c1 c2 d1 d2
-      c e1 e2 f1 f2 g1 g2
-      c h1 h2 i1 i2 j1 j2
-      c k1 k2 l1 l2 m1 m2
-    dot = S.circle
-      ! (cx .: 0.5)
-      ! (cy .: 0.9)
-      ! (r  .: 0.08)
-      ! stroke "none"
+    r1 = 0.3
+    r2 = 0.5
+    rm = r2 - r1
+    dirs = mkPath $ do
+      m   (-r1)    0
+      aa  ( rm/2) (rm/2)  0    True  True  (-r2)     0
+      aa  ( r2)   (r2)    0    True  True  ( r2)     0
+      aa  ( r2/2) (r2/2)  0    False True  ( r2/2) (r2/2)
+      aa  ( r2/2) (r2/2)  0    False False    0    (r2)
+      -- aa  (rm/2) (rm/2)   0    True  True  (-rm/2)  r2
+      aa  ( r2/2) (r2/2)  0    False True  ( r1/2) (r1/2)
+      aa  ( r1/2) (r1/2)  0    False False ( r1)     0
+      aa  ( r1)   (r1)    0    True  False (-r1)     0
+      S.z
 
 --------------------------------------------------------------------------------
 
 
 fullscreen :: S.Svg
 fullscreen =
-    do
+    S.g $ do
       topLeftCorner
       topLeftCorner ! A.transform (rotateAround  90 0.5 0.5)
       topLeftCorner ! A.transform (rotateAround 180 0.5 0.5)
