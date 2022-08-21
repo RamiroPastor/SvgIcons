@@ -447,20 +447,24 @@ questionMark :: S.Svg
 questionMark =
     S.path
       ! A.d dirs
+      ! A.transform (translate 0 (-0.35))
   where
     r1 = 0.3
     r2 = 0.5
     rm = r2 - r1
     dirs = mkPath $ do
       m   (-r1)    0
-      aa  ( rm/2) (rm/2)  0    True  True  (-r2)     0
-      aa  ( r2)   (r2)    0    True  True  ( r2)     0
-      aa  ( r2/2) (r2/2)  0    False True  ( r2/2) (r2/2)
-      aa  ( r2/2) (r2/2)  0    False False    0    (r2)
-      -- aa  (rm/2) (rm/2)   0    True  True  (-rm/2)  r2
-      aa  ( r2/2) (r2/2)  0    False True  ( r1/2) (r1/2)
-      aa  ( r1/2) (r1/2)  0    False False ( r1)     0
-      aa  ( r1)   (r1)    0    True  False (-r1)     0
+      aa  ( rm/2) (rm/2)  0   True  True  (-r2)  0
+      aa  ( r2)   (r2)    0   True  True  ( r2)  0
+      c   ( r2)   (r2 - 0.17)  (rm/2) (r2 - 0.2) (rm/2) 0.5
+      l   ( rm/2) 0.75
+      aa  ( rm/2) (rm/2)  0   True  True  (-rm/2)  0.75
+      l   (-rm/2) 0.5
+      c   (-rm/2) (r1 - 0.15)  (r1)   (r1 - 0.1) (r1)   0  
+      aa  ( r1)   (r1)    0   True  False (-r1)  0
+      S.z
+      m   (-0.01)  1
+      aa  ( rm/2) (rm/2)  0  True False  0.01 1
       S.z
 
 --------------------------------------------------------------------------------
