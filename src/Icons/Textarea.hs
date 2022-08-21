@@ -501,38 +501,40 @@ fullscreen =
 
 preview :: S.Svg
 preview = 
-    do
+    S.g $ do
       lines
       rectangle
   where
-    w = 0.05
-    kx = 0.1
-    ky = 0.2
-    lines =
+    kx = 0.2
+    ky = 0.4
+    w  = 0.16
+    lines = 
+      S.g $ do
+        line (-2 * ky)
+        line (-1 * ky)
+        line ( 0 * ky)
+        line ( 1 * ky)
+        line ( 2 * ky)
+    line y =
       S.path
         ! fill "none"
-        ! (strokeWidth .: 2*w)
-        ! strokeLinecap "round"
-        ! d linesDirs
+        ! d (lineDirs y)
+    lineDirs y = mkPath $ do
+      m   (-1 + kx) (y - w/2)
+      aa  (w/2) (w/2) 0 True  False (-1 + kx) (y + w/2) 
+      l   ( 0     ) (y + w/2)
+      aa  (w/2) (w/2) 0 True  False ( 0     ) (y - w/2)
+      S.z
     rectangle =
       S.path 
-        ! (strokeWidth .: 2*w)
         ! strokeLinejoin "round"
+        ! transform (translate 0.1 0)
         ! d rectDirs
-    linesDirs = mkPath $ do
-      m   kx          ky
-      l   (0.5 - kx)  ky
-      m   kx          (2*ky)
-      l   (0.5 - kx)  (2*ky)
-      m   kx          (3*ky)
-      l   (0.5 - kx)  (3*ky)
-      m   kx          (4*ky)
-      l   (0.5 - kx)  (4*ky)
     rectDirs = mkPath $ do
-      m   (0.5 + kx)  ky
-      l   (1   - kx)  ky
-      l   (1   - kx)  (4*ky)
-      l   (0.5 + kx)  (4*ky)
+      m   (0 + kx)  (-2 * ky - w/2)
+      l   (1 - kx)  (-2 * ky - w/2)
+      l   (1 - kx)  ( 2 * ky + w/2)
+      l   (0 + kx)  ( 2 * ky + w/2)
       S.z
     
 
