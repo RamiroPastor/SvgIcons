@@ -115,31 +115,30 @@ italic =
 
 link :: S.Svg
 link =
-    g ! A.transform (S.rotateAround 45 0.5 0.5)
-      $ do
-        topPart
-        topPart ! A.transform (rotateAround 180 0 0)
+    g $ do
+      topPart ! A.transform (rotateAround 45 0 0)
+      topPart ! A.transform (rotateAround 45 0 0 <> rotateAround 180 0 0)
   where
-    topPart = S.path ! d topPath ! stroke "none"
+    topPart = S.path ! d topPath 
     -----------------
-    w1 = 0.2
-    w2 = 0.09
+    w1 = 0.4
+    w2 = 0.24
     -----------------
-    h1 = 0.5 - w2
-    h2 = 0.2
-    h3 = 0.15
+    h1 = 1 - w2
+    h2 = 0.4
+    h3 = 0.3
     h4 = h3 - (w1 - w2)
     topPath = mkPath $ do
-      m   (0.5 - w1)  (0.5 - h3)
-      l   (0.5 - w1)  (0.5 - h1)
-      aa  w1 w1 0 True True (0.5 + w1) (0.5 - h1)
-      l   (0.5 + w1)  (0.5 - h4)
-      aa  w1 w1 0 False True 0.5 (0.5 + h3)
-      aa  ((h3 - h4)/2)   ((h3 - h4)/2) 0 False True 0.5 (0.5 + h4)
-      aa  w2 w2 0 False False (0.5 + w2) (0.5 - h4)
-      l   (0.5 + w2)  (0.5 - h1)
-      aa  w2 w2 0 True False (0.5 - w2) (0.5 - h1)
-      l   (0.5 - w2) (0.5 - h2)
+      m   (-w1)  (-h3)
+      l   (-w1)  (-h1)
+      aa  w1 w1 0 True  True  ( w1) (-h1)
+      l   ( w1)  (-h4)
+      aa  w1 w1 0 False True    0   ( h3)
+      aa  ((h3 - h4)/2) ((h3 - h4)/2) 0 False True 0 ( h4)
+      aa  w2 w2 0 False False ( w2) (-h4)
+      l   ( w2)  (-h1)
+      aa  w2 w2 0 True False (-w2) (-h1)
+      l   (-w2)  (-h2)
       S.z
 
 --------------------------------------------------------------------------------
