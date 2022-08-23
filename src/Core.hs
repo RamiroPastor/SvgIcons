@@ -27,11 +27,15 @@ instance Default SvgStyle where
     , strokeSize  = 0
     }
 
-strokeStyle :: SvgStyle
-strokeStyle = SvgStyle "none" "black" 0.04
+strkStyle :: SvgStyle
+strkStyle = SvgStyle "none" "black" 0.04
 
 fillStyle :: SvgStyle
 fillStyle = SvgStyle "black" "none" 0
+
+fullStyle :: SvgStyle
+fullStyle = SvgStyle "silver" "black" 0.03
+
 
 applyStyle :: SvgStyle -> S.Svg -> S.Svg
 applyStyle svgStyle svg =

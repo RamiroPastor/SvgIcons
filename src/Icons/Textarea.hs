@@ -15,22 +15,21 @@ import Core
 
 svgTextarea :: [ (String , S.Svg) ]
 svgTextarea =
-  map ((applyStyle strokeStyle) `second`)
-    [ (,) "bold"       bold
-    , (,) "italic"     italic
-    , (,) "link"       link
-    , (,) "image"      imageIcon
-    , (,) "video"      video
-    , (,) "bulletList" bulletList
-    , (,) "numberList" numberList
-    , (,) "header"     header
-    , (,) "hr"         horizontalRule
-    , (,) "undo"       undo
-    , (,) "redo"       redo
-    , (,) "help"       questionMark
-    , (,) "fullscreen" fullscreen
-    , (,) "preview"    preview
-    ]
+  [ (,) "bold"       bold
+  , (,) "italic"     italic
+  , (,) "link"       link
+  , (,) "image"      imageIcon
+  , (,) "video"      video
+  , (,) "bulletList" bulletList
+  , (,) "numberList" numberList
+  , (,) "header"     header
+  , (,) "hr"         horizontalRule
+  , (,) "undo"       undo
+  , (,) "redo"       redo
+  , (,) "help"       questionMark
+  , (,) "fullscreen" fullscreen
+  , (,) "preview"    preview
+  ]
 
 
 --------------------------------------------------------------------------------

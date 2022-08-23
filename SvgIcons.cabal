@@ -20,25 +20,39 @@ category:           Web
 extra-source-files: CHANGELOG.md
 
 library
-    exposed-modules: 
-      Base,
-      Core,
-      Icons.Textarea,
-      Render
+  exposed-modules: 
+    Base,
+    Core,
+    Icons.Textarea,
+    Main,
+    Render
 
-    -- Modules included in this library but not exported.
-    -- other-modules:
+  -- Modules included in this library but not exported.
+  -- other-modules:
 
-    -- LANGUAGE extensions used by modules in this package.
-    -- other-extensions:
-    build-depends:    
-      base ^>=4.15.0.0,
-      blaze-markup >=0.5 && <0.9,
-      blaze-svg ^>= 0.3.3.0,
-      data-default ^>= 0.7.0.0,
-      text ^>= 2.0
-    hs-source-dirs:   src
-    default-language: Haskell2010
+  -- LANGUAGE extensions used by modules in this package.
+  -- other-extensions:
+  build-depends:    
+    base ^>=4.15.0.0,
+    blaze-markup >=0.5 && <0.9,
+    blaze-svg ^>= 0.3.3.0,
+    data-default ^>= 0.7.0.0,
+    directory ^>= 1.3.7.0,
+    text ^>= 2.0
+  hs-source-dirs:   src
+  default-language: Haskell2010
+
+executable SvgIcons-exe
+  default-language: Haskell2010
+  hs-source-dirs: src
+  main-is: Main.hs
+  build-depends:
+    base ^>=4.15.0.0,
+    blaze-markup >=0.5 && <0.9,
+    blaze-svg ^>= 0.3.3.0,
+    data-default ^>= 0.7.0.0,
+    directory ^>= 1.3.7.0,
+    text ^>= 2.0
 
 test-suite SvgIcons-test
     default-language: Haskell2010
