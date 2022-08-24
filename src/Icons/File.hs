@@ -14,10 +14,12 @@ import Base
 
 svgFile :: [ (String , S.Svg) ]
 svgFile =
-  [ (,) "plus"    plus
-  , (,) "cancel"  cancel
-  , (,) "accept"  accept
-  , (,) "warning" warning
+  [ (,) "plus"     plus
+  , (,) "cancel"   cancel
+  , (,) "accept"   accept
+  , (,) "warning"  warning
+  , (,) "minimize" minimize
+  , (,) "maximize" maximize
   ]
 
 
@@ -47,10 +49,12 @@ plus =
       S.z
 
 
+
 cancel :: Svg
 cancel =
   S.g $ 
     plus ! A.transform (rotateAround 45 0 0)
+
 
 
 accept :: Svg
@@ -73,6 +77,7 @@ accept =
       l   ( k1) (-k3)
       aa    k1    k1   0  True  False (-k1) (-k3)
       S.z
+
 
 
 warning :: Svg
@@ -118,3 +123,47 @@ warning =
       aa    w     w     0  True  False (-w)  y1
       S.z
       
+
+minimize :: Svg
+minimize =
+  S.path
+    ! A.d dirs
+  where
+    w = 0.1
+    k = 0.7
+    dirs = mkPath $ do
+      m   (-k)  (-w)
+      aa  ( w)  ( w)  0  True  False  (-k) ( w)
+      l   ( k)  ( w)
+      aa  ( w)  ( w)  0  True  False  ( k) (-w)
+      S.z
+
+
+
+maximize :: Svg
+maximize =
+  S.g $ do
+    S.path
+      ! A.d dirs1
+      ! A.transform (translate (k - 0.15) (0.15 - k))
+      ! A.stroke "none"
+    S.path
+      ! A.d dirs2
+      ! A.transform (translate (  - 0.15)  0.15)
+      ! A.fill "none"
+    S.path
+      ! A.d dirs1
+      ! A.transform (translate (-0.1 ) 0.1)
+  where
+    w = 1.4
+    k = 0.25
+    dirs1 = mkPath $ do
+      m   (-0.5 * w)  (-0.5 * w)
+      l   ( 0.5 * w)  (-0.5 * w)
+      l   ( 0.5 * w)  ( 0.5 * w)
+      l   (-0.5 * w)  ( 0.5 * w)
+      S.z
+    dirs2 = mkPath $ do
+      m   (-0.5*w + k)  (-0.5*w - k)
+      l   ( 0.5*w + k)  (-0.5*w - k)
+      l   ( 0.5*w + k)  ( 0.5*w - k) 
