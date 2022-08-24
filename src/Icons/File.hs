@@ -147,6 +147,7 @@ maximize =
       ! A.d dirs1
       ! A.transform (translate (k - 0.15) (0.15 - k))
       ! A.stroke "none"
+      ! A.opacity "0.5"
     S.path
       ! A.d dirs2
       ! A.transform (translate (  - 0.15)  0.15)
