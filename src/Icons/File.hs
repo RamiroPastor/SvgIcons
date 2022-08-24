@@ -14,9 +14,10 @@ import Base
 
 svgFile :: [ (String , S.Svg) ]
 svgFile =
-  [ (,) "plus"   plus
-  , (,) "cancel" cancel
-  , (,) "accept" accept
+  [ (,) "plus"    plus
+  , (,) "cancel"  cancel
+  , (,) "accept"  accept
+  , (,) "warning" warning
   ]
 
 
@@ -74,47 +75,46 @@ accept =
       S.z
 
 
-exclamationSignal :: Svg
-exclamationSignal = 
-  svg
-    ! A.viewbox "0 0 1 1"
-    $ do
-      triangle
-      stick
-      dot
-  where
-    k1 = 0.1
-    k2 = 0.06
-    k3 = 0.035
-    h1 = (1 - 2*k1)
-    y1 = 0.4
-    y2 = 0.65
-    y3 = 0.78
-    triangle =
+warning :: Svg
+warning = 
+    S.g $ do
       S.path
-        ! d trianglePath
-        ! (strokeWidth .: 1.5 * k1)
+        ! d triangleDirs
         ! strokeLinejoin "round"
-    trianglePath = mkPath $ do
-      m   0.5    (1 - k1 - h1)
-      l   k1     (1-k1)
-      l   (1-k1) (1-k1)
-      S.z
-    stick =
+        ! fillRule "evenodd"
       S.path
         ! d stickPath
-        ! fill "white"
-        ! (strokeWidth .: 0)
-    stickPath = mkPath $ do
-      m   (0.5 - k3)  y2
-      l   (0.5 + k3)  y2
-      l   (0.5 + k2)  y1
-      aa  k2  k2  0  True  False  (0.5 - k2)  y1
-      S.z
-    dot =
       S.circle
-        ! (cx .: 0.5)
-        ! (cy .: y3)
-        ! (r  .: k2)
-        ! fill "white"
-        ! (strokeWidth .: 0)
+        ! (cx .: 0)
+        ! (cy .: 0.15)
+        ! (r  .: w)
+      S.circle
+        ! (cx .: 0)
+        ! (cy .: 0)
+        ! (r  .: 2*ap2)
+        ! A.fill "transparent"
+  where
+    w  = 0.1
+    ap1 = 0.36
+    ap2 = ap1 + w
+    lm1 = (sqrt 3) * ap1
+    lm2 = (sqrt 3) * ap2
+    y1 = -0.3
+    y2 = -0.05
+    triangleDirs = mkPath $ do
+      m    0    (-2*ap2)
+      l  (-lm2) (   ap2)
+      l  ( lm2) (   ap2)
+      S.z
+      m    0    (-2*ap1)
+      l  (-lm1) (   ap1)
+      l  ( lm1) (   ap1)
+      S.z
+    stickPath = mkPath $ do
+      m   (-w)    y1
+      l   (-w/2)  y2
+      aa  ( w/2) (w/2)  0  True  False (w/2) y2
+      l   ( w)    y1
+      aa    w     w     0  True  False (-w)  y1
+      S.z
+      
