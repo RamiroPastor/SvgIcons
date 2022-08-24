@@ -23,6 +23,7 @@ library
   exposed-modules: 
     Base,
     Core,
+    Icons.File,
     Icons.Textarea,
     Main,
     Render
@@ -56,6 +57,7 @@ executable SvgIcons-exe
   other-modules:
     Base,
     Core,
+    Icons.File,
     Icons.Textarea,
     Render
 
