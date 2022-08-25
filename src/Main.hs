@@ -7,6 +7,7 @@ import Base
 import Core
 import Icons.File (svgFile)
 import Icons.Human (svgHuman)
+import Icons.Office (svgOffice)
 import Icons.Textarea (svgTextarea)
 import Render
 
@@ -25,6 +26,7 @@ renderAllSvg svgFolder =
     createDirectory iconsFolder
     createDirectory filePath
     createDirectory humanPath
+    createDirectory officePath
     createDirectory textareaPath
     createDirectory mosaicsFolder
     renderSvgFile filePath (map fillIcons svgFile)
@@ -33,6 +35,9 @@ renderAllSvg svgFolder =
     renderSvgFile humanPath (map fillIcons svgHuman)
     renderSvgFile humanPath (map fullIcons svgHuman)
     renderSvgFile humanPath (map strkIcons svgHuman)
+    renderSvgFile officePath (map fillIcons svgOffice)
+    renderSvgFile officePath (map fullIcons svgOffice)
+    renderSvgFile officePath (map strkIcons svgOffice)
     renderSvgFile textareaPath (map fillIcons svgTextarea)
     renderSvgFile textareaPath (map fullIcons svgTextarea)
     renderSvgFile textareaPath (map strkIcons svgTextarea)
@@ -45,6 +50,7 @@ renderAllSvg svgFolder =
     iconsFolder  = svgFolder ++ "/icons"
     filePath     = svgFolder ++ "/icons/file/"
     humanPath    = svgFolder ++ "/icons/human/"
+    officePath   = svgFolder ++ "/icons/office/"
     textareaPath = svgFolder ++ "/icons/textarea/"
     mosaicsFolder = svgFolder ++ "/mosaics"
     
