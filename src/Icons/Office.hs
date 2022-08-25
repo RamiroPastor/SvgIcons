@@ -16,12 +16,11 @@ svgOffice :: [ (String , S.Svg) ]
 svgOffice =
   [ (,) "envelope" envelope
   , (,) "pencil"   pencil
+  , (,) "document" document
   ]
 
 
 --------------------------------------------------------------------------------
-
-
 
 
 
@@ -84,4 +83,51 @@ pencil =
       l   x1  y1
       aa  (w/2) 0.03 0 True True x2 y1
       l   x2  y2
-      
+
+
+document :: Svg
+document = 
+    S.g $ do
+      paperBorder
+      S.path
+        ! strokeLinecap "round"
+        ! d lines
+      S.path
+        ! A.d xMark
+        ! fill "none"
+        ! strokeLinecap "round"
+        ! transform (translate (-0.25) 0.55 <> rotateAround 45 0 0)
+      pencil 
+        ! transform (translate   0.55  0.35 <> rotateAround 45 0 0 <> S.scale 0.4 0.4)
+  where
+    py = 0.95
+    px = 0.618 * py
+    paperBorder =
+      S.path
+        ! strokeLinejoin "round"
+        ! strokeLinecap  "round"
+        ! fill "none"
+        ! d paperPath
+    paperPath = mkPath $ do
+      m   ( px)  (-0.16)
+      l   ( px)  (-py)
+      l   (-px)  (-py)
+      l   (-px)  ( py)
+      l   ( px)  ( py)
+      l   ( px)  ( 0.7)
+    --------------------------------------------------
+    xl =  0.4
+    y1 = -0.65
+    y2 = -0.35
+    y3 = -0.05
+    lines = mkPath $ do
+      m  (-xl) y1   >>   l  xl  y1
+      m  (-xl) y2   >>   l  xl  y2
+      m  (-xl) y3   >>   l  xl  y3  
+    --------------------------------------------------
+    m1 = 0.15
+    xMark = mkPath $ do
+      m  (-m1)   0
+      l  ( m1)   0
+      m    0   (-m1)
+      l    0   ( m1)
