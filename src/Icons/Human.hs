@@ -16,6 +16,8 @@ svgHuman :: [ (String , S.Svg) ]
 svgHuman =
   [ (,) "eyeOpened"  eyeOpened
   , (,) "eyeStriked" eyeStriked
+  , (,) "person"     person
+  , (,) "people"     people
   ]
 
 
@@ -75,3 +77,35 @@ eyeStriked =
     barPath = S.mkPath $ do
       m  ( k) (-k)
       l  (-k) ( k)
+
+
+person :: S.Svg
+person =
+  S.g $ do
+    simpleShoulders
+    simpleHead
+  where
+    kx =  0.7
+    ky =  0.52
+    kr = (1 - kx)
+    simpleHead =
+      circle
+        ! cx "0"
+        ! cy "-0.5"
+        ! r  "0.35"
+    simpleShoulders =
+      S.path
+        ! d shouldersPath
+    shouldersPath =
+      mkPath $ do
+        m  kx  ky
+        aa kr  kr   0 True False (-kx) ky
+        aa kr  0.15 0 True False   kx  ky
+
+
+people :: S.Svg
+people =
+  S.g $ do
+    person ! A.transform (translate   0.4  (-0.2) <> S.scale 0.8 0.8)
+    person ! A.transform (translate (-0.4) (-0.2) <> S.scale 0.8 0.8)
+    person ! A.transform (translate   0    ( 0.2) <> S.scale 0.9 0.9)
