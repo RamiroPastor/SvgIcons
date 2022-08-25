@@ -18,6 +18,7 @@ svgHuman =
   , (,) "eyeStriked" eyeStriked
   , (,) "person"     person
   , (,) "people"     people
+  , (,) "carnet"     carnet
   ]
 
 
@@ -109,3 +110,47 @@ people =
     person ! A.transform (translate   0.4  (-0.2) <> S.scale 0.8 0.8)
     person ! A.transform (translate (-0.4) (-0.2) <> S.scale 0.8 0.8)
     person ! A.transform (translate   0    ( 0.2) <> S.scale 0.9 0.9)
+
+
+carnet :: S.Svg
+carnet =
+  S.g $ do
+    cardBorder
+    textLines ! A.transform (translate ( 0.4) 0 <> S.scale 0.5 0.5)
+    person    ! A.transform (translate (-0.5) 0 <> S.scale 0.5 0.5)
+  where
+    w1 = 0.01
+    x1 = 1.618 * y1
+    y1 = 0.58
+    cardBorder =
+      S.path
+        ! d cardBorderPath
+        ! fillRule "evenodd"
+    cardBorderPath =
+      mkPath $ do
+        m   (-x1 - w1)  (-y1 - w1)
+        l   ( x1 + w1)  (-y1 - w1)
+        l   ( x1 + w1)  ( y1 + w1)
+        l   (-x1 - w1)  ( y1 + w1)
+        S.z
+        m   (-x1 + w1)  (-y1 + w1)
+        l   ( x1 - w1)  (-y1 + w1)
+        l   ( x1 - w1)  ( y1 - w1)
+        l   (-x1 + w1)  ( y1 - w1)
+        S.z
+    w2 =  0.06
+    h1 = -0.5
+    h2 =  0
+    h3 =  0.5
+    k1 = -0.7
+    k2 =  0.7
+    textLines =
+      S.path
+        ! d (mkPath $ line h1 >> line h2 >> line h3)
+    line hy = do
+      m   k1  (hy - w2)
+      aa  w2  w2  0  True  False k1 (hy + w2)
+      l   k2  (hy + w2)
+      aa  w2  w2  0  True  False k2 (hy - w2)
+      S.z
+    
