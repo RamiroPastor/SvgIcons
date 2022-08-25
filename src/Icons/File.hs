@@ -93,11 +93,6 @@ warning =
         ! (cx .: 0)
         ! (cy .: 0.15)
         ! (r  .: w)
-      S.circle
-        ! (cx .: 0)
-        ! (cy .: 0)
-        ! (r  .: 2*ap2)
-        ! A.fill "transparent"
   where
     w  = 0.1
     ap1 = 0.36
