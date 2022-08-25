@@ -5,8 +5,9 @@ import System.Directory
 
 import Base
 import Core
-import Icons.File
-import Icons.Textarea
+import Icons.File (svgFile)
+import Icons.Human (svgHuman)
+import Icons.Textarea (svgTextarea)
 import Render
 
 
@@ -23,11 +24,15 @@ renderAllSvg svgFolder =
     createDirectory svgFolder
     createDirectory iconsFolder
     createDirectory filePath
+    createDirectory humanPath
     createDirectory textareaPath
     createDirectory mosaicsFolder
     renderSvgFile filePath (map fillIcons svgFile)
     renderSvgFile filePath (map fullIcons svgFile)
     renderSvgFile filePath (map strkIcons svgFile)
+    renderSvgFile humanPath (map fillIcons svgHuman)
+    renderSvgFile humanPath (map fullIcons svgHuman)
+    renderSvgFile humanPath (map strkIcons svgHuman)
     renderSvgFile textareaPath (map fillIcons svgTextarea)
     renderSvgFile textareaPath (map fullIcons svgTextarea)
     renderSvgFile textareaPath (map strkIcons svgTextarea)
@@ -39,6 +44,7 @@ renderAllSvg svgFolder =
     -- test (a,b) = (a, coreSvg def $ b >> frame (-1) (-1) 2 2)
     iconsFolder  = svgFolder ++ "/icons"
     filePath     = svgFolder ++ "/icons/file/"
+    humanPath    = svgFolder ++ "/icons/human/"
     textareaPath = svgFolder ++ "/icons/textarea/"
     mosaicsFolder = svgFolder ++ "/mosaics"
     

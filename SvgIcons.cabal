@@ -24,6 +24,7 @@ library
     Base,
     Core,
     Icons.File,
+    Icons.Human,
     Icons.Textarea,
     Main,
     Render
@@ -58,6 +59,7 @@ executable SvgIcons-exe
     Base,
     Core,
     Icons.File,
+    Icons.Human,
     Icons.Textarea,
     Render
 
