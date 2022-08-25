@@ -17,6 +17,7 @@ svgOffice =
   [ (,) "envelope" envelope
   , (,) "pencil"   pencil
   , (,) "document" document
+  , (,) "archive"  archive
   ]
 
 
@@ -131,3 +132,40 @@ document =
       l  ( m1)   0
       m    0   (-m1)
       l    0   ( m1)
+
+
+archive :: S.Svg
+archive = 
+  S.g $ do
+    S.path
+      ! A.strokeLinejoin "round"
+      ! A.d archiveBody
+    archiveHandle (-ky * 2/3)
+    archiveHandle  0
+    archiveHandle ( ky * 2/3)
+  where
+    ky = 0.96
+    kx = 0.75
+    archiveBody = mkPath $ do
+      m   (-kx)  (-ky)
+      l   (-kx)  ( ky)
+      l   ( kx)  ( ky)
+      l   ( kx)  (-ky)
+      S.z
+      m   (-kx)  (-1/3 * ky)
+      l   ( kx)  (-1/3 * ky)
+      m   (-kx)  ( 1/3 * ky)
+      l   ( kx)  ( 1/3 * ky)
+    archiveHandle h =
+      S.path
+        ! A.fill "none"
+        ! A.strokeLinecap "round"
+        ! A.transform (translate 0 (hr/2))
+        ! A.d (handleDirs h)
+    hx = 0.25
+    hr = 0.07
+    handleDirs h = mkPath $ do
+      m   (-hx)      (h - hr)
+      aa  hr  hr  0  False False (-hx + hr) (h)
+      l   ( hx - hr) (h)
+      aa  hr  hr  0  False False ( hx)      (h - hr)
