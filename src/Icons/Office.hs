@@ -19,6 +19,7 @@ svgOffice =
   , (,) "document" document
   , (,) "archive"  archive
   , (,) "pin"      pin
+  , (,) "lock"     lock
   ]
 
 
@@ -210,3 +211,49 @@ pin =
       l     0    y6
       l   ( w2)  y5
       l   ( w2)  y4
+
+
+lock :: S.Svg
+lock =
+  S.g $ do
+    S.path 
+      ! A.d arm
+    S.path
+      ! fillRule "evenodd"
+      ! A.d body
+  where
+    aw  =  0.07
+    ax  =  0.4
+    ay1 = -0.1
+    ay2 = -0.48
+    arm =
+      mkPath $ do
+        m   (-ax - aw)  ay1
+        l   (-ax - aw)  ay2
+        aa  ( ax + aw) (ax + aw)  0  True  True  ( ax + aw) ay2
+        l   ( ax + aw)  ay1
+        l   ( ax - aw)  ay1
+        l   ( ax - aw)  ay2
+        aa  ( ax - aw) (ax - aw)  0  True  False (-ax + aw) ay2
+        l   (-ax + aw)  ay1
+        S.z
+    ----------------------------------------
+    bx  = 0.7
+    by1 = ay1
+    by2 = 0.95
+    kr  = 0.14
+    kw  = 0.076
+    ky1 = 0.4
+    ky2 = 0.68
+    body = mkPath $ do
+      m  (-bx) by1
+      l  (-bx) by2
+      l  ( bx) by2
+      l  ( bx) by1
+      S.z
+      m  (-kw) ky1
+      l  (-kw) ky2
+      aa   kw  kw  0  True  False ( kw) ky2
+      l  ( kw) ky1
+      aa   kr  kr  0  True  False (-kw) ky1
+      S.z
