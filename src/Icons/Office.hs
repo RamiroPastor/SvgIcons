@@ -20,6 +20,7 @@ svgOffice =
   , (,) "archive"  archive
   , (,) "pin"      pin
   , (,) "lock"     lock
+  , (,) "key"      key
   ]
 
 
@@ -257,3 +258,75 @@ lock =
       l  ( kw) ky1
       aa   kr  kr  0  True  False (-kw) ky1
       S.z
+
+
+key :: S.Svg
+key =
+  S.path
+    ! fillRule "evenodd"
+    ! A.d keyPath
+  where
+    w  = 0.1
+    x0 = 0.3
+    x1 = 0
+    x2 = 0.5
+    x3 = 0.8
+    y1 = 0.3
+    r1 = 0.25
+    keyPath = mkPath $ do
+      m   (x1-2*w) (-0.005)
+      aa   r1       r1      0  True  False (x1-2*w) 0
+      S.z
+      m    x1      (-w)
+      aa  (r1+2*w) (r1+2*w) 0  True  False  x1      w
+      l   (x2 - w) ( w)
+      l   (x2 - w) (y1)
+      aa  ( w)     ( w)     0  True  False (x2 + w) y1
+      l   (x2 + w) ( w)
+      l   (x3 - w) ( w)
+      l   (x3 - w) (y1)
+      aa  ( w)     ( w)     0  True  False (x3 + w) y1
+      l   (x3 + w) (-w)
+      S.z
+
+
+
+
+keyWithCircle :: S.Svg
+keyWithCircle =
+    svg
+      ! A.viewbox "0 0 1 1"
+      $ do
+        key
+        arc
+  where
+    w  = 0.05
+    x0 = 0.25
+    x1 = 0.3
+    x2 = 0.65
+    y1 = 0.6
+    r1 = (x1 - w) / 2
+    r2 = 0.5 - w
+    y2 = 0.5 - ( sqrt $ r2^2 - (0.5 - x0)^2 )
+    key =
+      S.path
+        ! (A.strokeWidth .: 0.09)
+        ! A.fill "none"
+        ! A.strokeLinecap "round"
+        ! A.d keyPath
+    keyPath = mkPath $ do
+      m   x1   0.499
+      aa  r1   r1   0  True False  x1  0.5
+      l   x2   0.5
+      l   x2   y1
+      m   0.5  0.5
+      l   0.5  y1
+    arc =
+      S.path
+        ! (A.strokeWidth .: w)
+        ! A.fill "none"
+        ! A.strokeLinecap "round"
+        ! A.d arcPath
+    arcPath = mkPath $ do
+      m   x0  y2
+      aa  r2  r2   0  True True  x0 (1-y2)
