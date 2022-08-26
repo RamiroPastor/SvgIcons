@@ -18,6 +18,7 @@ svgOffice =
   , (,) "pencil"   pencil
   , (,) "document" document
   , (,) "archive"  archive
+  , (,) "pin"      pin
   ]
 
 
@@ -169,3 +170,43 @@ archive =
       aa  hr  hr  0  False False (-hx + hr) (h)
       l   ( hx - hr) (h)
       aa  hr  hr  0  False False ( hx)      (h - hr)
+
+  
+pin :: Svg
+pin =
+  S.g $
+    S.path
+      ! A.strokeLinejoin "arcs"
+      ! A.strokeMiterlimit "8"
+      ! A.d (mkPath $ topPath >> bodyPath >> needlePath)
+      ! A.transform (S.rotateAround 45 0 0)
+  where
+    w1 = 0.26
+    w2 = 0.08
+    y1 = -0.95
+    y2 = -0.7
+    y3 = -0.1
+    y4 =  0.16
+    y5 =  0.6
+    y6 =  1.03
+    r1 = (y2 - y1) / 2
+    r2 = (y4 - y3)
+    topPath = do
+      m   (-w1)  y1
+      aa  r1 r1 0 True False (-w1) y2
+      l   ( w1)  y2
+      aa  r1 r1 0 True False ( w1) y1
+      l   (-w1)  y1
+    bodyPath = do
+      m   (-w1)  y2
+      l   (-w1)  y3
+      aa  r2 r2 0 False False (-w1 - r2) y4
+      l   ( w1 + r2) y4
+      aa  r2 r2 0 False False ( w1)      y3
+      l   ( w1)  y2
+    needlePath = do
+      m   (-w2)  y4
+      l   (-w2)  y5
+      l     0    y6
+      l   ( w2)  y5
+      l   ( w2)  y4
