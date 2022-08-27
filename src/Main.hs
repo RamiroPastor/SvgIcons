@@ -5,32 +5,47 @@ import System.Directory
 
 import Base
 import Core
-import Icons.File (svgFile)
-import Icons.Human (svgHuman)
-import Icons.Office (svgOffice)
+import Icons.Business (svgBusiness)
+import Icons.File     (svgFile)
+import Icons.Human    (svgHuman)
+import Icons.Office   (svgOffice)
 import Icons.Textarea (svgTextarea)
-import Icons.Tools (svgTools)
+import Icons.Tools    (svgTools)
 import Render
 
 
 
+
+
 main :: IO ()
-main = renderAllSvg "./svg"
+main = renderAll "./svg"
 
 
-renderAllSvg :: FilePath -> IO ()
-renderAllSvg svgFolder = 
+
+renderAll :: FilePath -> IO ()
+renderAll svgFolder = do
+  createDirectoryIfMissing False svgFolder
+  removeDirectoryRecursive       svgFolder
+  createDirectory                svgFolder
+  renderIcons   (svgFolder ++ "/icons")
+  renderMosaics (svgFolder ++ "/mosaics")
+  putStrLn "Svg files compiled correctly"
+
+
+
+renderIcons :: FilePath -> IO ()
+renderIcons path = 
   do
-    createDirectoryIfMissing False svgFolder
-    removeDirectoryRecursive svgFolder
-    createDirectory svgFolder
-    createDirectory iconsFolder
+    createDirectory path
+    createDirectory businessPath
     createDirectory filePath
     createDirectory humanPath
     createDirectory officePath
     createDirectory textareaPath
     createDirectory toolsPath
-    createDirectory mosaicsFolder
+    renderSvgFile businessPath (map fillIcons svgBusiness)
+    renderSvgFile businessPath (map fullIcons svgBusiness)
+    renderSvgFile businessPath (map strkIcons svgBusiness)
     renderSvgFile filePath (map fillIcons svgFile)
     renderSvgFile filePath (map fullIcons svgFile)
     renderSvgFile filePath (map strkIcons svgFile)
@@ -46,17 +61,21 @@ renderAllSvg svgFolder =
     renderSvgFile toolsPath (map fillIcons svgTools)
     renderSvgFile toolsPath (map fullIcons svgTools)
     renderSvgFile toolsPath (map strkIcons svgTools)
-    putStrLn "Svg files compiled correctly"
   where
     fillIcons (a,b) = (a ++ "_fill" , coreSvg def $ applyStyle fillStyle   b)
     fullIcons (a,b) = (a ++ "_full" , coreSvg def $ applyStyle fullStyle   b)
     strkIcons (a,b) = (a ++ "_strk" , coreSvg def $ applyStyle strkStyle b)
     -- test (a,b) = (a, coreSvg def $ b >> frame (-1) (-1) 2 2)
-    iconsFolder  = svgFolder ++ "/icons"
-    filePath     = svgFolder ++ "/icons/file/"
-    humanPath    = svgFolder ++ "/icons/human/"
-    officePath   = svgFolder ++ "/icons/office/"
-    textareaPath = svgFolder ++ "/icons/textarea/"
-    toolsPath    = svgFolder ++ "/icons/tools/"
-    mosaicsFolder = svgFolder ++ "/mosaics"
+    businessPath = path ++ "/business/"
+    filePath     = path ++ "/file/"
+    humanPath    = path ++ "/human/"
+    officePath   = path ++ "/office/"
+    textareaPath = path ++ "/textarea/"
+    toolsPath    = path ++ "/tools/"
     
+
+
+renderMosaics :: FilePath -> IO ()
+renderMosaics path = do
+    createDirectory path
+    putStrLn "No mosaics yet"
