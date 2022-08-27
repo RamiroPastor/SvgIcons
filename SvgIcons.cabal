@@ -27,6 +27,7 @@ library
     Icons.Human,
     Icons.Office,
     Icons.Textarea,
+    Icons.Tools,
     Main,
     Render
 
@@ -63,6 +64,7 @@ executable SvgIcons-exe
     Icons.Human,
     Icons.Office,
     Icons.Textarea,
+    Icons.Tools,
     Render
 
 test-suite SvgIcons-test

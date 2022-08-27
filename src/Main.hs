@@ -9,6 +9,7 @@ import Icons.File (svgFile)
 import Icons.Human (svgHuman)
 import Icons.Office (svgOffice)
 import Icons.Textarea (svgTextarea)
+import Icons.Tools (svgTools)
 import Render
 
 
@@ -28,6 +29,7 @@ renderAllSvg svgFolder =
     createDirectory humanPath
     createDirectory officePath
     createDirectory textareaPath
+    createDirectory toolsPath
     createDirectory mosaicsFolder
     renderSvgFile filePath (map fillIcons svgFile)
     renderSvgFile filePath (map fullIcons svgFile)
@@ -41,6 +43,9 @@ renderAllSvg svgFolder =
     renderSvgFile textareaPath (map fillIcons svgTextarea)
     renderSvgFile textareaPath (map fullIcons svgTextarea)
     renderSvgFile textareaPath (map strkIcons svgTextarea)
+    renderSvgFile toolsPath (map fillIcons svgTools)
+    renderSvgFile toolsPath (map fullIcons svgTools)
+    renderSvgFile toolsPath (map strkIcons svgTools)
     putStrLn "Svg files compiled correctly"
   where
     fillIcons (a,b) = (a ++ "_fill" , coreSvg def $ applyStyle fillStyle   b)
@@ -52,5 +57,6 @@ renderAllSvg svgFolder =
     humanPath    = svgFolder ++ "/icons/human/"
     officePath   = svgFolder ++ "/icons/office/"
     textareaPath = svgFolder ++ "/icons/textarea/"
+    toolsPath    = svgFolder ++ "/icons/tools/"
     mosaicsFolder = svgFolder ++ "/mosaics"
     
