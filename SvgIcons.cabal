@@ -23,6 +23,7 @@ library
   exposed-modules: 
     Base,
     Core,
+    Geometry,
     Icons.Business,
     Icons.File,
     Icons.Human,
@@ -61,6 +62,7 @@ executable SvgIcons-exe
   other-modules:
     Base,
     Core,
+    Geometry,
     Icons.Business,
     Icons.File,
     Icons.Human,
