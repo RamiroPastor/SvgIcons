@@ -34,18 +34,23 @@ nazariMosaic colorUpper colorLower =
       ! A.width  "300px"
       ! A.height (S.toValue $ (show $ 300*h) ++ "px") 
       $ do
-        upperBirdie
-        upperBirdie ! A.transform (translate    2     0 )
-        upperBirdie ! A.transform (translate  (-1)    h )
-        upperBirdie ! A.transform (translate    1     h )
-        upperBirdie ! A.transform (translate  (-1)  (-h))
-        lowerBirdie
-        lowerBirdie ! A.transform (translate  (-2)    0 )
-        lowerBirdie ! A.transform (translate  (-1)  (-h))
-        lowerBirdie ! A.transform (translate    1   (-h))
-        lowerBirdie ! A.transform (translate    1     h )
+        defs $ do
+          upperBirdie ! A.id_ "HaskellSvgIcons-upperBirdie"
+          lowerBirdie ! A.id_ "HaskellSvgIcons-lowerBirdie"
+        use ! xlinkHref id1
+        use ! xlinkHref id1 ! A.transform (translate    2     0 )
+        use ! xlinkHref id1 ! A.transform (translate  (-1)    h )
+        use ! xlinkHref id1 ! A.transform (translate    1     h )
+        use ! xlinkHref id1 ! A.transform (translate  (-1)  (-h))
+        use ! xlinkHref id2
+        use ! xlinkHref id2 ! A.transform (translate  (-2)    0 )
+        use ! xlinkHref id2 ! A.transform (translate  (-1)  (-h))
+        use ! xlinkHref id2 ! A.transform (translate    1   (-h))
+        use ! xlinkHref id2 ! A.transform (translate    1     h )
   where
     vb = "-1 " ++ show (-h) ++ " 2 " ++ show (2*h)
+    id1 = "#HaskellSvgIcons-upperBirdie"
+    id2 = "#HaskellSvgIcons-lowerBirdie"
     h   = sqrt 3
     apt = h / 3
     ax =  0
