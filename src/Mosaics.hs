@@ -18,7 +18,7 @@ mosaicSample =
   [ (,) "nazariMosaic"  (nazariMosaic "orange" "purple")
   , (,) "lemonsMosaic"  (lemonsMosaic "gold")
   , (,) "squaresMosaic" (squaresMosaic "blue" "brown")
-  -- , (,) "peopleMosaic"  peopleMosaic
+  , (,) "peopleMosaic"  (peopleMosaic "silver" "white")
   -- , (,) "hexMosaic1"    hexMosaic1
   ]
 
@@ -104,17 +104,19 @@ lemonsMosaic fillColor =
       ! A.height "300px"
       ! A.width (S.toValue $ show (0.85 * 300) ++ "px")
       $ do
-        -- lemon
-        lemon ! A.transform (                             rotateAround   29  0.5 0.5)
-        lemon ! A.transform (translate      0   (-0.5) <> rotateAround   29  0.5 0.5)
-        lemon ! A.transform (translate      0     0.5  <> rotateAround   29  0.5 0.5)
-        lemon ! A.transform (translate   0.43  (-0.25) <> rotateAround (-29) 0.5 0.5)
-        lemon ! A.transform (translate   0.43    0.25  <> rotateAround (-29) 0.5 0.5)
-        lemon ! A.transform (translate   0.43    0.75  <> rotateAround (-29) 0.5 0.5)
-        lemon ! A.transform (translate (-0.43) (-0.75) <> rotateAround (-29) 0.5 0.5)
-        lemon ! A.transform (translate (-0.43) (-0.25) <> rotateAround (-29) 0.5 0.5)
-        lemon ! A.transform (translate (-0.43)   0.25  <> rotateAround (-29) 0.5 0.5)
+        defs $
+          lemon ! A.id_ "HaskellSvgIcons-lemon"
+        use ! xlinkHref iD ! A.transform (                             rotateAround   29  0.5 0.5)
+        use ! xlinkHref iD ! A.transform (translate      0   (-0.5) <> rotateAround   29  0.5 0.5)
+        use ! xlinkHref iD ! A.transform (translate      0     0.5  <> rotateAround   29  0.5 0.5)
+        use ! xlinkHref iD ! A.transform (translate   0.43  (-0.25) <> rotateAround (-29) 0.5 0.5)
+        use ! xlinkHref iD ! A.transform (translate   0.43    0.25  <> rotateAround (-29) 0.5 0.5)
+        use ! xlinkHref iD ! A.transform (translate   0.43    0.75  <> rotateAround (-29) 0.5 0.5)
+        use ! xlinkHref iD ! A.transform (translate (-0.43) (-0.75) <> rotateAround (-29) 0.5 0.5)
+        use ! xlinkHref iD ! A.transform (translate (-0.43) (-0.25) <> rotateAround (-29) 0.5 0.5)
+        use ! xlinkHref iD ! A.transform (translate (-0.43)   0.25  <> rotateAround (-29) 0.5 0.5)
   where
+    iD = "#HaskellSvgIcons-lemon"
     r1 = 0.24
     r2 = r1
     k  = 0.2     -- k must be lower than r1
@@ -150,13 +152,17 @@ squaresMosaic c1 c2 =
       ! A.width  "300px"
       ! A.height "300px"
       $ do
-        corner
-        corner ! A.transform                       (rotateAround 180 0   0  )
-        corner ! A.transform (translate (-1)  0  <> rotateAround 270 0.5 0.5)
-        corner ! A.transform (translate   0 (-1) <> rotateAround 90  0.5 0.5)
+        defs $
+          corner ! A.id_ "HaskellSvgIcons-squareCorner"
+        S.g $ do
+          use ! xlinkHref iD
+          use ! xlinkHref iD ! A.transform                       (rotateAround 180 0   0  )
+          use ! xlinkHref iD ! A.transform (translate (-1)  0  <> rotateAround 270 0.5 0.5)
+          use ! xlinkHref iD ! A.transform (translate   0 (-1) <> rotateAround 90  0.5 0.5)
   where
     color1 = S.toValue c1
     color2 = S.toValue c2
+    iD = "#HaskellSvgIcons-squareCorner"
     s = 0.07
     k1 = 0.16
     k2 = (1/3) * (0.5 - k1 + s)
@@ -196,30 +202,29 @@ squaresMosaic c1 c2 =
 --------------------------------------------------------------------------------
 
 
-peopleMosaic :: Svg
-peopleMosaic =
+peopleMosaic :: String -> String -> Svg
+peopleMosaic strkColor fillColor =
   S.svg
-    ! A.viewbox "0 0 1 1"
-    ! A.preserveaspectratio "none"
-    $ do
+    ! A.viewbox "-1 -1 2 2"
+    ! A.height "300"
+    ! A.width  "300"
+    $ S.g $ do
       part1
-      part2
+      part1 ! A.transform horizontalMirrorMatrix
   where
     part1 = S.g $ do
       mainLine
-      mainLine ! A.transform (translate 0.5 0.5) 
-    part2 = 
-      part1 ! A.transform horizontalMirrorMatrix
+      mainLine ! A.transform (translate 1 1)
     mainLine =
       S.path
-        ! A.fill "none"
-        ! A.stroke "lightgray"
-        ! (A.strokeWidth .: 0.025)
+        ! A.fill (S.toValue fillColor)
+        ! A.stroke (S.toValue strkColor)
+        ! (A.strokeWidth .: 0.05)
         ! A.d mainPath
     mainPath = mkPath $ do
-      m   0.5  0
-      q   0.2  0.1  0.3  0.25
-      q   0    0.3  0    0.5
+      m     0    (-1)
+      q   (-0.6) (-0.8) (-0.4) (-0.5)
+      q   (-1)   (-0.6) (-1)     0
 
 
 --------------------------------------------------------------------------------
