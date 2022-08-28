@@ -19,7 +19,7 @@ mosaicSample =
   , (,) "lemonsMosaic"  (lemonsMosaic "gold")
   , (,) "squaresMosaic" (squaresMosaic "blue" "brown")
   , (,) "peopleMosaic"  (peopleMosaic "silver" "white")
-  -- , (,) "hexMosaic1"    hexMosaic1
+  , (,) "hexMosaic1"    (hexMosaic1 "limegreen")
   ]
 
 
@@ -230,19 +230,22 @@ peopleMosaic strkColor fillColor =
 --------------------------------------------------------------------------------
 
 
-hexMosaic1 :: Svg
-hexMosaic1 =
+hexMosaic1 :: String -> Svg
+hexMosaic1 strkColor =
   S.svg
     ! A.viewbox (S.toValue $ concat $ intersperse " " $ map show [vbX, vbY, vbW, vbH])
+    ! A.height "300px"
+    ! A.width  (S.toValue $ show (300 * sqrt 3) ++ "px")
     $ do
-      -- frame vbX vbY vbW vbH
-      S.defs baseHexDef
-      baseHex  ! A.transform (translate 0 ((-3) * k))
-      baseTile
-      baseTile ! A.transform (translate ((-3) * k * cos30) ((-3) * k * sin30))
-      baseTile ! A.transform (translate (  3  * k * cos30) ((-3) * k * sin30))
-      baseTile ! A.transform (translate ((-3) * k * cos30) (  3  * k * sin30))
-      baseTile ! A.transform (translate (  3  * k * cos30) (  3  * k * sin30))
+      S.defs $ 
+        baseHexDef
+      S.g $ do
+        baseHex  ! A.transform (translate 0 ((-3) * k))
+        baseTile
+        baseTile ! A.transform (translate ((-3) * k * cos30) ((-3) * k * sin30))
+        baseTile ! A.transform (translate (  3  * k * cos30) ((-3) * k * sin30))
+        baseTile ! A.transform (translate ((-3) * k * cos30) (  3  * k * sin30))
+        baseTile ! A.transform (translate (  3  * k * cos30) (  3  * k * sin30))
   where
     vbX = (-1) * 0.5 * vbW
     vbY = (-1) * 0.5 * vbH
@@ -251,7 +254,7 @@ hexMosaic1 =
     k = 1  -- side of base hex
     cos30 = 0.5 * sqrt 3
     sin30 = 0.5
-    baseHex = S.use ! A.xlinkHref "#hexMosaic1_baseHex"
+    baseHex = S.use ! A.xlinkHref "#HaskellSvgIcons-hex1"
     baseTile = 
       S.g $ do
         baseHex
@@ -259,9 +262,9 @@ hexMosaic1 =
         baseHex ! A.transform (rotateAround 240 0 0)
     baseHexDef =
       S.path 
-        ! A.id_ "hexMosaic1_baseHex"
+        ! A.id_ "HaskellSvgIcons-hex1"
         ! A.fill "none"
-        ! A.stroke "silver"
+        ! A.stroke (S.toValue strkColor)
         ! A.strokeWidth "0.05"
         ! A.strokeLinecap "round"
         ! A.strokeLinejoin "round"
