@@ -15,8 +15,8 @@ import Base
 
 
 
-renderSvgFile :: FilePath -> [ (FilePath , Svg) ] -> IO ()
-renderSvgFile folder svgs = 
+renderSvgFiles :: FilePath -> [ (FilePath , Svg) ] -> IO ()
+renderSvgFiles folder svgs = 
   do
     setLocaleEncoding utf8
     mapM_ f svgs

@@ -11,6 +11,7 @@ import Icons.Human    (svgHuman)
 import Icons.Office   (svgOffice)
 import Icons.Textarea (svgTextarea)
 import Icons.Tools    (svgTools)
+import Mosaics (mosaicSample)
 import Render
 
 
@@ -27,8 +28,8 @@ renderAll svgFolder = do
   createDirectoryIfMissing False svgFolder
   removeDirectoryRecursive       svgFolder
   createDirectory                svgFolder
-  renderIcons   (svgFolder ++ "/icons")
-  renderMosaics (svgFolder ++ "/mosaics")
+  renderIcons   (svgFolder ++ "/icons/")
+  renderMosaics (svgFolder ++ "/mosaics/")
   putStrLn "Svg files compiled correctly"
 
 
@@ -43,39 +44,39 @@ renderIcons path =
     createDirectory officePath
     createDirectory textareaPath
     createDirectory toolsPath
-    renderSvgFile businessPath (map fillIcons svgBusiness)
-    renderSvgFile businessPath (map fullIcons svgBusiness)
-    renderSvgFile businessPath (map strkIcons svgBusiness)
-    renderSvgFile filePath (map fillIcons svgFile)
-    renderSvgFile filePath (map fullIcons svgFile)
-    renderSvgFile filePath (map strkIcons svgFile)
-    renderSvgFile humanPath (map fillIcons svgHuman)
-    renderSvgFile humanPath (map fullIcons svgHuman)
-    renderSvgFile humanPath (map strkIcons svgHuman)
-    renderSvgFile officePath (map fillIcons svgOffice)
-    renderSvgFile officePath (map fullIcons svgOffice)
-    renderSvgFile officePath (map strkIcons svgOffice)
-    renderSvgFile textareaPath (map fillIcons svgTextarea)
-    renderSvgFile textareaPath (map fullIcons svgTextarea)
-    renderSvgFile textareaPath (map strkIcons svgTextarea)
-    renderSvgFile toolsPath (map fillIcons svgTools)
-    renderSvgFile toolsPath (map fullIcons svgTools)
-    renderSvgFile toolsPath (map strkIcons svgTools)
+    renderSvgFiles businessPath (map fillIcons svgBusiness)
+    renderSvgFiles businessPath (map fullIcons svgBusiness)
+    renderSvgFiles businessPath (map strkIcons svgBusiness)
+    renderSvgFiles filePath (map fillIcons svgFile)
+    renderSvgFiles filePath (map fullIcons svgFile)
+    renderSvgFiles filePath (map strkIcons svgFile)
+    renderSvgFiles humanPath (map fillIcons svgHuman)
+    renderSvgFiles humanPath (map fullIcons svgHuman)
+    renderSvgFiles humanPath (map strkIcons svgHuman)
+    renderSvgFiles officePath (map fillIcons svgOffice)
+    renderSvgFiles officePath (map fullIcons svgOffice)
+    renderSvgFiles officePath (map strkIcons svgOffice)
+    renderSvgFiles textareaPath (map fillIcons svgTextarea)
+    renderSvgFiles textareaPath (map fullIcons svgTextarea)
+    renderSvgFiles textareaPath (map strkIcons svgTextarea)
+    renderSvgFiles toolsPath (map fillIcons svgTools)
+    renderSvgFiles toolsPath (map fullIcons svgTools)
+    renderSvgFiles toolsPath (map strkIcons svgTools)
   where
-    fillIcons (a,b) = (a ++ "_fill" , coreSvg def $ applyStyle fillStyle   b)
-    fullIcons (a,b) = (a ++ "_full" , coreSvg def $ applyStyle fullStyle   b)
+    fillIcons (a,b) = (a ++ "_fill" , coreSvg def $ applyStyle fillStyle b)
+    fullIcons (a,b) = (a ++ "_full" , coreSvg def $ applyStyle fullStyle b)
     strkIcons (a,b) = (a ++ "_strk" , coreSvg def $ applyStyle strkStyle b)
     -- test (a,b) = (a, coreSvg def $ b >> frame (-1) (-1) 2 2)
-    businessPath = path ++ "/business/"
-    filePath     = path ++ "/file/"
-    humanPath    = path ++ "/human/"
-    officePath   = path ++ "/office/"
-    textareaPath = path ++ "/textarea/"
-    toolsPath    = path ++ "/tools/"
+    businessPath = path ++ "business/"
+    filePath     = path ++ "file/"
+    humanPath    = path ++ "human/"
+    officePath   = path ++ "office/"
+    textareaPath = path ++ "textarea/"
+    toolsPath    = path ++ "tools/"
     
 
 
 renderMosaics :: FilePath -> IO ()
 renderMosaics path = do
     createDirectory path
-    putStrLn "No mosaics yet"
+    renderSvgFiles path mosaicSample

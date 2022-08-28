@@ -31,6 +31,7 @@ library
     Icons.Textarea,
     Icons.Tools,
     Main,
+    Mosaics,
     Render
 
   -- Modules included in this library but not exported.
@@ -69,6 +70,7 @@ executable SvgIcons-exe
     Icons.Office,
     Icons.Textarea,
     Icons.Tools,
+    Mosaics,
     Render
 
 test-suite SvgIcons-test
