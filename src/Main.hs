@@ -9,6 +9,7 @@ import Icons.Business (svgBusiness)
 import Icons.File     (svgFile)
 import Icons.Human    (svgHuman)
 import Icons.Office   (svgOffice)
+import Icons.Religion (svgReligion)
 import Icons.Textarea (svgTextarea)
 import Icons.Tools    (svgTools)
 import Mosaics (mosaicSample)
@@ -42,6 +43,7 @@ renderIcons path =
     createDirectory filePath
     createDirectory humanPath
     createDirectory officePath
+    createDirectory religionPath
     createDirectory textareaPath
     createDirectory toolsPath
     renderSvgFiles businessPath (map fillIcons svgBusiness)
@@ -56,6 +58,9 @@ renderIcons path =
     renderSvgFiles officePath (map fillIcons svgOffice)
     renderSvgFiles officePath (map fullIcons svgOffice)
     renderSvgFiles officePath (map strkIcons svgOffice)
+    renderSvgFiles religionPath (map fillIcons svgReligion)
+    renderSvgFiles religionPath (map fullIcons svgReligion)
+    renderSvgFiles religionPath (map strkIcons svgReligion)
     renderSvgFiles textareaPath (map fillIcons svgTextarea)
     renderSvgFiles textareaPath (map fullIcons svgTextarea)
     renderSvgFiles textareaPath (map strkIcons svgTextarea)
@@ -71,6 +76,7 @@ renderIcons path =
     filePath     = path ++ "file/"
     humanPath    = path ++ "human/"
     officePath   = path ++ "office/"
+    religionPath = path ++ "religion/"
     textareaPath = path ++ "textarea/"
     toolsPath    = path ++ "tools/"
     
