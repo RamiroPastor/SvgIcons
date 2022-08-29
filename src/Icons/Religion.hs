@@ -9,6 +9,7 @@ import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
 import Base
+import Geometry
 
 
 
@@ -18,6 +19,7 @@ svgReligion =
   , (,) "taijitu"       (taijitu "black" "white")
   , (,) "crossLatin"     crossLatin
   , (,) "crossOrthodox"  crossOrthodox
+  , (,) "starOfDavid"    starOfDavid
   ]
 
 
@@ -217,3 +219,12 @@ crossOrthodox =
       l  (x2 - w)  (y4 - w - (x4 + w) * ct)
       l  (x3 - w)  (y4 - w - w  * ct)
       S.z
+
+  
+starOfDavid :: Svg
+starOfDavid =
+  S.g 
+    ! A.transform (rotateAround 30 0 0)
+    $ do
+      starPolygonFirstSpecies 6 0.9 (0,0)
+      -- starPolygonFirstSpecies 6 0.7 (0,0)
