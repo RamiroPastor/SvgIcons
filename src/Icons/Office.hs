@@ -19,6 +19,7 @@ svgOffice =
   , (,) "document"   document
   , (,) "archive"    archive
   , (,) "pin"        pin
+  , (,) "clipboard"  clipboard
   ]
 
 
@@ -210,3 +211,43 @@ pin =
       l     0    y6
       l   ( w2)  y5
       l   ( w2)  y4
+
+
+
+clipboard :: Svg
+clipboard =
+  S.g $ do
+    S.path
+      ! d boardDirs
+    S.path
+      ! d clipDirs
+  where
+    dx1 = 0.3
+    dx2 = 0.7
+    y1 = -0.9
+    y2 = -0.7
+    y3 = -0.5
+    y4 =  0.9
+    r1 =  0.2
+    r2 =  0.24
+    boardDirs = mkPath $ do
+      m   (-dx1     ) (y2     )
+      l   (-dx2 + r2) (y2     )
+      aa  r2  r2  0  False False (-dx2     ) (y2 + r2)
+      l   (-dx2     ) (y4 - r2)
+      aa  r2  r2  0  False False (-dx2 + r2) (y4     )
+      l   ( dx2 - r2) (y4     )
+      aa  r2  r2  0  False False ( dx2     ) (y4 - r2)
+      l   ( dx2     ) (y2 + r2)
+      aa  r2  r2  0  False False ( dx2 - r2) (y2     )
+      l   ( dx1     ) (y2     )
+    clipDirs = mkPath $ do
+      m   (-dx1     ) (y2     )
+      l   (-dx1     ) (y3     )
+      l   ( dx1     ) (y3     )
+      l   ( dx1     ) (y1 + r1)
+      aa  r1  r1  0  False False ( dx1 - r1) (y1     )
+      l   (-dx1 + r1) (y1     )
+      aa  r1  r1  0  False False (-dx1     ) (y1 + r1)
+      S.z
+
