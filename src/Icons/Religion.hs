@@ -14,7 +14,8 @@ import Base
 
 svgReligion :: [ (String , S.Svg) ]
 svgReligion =
-  [ (,) "xp" xp
+  [ (,) "xp"       xp
+  , (,) "taijitu" (taijitu "black" "white") 
   ]
 
 
@@ -96,3 +97,46 @@ xp =
       l  ( 0.7-a/5)  ( a/2)
       aa (a/2)  (a/2)  0  True  True  (0.7+a/5) (a/2)
       l  ( 0.7+a/2)  ( a/2)
+
+
+taijitu :: String -> String -> Svg
+taijitu yinColor yangColor =
+    S.g $ do
+      outerCircle
+      yin
+      yangDot
+      yinDot
+  where
+    r1  = 0.92
+    r1m = 0.5 * r1
+    r2  = r1 / 6
+    outerCircle =
+      S.circle
+        ! (A.cx .: 0)
+        ! (A.cy .: 0)
+        ! (A.r  .: r1)
+        ! A.fill (S.toValue yangColor)
+    yin =
+      S.path
+        ! A.fill (S.toValue yinColor)
+        ! A.d yinDirs
+    yinDirs = mkPath $ do
+      m   ( -r1)  0
+      aa  r1m  r1m  0  True  False   0    0
+      aa  r1m  r1m  0  True  True  ( r1)  0
+      aa  r1   r1   0  True  True  (-r1)  0
+      S.z
+    yangDot =
+      S.circle
+        ! (A.cx .: 0 + r1m)
+        ! (A.cy .: 0 )
+        ! (A.r  .: r2)
+        ! A.stroke "none"
+        ! A.fill (S.toValue yangColor)
+    yinDot =
+      S.circle
+        ! (A.cx .: 0 - r1m)
+        ! (A.cy .: 0 )
+        ! (A.r  .: r2)
+        ! A.stroke "none"
+        ! A.fill (S.toValue yinColor)
