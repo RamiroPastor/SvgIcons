@@ -14,9 +14,10 @@ import Base
 
 svgReligion :: [ (String , S.Svg) ]
 svgReligion =
-  [ (,) "xp"       xp
-  , (,) "taijitu" (taijitu "black" "white")
-  , (,) "cross"    cross
+  [ (,) "xp"             xp
+  , (,) "taijitu"       (taijitu "black" "white")
+  , (,) "crossLatin"     crossLatin
+  , (,) "crossOrthodox"  crossOrthodox
   ]
 
 
@@ -143,8 +144,8 @@ taijitu yinColor yangColor =
         ! A.fill (S.toValue yinColor)
 
   
-cross :: Svg
-cross =
+crossLatin :: Svg
+crossLatin =
     S.path
       ! A.d dirs
   where
@@ -167,3 +168,52 @@ cross =
       l  ( w )  (-k1    )
       S.z
 
+
+crossOrthodox :: Svg
+crossOrthodox =
+    S.path
+      ! A.d dirs
+  where
+    w = 0.1
+    y1 = -0.84
+    y2 = y1 + 2*w
+    y3 = y1 + 6*w
+    y4 = 0.6
+    y5 = -y1
+    x1 = (y1 + w) * 0.618 - w
+    x2 = x1 / 2
+    x3 = 0
+    x4 = x5 / 2
+    x5 = -x1
+    α  = pi / 3
+    ct = 1 / tan α 
+    dirs = mkPath $ do
+      m  (x3 - w)  (y3 + w)
+      l  (x1 - w)  (y3 + w)
+      l  (x1 - w)  (y3 - w)
+      l  (x3 - w)  (y3 - w)
+      l  (x3 - w)  (y2 + w)
+      l  (x2 - w)  (y2 + w)
+      l  (x2 - w)  (y2 - w)
+      l  (x3 - w)  (y2 - w)
+      l  (x3 - w)  (y1 - w)
+      l  (x3 + w)  (y1 - w)
+      l  (x3 + w)  (y2 - w)
+      l  (x4 + w)  (y2 - w)
+      l  (x4 + w)  (y2 + w)
+      l  (x3 + w)  (y2 + w)
+      l  (x3 + w)  (y3 - w)
+      l  (x5 + w)  (y3 - w)
+      l  (x5 + w)  (y3 + w)
+      l  (x3 + w)  (y3 + w)
+      l  (x3 + w)  (y4 - w + w  * ct)
+      l  (x4 + w)  (y4 - w + (x4 + w) * ct)
+      l  (x4 + w)  (y4 + w + (x4 + w) * ct)
+      l  (x3 + w)  (y4 + w + w  * ct)
+      l  (x3 + w)  (y5 + w)
+      l  (x3 - w)  (y5 + w)
+      l  (x3 - w)  (y4 + w - w  * ct)
+      l  (x2 - w)  (y4 + w - (x4 + w) * ct)
+      l  (x2 - w)  (y4 - w - (x4 + w) * ct)
+      l  (x3 - w)  (y4 - w - w  * ct)
+      S.z
