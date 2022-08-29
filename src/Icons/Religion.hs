@@ -15,7 +15,8 @@ import Base
 svgReligion :: [ (String , S.Svg) ]
 svgReligion =
   [ (,) "xp"       xp
-  , (,) "taijitu" (taijitu "black" "white") 
+  , (,) "taijitu" (taijitu "black" "white")
+  , (,) "cross"    cross
   ]
 
 
@@ -140,3 +141,29 @@ taijitu yinColor yangColor =
         ! (A.r  .: r2)
         ! A.stroke "none"
         ! A.fill (S.toValue yinColor)
+
+  
+cross :: Svg
+cross =
+    S.path
+      ! A.d dirs
+  where
+    w  = 0.1
+    k1 = 0.9
+    k2 = k1 * 3/4
+    km = -k1 + k1 * 2/3
+    dirs = mkPath $ do
+      m  (-w )  (-k1    )
+      l  (-w )  ( km - w)
+      l  (-k2)  ( km - w)
+      l  (-k2)  ( km + w)
+      l  (-w )  ( km + w)
+      l  (-w )  ( k1    )
+      l  ( w )  ( k1    )
+      l  ( w )  ( km + w)
+      l  ( k2)  ( km + w)
+      l  ( k2)  ( km - w)
+      l  ( w )  ( km - w)
+      l  ( w )  (-k1    )
+      S.z
+
