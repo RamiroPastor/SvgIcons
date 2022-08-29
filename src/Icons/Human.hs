@@ -14,11 +14,13 @@ import Base
 
 svgHuman :: [ (String , S.Svg) ]
 svgHuman =
-  [ (,) "eyeOpened"  eyeOpened
-  , (,) "eyeStriked" eyeStriked
-  , (,) "person"     person
-  , (,) "people"     people
-  , (,) "carnet"     carnet
+  [ (,) "eyeOpened"   eyeOpened
+  , (,) "eyeStriked"  eyeStriked
+  , (,) "person"      person
+  , (,) "people"      people
+  , (,) "carnet"      carnet
+  , (,) "heartFat"    heartFat
+  , (,) "heartSlim"   heartSlim
   ]
 
 
@@ -153,4 +155,52 @@ carnet =
       l   k2  (hy + w2)
       aa  w2  w2  0  True  False k2 (hy - w2)
       S.z
-    
+
+
+heartFat :: Svg
+heartFat =
+    S.g $ do
+      S.path
+        ! A.d heartDirs
+        ! A.strokeLinejoin "round"
+        ! A.transform (translate 0 0.1 <> S.scale 1.2 1.2)
+  where
+    h = 0.06
+    (h1x , h1y) = ( 0       , -0.6      )
+    (h2x , h2y) = ( h1x - h ,  h1y - h  )
+    (h3x , h3y) = ( h2y     ,  h2x      )
+    (h4x , h4y) = ( 0       ,  0.6     )
+    (hqx , hqy) = (-0.1     ,  0.6      )
+    rh = 0.5 * distance (h2x,h2y) (h3x,h3y)
+    heartDirs = mkPath $ do
+      m   h1x h1y
+      l   h2x h2y
+      aa  rh  rh  0  False False  h3x  h3y
+      q   hqx hqy h4x h4y
+      q   (-hqx) ( hqy) (-h3x) ( h3y)
+      aa  rh  rh  0  False False (-h2x) h2y
+      S.z
+
+
+heartSlim :: Svg
+heartSlim =
+    S.g $ do
+      S.path
+        ! A.d heartDirs
+        ! A.strokeLinejoin "round"
+  where
+    h = 0.2
+    (h1x , h1y) = ( 0       , -0.6      )
+    (h2x , h2y) = ( h1x - h ,  h1y - h  )
+    (h3x , h3y) = ( h2y     ,  h2x      )
+    (h4x , h4y) = ( 0       ,  0.9      )
+    (hqx , hqy) = (-0.1     ,  0.4      )
+    rh = 0.5 * distance (h2x,h2y) (h3x,h3y)
+    heartDirs = mkPath $ do
+      m   h1x h1y
+      l   h2x h2y
+      aa  rh  rh  0  False False  h3x  h3y
+      q   hqx hqy h4x h4y
+      q   (-hqx) ( hqy) (-h3x) ( h3y)
+      aa  rh  rh  0  False False (-h2x) h2y
+      S.z

@@ -22,6 +22,11 @@ infixl 5 .:
 f .: x = f $ S.toValue x
 
 
+distance :: (Float, Float) -> (Float, Float) -> Float
+distance (ax,ay) (bx,by) =
+  sqrt $ (bx - ax)**2 + (by - ay)**2
+
+
 horizontalMirrorMatrix :: AttributeValue
 horizontalMirrorMatrix =
   matrix (-1) 0 0 1 0 0
