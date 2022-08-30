@@ -14,7 +14,8 @@ import Base
 
 svgBusiness :: [ (String , S.Svg) ]
 svgBusiness =
-  [ (,) "company" company
+  [ (,) "company"     company
+  , (,) "connections" connections
   ]
 
 
@@ -94,3 +95,58 @@ company =
         l   (x4 + 2*k2)  y6
         m   (x4 + 3*k2)  y5
         l   (x4 + 3*k2)  y6
+
+
+connections :: Svg
+connections = 
+    S.g $ do
+      circ x0 y0 r0
+      circ x1 y1 r1
+      circ x2 y2 r2
+      circ x3 y3 r3
+      circ x4 y4 r4
+      circ x5 y5 r5
+      circ x6 y6 r6
+      circ x7 y7 r7
+      circ x8 y8 r8
+      circ x9 y9 r9
+      S.path
+        ! A.fill "none"
+        ! d (mkPath connectingLines)
+  where
+    rad1 = 0.2
+    rad2 = 0.12
+    (x0,y0,r0) = (,,)  ( 0   )  ( 0   )  0.3
+    (x1,y1,r1) = (,,)  (-0.64)  ( 0   )  rad1
+    (x2,y2,r2) = (,,)  ( 0.56)  (-0.4 )  rad1
+    (x3,y3,r3) = (,,)  ( 0.56)  ( 0.4 )  rad1
+    (x4,y4,r4) = (,,)  (-0.64)  (-0.6 )  rad2
+    (x5,y5,r5) = (,,)  (-0.82)  ( 0.4 )  rad2
+    (x6,y6,r6) = (,,)  (-0.4 )  ( 0.7 )  rad2
+    (x7,y7,r7) = (,,)  ( 0.1 )  (-0.74)  rad2
+    (x8,y8,r8) = (,,)  ( 0.80)  (-0.8 )  rad2
+    (x9,y9,r9) = (,,)  ( 0.56)  ( 0.8 )  rad2
+    circ c1 c2 radius =
+      circle
+        ! (cx .: c1) 
+        ! (cy .: c2) 
+        ! (r .: radius)
+    --------------------------------------------------
+    connect (p1,p2,radius1) (q1,q2,radius2) =
+      let
+        d = distance (p1,p2) (q1,q2)
+        k1 = radius1 / d
+        k2 = radius2 / d
+      in do
+        m  (k2*p1 + q1 - k2*q1)  (k2*p2 + q2 - k2*q2)
+        l  (p1 - k1*p1 + k1*q1)  (p2 - k1*p2 + k1*q2)
+    connectingLines = do
+      connect (x0,y0,r0) (x1,y1,r1)
+      connect (x0,y0,r0) (x2,y2,r2)
+      connect (x0,y0,r0) (x3,y3,r3)
+      connect (x1,y1,r1) (x4,y4,r4)
+      connect (x1,y1,r1) (x5,y5,r5)
+      connect (x1,y1,r1) (x6,y6,r6)
+      connect (x2,y2,r2) (x7,y7,r7)
+      connect (x2,y2,r2) (x8,y8,r8)
+      connect (x3,y3,r3) (x9,y9,r9)
