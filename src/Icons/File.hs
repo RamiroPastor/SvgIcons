@@ -14,12 +14,14 @@ import Base
 
 svgFile :: [ (String , S.Svg) ]
 svgFile =
-  [ (,) "plus"     plus
-  , (,) "cancel"   cancel
-  , (,) "accept"   accept
-  , (,) "warning"  warning
-  , (,) "minimize" minimize
-  , (,) "maximize" maximize
+  [ (,) "plus"      plus
+  , (,) "cancel"    cancel
+  , (,) "accept"    accept
+  , (,) "warning"   warning
+  , (,) "minimize"  minimize
+  , (,) "maximize"  maximize
+  , (,) "menuDots"  menuDots
+  , (,) "menuLines" menuLines
   ]
 
 
@@ -162,4 +164,35 @@ maximize =
     dirs2 = mkPath $ do
       m   (-0.5*w + k)  (-0.5*w - k)
       l   ( 0.5*w + k)  (-0.5*w - k)
-      l   ( 0.5*w + k)  ( 0.5*w - k) 
+      l   ( 0.5*w + k)  ( 0.5*w - k)
+
+
+menuDots :: Svg
+menuDots =
+    S.g $ do
+        dot (-0.7)
+        dot ( 0  )
+        dot ( 0.7)
+  where
+    dot y =
+      circle 
+        ! (A.cy .: y)
+        ! A.cx "0"
+        ! A.r  "0.2"
+
+  
+menuLines :: Svg
+menuLines =
+    S.g $ do
+      S.path ! A.d (line (-0.5))
+      S.path ! A.d (line ( 0  ))
+      S.path ! A.d (line ( 0.5))
+  where
+    kx = 0.7
+    r  = 0.12
+    line y = mkPath $ do
+      m  (-kx)  (y - r)
+      aa   r   r   0   True  False (-kx) (y + r)
+      l  ( kx)  (y + r)
+      aa   r   r   0   True  False ( kx) (y - r)
+      S.z
