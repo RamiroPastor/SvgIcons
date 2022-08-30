@@ -20,6 +20,7 @@ svgOffice =
   , (,) "archive"    archive
   , (,) "pin"        pin
   , (,) "clipboard"  clipboard
+  , (,) "printer"    printer
   ]
 
 
@@ -251,3 +252,76 @@ clipboard =
       aa  r1  r1  0  False False (-dx1     ) (y1 + r1)
       S.z
 
+
+printer :: Svg
+printer =
+    S.g $ do
+      S.path
+        ! A.d topDirs
+      S.path
+        ! A.d midDirs
+      S.path 
+        ! A.strokeLinecap "round"
+        ! A.d botDirs
+      dots
+  where
+    x0 =  0.5
+    x1 =  0.9
+    x2 =  x0 - 0.1
+    y0 =  0.4
+    y1 =  0.8
+    y2 =  0.2
+    y3 =  0.94
+    ky = (y3 - y2)/4
+    r0 =  0.1
+    dx =  0.3
+    dy = -0.1
+    dr =  0.09
+    topDirs = mkPath $ do
+      m   (-x0)  (-y0)
+      l   (-x0)  (-y1)
+      l   ( x0)  (-y1)
+      l   ( x0)  (-y0)
+    midDirs = mkPath $ do
+      m   (-x0)      ( y0)
+      l   (-x1 + r0) ( y0)
+      aa  r0  r0  0  False True  (-x1)      ( y0 - r0)
+      l   (-x1)      (-y0 + r0)
+      aa  r0  r0  0  False True  (-x1 + r0) (-y0)
+      l   ( x1 - r0) (-y0)
+      aa  r0  r0  0  False True  ( x1)      (-y0 + r0)
+      l   ( x1)      ( y0 - r0)
+      aa  r0  r0  0  False True  ( x1 - r0) ( y0)
+      l   ( x0)      ( y0)
+    botDirs = mkPath $ do
+      m   (-x0)  y2
+      l   ( x0)  y2
+      l   ( x0)  y3
+      l   (-x0)  y3
+      S.z
+      m   (-x2)  (y2 +   ky)
+      l   ( x2)  (y2 +   ky)
+      m   (-x2)  (y2 + 2*ky)
+      l   ( x2)  (y2 + 2*ky)
+      m   (-x2)  (y2 + 3*ky)
+      l   ( x2)  (y2 + 3*ky)
+    dots =
+      do
+        S.circle
+          ! A.stroke "none"
+          ! (A.cx .: (-dx))
+          ! (A.cy .: dy)
+          ! (A.r  .: dr)
+          ! A.fill "hotpink"
+        S.circle
+          ! A.stroke "none"
+          ! (A.cx .: 0 )
+          ! (A.cy .: dy)
+          ! (A.r  .: dr)
+          ! A.fill "lime"
+        S.circle
+          ! A.stroke "none"
+          ! (A.cx .: dx)
+          ! (A.cy .: dy)
+          ! (A.r  .: dr)
+          ! A.fill "deepskyblue"
