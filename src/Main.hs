@@ -6,6 +6,7 @@ import System.Directory
 import Base
 import Core
 import Icons.Business (svgBusiness)
+import Icons.Cosmos   (svgCosmos)
 import Icons.File     (svgFile)
 import Icons.Human    (svgHuman)
 import Icons.Office   (svgOffice)
@@ -40,6 +41,7 @@ renderIcons path =
   do
     createDirectory path
     createDirectory businessPath
+    createDirectory cosmosPath
     createDirectory filePath
     createDirectory humanPath
     createDirectory officePath
@@ -49,6 +51,9 @@ renderIcons path =
     renderSvgFiles businessPath (map fillIcons svgBusiness)
     renderSvgFiles businessPath (map fullIcons svgBusiness)
     renderSvgFiles businessPath (map strkIcons svgBusiness)
+    renderSvgFiles cosmosPath (map fillIcons svgCosmos)
+    renderSvgFiles cosmosPath (map fullIcons svgCosmos)
+    renderSvgFiles cosmosPath (map strkIcons svgCosmos)
     renderSvgFiles filePath (map fillIcons svgFile)
     renderSvgFiles filePath (map fullIcons svgFile)
     renderSvgFiles filePath (map strkIcons svgFile)
@@ -73,6 +78,7 @@ renderIcons path =
     strkIcons (a,b) = (a ++ "_strk" , coreSvg def $ applyStyle strkStyle b)
     -- test (a,b) = (a, coreSvg def $ b >> frame (-1) (-1) 2 2)
     businessPath = path ++ "business/"
+    cosmosPath   = path ++ "cosmos/"
     filePath     = path ++ "file/"
     humanPath    = path ++ "human/"
     officePath   = path ++ "office/"
