@@ -19,6 +19,7 @@ svgOffice =
   , (,) "document"   document
   , (,) "archive"    archive
   , (,) "pin"        pin
+  , (,) "clip"       paperclip
   , (,) "clipboard"  clipboard
   , (,) "printer"    printer
   ]
@@ -213,6 +214,34 @@ pin =
       l   ( w2)  y5
       l   ( w2)  y4
 
+
+paperclip :: Svg
+paperclip =
+    S.g $ 
+      S.path 
+        ! A.fill "none"
+        ! A.strokeLinecap "round"
+        ! A.d clipDirs
+        ! A.transform (rotateAround 45 0 0)
+  where
+    x1 =  0.24
+    x2 =  0.42
+    r1 =  x1
+    r2 = (x1 + x2) / 2
+    r3 =  x2
+    y1 =  0.5
+    y2 = -0.48
+    y3 =  0.7
+    y4 = -0.7
+    clipDirs = mkPath $ do
+      m  (-x1)  y1
+      l  (-x1)  y2
+      aa   r1   r1   0   True  True  ( x1)  y2
+      l  ( x1)  y3
+      aa   r2   r2   0   True  True  (-x2)  y3
+      l  (-x2)  y4
+      aa   r3   r3   0   True  True  ( x2)  y4
+      l  ( x2)  y1 
 
 
 clipboard :: Svg
