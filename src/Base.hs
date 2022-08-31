@@ -9,6 +9,14 @@ import           Text.Blaze.Svg11.Attributes as A
 
 
 
+
+evenOddSplit :: [a] -> ([a], [a])
+evenOddSplit [] = ([], [])
+evenOddSplit (x:xs) = (x:o, e)
+  where (e,o) = evenOddSplit xs
+
+
+
 addXmlns :: Svg -> Svg
 addXmlns svg =
   svg

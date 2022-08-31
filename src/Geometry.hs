@@ -15,13 +15,6 @@ import Base
 --------------------------------------------------------------------------------
 
 
-evenOddSplit :: [a] -> ([a], [a])
-evenOddSplit [] = ([], [])
-evenOddSplit (x:xs) = (x:o, e)
-  where (e,o) = evenOddSplit xs
-
-
-
 starPolygonFirstSpecies :: 
   Int -> Float -> (Float, Float) -> Svg
 starPolygonFirstSpecies n r (c1,c2) =

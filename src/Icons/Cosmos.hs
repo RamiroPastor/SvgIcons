@@ -14,11 +14,40 @@ import Base
 
 svgCosmos :: [ (String , S.Svg) ]
 svgCosmos =
-  [ (,) "moon" moon
+  [ (,) "sun"  (sun 14)
+  , (,) "moon"  moon
   ]
 
 
 --------------------------------------------------------------------------------
+
+-- n is half the number of rays
+sun :: Int -> Svg
+sun n =
+    S.g $ do
+      S.circle
+        ! A.x "0"
+        ! A.y "0"
+        ! A.r "0.5"
+      S.path
+        ! A.strokeLinecap "round"
+        ! A.d rays
+  where
+    r1 = 0.6
+    r2 = 0.78
+    r3 = 0.96
+    α  = 2*pi / (fromIntegral n)
+    angles = [ n * α | n <- [0 .. (2*pi / α)]]
+    rays = 
+      mkPath $ mapM_ doubleRay angles
+    doubleRay β = do
+      ray r2 β
+      ray r3 (β + α/2)
+    ray r β = do
+      m   (r1 * cos β)  (r1 * sin β)
+      l   (r  * cos β)  (r  * sin β)
+
+
 
 
 moon :: Svg
