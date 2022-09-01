@@ -219,29 +219,38 @@ paperclip :: Svg
 paperclip =
     S.g $ 
       S.path 
-        ! A.fill "none"
-        ! A.strokeLinecap "round"
         ! A.d clipDirs
         ! A.transform (rotateAround 45 0 0)
   where
-    x1 =  0.24
-    x2 =  0.42
+    w  = 0.07
+    x1 =  0.2
+    x2 =  0.44
     r1 =  x1
     r2 = (x1 + x2) / 2
     r3 =  x2
     y1 =  0.5
     y2 = -0.48
-    y3 =  0.7
-    y4 = -0.7
+    y3 =  0.68
+    y4 = -0.66
     clipDirs = mkPath $ do
-      m  (-x1)  y1
-      l  (-x1)  y2
-      aa   r1   r1   0   True  True  ( x1)  y2
-      l  ( x1)  y3
-      aa   r2   r2   0   True  True  (-x2)  y3
-      l  (-x2)  y4
-      aa   r3   r3   0   True  True  ( x2)  y4
-      l  ( x2)  y1 
+      m  (-x1 - w)  y1
+      l  (-x1 - w)  y2
+      aa ( r1 + w)  ( r1 + w)   0   True  True  ( x1 + w)  y2
+      l  ( x1 + w)  y3
+      aa ( r2 + w)  ( r2 + w)   0   True  True  (-x2 - w)  y3
+      l  (-x2 - w)  y4
+      aa ( r3 + w)  ( r3 + w)   0   True  True  ( x2 + w)  y4
+      l  ( x2 + w)  y1
+      aa (      w)  (      w)   0   True  True  ( x2 - w)  y1
+      l  ( x2 - w)  y4
+      aa ( r3 - w)  ( r3 - w)   0   True  False (-x2 + w)  y4
+      l  (-x2 + w)  y3
+      aa ( r2 - w)  ( r2 - w)   0   True  False ( x1 - w)  y3
+      l  ( x1 - w)  y2
+      aa ( r1 - w)  ( r1 - w)   0   True  False (-x1 + w)  y2
+      l  (-x1 + w)  y1
+      aa (      w)  (      w)   0   True  True  (-x1 - w)  y1
+      S.z
 
 
 clipboard :: Svg
