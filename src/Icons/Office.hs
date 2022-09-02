@@ -23,6 +23,7 @@ svgOffice =
   , (,) "clipboard"  clipboard
   , (,) "printer"    printer
   , (,) "lupe"       lupe
+  , (,) "briefcase"  briefcase
   ]
 
 
@@ -396,3 +397,67 @@ lupe =
       q   (-x2) (y2 - 0.18) (-x1)  (y1 + w1)
       S.z
 
+
+briefcase :: Svg
+briefcase = 
+    S.g $ do
+      S.path
+        ! A.strokeLinejoin "round"
+        ! A.d top
+      S.path
+        ! A.strokeLinejoin "round"
+        ! A.d bot
+      button
+  where
+    r1 =  0.2
+    r2 =  0.07
+    x1 =  0.94
+    x2 =  0.46
+    x3 =  0.3
+    y1 = -0.86
+    y2 = -0.7
+    y3 = -0.54
+    y4 =  0
+    y5 =  0.06
+    y6 =  0.8
+    rx1 = 0.12
+    ry1 = 0.18
+    rx2 = 0.07
+    ry2 = 0.135
+    top = mkPath $ do
+      m     x3        y3
+      l     x3        y2
+      l   (-x3)       y2
+      l   (-x3)       y3 
+      S.z
+      m   (-x1)       y4
+      l   (-x1)      (y3 + r1)
+      aa    r1        r1   0   False True  (-x1 + r1)  y3
+      l   (-x2)       y3
+      l   (-x2)      (y1 + r2)
+      aa    r2        r2   0   False True  (-x2 + r2)  y1
+      l   ( x2 - r2)  y1
+      aa    r2        r2   0   False True  ( x2)      (y1 + r2)
+      l     x2        y3
+      l   ( x1 - r1)  y3
+      aa    r1        r1   0   False True  ( x1)      (y3 + r1)
+      l     x1        y4
+      l     rx1       y4
+      aa    rx1       ry1  0   False False (-rx1)      y4
+      S.z
+    bot = mkPath $ do
+      m   (-x1)       y5
+      l   (-x1)      (y6 - r1)
+      aa    r1        r1   0   False False (-x1 + r1)  y6
+      l   ( x1 - r1)  y6
+      aa    r1        r1   0   False False   x1       (y6 - r1)
+      l     x1        y5
+      l     rx1       y5
+      aa    rx1       ry1  0   False True  (-rx1)      y5
+      S.z
+    button = 
+      S.ellipse
+        ! (A.cx .: 0)
+        ! (A.cy .: (y5 + y4)/2)
+        ! (A.rx .: rx2)
+        ! (A.ry .: ry2)
