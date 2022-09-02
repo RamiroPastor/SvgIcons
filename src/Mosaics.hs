@@ -17,11 +17,11 @@ mosaicSample :: [ (String , S.Svg) ]
 mosaicSample =
   [ (,) "nazariMosaic"  (nazariMosaic "orange" "purple")
   , (,) "lemonsMosaic"  (lemonsMosaic "gold")
-  , (,) "arabicMosaic"  (arabicMosaic1 "blue" "brown")
+  , (,) "arabicMosaic"  (arabicMosaic "blue" "brown")
   , (,) "peopleMosaic"  (peopleMosaic "silver" "white")
-  , (,) "hexMosaic"     (hexMosaic1 "limegreen")
+  , (,) "hexMosaic"     (hexMosaic    "limegreen")
   , (,) "arrowsMosaic"  (arrowsMosaic "orange")
-  , (,) "wiresMosaic"   (wiresMosaic "deepskyblue")
+  , (,) "wiresMosaic"   (wiresMosaic  "deepskyblue")
   , (,) "curvesMosaic"  (curvesMosaic)
   ]
 
@@ -166,7 +166,7 @@ arabicMosaic c1 c2 =
     color1 = S.toValue c1
     color2 = S.toValue c2
     iD = "#HaskellSvgIcons-arabicTile1"
-    s = 0.07
+    s = 0.05
     k1 = 0.16
     k2 = (1/3) * (0.5 - k1 + s)
     (ax, ay) = (0.5 + k1, 0.5 - k1)
@@ -597,7 +597,7 @@ curvesMosaic =
     curve1 = 
       S.path
         ! A.fill "none"
-        ! A.stroke "thistle"
+        ! A.stroke "orchid"
         ! A.strokeWidth "0.03"
         ! A.strokeLinecap "round"
         ! A.d curve1Dirs
@@ -625,21 +625,21 @@ curvesMosaic =
         ! A.strokeLinecap "round"
         ! A.d curve3Dirs
     curve3Dirs = mkPath $ do
-      m   0  0
+      m   0    0
       aa  0.1  0.1  0  True  True  0  0.125
-      m   1  0.125
+      m   1    0.125
       aa  0.1  0.1  0  True  False 1  0.25
-      m   0  0.25
+      m   0    0.25
       aa  0.1  0.1  0  True  True  0  0.375
-      m   1  0.375
+      m   1    0.375
       aa  0.1  0.1  0  True  False 1  0.5
-      m   0  0.5
+      m   0    0.5
       aa  0.1  0.1  0  True  True  0  0.625
-      m   1  0.625
+      m   1    0.625
       aa  0.1  0.1  0  True  False 1  0.75
-      m   0  0.75
+      m   0    0.75
       aa  0.1  0.1  0  True  True  0  0.875
-      m   1  0.875
+      m   1    0.875
       aa  0.1  0.1  0  True  False 1  1
       -- m   0     0
       -- l   0.16  0
