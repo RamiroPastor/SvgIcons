@@ -17,11 +17,12 @@ mosaicSample :: [ (String , S.Svg) ]
 mosaicSample =
   [ (,) "nazariMosaic"  (nazariMosaic "orange" "purple")
   , (,) "lemonsMosaic"  (lemonsMosaic "gold")
-  , (,) "arabicMosaic1" (arabicMosaic1 "blue" "brown")
+  , (,) "arabicMosaic"  (arabicMosaic1 "blue" "brown")
   , (,) "peopleMosaic"  (peopleMosaic "silver" "white")
-  , (,) "hexMosaic1"    (hexMosaic1 "limegreen")
+  , (,) "hexMosaic"     (hexMosaic1 "limegreen")
   , (,) "arrowsMosaic"  (arrowsMosaic "orange")
   , (,) "wiresMosaic"   (wiresMosaic "deepskyblue")
+  , (,) "curvesMosaic"  (curvesMosaic)
   ]
 
 
@@ -147,8 +148,8 @@ lemonsMosaic fillColor =
 --------------------------------------------------------------------------------
 
 
-arabicMosaic1 :: String -> String -> Svg
-arabicMosaic1 c1 c2 =
+arabicMosaic :: String -> String -> Svg
+arabicMosaic c1 c2 =
     svg
       ! A.viewbox "-1 -1 2 2"
       ! A.width  "300px"
@@ -232,8 +233,8 @@ peopleMosaic strkColor fillColor =
 --------------------------------------------------------------------------------
 
 
-hexMosaic1 :: String -> Svg
-hexMosaic1 strkColor =
+hexMosaic :: String -> Svg
+hexMosaic strkColor =
   S.svg
     ! A.viewbox (S.toValue $ concat $ intersperse " " $ map show [vbX, vbY, vbW, vbH])
     ! A.height "300px"
@@ -358,7 +359,7 @@ arrowsMosaic strkColor =
 
 wiresMosaic :: String -> Svg
 wiresMosaic strkColor =
-  svg
+  S.svg
     ! A.viewbox "0 0 1 1"
     ! A.height "300px"
     ! A.width  "300px"
@@ -567,6 +568,137 @@ wiresMosaic strkColor =
       l   0.31  0.39
       m   0.28  0.39
       l   0.28  0.36
+
+
+--------------------------------------------------------------------------------
+
+
+curvesMosaic :: Svg
+curvesMosaic =
+  S.svg
+    ! A.viewbox "0 0 1 1"
+    ! A.height "300px"
+    ! A.width  "300px"
+    $ do
+      curve1
+      curve2
+      curve3
+      curve4
+      curve5
+      curve6
+      curve7
+      littleCircle
+  where
+    littleCircle = do
+      S.circle ! A.fill "purple" ! A.r "0.03" ! A.cx "0" ! A.cy "0"
+      S.circle ! A.fill "purple" ! A.r "0.03" ! A.cx "1" ! A.cy "0"
+      S.circle ! A.fill "purple" ! A.r "0.03" ! A.cx "0" ! A.cy "1"
+      S.circle ! A.fill "purple" ! A.r "0.03" ! A.cx "1" ! A.cy "1"
+    curve1 = 
+      S.path
+        ! A.fill "none"
+        ! A.stroke "thistle"
+        ! A.strokeWidth "0.03"
+        ! A.strokeLinecap "round"
+        ! A.d curve1Dirs
+    curve1Dirs = mkPath $ do
+      m   0    0.25
+      aa  0.2  0.2  0  True  True  0.3  0.7
+      aa  0.2  0.2  0  True  True  0.7  0.7
+      aa  0.2  0.2  0  True  True  1    0.25
+    curve2 =
+      S.path
+        ! A.fill "none"
+        ! A.stroke "crimson"
+        ! A.strokeWidth "0.015"
+        ! A.d curve2Dirs
+    curve2Dirs = mkPath $ do
+      m   0  0.25
+      aa  0.125  0.125  0  True  True  1  0.5
+      aa  0.125  0.125  0  True  True  0  0.75
+      aa  0.125  0.125  0  True  True  1  1
+    curve3 =
+      S.path 
+        ! A.fill "none"
+        ! A.stroke "green"
+        ! A.strokeWidth "0.015"
+        ! A.strokeLinecap "round"
+        ! A.d curve3Dirs
+    curve3Dirs = mkPath $ do
+      m   0  0
+      aa  0.1  0.1  0  True  True  0  0.125
+      m   1  0.125
+      aa  0.1  0.1  0  True  False 1  0.25
+      m   0  0.25
+      aa  0.1  0.1  0  True  True  0  0.375
+      m   1  0.375
+      aa  0.1  0.1  0  True  False 1  0.5
+      m   0  0.5
+      aa  0.1  0.1  0  True  True  0  0.625
+      m   1  0.625
+      aa  0.1  0.1  0  True  False 1  0.75
+      m   0  0.75
+      aa  0.1  0.1  0  True  True  0  0.875
+      m   1  0.875
+      aa  0.1  0.1  0  True  False 1  1
+      -- m   0     0
+      -- l   0.16  0
+      -- m   0.84  0
+      -- l   1     0
+    curve4 = 
+      S.path 
+        ! A.fill "none"
+        ! A.stroke "gold"
+        ! A.strokeWidth "0.02"
+        ! A.strokeLinecap "round"
+        ! A.d curve4Dirs
+    curve4Dirs = mkPath $ do
+      m   0.5  0
+      c   0.1  0.1  0.8  0.1  0.5  0.25
+      l   0.5  0.7
+      c   0.9  0.8  0.1  0.9  0.5  0.9
+      q   0.7  0.9  0.5  0.98
+      l   0.5  1
+    curve5 = 
+      S.path 
+        ! A.fill "none"
+        ! A.stroke "teal"
+        ! A.strokeWidth "0.025"
+        ! A.strokeLinecap "round"
+        ! A.d curve5Dirs
+    curve5Dirs = mkPath $ do
+      m   0.3  0
+      aa  0.2  0.2  0  True  False  0.7  0
+      m   0.3  1
+      aa  0.2  0.2  0  True  True   0.7  1
+    curve6 = 
+      S.path 
+        ! A.fill "deepskyblue"
+        ! A.stroke "skyblue"
+        ! A.strokeWidth "0.01"
+        ! A.strokeLinecap "round"
+        ! A.d curve6Dirs
+    curve6Dirs = mkPath $ do
+      m   0.47  0
+      aa  0.03  0.03  0  True  False  0.53  0
+      m   0.47  1
+      aa  0.03  0.03  0  True  True   0.53  1
+    curve7 = 
+      S.path 
+        ! A.fill "none"
+        ! A.stroke "deeppink"
+        ! A.strokeWidth "0.03"
+        ! A.strokeLinecap "round"
+        ! A.d curve7Dirs
+    curve7Dirs = mkPath $ do
+      m   0.25  0.8
+      l   0.25  0.85
+      m   0.75  0.8
+      l   0.75  0.85
+      m   0.25  0.1
+      l   0.25  0.15
+      m   0.75  0.1
+      l   0.75  0.15
 
 
 --------------------------------------------------------------------------------
