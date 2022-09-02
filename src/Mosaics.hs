@@ -264,7 +264,7 @@ hexMosaic1 strkColor =
         baseHex ! A.transform (rotateAround 240 0 0)
     baseHexDef =
       S.path 
-        ! A.id_ "HaskellSvgIcons-hex1"
+        ! A.id_ "HaskellSvgIcons-hexTile1"
         ! A.fill "none"
         ! A.stroke (S.toValue strkColor)
         ! A.strokeWidth "0.05"
