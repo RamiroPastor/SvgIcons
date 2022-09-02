@@ -22,6 +22,7 @@ svgOffice =
   , (,) "clip"       paperclip
   , (,) "clipboard"  clipboard
   , (,) "printer"    printer
+  , (,) "lupe"       lupe
   ]
 
 
@@ -363,3 +364,35 @@ printer =
           ! (A.cy .: dy)
           ! (A.r  .: dr)
           ! A.fill "deepskyblue"
+
+
+lupe :: S.Svg
+lupe =
+    S.g $ do
+      S.path
+        ! A.d dirs
+        ! A.fillRule "evenodd"
+        ! A.transform (rotateAround 45 0 0)
+  where
+    w1 = 0.08
+    w2 = 0.12
+    r1 = 0.54
+    r2 = r1 + 2*w1
+    x1 = 0.07
+    x2 = w2
+    y1 = 0.3
+    y2 = 0.6
+    y3 = 1.12
+    dirs = mkPath $ do
+      m     0   (y1 - w1)
+      aa    r1   r1   0  True  False (-0.01) ( y1 - w1)
+      S.z
+      m   (-x1) (y1 + w1)
+      aa    r2   r2   0  True  True  ( x1)   ( y1 + w1)
+      q     x2  (y2 - 0.18)   x2   y2
+      l     x2   y3
+      aa    w2   w2   0  True  True  (-x2)   ( y3)
+      l   (-x2)  y2
+      q   (-x2) (y2 - 0.18) (-x1)  (y1 + w1)
+      S.z
+
