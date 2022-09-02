@@ -20,6 +20,7 @@ mosaicSample =
   , (,) "squaresMosaic" (squaresMosaic "blue" "brown")
   , (,) "peopleMosaic"  (peopleMosaic "silver" "white")
   , (,) "hexMosaic1"    (hexMosaic1 "limegreen")
+  , (,) "arrowsMosaic"  (arrowsMosaic "orange")
   ]
 
 
@@ -291,5 +292,65 @@ hexMosaic1 strkColor =
       lr         0                 (2/3 * k                  )
       lr  (      k * cos30)        (      k * sin30)
 
+
+--------------------------------------------------------------------------------
+
+
+arrowsMosaic :: String -> Svg
+arrowsMosaic strkColor =
+    S.svg
+      ! A.viewbox (S.toValue $ "0 0 1 " ++ show (2*h))
+      ! A.width  "300px"
+      ! A.height (S.toValue $ show (300 * sqrt 3) ++ "px")
+      $ do
+        defs $ 
+          basePath ! A.id_ "HaskellSvgIcons-arrowTile"
+        arrowTile
+        arrowTile ! A.transform (translate  1       0   )
+        arrowTile ! A.transform (translate  (-0.5)  h   )
+        arrowTile ! A.transform (translate  0.5     h   )
+        arrowTile ! A.transform (translate  (-0.5)  (-h))
+        arrowTile ! A.transform (                           mirror)
+        arrowTile ! A.transform (translate  (-1)    0    <> mirror)
+        arrowTile ! A.transform (translate  (-0.5)  (-h) <> mirror)
+        arrowTile ! A.transform (translate  0.5     (-h) <> mirror)
+        arrowTile ! A.transform (translate  0.5     h    <> mirror)
+  where
+    h = sin60
+    sin60  = 0.5 * sqrt 3
+    cos60  = 0.5
+    tan60  = sin60 / cos60
+    tan60' = cos60 / sin60
+    w = 0.02
+    k = (1/6) * (cos60 / sin60)
+    (ax,ay) = (tan60' * k       , h - k       )
+    (bx,by) = (0.5 + 2*k*tan60' , h - k       )
+    (cx,cy) = (0.5              , h - 3*k     )
+    (dx,dy) = (0.5 - 2*k/sin60  , h - 3*k     )
+    (ex,ey) = (0.5 +   k*tan60' , k           )
+    (fx,fy) = (0.5 + 2*k*tan60' , h - 5*k     )
+    (gx,gy) = (1   - 2*k*tan60' , h           )
+    arrowTile =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-arrowTile"
+    mirror = S.matrix 1 0 0 (-1) 0 (2*h)
+    basePath = 
+      S.path 
+        ! d baseDirections
+        ! fill "none"
+        ! (strokeWidth .: 2*w)
+        ! stroke (S.toValue strkColor)
+        ! strokeLinecap  "round"
+        ! strokeLinejoin "round"
+    baseDirections = mkPath $ do
+      m   cx  cy
+      l   bx  by
+      l   ax  ay
+      m   cx  cy
+      l   dx  dy
+      l   ex  ey
+      m   cx  cy
+      l   fx  fy
+      l   gx  gy
+  
 
 --------------------------------------------------------------------------------
