@@ -15,14 +15,15 @@ import Base
 
 mosaicSample :: [ (String , S.Svg) ]
 mosaicSample =
-  [ (,) "nazariMosaic"  (nazariMosaic "orange" "purple")
-  , (,) "lemonsMosaic"  (lemonsMosaic "gold")
-  , (,) "arabicMosaic"  (arabicMosaic "blue" "brown")
-  , (,) "peopleMosaic"  (peopleMosaic "silver" "white")
-  , (,) "hexMosaic"     (hexMosaic    "limegreen")
-  , (,) "arrowsMosaic"  (arrowsMosaic "orange")
-  , (,) "wiresMosaic"   (wiresMosaic  "deepskyblue")
-  , (,) "curvesMosaic"  (curvesMosaic)
+  [ (,) "nazariMosaic"   (nazariMosaic "orange" "purple")
+  , (,) "lemonsMosaic"   (lemonsMosaic "gold")
+  , (,) "arabicMosaic"   (arabicMosaic "blue" "brown")
+  , (,) "peopleMosaic"   (peopleMosaic "silver" "white")
+  , (,) "hexMosaic"      (hexMosaic    "limegreen")
+  , (,) "arrowsMosaic"   (arrowsMosaic "orange")
+  , (,) "wiresMosaic"    (wiresMosaic  "gray")
+  , (,) "curvesMosaic"   (curvesMosaic)
+  , (,) "airplaneMosaic" (airplaneMosaic "deepskyblue")
   ]
 
 
@@ -156,7 +157,7 @@ arabicMosaic c1 c2 =
       ! A.height "300px"
       $ do
         defs $
-          corner ! A.id_ "HaskellSvgIcons-arabicTile1"
+          corner ! A.id_ "HaskellSvgIcons-arabicTile"
         S.g $ do
           use ! xlinkHref iD
           use ! xlinkHref iD ! A.transform                       (rotateAround 180 0   0  )
@@ -165,7 +166,7 @@ arabicMosaic c1 c2 =
   where
     color1 = S.toValue c1
     color2 = S.toValue c2
-    iD = "#HaskellSvgIcons-arabicTile1"
+    iD = "#HaskellSvgIcons-arabicTile"
     s = 0.05
     k1 = 0.16
     k2 = (1/3) * (0.5 - k1 + s)
@@ -257,7 +258,7 @@ hexMosaic strkColor =
     k = 1  -- side of base hex
     cos30 = 0.5 * sqrt 3
     sin30 = 0.5
-    baseHex = S.use ! A.xlinkHref "#HaskellSvgIcons-hexTile1"
+    baseHex = S.use ! A.xlinkHref "#HaskellSvgIcons-hexTile"
     baseTile = 
       S.g $ do
         baseHex
@@ -265,7 +266,7 @@ hexMosaic strkColor =
         baseHex ! A.transform (rotateAround 240 0 0)
     baseHexDef =
       S.path 
-        ! A.id_ "HaskellSvgIcons-hexTile1"
+        ! A.id_ "HaskellSvgIcons-hexTile"
         ! A.fill "none"
         ! A.stroke (S.toValue strkColor)
         ! A.strokeWidth "0.05"
@@ -701,4 +702,44 @@ curvesMosaic =
       l   0.75  0.15
 
 
+--------------------------------------------------------------------------------
+
+
+airplaneMosaic :: String -> Svg
+airplaneMosaic fillColor =
+  S.svg
+      ! A.viewbox "0 0 2 2"
+      ! A.height "300px"
+      ! A.width  "300px"
+      $ do
+        defs $
+          basicPlane ! A.id_ "HaskellSvgIcons-planeTile"
+        plane ! A.transform (translate 1 (-0.5))
+        plane ! A.transform (translate 0   0.5 )
+        plane ! A.transform (translate 1   1.5 )
+        plane ! A.transform (translate 0 (-0.5) <> S.matrix 1 0 0 (-1) 0 1)
+        plane ! A.transform (translate 1   0.5  <> S.matrix 1 0 0 (-1) 0 1)
+        plane ! A.transform (translate 0   1.5  <> S.matrix 1 0 0 (-1) 0 1)
+  where
+    r1 = 0.5 * sqrt 2
+    y1 = 1.5 - 0.5 * sqrt 2
+    plane =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-planeTile"
+    basicPlane =
+      S.path
+        ! A.stroke "none"
+        ! A.fill (S.toValue fillColor)
+        ! A.d basicPlaneDirs
+    basicPlaneDirs = mkPath $ do
+      m   0         0.5
+      l   (1 - r1)  0.5
+      aa  r1  r1  0  False True  0.5  0
+      aa  r1  r1  0  False True  r1   0.5
+      l   1   0.5
+      l   1   y1
+      aa  r1  r1  0  False  False  0.5  1
+      aa  r1  r1  0  False  False  0    y1
+      S.z
+
+  
 --------------------------------------------------------------------------------
