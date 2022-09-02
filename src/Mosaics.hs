@@ -17,7 +17,7 @@ mosaicSample :: [ (String , S.Svg) ]
 mosaicSample =
   [ (,) "nazariMosaic"  (nazariMosaic "orange" "purple")
   , (,) "lemonsMosaic"  (lemonsMosaic "gold")
-  , (,) "squaresMosaic" (squaresMosaic "blue" "brown")
+  , (,) "arabicMosaic1" (arabicMosaic1 "blue" "brown")
   , (,) "peopleMosaic"  (peopleMosaic "silver" "white")
   , (,) "hexMosaic1"    (hexMosaic1 "limegreen")
   , (,) "arrowsMosaic"  (arrowsMosaic "orange")
@@ -107,7 +107,7 @@ lemonsMosaic fillColor =
       ! A.width (S.toValue $ show (0.85 * 300) ++ "px")
       $ do
         defs $
-          lemon ! A.id_ "HaskellSvgIcons-lemon"
+          lemon ! A.id_ "HaskellSvgIcons-lemonTile"
         use ! xlinkHref iD ! A.transform (                             rotateAround   29  0.5 0.5)
         use ! xlinkHref iD ! A.transform (translate      0   (-0.5) <> rotateAround   29  0.5 0.5)
         use ! xlinkHref iD ! A.transform (translate      0     0.5  <> rotateAround   29  0.5 0.5)
@@ -118,7 +118,7 @@ lemonsMosaic fillColor =
         use ! xlinkHref iD ! A.transform (translate (-0.43) (-0.25) <> rotateAround (-29) 0.5 0.5)
         use ! xlinkHref iD ! A.transform (translate (-0.43)   0.25  <> rotateAround (-29) 0.5 0.5)
   where
-    iD = "#HaskellSvgIcons-lemon"
+    iD = "#HaskellSvgIcons-lemonTile"
     r1 = 0.24
     r2 = r1
     k  = 0.2     -- k must be lower than r1
@@ -147,15 +147,15 @@ lemonsMosaic fillColor =
 --------------------------------------------------------------------------------
 
 
-squaresMosaic :: String -> String -> Svg
-squaresMosaic c1 c2 =
+arabicMosaic1 :: String -> String -> Svg
+arabicMosaic1 c1 c2 =
     svg
       ! A.viewbox "-1 -1 2 2"
       ! A.width  "300px"
       ! A.height "300px"
       $ do
         defs $
-          corner ! A.id_ "HaskellSvgIcons-squareCorner"
+          corner ! A.id_ "HaskellSvgIcons-arabicTile1"
         S.g $ do
           use ! xlinkHref iD
           use ! xlinkHref iD ! A.transform                       (rotateAround 180 0   0  )
@@ -164,7 +164,7 @@ squaresMosaic c1 c2 =
   where
     color1 = S.toValue c1
     color2 = S.toValue c2
-    iD = "#HaskellSvgIcons-squareCorner"
+    iD = "#HaskellSvgIcons-arabicTile1"
     s = 0.07
     k1 = 0.16
     k2 = (1/3) * (0.5 - k1 + s)
@@ -256,7 +256,7 @@ hexMosaic1 strkColor =
     k = 1  -- side of base hex
     cos30 = 0.5 * sqrt 3
     sin30 = 0.5
-    baseHex = S.use ! A.xlinkHref "#HaskellSvgIcons-hex1"
+    baseHex = S.use ! A.xlinkHref "#HaskellSvgIcons-hexTile1"
     baseTile = 
       S.g $ do
         baseHex
