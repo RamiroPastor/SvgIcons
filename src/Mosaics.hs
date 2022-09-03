@@ -17,7 +17,9 @@ import Geometry
 mosaicSample :: [ (String , S.Svg) ]
 mosaicSample =
   [ (,) "nazariMosaic"       (nazariMosaic "orange" "purple")
-  , (,) "triReligiousMosaic" (triReligiousMosaic "blue" "orange" "green") 
+  , (,) "triReligiousMosaic" (triReligiousMosaic "blue" "orange" "green")
+  , (,) "hexagonsMosaic"     (hexagonsMosaic "navy" "none")
+  , (,) "beehiveMosaic"       beehiveMosaic
   , (,) "lemonsMosaic"       (lemonsMosaic "gold")
   , (,) "arabicMosaic"       (arabicMosaic "blue" "brown")
   , (,) "peopleMosaic"       (peopleMosaic "silver" "white")
@@ -196,6 +198,97 @@ triReligiousMosaic fill1 fill2 fill3 =
         aa  apt  apt  0  False  True    (mid bx cx)  (mid by cy)
         aa  apt  apt  0  False  False   bx           by
         S.z
+
+
+-------------------------------------------------------------------------------
+
+hexagonsMosaic :: String -> String -> Svg
+hexagonsMosaic strkColor fillColor = do
+    S.svg
+      ! A.viewbox (S.toValue $ "0 0 1 " ++ show (3*rad))
+      ! A.width  "300px"
+      ! A.height (S.toValue $ (show $ 300 * sqrt 3) ++ "px")
+      $ do
+        S.path
+          ! A.strokeLinecap "round"
+          ! A.strokeWidth   "0.05"
+          ! A.stroke        (S.toValue strkColor)
+          ! A.fill          (S.toValue fillColor)
+          ! A.d             hexagonDirs
+  where
+    apt = 0.5                        -- apotema
+    rad = (2 / sqrt 3) * apt         -- radio
+    aux = sqrt $ rad ^ 2 - apt ^ 2   -- proyeccion en el eje vertical
+    hexagonDirs = mkPath $ do
+      m   0.5  (  3 * rad + 0.05)   -- plus epsilon
+      l   0.5  (2.5 * rad)
+      m   0.5   0
+      l   0.5  (0.5 * rad)
+      l   0    (0.5 * rad + aux)
+      l   0    (1.5 * rad + aux)
+      l   0.5  (2.5 * rad)
+      l   1    (1.5 * rad + aux)
+      l   1    (0.5 * rad + aux)
+      l   0.5  (0.5 * rad)
+
+
+-------------------------------------------------------------------------------
+
+
+beehiveMosaic :: Svg
+beehiveMosaic = do
+    S.svg
+      ! A.viewbox (S.toValue $ "0 0 1 " ++ show (3*rad))
+      ! A.width  "300px"
+      ! A.height (S.toValue $ (show $ 300 * sqrt 3) ++ "px")
+      $ do
+        defs honeyGradient
+        hexagon
+  where
+    apt = 0.5                        -- apotema
+    rad = (2 / sqrt 3) * apt         -- radio
+    aux = sqrt $ rad ^ 2 - apt ^ 2   -- proyeccion en el eje vertical
+    hexagon =
+      S.path
+        ! A.strokeLinecap "round"
+        ! A.strokeWidth   "0.05"
+        ! A.stroke        "rgb(255,255,155)"
+        ! A.fill          "url(#svg-honey-gradient)"
+        ! A.d             hexagonDirs
+    hexagonDirs =
+      mkPath $ do
+        m   0.5  (  3 * rad + 0.05)   -- plus epsilon
+        l   0.5  (2.5 * rad)
+        m   0.5  0
+        l   0.5  (0.5 * rad)
+        l   0    (0.5 * rad + aux)
+        l   0    (1.5 * rad + aux)
+        l   0.5  (2.5 * rad)
+        l   1    (1.5 * rad + aux)
+        l   1    (0.5 * rad + aux)
+        l   0.5  (0.5 * rad)
+    honeyGradient =
+      radialgradient
+        -- ! A.spreadmethod "reflect"
+        ! A.cx "30%"
+        ! A.cy "70%"
+        ! A.r  "50%"
+        ! A.fx "50%"
+        ! A.fy "60%"
+        ! A.id_ "svg-honey-gradient"
+        $ do
+          stop
+            ! A.offset "0%"
+            ! A.style  "stop-color: rgba(255,255,255,0.3)"
+          stop
+            ! A.offset "25%"
+            ! A.style  "stop-color: rgba(255,255,0,0.4)"
+          stop
+            ! A.offset "50%"
+            ! A.style  "stop-color: rgba(255,215,0,0.4)"
+          stop
+            ! A.offset "100%"
+            ! A.style  "stop-color: rgba(255,140,0,0.4)"
 
 
 -------------------------------------------------------------------------------
