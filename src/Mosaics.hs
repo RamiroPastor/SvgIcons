@@ -17,7 +17,7 @@ import Geometry
 mosaicSample :: [ (String , S.Svg) ]
 mosaicSample =
   [ (,) "nazariMosaic"       (nazariMosaic "orange" "purple")
-  , (,) "triReligiousMosaic" (triReligiousMosaic "orange" "green") 
+  , (,) "triReligiousMosaic" (triReligiousMosaic "blue" "orange" "green") 
   , (,) "lemonsMosaic"       (lemonsMosaic "gold")
   , (,) "arabicMosaic"       (arabicMosaic "blue" "brown")
   , (,) "peopleMosaic"       (peopleMosaic "silver" "white")
@@ -103,8 +103,8 @@ nazariMosaic colorUpper colorLower =
 --------------------------------------------------------------------------------
 
 
-triReligiousMosaic :: String -> String -> Svg
-triReligiousMosaic fill1 fill2 =
+triReligiousMosaic :: String -> String -> String -> Svg
+triReligiousMosaic fill1 fill2 fill3 =
     S.svg
       ! A.viewbox (S.toValue $ "0 0 1 " ++ show (2*h))
       ! A.width  "300px"
@@ -118,7 +118,7 @@ triReligiousMosaic fill1 fill2 =
             ! A.id_         "HaskellSvgIcons-triReligiousUpperBird"
           S.path
             ! A.strokeWidth "0"
-            ! A.fill        "transparent"
+            ! A.fill        (S.toValue fill1)
             ! A.d           lowerBird
             ! A.id_         "HaskellSvgIcons-triReligiousLowerBird"
           starPolygonFirstSpecies 6 0.17 (0.5 , h - apt)
@@ -140,9 +140,9 @@ triReligiousMosaic fill1 fill2 =
         hexagon ! A.fill "white"
         hexagon ! A.fill "white"           ! A.transform (translate  (-0.5)  (-h))
         hexagon ! A.fill "white"           ! A.transform (translate  0.5     (-h))
-        star    ! A.fill (S.toValue fill1)
-        star    ! A.fill (S.toValue fill2) ! A.transform (translate  (-0.5)  h   )
-        star    ! A.fill (S.toValue fill2) ! A.transform (translate  0.5     h   )
+        star    ! A.fill (S.toValue fill2)
+        star    ! A.fill (S.toValue fill3) ! A.transform (translate  (-0.5)  h   )
+        star    ! A.fill (S.toValue fill3) ! A.transform (translate  0.5     h   )
   where
     h   = (sqrt 3) / 2
     apt = h / 3
