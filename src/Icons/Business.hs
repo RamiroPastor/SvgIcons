@@ -17,6 +17,7 @@ svgBusiness =
   [ (,) "company"     company
   , (,) "connections" connections
   , (,) "analytics"   analytics
+  , (,) "bullseye"    bullseye
   ]
 
 
@@ -181,3 +182,54 @@ analytics =
       l  (px + w)  py
       l  (px + w)  ay
       S.z
+
+
+bullseye :: Svg
+bullseye = 
+    S.g $ do
+      S.path
+        ! A.strokeLinecap "round"
+        ! A.d circles
+      S.path
+        ! strokeLinecap "round"
+        ! fill "none"
+        ! A.d (mkPath $ stick >> feathers)
+  where
+    distanceToCenter x y = distance (x,y) (0,0)
+    (p1,k1) = (,) (-0.6 )  0.1
+    (p2,k2) = (,) (-0.44)  0.07
+    (p3,k3) = (,) (-0.28)  0.07
+    (p4,k4) = (,) (-0.12)  0.05
+    d1 = distanceToCenter (p1 + k1) (p1 - k1)
+    d2 = distanceToCenter (p2 + k2) (p2 - k2)
+    d3 = distanceToCenter (p3 + k3) (p3 - k3)
+    d4 = distanceToCenter (p4 + k4) (p4 - k4)
+    circles = mkPath $ do
+      m                         (p1 + k1) (p1 - k1)
+      aa  d1 d1  0  True  True  (p1 - k1) (p1 + k1)
+      m                         (p2 + k2) (p2 - k2)
+      aa  d2 d2  0  True  True  (p2 - k2) (p2 + k2)
+      m                         (p3 + k3) (p3 - k3)
+      aa  d3 d3  0  True  True  (p3 - k3) (p3 + k3)
+      m                         (p4 + k4) (p4 - k4)
+      aa  d4 d4  0  True  True  (p4 - k4) (p4 + k4)
+    fl = 0.2   -- feather length
+    q1 = -0.76
+    q2 = -0.68
+    q3 = -0.6
+    stick = do
+      m    q1      q1
+      l  (-0.01) (-0.01)
+    feathers = do
+      m   q1         q1
+      l   q1         (q1 - fl)
+      m   q1         q1
+      l   (q1 - fl)  q1
+      m   q2         q2
+      l   q2         (q2 - fl)
+      m   q2         q2
+      l   (q2 - fl)  q2
+      m   q3         q3
+      l   q3         (q3 - fl)
+      m   q3         q3
+      l   (q3 - fl)  q3
