@@ -16,6 +16,7 @@ svgBusiness :: [ (String , S.Svg) ]
 svgBusiness =
   [ (,) "company"     company
   , (,) "connections" connections
+  , (,) "analytics"   analytics
   ]
 
 
@@ -131,7 +132,6 @@ connections =
         ! (cx .: c1) 
         ! (cy .: c2) 
         ! (r .: radius)
-    --------------------------------------------------
     connect (p1,p2,radius1) (q1,q2,radius2) =
       let
         d = distance (p1,p2) (q1,q2)
@@ -150,3 +150,34 @@ connections =
       connect (x2,y2,r2) (x7,y7,r7)
       connect (x2,y2,r2) (x8,y8,r8)
       connect (x3,y3,r3) (x9,y9,r9)
+
+    
+analytics :: Svg
+analytics = 
+    S.g $ do
+      S.path
+        ! A.fill "none"
+        ! A.d axesPath
+      S.path ! A.d (bar x1 y1)
+      S.path ! A.d (bar x2 y2)
+      S.path ! A.d (bar x3 y3)
+  where
+    ax =  0.96
+    ay =  0.96
+    w  =  0.14
+    x1 = -0.5
+    x2 =  0
+    x3 =  0.5
+    y1 = -0.1
+    y2 = -0.4
+    y3 = -0.7
+    axesPath = mkPath $ do
+      m  (-ax)  (-ay)
+      l  (-ax)  ( ay)
+      l  ( ax)  ( ay)
+    bar px py = mkPath $ do
+      m  (px - w)  ay
+      l  (px - w)  py
+      l  (px + w)  py
+      l  (px + w)  ay
+      S.z
