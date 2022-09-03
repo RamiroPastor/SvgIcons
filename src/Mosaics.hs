@@ -10,20 +10,22 @@ import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
 import Base
+import Geometry
 
 
 
 mosaicSample :: [ (String , S.Svg) ]
 mosaicSample =
-  [ (,) "nazariMosaic"   (nazariMosaic "orange" "purple")
-  , (,) "lemonsMosaic"   (lemonsMosaic "gold")
-  , (,) "arabicMosaic"   (arabicMosaic "blue" "brown")
-  , (,) "peopleMosaic"   (peopleMosaic "silver" "white")
-  , (,) "hexMosaic"      (hexMosaic    "limegreen")
-  , (,) "arrowsMosaic"   (arrowsMosaic "orange")
-  , (,) "wiresMosaic"    (wiresMosaic  "gray")
-  , (,) "curvesMosaic"   (curvesMosaic)
-  , (,) "airplaneMosaic" (airplaneMosaic "deepskyblue")
+  [ (,) "nazariMosaic"       (nazariMosaic "orange" "purple")
+  , (,) "triReligiousMosaic" (triReligiousMosaic "orange" "green") 
+  , (,) "lemonsMosaic"       (lemonsMosaic "gold")
+  , (,) "arabicMosaic"       (arabicMosaic "blue" "brown")
+  , (,) "peopleMosaic"       (peopleMosaic "silver" "white")
+  , (,) "hexMosaic"          (hexMosaic    "limegreen")
+  , (,) "arrowsMosaic"       (arrowsMosaic "orange")
+  , (,) "wiresMosaic"        (wiresMosaic  "gray")
+  , (,) "curvesMosaic"        curvesMosaic
+  , (,) "airplaneMosaic"     (airplaneMosaic "deepskyblue")
   ]
 
 
@@ -99,6 +101,104 @@ nazariMosaic colorUpper colorLower =
 
 
 --------------------------------------------------------------------------------
+
+
+triReligiousMosaic :: String -> String -> Svg
+triReligiousMosaic fill1 fill2 =
+    S.svg
+      ! A.viewbox (S.toValue $ "0 0 1 " ++ show (2*h))
+      ! A.width  "300px"
+      ! A.height (S.toValue $ (show $ 300 * sqrt 3) ++ "px")
+      $ do
+        defs $ do
+          S.path
+            ! A.strokeWidth "0"
+            ! A.fill        "white"
+            ! A.d           upperBird
+            ! A.id_         "HaskellSvgIcons-triReligiousUpperBird"
+          S.path
+            ! A.strokeWidth "0"
+            ! A.fill        "transparent"
+            ! A.d           lowerBird
+            ! A.id_         "HaskellSvgIcons-triReligiousLowerBird"
+          starPolygonFirstSpecies 6 0.17 (0.5 , h - apt)
+            ! A.id_         "HaskellSvgIcons-triReligiousStar"
+          S.path 
+            ! A.strokeWidth "0"
+            ! A.d           hexagonDirs
+            ! A.id_         "HaskellSvgIcons-triReligiousHexagon"
+        topBird
+        topBird ! A.transform (translate  1       0   )
+        topBird ! A.transform (translate  (-0.5)  h   )
+        topBird ! A.transform (translate  0.5     h   )
+        topBird ! A.transform (translate  (-0.5)  (-h))
+        botBird
+        botBird ! A.transform (translate  (-1)    0   )
+        botBird ! A.transform (translate  (-0.5)  (-h))
+        botBird ! A.transform (translate  0.5     (-h))
+        botBird ! A.transform (translate  0.5     h   )
+        hexagon ! A.fill "white"
+        hexagon ! A.fill "white"           ! A.transform (translate  (-0.5)  (-h))
+        hexagon ! A.fill "white"           ! A.transform (translate  0.5     (-h))
+        star    ! A.fill (S.toValue fill1)
+        star    ! A.fill (S.toValue fill2) ! A.transform (translate  (-0.5)  h   )
+        star    ! A.fill (S.toValue fill2) ! A.transform (translate  0.5     h   )
+  where
+    h   = (sqrt 3) / 2
+    apt = h / 3
+    (ax,ay) = (0.5 , 0  )
+    (bx,by) = (1   , h  )
+    (cx,cy) = (0   , h  )
+    (dx,dy) = (0.5 , 2*h)
+    mid x y = (x + y) / 2
+    cos60 = 0.5
+    sin60 = 0.5 * sqrt 3
+    hexR  = 0.24
+    (h1x,h1y) = (0.5 + hexR       , apt + h             )
+    (h2x,h2y) = (0.5 + hexR*cos60 , apt + h - hexR*sin60)
+    (h3x,h3y) = (0.5 - hexR*cos60 , apt + h - hexR*sin60)
+    (h4x,h4y) = (0.5 - hexR       , apt + h             )
+    (h5x,h5y) = (0.5 - hexR*cos60 , apt + h + hexR*sin60)
+    (h6x,h6y) = (0.5 + hexR*cos60 , apt + h + hexR*sin60)
+    topBird =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousUpperBird"
+    botBird =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousLowerBird"
+    hexagon =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousHexagon"
+    star =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousStar"
+    hexagonDirs =
+      mkPath $ do
+        m  h1x  h1y
+        l  h2x  h2y 
+        l  h3x  h3y 
+        l  h4x  h4y 
+        l  h5x  h5y 
+        l  h6x  h6y 
+        S.z
+    upperBird =
+      mkPath $ do
+        m   ax   ay
+        aa  apt  apt  0  False  True    (mid ax bx)  (mid ay by)
+        aa  apt  apt  0  False  False   bx           by
+        aa  apt  apt  0  False  True    (mid bx cx)  (mid by cy)
+        aa  apt  apt  0  False  False   cx           cy
+        aa  apt  apt  0  False  True    (mid ax cx)  (mid ay cy)
+        aa  apt  apt  0  False  False   ax           ay
+    lowerBird =
+      mkPath $ do
+        m   bx   by
+        aa  apt  apt  0  False  True    (mid bx dx)  (mid by dy)
+        aa  apt  apt  0  False  False   dx           dy
+        aa  apt  apt  0  False  True    (mid cx dx)  (mid cy dy)
+        aa  apt  apt  0  False  False   cx           cy
+        aa  apt  apt  0  False  True    (mid bx cx)  (mid by cy)
+        aa  apt  apt  0  False  False   bx           by
+        S.z
+
+
+-------------------------------------------------------------------------------
 
 
 lemonsMosaic :: String -> Svg
