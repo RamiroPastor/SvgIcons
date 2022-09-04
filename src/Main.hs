@@ -2,9 +2,12 @@ module Main (main) where
 
 import Data.Default
 import System.Directory
+import           Text.Blaze.Svg11 ((!))
+import           Text.Blaze.Svg11 as S
 
 import Base
 import Core
+import Geometry
 import Icons.Business (svgBusiness)
 import Icons.Computer (svgComputer)
 import Icons.Cosmos   (svgCosmos)
@@ -32,6 +35,7 @@ renderAll svgFolder = do
   createDirectory                svgFolder
   renderIcons   (svgFolder ++ "/icons/")
   renderMosaics (svgFolder ++ "/mosaics/")
+  renderTest    (svgFolder ++ "/test/") (regularPolygon 8 0.9 (0,0))
   putStrLn "Svg files compiled correctly"
 
 
@@ -92,3 +96,18 @@ renderMosaics :: FilePath -> IO ()
 renderMosaics path = do
     createDirectory path
     renderSvgFiles path mosaicSample
+
+
+
+renderTest :: FilePath -> Svg -> IO ()
+renderTest path svgTest = do
+    createDirectory path
+    renderSvgFiles path test
+  where
+    test = 
+      [ (,) "test_fill" (coreSvg def $ applyStyle fillStyle svgFramed)
+      , (,) "test_full" (coreSvg def $ applyStyle fullStyle svgFramed)
+      , (,) "test_strk" (coreSvg def $ applyStyle strkStyle svgFramed)
+      ]
+    svgFramed = 
+      S.g $ svgTest >> frame (-1) (-1) 2 2

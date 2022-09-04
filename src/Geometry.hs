@@ -16,10 +16,10 @@ import Base
 
 
 starPolygonFirstSpecies :: 
-  Int -> Float -> (Float, Float) -> Svg
+  Int -> Float -> (Float , Float) -> Svg
 starPolygonFirstSpecies n r (c1,c2) =
     S.path
-      ! d directions
+      ! A.d directions
   where
     α  = 2 * pi / (fromIntegral n)
     vertice k' = 
@@ -43,3 +43,20 @@ starPolygonFirstSpecies n r (c1,c2) =
             m   (fst $ head verticesList)  (snd $ head verticesList)
             mapM_ (uncurry S.l) (tail $ fst $ evenOddSplit $ verticesList ++ verticesList)
             S.z
+
+
+regularPolygon :: 
+  Int -> Float -> (Float , Float) -> Svg
+regularPolygon n r (x0,y0) =
+    S.path
+      ! A.d directions
+  where
+    α  = 2 * pi / (fromIntegral n)
+    draw k =
+      l  (x0 + r * cos (k*α - pi/2))
+         (y0 + r * sin (k*α - pi/2))
+    directions =
+      mkPath $ do
+        m   x0   (y0 - r)
+        mapM_ (draw . fromIntegral) [1..n]
+        S.z
