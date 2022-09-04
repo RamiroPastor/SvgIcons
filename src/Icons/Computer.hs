@@ -14,14 +14,15 @@ import Base
 
 svgComputer :: [ (String , S.Svg) ]
 svgComputer =
-  [ (,) "plus"      plus
-  , (,) "cancel"    cancel
-  , (,) "accept"    accept
-  , (,) "warning"   warning
-  , (,) "minimize"  minimize
-  , (,) "maximize"  maximize
-  , (,) "menuDots"  menuDots
-  , (,) "menuLines" menuLines
+  [ (,) "plus"        plus
+  , (,) "cancel"      cancel
+  , (,) "accept"      accept
+  , (,) "warning"     warning
+  , (,) "minimize"    minimize
+  , (,) "maximize"    maximize
+  , (,) "menuDots"    menuDots
+  , (,) "menuLines"   menuLines
+  , (,) "powerButton" powerButton 
   ]
 
 
@@ -195,3 +196,35 @@ menuLines =
       l  ( kx)  (y + r)
       aa   r   r   0   True  False ( kx) (y - r)
       S.z
+
+
+powerButton :: S.Svg
+powerButton =
+  S.g $ do
+    S.path
+      ! d innerCircle
+      ! A.transform (translate 0 0.1)
+    S.path
+      ! d littleStickPath
+      ! A.transform (translate 0 (-0.42))
+  where
+    w  = 0.08
+    r1 = 0.7
+    r2 = r1 + 2*w
+    α  = pi / 8
+    y1 = 0.4
+    innerCircle =
+      mkPath $ do
+        m   (r1 * sin α)  (-r1 * cos α)
+        aa   w   w   0   True  True  ( r2 * sin α) (-r2 * cos α)
+        aa   r2  r2  0   True  True  (-r2 * sin α) (-r2 * cos α)
+        aa   w   w   0   True  True  (-r1 * sin α) (-r1 * cos α)
+        aa   r1  r1  0   True  False ( r1 * sin α) (-r1 * cos α)
+        S.z
+    littleStickPath =
+      mkPath $ do
+        m     w  (-y1)
+        aa    w    w   0   True  False (-w) (-y1)
+        l   (-w) ( y1)
+        aa    w    w   0   True  False ( w) ( y1)
+        S.z
