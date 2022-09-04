@@ -2,7 +2,7 @@
 
 
 
-module Icons.File where
+module Icons.Computer where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -12,8 +12,8 @@ import Base
 
 
 
-svgFile :: [ (String , S.Svg) ]
-svgFile =
+svgComputer :: [ (String , S.Svg) ]
+svgComputer =
   [ (,) "plus"      plus
   , (,) "cancel"    cancel
   , (,) "accept"    accept

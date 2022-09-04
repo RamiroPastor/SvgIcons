@@ -6,8 +6,8 @@ import System.Directory
 import Base
 import Core
 import Icons.Business (svgBusiness)
+import Icons.Computer (svgComputer)
 import Icons.Cosmos   (svgCosmos)
-import Icons.File     (svgFile)
 import Icons.Human    (svgHuman)
 import Icons.Office   (svgOffice)
 import Icons.Religion (svgReligion)
@@ -41,8 +41,8 @@ renderIcons path =
   do
     createDirectory path
     createDirectory businessPath
+    createDirectory computerPath
     createDirectory cosmosPath
-    createDirectory filePath
     createDirectory humanPath
     createDirectory officePath
     createDirectory religionPath
@@ -51,12 +51,12 @@ renderIcons path =
     renderSvgFiles businessPath (map fillIcons svgBusiness)
     renderSvgFiles businessPath (map fullIcons svgBusiness)
     renderSvgFiles businessPath (map strkIcons svgBusiness)
+    renderSvgFiles computerPath (map fillIcons svgComputer)
+    renderSvgFiles computerPath (map fullIcons svgComputer)
+    renderSvgFiles computerPath (map strkIcons svgComputer)
     renderSvgFiles cosmosPath (map fillIcons svgCosmos)
     renderSvgFiles cosmosPath (map fullIcons svgCosmos)
     renderSvgFiles cosmosPath (map strkIcons svgCosmos)
-    renderSvgFiles filePath (map fillIcons svgFile)
-    renderSvgFiles filePath (map fullIcons svgFile)
-    renderSvgFiles filePath (map strkIcons svgFile)
     renderSvgFiles humanPath (map fillIcons svgHuman)
     renderSvgFiles humanPath (map fullIcons svgHuman)
     renderSvgFiles humanPath (map strkIcons svgHuman)
@@ -78,8 +78,8 @@ renderIcons path =
     strkIcons (a,b) = (a ++ "_strk" , coreSvg def $ applyStyle strkStyle b)
     -- test (a,b) = (a, coreSvg def $ b >> frame (-1) (-1) 2 2)
     businessPath = path ++ "business/"
+    computerPath = path ++ "computer/"
     cosmosPath   = path ++ "cosmos/"
-    filePath     = path ++ "file/"
     humanPath    = path ++ "human/"
     officePath   = path ++ "office/"
     religionPath = path ++ "religion/"
