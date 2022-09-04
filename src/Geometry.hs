@@ -53,8 +53,8 @@ regularPolygon n r (x0,y0) =
   where
     α  = 2 * pi / (fromIntegral n)
     draw k =
-      l  (x0 + r * cos (k*α - pi/2))
-         (y0 + r * sin (k*α - pi/2))
+      l  (x0 + r * sin (k*α))
+         (y0 - r * cos (k*α))
     directions =
       mkPath $ do
         m   x0   (y0 - r)
