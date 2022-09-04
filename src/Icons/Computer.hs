@@ -66,7 +66,6 @@ accept =
       ! A.strokeLinejoin "round"
       ! d dirs
       ! A.transform (translate (-0.3) 0.3 <> rotateAround 45 0 0)
-    frame (-1) (-1) 2 2
   where
     k1 = 0.1
     k2 = 0.5
