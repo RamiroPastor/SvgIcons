@@ -21,6 +21,7 @@ svgHuman =
   , (,) "carnet"      carnet
   , (,) "heartFat"    heartFat
   , (,) "heartSlim"   heartSlim
+  , (,) "talk"        talk
   ]
 
 
@@ -204,3 +205,28 @@ heartSlim =
       q   (-hqx) ( hqy) (-h3x) ( h3y)
       aa  rh  rh  0  False False (-h2x) h2y
       S.z
+
+
+talk :: Svg
+talk = 
+    S.g $ do
+      S.path
+        ! A.d bubble
+      abc
+  where
+    bubble = mkPath $ do
+      m   (-0.56) ( 0.62)
+      aa    0.94    0.78  0  True  True   0  (0.78)
+      l   (-0.60) ( 0.9)
+      S.z
+    abc =
+      S.text_ "ABC"
+        ! A.x          "0"
+        ! A.y          "0.18"
+        ! A.textAnchor "middle"
+        ! A.fontFamily "Verdana"
+        ! A.fontSize   "0.57"
+        ! A.fontWeight "bold"
+        ! A.letterSpacing "0.05"
+        ! A.strokeLinejoin "round"
+        ! A.strokeLinecap  "round"

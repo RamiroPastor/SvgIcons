@@ -59,5 +59,6 @@ svgToReact name svgCode =
       . (T.replace "font-family"       "fontFamily")
       . (T.replace "font-size"         "fontSize")
       . (T.replace "text-anchor"       "textAnchor")
+      . (T.replace "letter-spacing"    "letterSpacing")
       . (T.replace "dominant-baseline" "dominantBaseline")
       . (T.replace "stroke-miterlimit" "strokeMiterlimit")
