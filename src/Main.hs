@@ -36,7 +36,7 @@ renderAll svgFolder = do
   createDirectory                svgFolder
   renderIcons   (svgFolder ++ "/icons/")
   renderMosaics (svgFolder ++ "/mosaics/")
-  renderTest    (svgFolder ++ "/test/") (regularPolygon 5 0.5 (0.2,0.3))
+  renderTest    (svgFolder ++ "/test/") (starOutlineFirstSpecies 9 0.9 (0,0))
   putStrLn "Svg files compiled correctly"
 
 
