@@ -14,7 +14,8 @@ import Base
 
 svgMath :: [ (String , S.Svg) ]
 svgMath =
-  [ (,) "lambda" lambda
+  [ (,) "lambda"     lambda
+  , (,) "lemniscate" lemniscate
   ]
 
 
@@ -60,3 +61,21 @@ lambda =
       S.c n1 n2 o1 o2 p1 p2
       S.c r1 r2 s1 s2 t1 t2
       S.l d1 d2
+
+  
+lemniscate :: Svg
+lemniscate = 
+    S.g $ do
+      S.path
+        ! A.fill "none"
+        ! A.d dirs
+  where
+    k = 0.5
+    r = 0.4
+    dirs = mkPath $ do
+      m  (-k) (-r)
+      aa   r    r    0    True  False  (-k) ( r)
+      c    0    r    0    (-r)         ( k) (-r)
+      aa   r    r    0    True  True   ( k) ( r)
+      c    0    r    0    (-r)         (-k) (-r)
+      S.z
