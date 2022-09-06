@@ -12,6 +12,7 @@ import Icons.Business (svgBusiness)
 import Icons.Computer (svgComputer)
 import Icons.Cosmos   (svgCosmos)
 import Icons.Human    (svgHuman)
+import Icons.Math     (svgMath)
 import Icons.Office   (svgOffice)
 import Icons.Religion (svgReligion)
 import Icons.Textarea (svgTextarea)
@@ -48,6 +49,7 @@ renderIcons path =
     createDirectory computerPath
     createDirectory cosmosPath
     createDirectory humanPath
+    createDirectory mathPath
     createDirectory officePath
     createDirectory religionPath
     createDirectory textareaPath
@@ -64,6 +66,9 @@ renderIcons path =
     renderSvgFiles humanPath (map fillIcons svgHuman)
     renderSvgFiles humanPath (map fullIcons svgHuman)
     renderSvgFiles humanPath (map strkIcons svgHuman)
+    renderSvgFiles mathPath (map fillIcons svgMath)
+    renderSvgFiles mathPath (map fullIcons svgMath)
+    renderSvgFiles mathPath (map strkIcons svgMath)
     renderSvgFiles officePath (map fillIcons svgOffice)
     renderSvgFiles officePath (map fullIcons svgOffice)
     renderSvgFiles officePath (map strkIcons svgOffice)
@@ -85,6 +90,7 @@ renderIcons path =
     computerPath = path ++ "computer/"
     cosmosPath   = path ++ "cosmos/"
     humanPath    = path ++ "human/"
+    mathPath     = path ++ "math/"
     officePath   = path ++ "office/"
     religionPath = path ++ "religion/"
     textareaPath = path ++ "textarea/"
