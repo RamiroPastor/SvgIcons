@@ -22,7 +22,7 @@ svgReligion =
   , (,) "crossOrthodox"    crossOrthodox
   , (,) "crescentAndStar"  crescentAndStar
   , (,) "starOfDavid"      starOfDavid
-  , (,) "exampleHexagram" (iChingHexagram (1,0,0,1,0,0))
+  , (,) "exampleHexagram" (iChingHexagram (8,8,7,8,7,7))
   ]
 
 
