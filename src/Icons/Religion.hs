@@ -4,6 +4,7 @@
 
 module Icons.Religion where
 
+import           Data.String
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
@@ -21,6 +22,7 @@ svgReligion =
   , (,) "crossOrthodox"    crossOrthodox
   , (,) "crescentAndStar"  crescentAndStar
   , (,) "starOfDavid"      starOfDavid
+  , (,) "exampleHexagram" (iChingHexagram (1,0,0,1,0,0))
   ]
 
 
@@ -244,3 +246,50 @@ crescentAndStar =
 starOfDavid :: Svg
 starOfDavid =
   starPolygonFirstSpecies 6 0.9 (0,0)
+
+
+-- If all six numbers belong to {0,1} it draws only the hexagram lines
+-- Otherwise, the numbers are printed right to their line
+iChingHexagram :: (Int,Int,Int,Int,Int,Int) -> Svg
+iChingHexagram (n1,n2,n3,n4,n5,n6) =
+    S.g $ do
+      S.path
+        ! A.d lines
+      if doNotPrintNumbers
+        then mempty
+        else numbers
+  where
+    doNotPrintNumbers =
+      (\k -> k == 0 || k == 1) `all` [n1,n2,n3,n4,n5,n6]
+    x1 = 0.7
+    x2 = 0.1
+    ky = 2 / 14
+    line k y =
+      if (odd k)
+        then   m (-x1) y >> l x1 y
+        else   m (-x1) y >> l (-x2) y >> m x2 y >> l x1 y
+    lines = mkPath $ do
+      line n6 (-5*ky)
+      line n5 (-3*ky)
+      line n4 (-1*ky)
+      line n3 ( 1*ky)
+      line n2 ( 3*ky)
+      line n1 ( 5*ky)
+    number k y =
+      S.text_ (fromString $ show k)
+        ! (A.x .: 0.85)
+        ! (A.y .: y)
+        ! A.dominantBaseline "central"
+        ! A.textAnchor  "middle"
+        ! A.fontFamily  "Times New Roman, serif"
+        -- ! A.fontWeight  "bold"
+        ! A.fontSize    "0.2"
+        ! A.strokeWidth "0"
+    numbers = 
+      S.g $ do
+        number n6 (-5*ky)
+        number n5 (-3*ky)
+        number n4 (-1*ky)
+        number n3 ( 1*ky)
+        number n2 ( 3*ky)
+        number n1 ( 5*ky)
