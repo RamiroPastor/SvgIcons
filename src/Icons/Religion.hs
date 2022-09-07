@@ -282,7 +282,6 @@ iChingHexagram (n1,n2,n3,n4,n5,n6) =
         ! A.dominantBaseline "central"
         ! A.textAnchor  "middle"
         ! A.fontFamily  "Times New Roman, serif"
-        -- ! A.fontWeight  "bold"
         ! A.fontSize    "0.2"
         ! A.strokeWidth "0"
     numbers = 
