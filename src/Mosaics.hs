@@ -125,6 +125,7 @@ triReligiousMosaic fill1 fill2 fill3 =
             ! A.id_         "HaskellSvgIcons-triReligiousLowerBird"
           starPolygonFirstSpecies 6 0.17 (0.5 , h - apt)
             ! A.id_         "HaskellSvgIcons-triReligiousStar"
+            ! A.transform   (rotateAround 30 0.5 (h - apt))
           S.path 
             ! A.strokeWidth "0"
             ! A.d           hexagonDirs
@@ -146,6 +147,14 @@ triReligiousMosaic fill1 fill2 fill3 =
         star    ! A.fill (S.toValue fill3) ! A.transform (translate  (-0.5)  h   )
         star    ! A.fill (S.toValue fill3) ! A.transform (translate  0.5     h   )
   where
+    topBird =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousUpperBird"
+    botBird =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousLowerBird"
+    hexagon =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousHexagon"
+    star =
+      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousStar"
     h   = (sqrt 3) / 2
     apt = h / 3
     (ax,ay) = (0.5 , 0  )
@@ -162,14 +171,6 @@ triReligiousMosaic fill1 fill2 fill3 =
     (h4x,h4y) = (0.5 - hexR       , apt + h             )
     (h5x,h5y) = (0.5 - hexR*cos60 , apt + h + hexR*sin60)
     (h6x,h6y) = (0.5 + hexR*cos60 , apt + h + hexR*sin60)
-    topBird =
-      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousUpperBird"
-    botBird =
-      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousLowerBird"
-    hexagon =
-      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousHexagon"
-    star =
-      S.use ! A.xlinkHref "#HaskellSvgIcons-triReligiousStar"
     hexagonDirs =
       mkPath $ do
         m  h1x  h1y

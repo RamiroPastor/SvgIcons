@@ -42,8 +42,8 @@ starPolygonFirstSpecies n r (c1,c2) =
     vertice k' = 
       let k = fromIntegral k'
       in 
-        (,) (c1 + r * cos (k*α))
-            (c2 + r * sin (k*α))
+        (,) (c1 + r * sin (k*α))
+            (c2 - r * cos (k*α))
     verticesList = map vertice [0 .. (n-1)]
     directions =
       if even n 

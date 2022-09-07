@@ -243,8 +243,4 @@ crescentAndStar =
   
 starOfDavid :: Svg
 starOfDavid =
-  S.g 
-    ! A.transform (rotateAround 30 0 0)
-    $ do
-      starPolygonFirstSpecies 6 0.9 (0,0)
-      -- starPolygonFirstSpecies 6 0.7 (0,0)
+  starPolygonFirstSpecies 6 0.9 (0,0)
