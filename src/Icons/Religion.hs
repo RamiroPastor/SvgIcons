@@ -15,11 +15,12 @@ import Geometry
 
 svgReligion :: [ (String , S.Svg) ]
 svgReligion =
-  [ (,) "xp"             xp
-  , (,) "taijitu"       (taijitu "black" "white")
-  , (,) "crossLatin"     crossLatin
-  , (,) "crossOrthodox"  crossOrthodox
-  , (,) "starOfDavid"    starOfDavid
+  [ (,) "xp"               xp
+  , (,) "taijitu"         (taijitu "black" "white")
+  , (,) "crossLatin"       crossLatin
+  , (,) "crossOrthodox"    crossOrthodox
+  , (,) "crescentAndStar"  crescentAndStar
+  , (,) "starOfDavid"      starOfDavid
   ]
 
 
@@ -218,6 +219,25 @@ crossOrthodox =
       l  (x2 - w)  (y4 + w - (x4 + w) * ct)
       l  (x2 - w)  (y4 - w - (x4 + w) * ct)
       l  (x3 - w)  (y4 - w - w  * ct)
+      S.z
+
+
+crescentAndStar :: Svg
+crescentAndStar =
+    S.g $ do
+      S.path
+        ! A.strokeLinejoin "round"
+        ! A.d moonDirs
+      starRegular 5 0.3 (0.56, 0.05)
+  where
+    kx = 0.55
+    ky = 0.55
+    r1 = 0.8
+    r2 = 0.65
+    moonDirs = mkPath $ do
+      m   ( kx) (-ky)
+      aa    r1    r1   0  True  False ( kx) ( ky)
+      aa    r2    r2   0  True  True  ( kx) (-ky)
       S.z
 
   

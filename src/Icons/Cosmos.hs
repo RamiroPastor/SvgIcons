@@ -14,8 +14,9 @@ import Base
 
 svgCosmos :: [ (String , S.Svg) ]
 svgCosmos =
-  [ (,) "sun"  (sun 14)
-  , (,) "moon"  moon
+  [ (,) "sun"      (sun 14)
+  , (,) "moon"      moon
+  , (,) "crescent"  crescent
   ]
 
 
@@ -48,8 +49,6 @@ sun n =
       l   (r  * cos β)  (r  * sin β)
 
 
-
-
 moon :: Svg
 moon =
     S.path
@@ -60,6 +59,23 @@ moon =
     ky = 0.7
     r1 = 0.92
     r2 = 0.71
+    moonDirs = mkPath $ do
+      m   ( kx) (-ky)
+      aa    r1    r1   0  True  False ( kx) ( ky)
+      aa    r2    r2   0  True  True  ( kx) (-ky)
+      S.z
+
+  
+crescent :: Svg
+crescent =
+    S.path
+      ! A.strokeLinejoin "round"
+      ! A.d moonDirs
+  where
+    kx = 0.55
+    ky = 0.55
+    r1 = 0.8
+    r2 = 0.65
     moonDirs = mkPath $ do
       m   ( kx) (-ky)
       aa    r1    r1   0  True  False ( kx) ( ky)
