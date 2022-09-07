@@ -228,7 +228,7 @@ crescentAndStar =
       S.path
         ! A.strokeLinejoin "round"
         ! A.d moonDirs
-      starRegular 5 0.3 (0.56, 0.05)
+      starRegular 5 0.3 (0.55, 0.05)
   where
     kx = 0.55
     ky = 0.55
