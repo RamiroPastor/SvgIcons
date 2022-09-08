@@ -65,10 +65,8 @@ lambda =
   
 lemniscate :: Svg
 lemniscate = 
-    S.g $ do
-      S.path
-        ! A.fill "none"
-        ! A.d dirs
+    S.path
+      ! A.d dirs
   where
     k = 0.5
     r = 0.4
