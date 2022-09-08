@@ -17,6 +17,7 @@ import Icons.Office   (svgOffice)
 import Icons.Religion (svgReligion)
 import Icons.Textarea (svgTextarea)
 import Icons.Tools    (svgTools)
+import Images.Flags   (flags)
 import Images.Mosaics (mosaicSample)
 
 
@@ -35,7 +36,9 @@ renderAll svgFolder = do
   removeDirectoryRecursive       svgFolder
   createDirectory                svgFolder
   renderIcons   (svgFolder ++ "/icons/")
-  renderMosaics (svgFolder ++ "/mosaics/")
+  createDirectory (svgFolder ++ "/images")
+  renderFlags   (svgFolder ++ "/images/flags/")
+  renderMosaics (svgFolder ++ "/images/mosaics/")
   renderTest    (svgFolder ++ "/test/") (starRegular 7 0.9 (0,0))
   putStrLn "Svg files compiled correctly"
 
@@ -98,10 +101,17 @@ renderIcons path =
     
 
 
+renderFlags :: FilePath -> IO ()
+renderFlags path = do
+  createDirectory path
+  renderSvgFiles path flags
+
+
+
 renderMosaics :: FilePath -> IO ()
 renderMosaics path = do
-    createDirectory path
-    renderSvgFiles path mosaicSample
+  createDirectory path
+  renderSvgFiles path mosaicSample
 
 
 
