@@ -2,13 +2,13 @@
 
 
 
-module Geometry where
+module Core.Geometry where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Base
+import Core.Utils
 
 
 

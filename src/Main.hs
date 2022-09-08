@@ -1,13 +1,13 @@
-module Main (main) where
+module Main where
 
-import Data.Default
-import System.Directory
+import           System.Directory
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 
-import Base
-import Core
-import Geometry
+import Core.Geometry
+import Core.Render
+import Core.Style
+import Core.Utils
 import Icons.Business (svgBusiness)
 import Icons.Computer (svgComputer)
 import Icons.Cosmos   (svgCosmos)
@@ -17,8 +17,8 @@ import Icons.Office   (svgOffice)
 import Icons.Religion (svgReligion)
 import Icons.Textarea (svgTextarea)
 import Icons.Tools    (svgTools)
-import Mosaics (mosaicSample)
-import Render
+import Images.Mosaics (mosaicSample)
+
 
 
 
@@ -82,9 +82,9 @@ renderIcons path =
     renderSvgFiles toolsPath (map fullIcons svgTools)
     renderSvgFiles toolsPath (map strkIcons svgTools)
   where
-    fillIcons (a,b) = (a ++ "_fill" , coreSvg def $ applyStyle fillStyle b)
-    fullIcons (a,b) = (a ++ "_full" , coreSvg def $ applyStyle fullStyle b)
-    strkIcons (a,b) = (a ++ "_strk" , coreSvg def $ applyStyle strkStyle b)
+    fillIcons (a,b) = (a ++ "_fill" , stdDims $ fillStyle b)
+    fullIcons (a,b) = (a ++ "_full" , stdDims $ fullStyle b)
+    strkIcons (a,b) = (a ++ "_strk" , stdDims $ strkStyle b)
     -- test (a,b) = (a, coreSvg def $ b >> frame (-1) (-1) 2 2)
     businessPath = path ++ "business/"
     computerPath = path ++ "computer/"
@@ -111,9 +111,9 @@ renderTest path svgTest = do
     renderSvgFiles path test
   where
     test = 
-      [ (,) "test_fill" (coreSvg def $ applyStyle fillStyle svgFramed)
-      , (,) "test_full" (coreSvg def $ applyStyle fullStyle svgFramed)
-      , (,) "test_strk" (coreSvg def $ applyStyle strkStyle svgFramed)
+      [ (,) "test_fill" (stdDims $ fillStyle svgFramed)
+      , (,) "test_full" (stdDims $ fullStyle svgFramed)
+      , (,) "test_strk" (stdDims $ strkStyle svgFramed)
       ]
     svgFramed = 
       S.g $ svgTest >> frame (-1) (-1) 2 2

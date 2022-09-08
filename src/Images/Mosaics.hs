@@ -2,15 +2,15 @@
 
 
 
-module Mosaics where
+module Images.Mosaics where
 
 import           Data.List (intersperse)
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Base
-import Geometry
+import Core.Geometry
+import Core.Utils
 
 
 

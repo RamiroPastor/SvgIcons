@@ -1,7 +1,7 @@
 {-# LANGUAGE     OverloadedStrings       #-}
 
 
-module Render where
+module Core.Render where
 
 import           GHC.IO.Encoding
 import qualified Data.Text as T
@@ -10,7 +10,7 @@ import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 import           Text.Blaze.Svg.Renderer.Pretty
 
-import Base
+import Core.Utils
 
 
 

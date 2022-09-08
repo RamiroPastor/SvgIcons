@@ -1,7 +1,7 @@
 {-# LANGUAGE     OverloadedStrings       #-}
 
 
-module Base where
+module Core.Utils where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
