@@ -18,7 +18,11 @@ flags :: [ (String , S.Svg) ]
 flags =
   [ (,) "ad" ad
   , (,) "af" af
+  , (,) "at" at
   , (,) "be" be
+  , (,) "by" blr
+  , (,) "ch" ch
+  , (,) "cz" cz
   , (,) "de" de
   , (,) "dk" dk
   , (,) "ee" ee
@@ -35,6 +39,7 @@ flags =
   , (,) "mt" mt
   , (,) "nl" nl
   , (,) "no" no
+  , (,) "pl" pl
   , (,) "pt" pt
   , (,) "ru" ru
   , (,) "se" se
@@ -120,6 +125,7 @@ flagH3Eq (w,h) c1 c2 c3 =
 
 --------------------------------------------------------------------------------
 
+-- flag of Andorra
 ad :: Svg
 ad = 
     S.svg
@@ -157,6 +163,7 @@ ad =
         ! A.fill "#D50032"
 
 
+-- flag of Afghanistan
 af :: Svg
 af =
   flagV3Eq
@@ -166,6 +173,17 @@ af =
     "rgb(0,122,54)"
 
 
+-- flag of Austria
+at :: Svg
+at = 
+  flagH3Eq
+    (3,2)
+    "#C8102E"
+    "#FFFFFF"
+    "#C8102E"
+
+
+-- flag of Belgium
 be :: Svg
 be =
   flagV3Eq
@@ -175,6 +193,188 @@ be =
     "#FF0F21"
 
 
+-- flag of Belarus
+blr :: Svg
+blr = 
+    S.svg
+      ! A.viewbox "0 0 90 45"
+      ! A.width  "400px"
+      ! A.height "200px"
+      $ S.g $ do
+        topStripe
+        botStripe
+        whiteStripe
+        ruchnik
+  where
+    topStripe =
+      S.rect
+        ! (A.x .: 10)
+        ! (A.y .:  0)
+        ! (A.width  .: 80)
+        ! (A.height .: 30)
+        ! A.stroke "none"
+        ! A.fill "#CF101A"
+    botStripe =
+      S.rect
+        ! (A.x .: 10)
+        ! (A.y .: 30)
+        ! (A.width  .: 80)
+        ! (A.height .: 15)
+        ! A.stroke "none"
+        ! A.fill "#007D2C"
+    whiteStripe =
+      S.rect
+        ! (A.x .: 1)
+        ! (A.y .: 0)
+        ! (A.width  .:  9)
+        ! (A.height .: 45)
+        ! A.stroke "none"
+        ! A.fill "#FFFFFF"
+    ruchnikMatrix =
+      [ [0,0,0,0,1,1,1,0,0,0,0,1]
+      , [1,0,0,1,1,1,1,1,0,0,0,1]
+      , [0,0,1,1,1,0,1,1,1,0,0,0]
+      , [0,1,1,1,0,0,0,1,1,1,0,0]
+      , [1,1,1,0,0,1,0,0,1,1,1,0] -- center 1
+      , [0,1,1,1,0,0,0,1,1,1,0,0]
+      , [0,0,1,1,1,0,1,1,1,0,0,0]
+      , [1,0,0,1,1,1,1,1,0,0,0,1]
+      , [0,0,0,0,1,1,1,0,0,0,0,1]
+      , [0,0,1,0,0,1,0,0,1,0,0,0]
+      , [0,1,1,1,0,0,0,1,1,1,0,0]
+      , [1,1,0,1,1,0,1,1,0,1,1,0] -- center 2
+      , [0,1,1,1,0,0,0,1,1,1,0,0]
+      , [0,0,1,0,0,1,0,0,1,0,0,0]
+      , [0,0,0,0,1,1,1,0,0,0,0,1]
+      , [1,0,0,1,1,1,1,1,0,0,0,1]
+      , [0,0,1,1,1,1,1,1,1,0,0,0]
+      , [0,1,1,1,1,1,1,1,1,1,0,0]
+      , [1,1,1,1,1,1,1,1,1,1,1,0]
+      , [1,1,1,1,0,0,0,1,1,1,1,1] -- center 3
+      , [0,1,1,1,1,1,0,0,1,1,1,1]
+      , [0,0,1,1,1,0,0,0,0,1,1,1]
+      , [1,0,0,1,0,0,0,0,1,1,1,1]
+      , [0,0,0,0,0,0,0,1,1,1,1,0]
+      , [1,0,0,0,0,0,1,1,1,1,0,0]
+      , [1,1,0,0,0,1,1,1,1,0,0,1]
+      , [1,1,1,0,1,1,1,1,0,0,0,0]
+      , [0,1,1,1,1,1,1,0,0,1,0,0]
+      , [0,0,1,1,1,1,0,0,0,1,1,0]
+      , [0,0,0,1,1,1,0,0,0,0,1,1]
+      , [0,0,0,0,1,1,0,1,0,0,0,1]
+      ]
+    w = 10 / 23
+    h = 45 / 61
+    ruchnik =
+      S.path
+        ! A.fill "none"
+        ! A.stroke "#CF101A"
+        ! (A.strokeWidth .: w)
+        ! A.d ruchnikDirs
+    ruchnikDirs = mkPath $ do
+      mapM_ 
+        (\n -> drawLine (fromIntegral n) $ ruchnikMatrix !! n) 
+        [0 .. 30]
+      mapM_ 
+        (\n -> drawLine (fromIntegral n) $ ruchnikMatrix !! (60 - n)) 
+        [31 .. 60]
+    drawLine n binL = do
+      mapM_ 
+        (\k ->
+          if 0 == binL !! (fromEnum k)
+            then return ()
+            else m  ( 0 + (fromIntegral k)*w + w/2)  (n*h)  >>  vr h
+        ) [0 .. 10]
+      if 0 == binL !! 11 
+        then return ()
+        else m 5 (n*h) >> vr h
+      mapM_ 
+        (\k ->
+          if 0 == binL !! k
+            then return ()
+            else m  (10 - (fromIntegral k)*w - w/2)  (n*h)  >>  vr h
+        ) [0 .. 10]
+
+
+-- flag of Switzerland
+ch :: S.Svg
+ch =
+    S.svg
+      ! A.viewbox "0 0 32 32"
+      ! A.width  "200px"
+      ! A.height "200px"
+      $ S.g $ do
+        background
+        cross
+  where
+    background =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 32)
+        ! (A.height .: 32)
+        ! A.stroke "none"
+        ! A.fill "#FF0000"
+    cross =
+      S.path
+        ! A.fill "none"
+        ! A.stroke "#FFFFFF"
+        ! A.strokeWidth "6"
+        ! A.d crossDirs
+    crossDirs = mkPath $ do
+      m  16  6
+      l  16 26
+      m   6 16
+      l  26 16
+
+
+-- flag of Czech Republic
+cz :: S.Svg
+cz =
+    S.svg
+      ! A.viewbox "0 0 6 4"
+      ! A.width  "300px"
+      ! A.height "200px"
+      $ S.g $ do
+        topStripe
+        leftTriangle
+        botStripe
+  where
+    topStripe =
+      S.path 
+        ! A.strokeWidth "0"
+        ! A.fill "#FFFFFF"
+        ! A.d topDirs
+    topDirs = mkPath $ do
+      m  0 0
+      l  6 0
+      l  6 2
+      l  3 2
+      S.z
+    leftTriangle =
+      S.path
+        ! A.strokeWidth "0"
+        ! A.fill "#11457E"
+        ! A.d triangleDirs
+    triangleDirs = mkPath $ do
+      m  0 0
+      l  3 2
+      l  0 4
+      S.z
+    botStripe =
+      S.path
+        ! A.strokeWidth "0"
+        ! A.fill "#D7141A"
+        ! A.d botDirs
+    botDirs = mkPath $ do
+      m  0 4
+      l  6 4
+      l  6 2
+      l  3 2
+      S.z
+
+
+-- flag of Germany
 de :: Svg
 de =
   flagH3Eq
@@ -184,6 +384,7 @@ de =
     "rgb(255,204,0)"
 
 
+-- flag of Denmark
 dk :: Svg
 dk =
     S.svg
@@ -215,6 +416,7 @@ dk =
       l  37 14
 
 
+-- flag of Estonia
 ee :: Svg
 ee =
   flagH3Eq
@@ -224,6 +426,7 @@ ee =
     "#FFFFFF"
 
 
+-- flag of Spain
 es :: Svg
 es =
     S.svg
@@ -263,6 +466,7 @@ es =
         ! A.fill colRed
 
 
+-- flag of Finland
 fi :: S.Svg
 fi =
     S.svg
@@ -294,7 +498,7 @@ fi =
       l  36 11
 
 
-
+-- flag of France
 fr :: S.Svg
 fr =
   flagV3Eq
@@ -304,6 +508,7 @@ fr =
     "rgb(239,65,53)"
 
 
+-- flag of Ireland
 ie :: S.Svg
 ie =
   flagV3Eq
@@ -313,6 +518,7 @@ ie =
     "rgb(255,136,62)"
 
 
+-- flag of Iceland
 is :: S.Svg
 is = 
     S.svg 
@@ -351,6 +557,7 @@ is =
       l   9  18
 
 
+-- flag of Italy
 it :: S.Svg
 it = 
   flagV3Eq
@@ -360,6 +567,7 @@ it =
     "rgb(205,33,42)" 
 
 
+-- flag of Lithuania
 lt :: S.Svg
 lt =
   flagH3Eq
@@ -369,6 +577,7 @@ lt =
     "#BE3A34"
 
 
+-- flag of Luxembourg
 lu :: S.Svg
 lu =
   flagH3Eq
@@ -378,6 +587,7 @@ lu =
     "#51ADDA"
 
 
+-- flag of Latvia
 lv :: S.Svg
 lv = 
     S.svg
@@ -415,6 +625,7 @@ lv =
         ! A.fill "#A4343A"
 
 
+-- flag of Monaco
 mc :: S.Svg
 mc =
     S.svg
@@ -443,6 +654,7 @@ mc =
         ! A.fill "#FFFFFF"
 
 
+-- flag of Malta
 mt :: S.Svg
 mt =
     S.svg
@@ -471,6 +683,7 @@ mt =
         ! A.fill "#C01B22"
 
 
+-- flag of Netherlands
 nl :: S.Svg
 nl =
   flagH3Eq
@@ -480,6 +693,7 @@ nl =
     "#21468B"
 
 
+-- flag of Norway
 no :: S.Svg
 no =
     S.svg
@@ -518,6 +732,36 @@ no =
       l  22  8
 
 
+--flag of Poland
+pl :: Svg
+pl =
+    S.svg
+      ! A.viewbox "0 0 8 5"
+      ! A.width  "400px"
+      ! A.height "250px"
+      $ S.g $ do
+        topStripe
+        botStripe
+  where
+    topStripe =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 8)
+        ! (A.height .: 2.5)
+        ! A.stroke "none"
+        ! A.fill "#FFFFFF"
+    botStripe =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 2.5)
+        ! (A.width  .: 8)
+        ! (A.height .: 2.5)
+        ! A.stroke "none"
+        ! A.fill "#DC143C"
+
+
+-- flag of Portugal
 pt :: S.Svg
 pt =
     S.svg
@@ -546,6 +790,7 @@ pt =
         ! A.fill "rgb(255,0,0)"
 
 
+-- flag of Russia
 ru :: S.Svg
 ru =
   flagH3Eq
@@ -555,6 +800,7 @@ ru =
     "#E4181C"
 
 
+-- flag of Sweden
 se :: S.Svg
 se =
     S.svg
@@ -586,6 +832,7 @@ se =
       l  16  5
 
 
+-- flag of Ukraine
 ua :: S.Svg
 ua =
     S.svg
@@ -614,6 +861,7 @@ ua =
         ! A.fill "#FFDD00"
 
 
+-- flag of Great Britain
 uk :: S.Svg
 uk =
     S.svg
@@ -703,7 +951,8 @@ uk =
       l   (mx - 4)  (my - 4)
       l   0         (my - 4)
 
-  
+
+-- flag of the Holy See
 va :: S.Svg
 va = 
     S.svg 
