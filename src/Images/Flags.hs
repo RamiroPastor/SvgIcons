@@ -4,7 +4,6 @@
 
 module Images.Flags where
 
-import           Data.List (intersperse)
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
@@ -584,7 +583,7 @@ gr =
 ie :: S.Svg
 ie =
   flagV3Eq
-    (2,1)
+    (3,1.5)
     "rgb(22,155,98)"
     "rgb(255,255,255)"
     "rgb(255,136,62)"
@@ -935,7 +934,6 @@ sk =
         topStripe
         midStripe
         botStripe
-        coatOfArms
   where
     topStripe =
       S.rect
@@ -961,24 +959,7 @@ sk =
         ! (A.height .:  4)
         ! A.stroke "none"
         ! A.fill "#EE1C25"
-    coatOfArms =
-      S.path
-        ! A.fill "#EE1C25"
-        ! A.stroke "#FFFFFF"
-        ! (A.strokeWidth .: 2*s)
-        ! A.d coatDirs
-    s = 0.09
-    k1 = 3.3
-    y1 = 6
-    k2 = 3
-    y2 = 7.5
-    cm = 5.77
-    cw = 2.77
-    coatDirs = mkPath $ do
-      m   (3 - s )  (3 - s)
-      c   (cm - k1)  y1  (cm - k2)  y2   cm           (9 + s)
-      c   (cm + k2)  y2  (cm + k1)  y1  (cm + cw + s) (3 - s)
-      S.z
+    
 
 
 

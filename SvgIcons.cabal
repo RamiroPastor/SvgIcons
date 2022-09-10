@@ -35,6 +35,7 @@ library
     Icons.Textarea,
     Icons.Tools,
     Images.Flags,
+    Images.FlagsCoA,
     Images.Mosaics,
     Main
 
@@ -77,6 +78,7 @@ executable SvgIcons-exe
     Icons.Textarea,
     Icons.Tools,
     Images.Flags,
+    Images.FlagsCoA,
     Images.Mosaics
     
 
