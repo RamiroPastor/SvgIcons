@@ -20,6 +20,7 @@ flags =
   , (,) "af" af
   , (,) "at" at
   , (,) "be" be
+  , (,) "bg" bg
   , (,) "by" blr
   , (,) "ch" ch
   , (,) "cz" cz
@@ -29,6 +30,7 @@ flags =
   , (,) "es" es
   , (,) "fi" fi
   , (,) "fr" fr
+  , (,) "gr" gr
   , (,) "ie" ie
   , (,) "is" is
   , (,) "it" it
@@ -36,13 +38,16 @@ flags =
   , (,) "lu" lu
   , (,) "lv" lv
   , (,) "mc" mc
+  , (,) "md" md
   , (,) "mt" mt
   , (,) "nl" nl
   , (,) "no" no
   , (,) "pl" pl
   , (,) "pt" pt
+  , (,) "ro" ro
   , (,) "ru" ru
   , (,) "se" se
+  , (,) "sk" sk
   , (,) "ua" ua
   , (,) "uk" uk
   , (,) "va" va
@@ -191,6 +196,16 @@ be =
     "#000000"
     "#FFE936"
     "#FF0F21"
+
+
+-- flag of Bulgaria
+bg :: Svg
+bg =
+  flagH3Eq
+    (5,3)
+    "#FFFFFF"
+    "#00966E"
+    "#D62612"
 
 
 -- flag of Belarus
@@ -508,6 +523,63 @@ fr =
     "rgb(239,65,53)"
 
 
+-- flag of Greece
+gr :: Svg
+gr =
+    S.svg
+      ! A.viewbox "0 0 27 18"
+      ! A.width  "300px"
+      ! A.height "200px"
+      $ S.g $ do
+        blueLines
+        whiteLines
+        blueSquare
+        greekCross
+  where
+    blueLines =
+      S.path
+        ! A.fill "none"
+        ! A.stroke "#004C98"
+        ! A.strokeWidth "2"
+        ! A.d blueDirs
+    whiteLines =
+      S.path
+        ! A.fill "none"
+        ! A.stroke "#FFFFFF"
+        ! A.strokeWidth "2"
+        ! A.d whiteDirs
+    blueDirs = mkPath $ do
+      m  0  1  >>  hr 27
+      m  0  5  >>  hr 27
+      m  0  9  >>  hr 27
+      m  0 13  >>  hr 27
+      m  0 17  >>  hr 27
+    whiteDirs = mkPath $ do
+      m  0  3  >>  hr 27
+      m  0  7  >>  hr 27
+      m  0 11  >>  hr 27
+      m  0 15  >>  hr 27
+    blueSquare =
+      S.rect 
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 10)
+        ! (A.height .: 10)
+        ! A.stroke "none"
+        ! A.fill "#004C98"
+    greekCross =
+      S.path
+        ! A.fill "none"
+        ! A.stroke "#FFFFFF"
+        ! A.strokeWidth "2"
+        ! A.d crossDirs
+    crossDirs = mkPath $ do
+      m   5   0
+      l   5  10
+      m   0   5
+      l  10   5
+    
+
 -- flag of Ireland
 ie :: S.Svg
 ie =
@@ -654,6 +726,16 @@ mc =
         ! A.fill "#FFFFFF"
 
 
+-- flag of Moldova
+md :: Svg
+md =
+  flagV3Eq
+    (3,1.5)
+    "#003DA5"
+    "#FFD100"
+    "#C8102E"
+
+
 -- flag of Malta
 mt :: S.Svg
 mt =
@@ -790,6 +872,16 @@ pt =
         ! A.fill "rgb(255,0,0)"
 
 
+-- flag of Romania
+ro :: Svg
+ro =
+  flagV3Eq
+    (3,2)
+    "#002B7F"
+    "#FCD116"
+    "#CE1126"
+
+
 -- flag of Russia
 ru :: S.Svg
 ru =
@@ -830,6 +922,64 @@ se =
       l   6 10
       m   0  5
       l  16  5
+
+
+-- flag of Slovakia
+sk :: Svg
+sk =
+    S.svg
+      ! A.viewbox "0 0 18 12"
+      ! A.width  "360px"
+      ! A.height "240px"
+      $ S.g $ do
+        topStripe
+        midStripe
+        botStripe
+        coatOfArms
+  where
+    topStripe =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 18)
+        ! (A.height .:  4)
+        ! A.stroke "none"
+        ! A.fill "#FFFFFF"
+    midStripe =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 4)
+        ! (A.width  .: 18)
+        ! (A.height .:  4)
+        ! A.stroke "none"
+        ! A.fill "#0B4EA2"
+    botStripe =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 8)
+        ! (A.width  .: 18)
+        ! (A.height .:  4)
+        ! A.stroke "none"
+        ! A.fill "#EE1C25"
+    coatOfArms =
+      S.path
+        ! A.fill "#EE1C25"
+        ! A.stroke "#FFFFFF"
+        ! (A.strokeWidth .: 2*s)
+        ! A.d coatDirs
+    s = 0.09
+    k1 = 3.3
+    y1 = 6
+    k2 = 3
+    y2 = 7.5
+    cm = 5.77
+    cw = 2.77
+    coatDirs = mkPath $ do
+      m   (3 - s )  (3 - s)
+      c   (cm - k1)  y1  (cm - k2)  y2   cm           (9 + s)
+      c   (cm + k2)  y2  (cm + k1)  y1  (cm + cw + s) (3 - s)
+      S.z
+
 
 
 -- flag of Ukraine
