@@ -18,6 +18,7 @@ flags =
   [ (,) "ad" ad
   , (,) "af" af
   , (,) "at" at
+  , (,) "ba" ba
   , (,) "be" be
   , (,) "bg" bg
   , (,) "by" blr
@@ -30,6 +31,7 @@ flags =
   , (,) "fi" fi
   , (,) "fr" fr
   , (,) "gr" gr
+  , (,) "hr" hrv
   , (,) "ie" ie
   , (,) "is" is
   , (,) "it" it
@@ -38,15 +40,20 @@ flags =
   , (,) "lv" lv
   , (,) "mc" mc
   , (,) "md" md
+  , (,) "me" me
+  , (,) "mk" mk
   , (,) "mt" mt
   , (,) "nl" nl
   , (,) "no" no
   , (,) "pl" pl
   , (,) "pt" pt
   , (,) "ro" ro
+  , (,) "rs" rs
   , (,) "ru" ru
   , (,) "se" se
+  , (,) "si" si
   , (,) "sk" sk
+  , (,) "sm" sm
   , (,) "ua" ua
   , (,) "uk" uk
   , (,) "va" va
@@ -187,6 +194,60 @@ at =
     "#C8102E"
 
 
+-- flag of Bosnia and Herzegovina
+ba :: Svg
+ba = 
+    S.svg
+      ! A.viewbox "0 0 400 200"
+      ! A.width  "400px"
+      ! A.height "200px"
+      $ S.g $ do
+        defs $ 
+          starDef
+        background
+        triangle
+        S.g $ do
+          star
+          star ! A.transform (translate  25  25)
+          star ! A.transform (translate  50  50)
+          star ! A.transform (translate  75  75)
+          star ! A.transform (translate 100 100)
+          star ! A.transform (translate 125 125)
+          star ! A.transform (translate 150 150)
+          star ! A.transform (translate 175 175)
+          star ! A.transform (translate 200 200)
+  where
+    background =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 400)
+        ! (A.height .: 200)
+        ! A.stroke "none"
+        ! A.fill "#001489"
+    triangle =
+      S.path
+        ! A.fill "#FFCD00"
+        ! A.stroke "none"
+        ! A.strokeWidth "0"
+        ! A.d triangleDirs
+    triangleDirs = mkPath $ do
+      m   106    0
+      l   306    0
+      l   306  200
+      S.z
+    a = (19 * (sqrt 5) - 38) / 2
+    starDef =
+      starRegular 5 19 (68,-a)
+        ! A.fill "#FFFFFF"
+        ! A.strokeWidth "0"
+        ! A.id_ "HaskellSvgIcons-baFlagStar"
+    star =
+      S.use 
+        ! A.fill "#FFFFFF"
+        ! A.xlinkHref "#HaskellSvgIcons-baFlagStar"
+
+
 -- flag of Belgium
 be :: Svg
 be =
@@ -203,8 +264,8 @@ bg =
   flagH3Eq
     (5,3)
     "#FFFFFF"
-    "#00966E"
-    "#D62612"
+    "#009B74"
+    "#D01C1F"
 
 
 -- flag of Belarus
@@ -577,7 +638,17 @@ gr =
       l   5  10
       m   0   5
       l  10   5
-    
+
+
+-- flag of Croatia
+hrv :: Svg
+hrv =
+  flagH3Eq
+    (4,2)
+    "#FF0000"
+    "#FFFFFF"
+    "#171796"
+
 
 -- flag of Ireland
 ie :: S.Svg
@@ -735,8 +806,118 @@ md =
     "#C8102E"
 
 
+-- flag of Montenegro
+me :: Svg
+me = 
+    S.svg
+      ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
+      ! A.width  "400px"
+      ! A.height "200px"
+      $ S.g $ do
+        background
+        border
+  where
+    w = 400
+    h = 200
+    s = h / 40
+    background =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 400)
+        ! (A.height .: 200)
+        ! A.stroke "none"
+        ! A.fill "#FF0000"
+    border =
+      S.path
+        ! A.fill "none"
+        ! A.stroke "#E6B319"
+        ! (A.strokeWidth .: 2*s)
+        ! A.d borderDirs
+    borderDirs = mkPath $ do
+      m  (0 + s) (0 + s)
+      l  (w - s) (0 + s)
+      l  (w - s) (h - s)
+      l  (0 + s) (h - s)
+      S.z
+
+
+-- flag of North Macedonia
+mk :: Svg
+mk =
+    S.svg
+      ! A.viewbox "0 0 2 1"
+      ! A.width  "400px"
+      ! A.height "200px"
+      $ S.g $ do
+        background
+        rays
+        sun
+  where
+    background =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 2)
+        ! (A.height .: 1)
+        ! A.stroke "none"
+        ! A.fill "#CE2028"
+    d = 2/7
+    sun =
+      S.circle
+        ! (A.cx .: 1)
+        ! (A.cy .: 0.5)
+        ! (A.r  .: d/2)
+        ! A.fill "#F9D616"
+        ! A.stroke "#CE2028"
+        ! (A.strokeWidth .: d/8)
+    rays =
+      S.path
+        ! A.stroke "none"
+        ! A.strokeWidth "0"
+        ! A.fill "#F9D616"
+        ! A.d raysDirs
+    x1 = 1 + (1/68) * sqrt (3825 / 98)  -- 1.09187 etc.
+    x2 = 1 - (1/68) * sqrt (3825 / 98)
+    y1 = (3/5) * x1 - 1/10
+    y2 = (3/5) * x2 - 1/10
+    raysDirs = mkPath $ do
+      m  (1 - 0.1)  (0)
+      l  (1 + 0.1)  (0)
+      l  (1      )  (0.5 - d/2 + d/8)
+      S.z
+      m  (1 - 0.1)  (1)
+      l  (1 + 0.1)  (1)
+      l  (1      )  (0.5 + d/2 - d/8)
+      S.z
+      m  (0      )  (0.5 - 0.1)
+      l  (0      )  (0.5 + 0.1)
+      l  (1      )   0.5
+      S.z
+      m  (2      )  (0.5 - 0.1)
+      l  (2      )  (0.5 + 0.1)
+      l  (1      )   0.5
+      S.z
+      m  (0      )   0
+      l  (0 + 0.3)   0
+      l   x1         y1
+      S.z
+      m  (2 - 0.3)   0
+      l  (2      )   0
+      l   x2         y1
+      S.z
+      m  (2 - 0.3)   1
+      l  (2      )   1
+      l   x2         y2
+      S.z
+      m  (0      )   1
+      l  (0 + 0.3)   1
+      l   x1         y2
+      S.z
+
+
 -- flag of Malta
-mt :: S.Svg
+mt :: Svg
 mt =
     S.svg
       ! A.viewbox "0 0 3 2"
@@ -881,6 +1062,16 @@ ro =
     "#CE1126"
 
 
+-- flag of Serbia
+rs :: Svg
+rs =
+  flagH3Eq
+    (3,2)
+    "#C7363D"
+    "#0C4077"
+    "#FFFFFF"
+
+
 -- flag of Russia
 ru :: S.Svg
 ru =
@@ -923,6 +1114,16 @@ se =
       l  16  5
 
 
+-- flag of Slovenia
+si :: Svg
+si =
+  flagH3Eq
+    (4,2)
+    "#FFFFFF"
+    "#0000FF"
+    "#FF0000"
+
+
 -- flag of Slovakia
 sk :: Svg
 sk =
@@ -961,6 +1162,33 @@ sk =
         ! A.fill "#EE1C25"
     
 
+-- flag of San Marino
+sm :: Svg
+sm =
+    S.svg
+      ! A.viewbox "0 0 4 3"
+      ! A.width  "400px"
+      ! A.height "300px"
+      $ S.g $ do
+        topStripe
+        botStripe
+  where
+    topStripe =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 4)
+        ! (A.height .: 1.5)
+        ! A.stroke "none"
+        ! A.fill "#FFFFFF"
+    botStripe =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 1.5)
+        ! (A.width  .: 4)
+        ! (A.height .: 1.5)
+        ! A.stroke "none"
+        ! A.fill "#73E6F2"
 
 
 -- flag of Ukraine
