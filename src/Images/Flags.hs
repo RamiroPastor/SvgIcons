@@ -24,6 +24,7 @@ flags =
   , (,) "bg" bg
   , (,) "by" blr
   , (,) "ch" ch
+  , (,) "cy" cyp
   , (,) "cz" cz
   , (,) "de" de
   , (,) "dk" dk
@@ -70,7 +71,7 @@ flagV3Eq (w,h) c1 c2 c3 =
       ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
       ! (A.width  .: 100*w)
       ! (A.height .: 100*h)
-      $ S.g $ do
+      $ do
         leftStripe
         centralStripe
         rightStripe
@@ -107,7 +108,7 @@ flagH3Eq (w,h) c1 c2 c3 =
       ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
       ! (A.width  .: 100*w)
       ! (A.height .: 100*h)
-      $ S.g $ do
+      $ do
         topStripe
         midStripe
         botStripe
@@ -147,7 +148,7 @@ ad =
       ! A.viewbox "0 0 20 14"
       ! A.width  "200px"
       ! A.height "140px"
-      $ S.g $ do
+      $ do
         leftStripe
         centreStripe
         rightStripe
@@ -205,7 +206,7 @@ ba =
       ! A.viewbox "0 0 400 200"
       ! A.width  "400px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         defs $ 
           starDef
         background
@@ -279,7 +280,7 @@ blr =
       ! A.viewbox "0 0 90 45"
       ! A.width  "400px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         topStripe
         botStripe
         whiteStripe
@@ -382,7 +383,7 @@ ch =
       ! A.viewbox "0 0 32 32"
       ! A.width  "200px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         background
         cross
   where
@@ -407,6 +408,26 @@ ch =
       l  26 16
 
 
+-- flag of Cyprus
+cyp :: S.Svg
+cyp =
+    S.svg
+      ! A.viewbox "0 0 900 600"
+      ! A.width  "300px"
+      ! A.height "200px"
+      $ do
+        background
+  where
+    background =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 900)
+        ! (A.height .: 600)
+        ! A.stroke "none"
+        ! A.fill "#FFFFFF"
+
+
 -- flag of Czech Republic
 cz :: S.Svg
 cz =
@@ -414,7 +435,7 @@ cz =
       ! A.viewbox "0 0 6 4"
       ! A.width  "300px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         topStripe
         leftTriangle
         botStripe
@@ -470,7 +491,7 @@ dk =
       ! A.viewbox "0 0 37 28"
       ! A.width  "370px"
       ! A.height "280px"
-      $ S.g $ do
+      $ do
         background
         cross
   where
@@ -512,7 +533,7 @@ es =
       ! A.viewbox "0 0 3 2"
       ! A.width  "300px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         redBandTop
         yellowBand
         redBandBot
@@ -552,7 +573,7 @@ eu =
       ! A.viewbox "0 0 3 2"
       ! A.width  "300px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         background
         mapM_ star [0..11]
   where
@@ -581,7 +602,7 @@ fi =
       ! A.viewbox "0 0 36 22"
       ! A.width  "360px"
       ! A.height "220px"
-      $ S.g $ do
+      $ do
         background
         cross
   where
@@ -623,7 +644,7 @@ gr =
       ! A.viewbox "0 0 27 18"
       ! A.width  "300px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         blueLines
         whiteLines
         blueSquare
@@ -700,7 +721,7 @@ is =
       ! A.viewbox "0 0 25 18"
       ! A.width  "250px"
       ! A.height "180px"
-      $ S.g $ do
+      $ do
         background
         whiteCross
         redCross
@@ -749,7 +770,7 @@ li =
       ! A.viewbox "0 0 5 3"
       ! A.width  "500px"
       ! A.height "300px"
-      $ S.g $ do
+      $ do
         topStripe
         botStripe
   where
@@ -798,7 +819,7 @@ lv =
       ! A.viewbox "0 0 20 10"
       ! A.width  "300px"
       ! A.height "150px"
-      $ S.g $ do
+      $ do
         topStripe
         midStripe
         botStripe
@@ -836,7 +857,7 @@ mc =
       ! A.viewbox "0 0 5 4"
       ! A.width  "500px"
       ! A.height "400px"
-      $ S.g $ do
+      $ do
         topStripe
         botStripe
   where
@@ -875,7 +896,7 @@ me =
       ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
       ! A.width  "400px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         background
         border
   where
@@ -911,7 +932,7 @@ mk =
       ! A.viewbox "0 0 2 1"
       ! A.width  "400px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         background
         rays
         sun
@@ -985,7 +1006,7 @@ mt =
       ! A.viewbox "0 0 3 2"
       ! A.width  "300px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         leftStripe
         rightStripe
   where
@@ -1024,7 +1045,7 @@ no =
       ! A.viewbox "0 0 22 16"
       ! A.width  "330px"
       ! A.height "240px"
-      $ S.g $ do
+      $ do
         background
         whiteCross
         blueCross
@@ -1063,7 +1084,7 @@ pl =
       ! A.viewbox "0 0 8 5"
       ! A.width  "400px"
       ! A.height "250px"
-      $ S.g $ do
+      $ do
         topStripe
         botStripe
   where
@@ -1092,7 +1113,7 @@ pt =
       ! A.viewbox "0 0 3 2"
       ! A.width  "300px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         greenBand
         redBand
   where
@@ -1151,7 +1172,7 @@ se =
       ! A.viewbox "0 0 16 10"
       ! A.width  "320px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         background
         cross
   where
@@ -1193,7 +1214,7 @@ sk =
       ! A.viewbox "0 0 18 12"
       ! A.width  "360px"
       ! A.height "240px"
-      $ S.g $ do
+      $ do
         topStripe
         midStripe
         botStripe
@@ -1231,7 +1252,7 @@ sm =
       ! A.viewbox "0 0 4 3"
       ! A.width  "400px"
       ! A.height "300px"
-      $ S.g $ do
+      $ do
         topStripe
         botStripe
   where
@@ -1260,7 +1281,7 @@ ua =
       ! A.viewbox "0 0 3 2"
       ! A.width  "300px"
       ! A.height "200px"
-      $ S.g $ do
+      $ do
         topStripe
         botStripe
   where
@@ -1289,7 +1310,7 @@ uk =
       ! A.viewbox "0 0 50 30"
       ! A.width  "250px"
       ! A.height "150px"
-      $ S.g $ do
+      $ do
         scotland
         irelandBase
         irelandBase ! A.transform (rotateAround 180 mx my)
@@ -1380,7 +1401,7 @@ va =
       ! A.viewbox "0 0 1 1"
       ! A.width  "300px"
       ! A.height "300px"
-      $ S.g $ do
+      $ do
         leftStripe
         rightStripe
   where
@@ -1410,7 +1431,7 @@ xk =
       ! A.viewbox "0 0 840 600"
       ! A.width  "420px"
       ! A.height "300px"
-      $ S.g $ do
+      $ do
         background
         xkCoA
         star (420 - d3, y3)
