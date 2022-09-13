@@ -18,6 +18,7 @@ flags :: [ (String , S.Svg) ]
 flags =
   [ (,) "ad" ad
   , (,) "af" af
+  , (,) "al" al
   , (,) "at" at
   , (,) "ba" ba
   , (,) "be" be
@@ -187,6 +188,27 @@ af =
     "rgb(0,0,0)"
     "rgb(190,0,0)"
     "rgb(0,122,54)"
+
+
+-- flag of Albania
+al :: Svg
+al =
+    S.svg
+      ! A.viewbox "0 0 980 700"
+      ! A.width  "490px"
+      ! A.height "350px"
+      $ do
+        background
+        alCoA
+  where
+    background =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 980)
+        ! (A.height .: 700)
+        ! A.stroke "none"
+        ! A.fill "#FF0000"
 
 
 -- flag of Austria
