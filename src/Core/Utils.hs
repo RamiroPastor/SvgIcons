@@ -3,6 +3,7 @@
 
 module Core.Utils where
 
+import Data.Char
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
@@ -63,3 +64,23 @@ frame x y w h =
       l  (x + w/2) (y + h)
       m   x        (y + h/2)
       l  (x + w)   (y + h/2)
+
+
+-- Takes a number n and a string s, 
+-- and returns a string equal to s except that every decimal
+-- number inside s will its decimal part capped at n digits
+cleanDecimals :: Int -> String -> String
+cleanDecimals n s = 
+    f [] [] s
+  where
+    f _ acc [] = reverse acc
+    f aux acc (c:cs) = 
+      if c == '.'
+        then f "." acc cs
+        else if aux == []
+          then f [] (c : acc) cs
+          else if (not $ isDigit c)
+            then f [] (c : aux ++ acc) cs
+            else if (length aux < n)
+              then f (c : aux) acc cs
+              else f aux acc cs

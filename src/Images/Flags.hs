@@ -10,6 +10,7 @@ import           Text.Blaze.Svg11.Attributes as A
 
 import Core.Geometry
 import Core.Utils
+import Images.FlagsCoA
 
 
 
@@ -28,6 +29,7 @@ flags =
   , (,) "dk" dk
   , (,) "ee" ee
   , (,) "es" es
+  , (,) "eu" eu
   , (,) "fi" fi
   , (,) "fr" fr
   , (,) "gr" gr
@@ -35,6 +37,7 @@ flags =
   , (,) "ie" ie
   , (,) "is" is
   , (,) "it" it
+  , (,) "li" li
   , (,) "lt" lt
   , (,) "lu" lu
   , (,) "lv" lv
@@ -57,6 +60,7 @@ flags =
   , (,) "ua" ua
   , (,) "uk" uk
   , (,) "va" va
+  , (,) "xk" xk
   ]
 
 
@@ -541,6 +545,35 @@ es =
         ! A.fill colRed
 
 
+-- flag of the European Union
+eu :: Svg
+eu =
+    S.svg
+      ! A.viewbox "0 0 3 2"
+      ! A.width  "300px"
+      ! A.height "200px"
+      $ S.g $ do
+        background
+        mapM_ star [0..11]
+  where
+    background =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 3)
+        ! (A.height .: 2)
+        ! A.stroke "none"
+        ! A.fill "#003399"
+    starPos k = 
+      ( 3/2 + (2/3) * cos (k*pi/6) 
+      , 1   + (2/3) * sin (k*pi/6)
+      )
+    star k =
+      starRegular 5 (1/9) (starPos k)
+        ! A.fill "#FFCC00"
+        ! A.id_ "HaskellSvgIcons-euFlagStar"
+
+
 -- flag of Finland
 fi :: S.Svg
 fi =
@@ -700,7 +733,7 @@ is =
 
 
 -- flag of Italy
-it :: S.Svg
+it :: Svg
 it = 
   flagV3Eq
     (3,2)
@@ -709,8 +742,37 @@ it =
     "rgb(205,33,42)" 
 
 
+--flag of Liechtenstein
+li :: Svg
+li = 
+    S.svg
+      ! A.viewbox "0 0 5 3"
+      ! A.width  "500px"
+      ! A.height "300px"
+      $ S.g $ do
+        topStripe
+        botStripe
+  where
+    topStripe =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 5)
+        ! (A.height .: 1.5)
+        ! A.stroke "none"
+        ! A.fill "#002780"
+    botStripe =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 1.5)
+        ! (A.width  .: 5)
+        ! (A.height .: 1.5)
+        ! A.stroke "none"
+        ! A.fill "#CF0921"
+
+
 -- flag of Lithuania
-lt :: S.Svg
+lt :: Svg
 lt =
   flagH3Eq
     (5,3)
@@ -1337,4 +1399,41 @@ va =
         ! (A.width  .: 0.5)
         ! (A.height .: 1)
         ! A.stroke "none"
+        ! A.fill "#FFFFFF"
+
+
+
+-- flag of Kosovo
+xk :: Svg
+xk =
+    S.svg
+      ! A.viewbox "0 0 840 600"
+      ! A.width  "420px"
+      ! A.height "300px"
+      $ S.g $ do
+        background
+        xkCoA
+        star (420 - d3, y3)
+        star (420 - d2, y2)
+        star (420 - d1, y1)
+        star (420 + d1, y1)
+        star (420 + d2, y2)
+        star (420 + d3, y3)
+  where
+    d1 = 42
+    d2 = 124.3
+    d3 = 203
+    y1 = 121.7
+    y2 = 136
+    y3 = 164.8
+    background =
+      S.rect
+        ! (A.x .: 0)
+        ! (A.y .: 0)
+        ! (A.width  .: 840)
+        ! (A.height .: 600)
+        ! A.stroke "none"
+        ! A.fill "#244AA5"
+    star (c0,c1) =
+      starRegular 5 36 (c0,c1)
         ! A.fill "#FFFFFF"
