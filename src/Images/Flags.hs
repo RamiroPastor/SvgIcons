@@ -417,6 +417,7 @@ cyp =
       ! A.height "200px"
       $ do
         background
+        cyCoA
   where
     background =
       S.rect
