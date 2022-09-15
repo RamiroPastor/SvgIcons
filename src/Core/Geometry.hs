@@ -159,7 +159,7 @@ starFat n r1 (c1,c2) =
 {- |
 `starRegular` builds a first species regular star polygon.
 
-Works as `starOutline` but you don't nned to specify 
+Works as `starOutline` but you don't need to specify 
 the inner radius, and you will get a regular star.
 -}
 starRegular ::
