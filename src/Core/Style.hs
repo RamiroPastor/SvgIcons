@@ -2,7 +2,12 @@
 
 
 
-module Core.Style where
+module Core.Style 
+  ( stdDims
+  , strkStyle
+  , fillStyle
+  , fullStyle
+  ) where
 
 import           Text.Blaze.Svg11 ((!))
 import qualified Text.Blaze.Svg11 as S
@@ -11,7 +16,11 @@ import qualified Text.Blaze.Svg11.Attributes as A
 
 
 
-
+{- |
+`stdDims` takes some svg content and wraps it with the
+`svg` tag, with attributes viewbox "-1 -1 2 2", height "300px"
+and width "300px" 
+-}
 stdDims :: S.Svg -> S.Svg
 stdDims content =
   S.svg content
@@ -20,6 +29,13 @@ stdDims content =
     ! A.width   "300px"
 
 
+
+{- |
+Handy shortcut for the following attributes:
+* fill: "none"
+* stroke: "black"
+* stroke-width: "0.04"
+-}
 strkStyle :: S.Svg -> S.Svg
 strkStyle svg =
   svg
@@ -28,6 +44,13 @@ strkStyle svg =
     ! A.strokeWidth "0.04"
 
 
+
+{- |
+Handy shortcut for the following attributes:
+* fill: "black"
+* stroke: "none"
+* stroke-width: "0"
+-}
 fillStyle :: S.Svg -> S.Svg
 fillStyle svg =
   svg
@@ -36,6 +59,13 @@ fillStyle svg =
     ! A.strokeWidth "0"
 
 
+
+{- |
+Handy shortcut for the following attributes:
+* fill: "silver"
+* stroke: "black"
+* stroke-width: "0.03"
+-}
 fullStyle :: S.Svg -> S.Svg
 fullStyle svg =
   svg

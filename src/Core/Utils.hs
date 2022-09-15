@@ -1,7 +1,15 @@
 {-# LANGUAGE     OverloadedStrings       #-}
 
 
-module Core.Utils where
+module Core.Utils 
+  ( evenOddSplit
+  , addXmlns
+  , (.:)
+  , distance
+  , horizontalMirrorMatrix
+  , verticalMirrorMatrix
+  , frame
+  ) where
 
 import Data.Char
 import           Text.Blaze.Svg11 ((!))
@@ -10,7 +18,11 @@ import           Text.Blaze.Svg11.Attributes as A
 
 
 
-
+{- |
+Splits a list into two lists:
+* The first one contains all the elements in odd positions
+* The second one contains all the elements in even positions
+-}
 evenOddSplit :: [a] -> ([a], [a])
 evenOddSplit [] = ([], [])
 evenOddSplit (x:xs) = (x:o, e)
@@ -18,6 +30,11 @@ evenOddSplit (x:xs) = (x:o, e)
 
 
 
+{- |
+Takes some `Svg` entity and adds two attributes:
+* xmlns=http://www.w3.org/2000/svg
+* xmlns:xlink=http://www.w3.org/1999/xlink
+-}
 addXmlns :: Svg -> Svg
 addXmlns svg =
   svg
@@ -26,26 +43,61 @@ addXmlns svg =
 
 
 
+{- |
+Handy operator that converts a `Float` number
+into an `AttributeValue` and feeds it to the `Attribute` function.
+
+Example:
+>S.path 
+>  ! (A.strokeWidth .: 0.1) 
+-}
 infixl 5 .:
 (.:) :: (AttributeValue -> Attribute ) -> Float -> Attribute
 f .: x = f $ S.toValue x
 
 
+
+{- |
+Euclidian distance between two points
+-}
 distance :: (Float, Float) -> (Float, Float) -> Float
 distance (ax,ay) (bx,by) =
   sqrt $ (bx - ax)**2 + (by - ay)**2
 
 
+
+{- |
+Matrix for the horizontal symmetry __respect to the axis @x=0@__.
+Use it with the transform `Attribute`:
+>S.path
+>  ! A.transform horizontalMirrorMatrix
+-}
 horizontalMirrorMatrix :: AttributeValue
 horizontalMirrorMatrix =
   matrix (-1) 0 0 1 0 0
 
+
+
+{- |
+Matrix for the vertical symmetry __respect to the axis @y=0@__.
+Use it with the transform `Attribute`:
+>S.path
+>  ! A.transform verticalMirrorMatrix
+-}
 verticalMirrorMatrix :: AttributeValue
 verticalMirrorMatrix =
   matrix 1 0 0 (-1) 0 0
 
 
--- frame takes the parameters of the viewbox
+
+{- |
+`frame` is mainly used for testing purposes.
+
+Takes the 4 numbers of the viewbox (x0, y0, width, height)
+and returns a path with a very thin stroke which connects all 
+consecutive corners of the viewbox and also connects opposite
+middle points.
+-}
 frame :: Float -> Float -> Float -> Float -> S.Svg
 frame x y w h =
     S.path
