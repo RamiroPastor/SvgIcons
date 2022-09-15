@@ -2,7 +2,17 @@
 
 
 
-module Core.Geometry where
+{-
+Module for geometrical shapes.
+-}
+
+module Core.Geometry 
+  ( regularPolygon
+  , starPolygonFirstSpecies
+  , starOutline
+  , starFat
+  , starRegular
+  ) where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -14,9 +24,25 @@ import Core.Utils
 
 --------------------------------------------------------------------------------
 
+{- |
+`regularPolygon` builds a regular polygon.
 
-regularPolygon :: 
-  Int -> Float -> (Float , Float) -> Svg
+You can customize fill and stroke using the
+usual `blaze-svg` functions. For example:
+>regularPolygon 5 100 (200,300)
+>  ! A.fill "pink"
+>  ! A.stroke "#0000FF"
+>  ! A.strokeWidth "10"
+will return a path element corresponding to a 
+regular pentagon of radius 100 centered at point
+(200,300) filled in pink, green stroke and stroke
+width 10.
+-}
+regularPolygon 
+  :: Int             -- ^ number of vertices
+  -> Float           -- ^ circumradius
+  -> (Float , Float) -- ^ coordinates of the central point
+  -> Svg             -- ^ resulting svg path
 regularPolygon n r (x0,y0) =
     S.path
       ! A.d directions
@@ -32,8 +58,19 @@ regularPolygon n r (x0,y0) =
         S.z
 
 
-starPolygonFirstSpecies :: 
-  Int -> Float -> (Float , Float) -> Svg
+
+{-
+`starPolygonFirstSpecies` builds a first species regular star polygon.
+
+First species means that one vertice is skipped when joining vertices.
+The number of vertices must be strictly greater than 4.
+Can be customized with the usual `blaze-svg` functions.
+-}
+starPolygonFirstSpecies 
+  :: Int             -- ^ number of vertices 
+  -> Float           -- ^ circumradius
+  -> (Float , Float) -- ^ coordinates of the central point
+  -> Svg             -- ^ resulting svg path
 starPolygonFirstSpecies n r (c1,c2) =
     S.path
       ! A.d directions
@@ -62,9 +99,22 @@ starPolygonFirstSpecies n r (c1,c2) =
             S.z
 
 
--- r2 must be lower than r1
-starOutline ::
-  Int -> Float -> Float -> (Float , Float) -> Svg
+
+{- |
+`starOutline` builds a first species irregular star polygon.
+
+The difference with the previous function is the stroke:
+The previous function's stroke runs inside the figure 
+(so it would draw a pentagram), while this funtion's stroke
+runs outside the shape (so it would draw a star).
+There is no visual difference if you only fill the paths (with no stroke).
+-}
+starOutline 
+  :: Int             -- ^ number of vertices
+  -> Float           -- ^ circumradius
+  -> Float           -- ^ inner radius (circumradius of the inner polygon)
+  -> (Float , Float) -- ^ coordinates of the central point
+  -> Svg             -- ^ resulting path
 starOutline n r1 r2 (c1,c2) =
     S.path
       ! A.strokeMiterlimit "100"
@@ -88,6 +138,14 @@ starOutline n r1 r2 (c1,c2) =
       S.z
 
 
+
+{- |
+`starFat` builds a first species irregular star polygon.
+
+Works as `starOutline` but you don't need to specify
+the inner radius, it is already coded so that you get a
+"fat" star.
+-}
 starFat ::
   Int -> Float -> (Float , Float) -> Svg
 starFat n r1 (c1,c2) =
@@ -97,6 +155,13 @@ starFat n r1 (c1,c2) =
     r2 = r1 * (1 - sin(β/2)*tan(β/2))
 
 
+
+{- |
+`starRegular` builds a first species regular star polygon.
+
+Works as `starOutline` but you don't nned to specify 
+the inner radius, and you will get a regular star.
+-}
 starRegular ::
   Int -> Float -> (Float , Float) -> Svg
 starRegular n r1 (c1,c2) =
