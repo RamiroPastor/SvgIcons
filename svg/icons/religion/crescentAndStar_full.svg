@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="silver" stroke="black" stroke-width="0.03">
+        <path stroke-linejoin="round" d="M 0.55,-0.55 A 0.8,0.8 0.0 1,0 0.55,0.55 A 0.65,0.65 0.0 1,1 0.55,-0.55 Z" />
+        <path stroke-miterlimit="100" d="M 0.55,-0.25 L 0.6173542,-4.27051e-2 L 0.835317,-4.2705093e-2 L 0.6589814,8.54102e-2 L 0.7263356,0.29270512 L 0.55,0.1645898 L 0.37366438,0.2927051 L 0.44101864,8.541021e-2 L 0.26468307,-4.2705137e-2 L 0.48264587,-4.2705122e-2 Z" />
+    </g>
+</svg>

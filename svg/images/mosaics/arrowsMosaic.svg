@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 1 1.7320508075688772" width="300px" height="519.6152422706632px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M 0.5,0.5773502691896257 L 0.6111111111111112,0.7698003589195009 L 5.5555555555555566e-2,0.7698003589195009 M 0.5,0.5773502691896257 L 0.2777777777777778,0.5773502691896257 L 0.5555555555555556,9.622504486493763e-2 M 0.5,0.5773502691896257 L 0.6111111111111112,0.3849001794597504 L 0.8888888888888888,0.8660254037844386 " fill="none" stroke-width="0.03" stroke="orange" stroke-linecap="round" stroke-linejoin="round" id="HaskellSvgIcons-arrowTile" />
+    </defs>
+    <use xlink:href="#HaskellSvgIcons-arrowTile" />
+    <use xlink:href="#HaskellSvgIcons-arrowTile" transform="translate(1 0)" />
+    <use xlink:href="#HaskellSvgIcons-arrowTile" transform="translate(-0.5 0.8660254037844386)" />
+    <use xlink:href="#HaskellSvgIcons-arrowTile" transform="translate(0.5 0.8660254037844386)" />
+    <use xlink:href="#HaskellSvgIcons-arrowTile" transform="translate(-0.5 -0.8660254037844386)" />
+    <use xlink:href="#HaskellSvgIcons-arrowTile" transform="matrix(1.0,0.0,0.0,-1.0,0.0,1.7320508075688772)" />
+    <use xlink:href="#HaskellSvgIcons-arrowTile" transform="translate(-1 0)matrix(1.0,0.0,0.0,-1.0,0.0,1.7320508075688772)" />
+    <use xlink:href="#HaskellSvgIcons-arrowTile" transform="translate(-0.5 -0.8660254037844386)matrix(1.0,0.0,0.0,-1.0,0.0,1.7320508075688772)" />
+    <use xlink:href="#HaskellSvgIcons-arrowTile" transform="translate(0.5 -0.8660254037844386)matrix(1.0,0.0,0.0,-1.0,0.0,1.7320508075688772)" />
+    <use xlink:href="#HaskellSvgIcons-arrowTile" transform="translate(0.5 0.8660254037844386)matrix(1.0,0.0,0.0,-1.0,0.0,1.7320508075688772)" />
+</svg>

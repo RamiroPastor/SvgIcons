@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="black" stroke="none" stroke-width="0">
+        <g>
+            <path d="M -0.9,0.0 C -0.5,-0.9 0.5,-0.9 0.9 0.0C 0.5,0.9 -0.5,0.9 -0.9 0.0Z" stroke-linejoin="round" fill="white" />
+            <circle cx="0.0" cy="-0.2" r="0.46" />
+            <path d="M -0.25,-0.2 A 0.25,0.25 0.0 0,1 0.0,-0.45 " fill="none" stroke="white" stroke-width="0.125" stroke-linecap="round" />
+        </g>
+        <path d="M 0.9,-0.9 L -0.9,0.9 " stroke-linecap="round" />
+    </g>
+</svg>

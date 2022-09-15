@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 1 1.7320508" width="300px" height="519.6152422706632px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path stroke-width="0" fill="white" d="M 0.5,0.0 A 0.28867513,0.28867513 0.0 0,1 0.75,0.4330127 A 0.28867513,0.28867513 0.0 0,0 1.0,0.8660254 A 0.28867513,0.28867513 0.0 0,1 0.5,0.8660254 A 0.28867513,0.28867513 0.0 0,0 0.0,0.8660254 A 0.28867513,0.28867513 0.0 0,1 0.25,0.4330127 A 0.28867513,0.28867513 0.0 0,0 0.5,0.0 " id="HaskellSvgIcons-triReligiousUpperBird" />
+        <path stroke-width="0" fill="blue" d="M 1.0,0.8660254 A 0.28867513,0.28867513 0.0 0,1 0.75,1.299038 A 0.28867513,0.28867513 0.0 0,0 0.5,1.7320508 A 0.28867513,0.28867513 0.0 0,1 0.25,1.299038 A 0.28867513,0.28867513 0.0 0,0 0.0,0.8660254 A 0.28867513,0.28867513 0.0 0,1 0.5,0.8660254 A 0.28867513,0.28867513 0.0 0,0 1.0,0.8660254 Z" id="HaskellSvgIcons-triReligiousLowerBird" />
+        <path d="M 0.5,0.40735024 L 0.5,0.40735024 L 0.6472243,0.6623503 L 0.3527757,0.66235024 ZM 0.6472243,0.49235028 L 0.6472243,0.49235028 L 0.5,0.7473503 L 0.3527757,0.49235028 Z" id="HaskellSvgIcons-triReligiousStar" transform="rotate(30.0,0.5,0.57735026)" />
+        <path stroke-width="0" d="M 0.74,1.1547005 L 0.62,0.9468544 L 0.38,0.9468544 L 0.26,1.1547005 L 0.38,1.3625466 L 0.62,1.3625466 Z" id="HaskellSvgIcons-triReligiousHexagon" />
+    </defs>
+    <use xlink:href="#HaskellSvgIcons-triReligiousUpperBird" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousUpperBird" transform="translate(1 0)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousUpperBird" transform="translate(-0.5 0.8660254)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousUpperBird" transform="translate(0.5 0.8660254)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousUpperBird" transform="translate(-0.5 -0.8660254)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousLowerBird" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousLowerBird" transform="translate(-1 0)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousLowerBird" transform="translate(-0.5 -0.8660254)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousLowerBird" transform="translate(0.5 -0.8660254)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousLowerBird" transform="translate(0.5 0.8660254)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousHexagon" fill="white" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousHexagon" fill="white" transform="translate(-0.5 -0.8660254)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousHexagon" fill="white" transform="translate(0.5 -0.8660254)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousStar" fill="orange" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousStar" fill="green" transform="translate(-0.5 0.8660254)" />
+    <use xlink:href="#HaskellSvgIcons-triReligiousStar" fill="green" transform="translate(0.5 0.8660254)" />
+</svg>

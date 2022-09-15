@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 20 10" width="300px" height="150px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect x="0.0" y="0.0" width="20.0" height="4.0" stroke="none" fill="#A4343A" />
+    <rect x="0.0" y="4.0" width="20.0" height="2.0" stroke="none" fill="#FFFFFF" />
+    <rect x="0.0" y="6.0" width="20.0" height="4.0" stroke="none" fill="#A4343A" />
+</svg>

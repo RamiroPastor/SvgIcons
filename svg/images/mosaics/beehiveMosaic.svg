@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 1 1.7320508075688776" width="300px" height="519.6152422706632px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="30%" cy="70%" r="50%" fx="50%" fy="60%" id="svg-honey-gradient">
+            <stop offset="0%" style="stop-color: rgba(255,255,255,0.3)" />
+            <stop offset="25%" style="stop-color: rgba(255,255,0,0.4)" />
+            <stop offset="50%" style="stop-color: rgba(255,215,0,0.4)" />
+            <stop offset="100%" style="stop-color: rgba(255,140,0,0.4)" />
+        </radialGradient>
+    </defs>
+    <path stroke-linecap="round" stroke-width="0.05" stroke="rgb(255,255,155)" fill="url(#svg-honey-gradient)" d="M 0.5,1.7820508075688777 L 0.5,1.4433756729740645 M 0.5,0.0 L 0.5,0.2886751345948129 L 0.0,0.577350269189626 L 0.0,1.154700538379252 L 0.5,1.4433756729740645 L 1.0,1.154700538379252 L 1.0,0.577350269189626 L 0.5,0.2886751345948129 " />
+</svg>

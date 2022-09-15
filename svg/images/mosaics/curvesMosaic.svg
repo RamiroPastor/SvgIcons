@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 1 1" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path fill="none" stroke="orchid" stroke-width="0.03" stroke-linecap="round" d="M 0.0,0.25 A 0.2,0.2 0.0 1,1 0.3,0.7 A 0.2,0.2 0.0 1,1 0.7,0.7 A 0.2,0.2 0.0 1,1 1.0,0.25 " />
+    <path fill="none" stroke="crimson" stroke-width="0.015" d="M 0.0,0.25 A 0.125,0.125 0.0 1,1 1.0,0.5 A 0.125,0.125 0.0 1,1 0.0,0.75 A 0.125,0.125 0.0 1,1 1.0,1.0 " />
+    <path fill="none" stroke="green" stroke-width="0.015" stroke-linecap="round" d="M 0,0 A 0.1,0.1 0.0 1,1 0.0,0.125 M 1.0,0.125 A 0.1,0.1 0.0 1,0 1.0,0.25 M 0.0,0.25 A 0.1,0.1 0.0 1,1 0.0,0.375 M 1.0,0.375 A 0.1,0.1 0.0 1,0 1.0,0.5 M 0.0,0.5 A 0.1,0.1 0.0 1,1 0.0,0.625 M 1.0,0.625 A 0.1,0.1 0.0 1,0 1.0,0.75 M 0.0,0.75 A 0.1,0.1 0.0 1,1 0.0,0.875 M 1.0,0.875 A 0.1,0.1 0.0 1,0 1.0,1.0 " />
+    <path fill="none" stroke="gold" stroke-width="0.02" stroke-linecap="round" d="M 0.5,0.0 C 0.1,0.1 0.8,0.1 0.5 0.25L 0.5,0.7 C 0.9,0.8 0.1,0.9 0.5 0.9Q 0.7,0.9 0.5,0.98 L 0.5,1.0 " />
+    <path fill="none" stroke="teal" stroke-width="0.025" stroke-linecap="round" d="M 0.3,0.0 A 0.2,0.2 0.0 1,0 0.7,0.0 M 0.3,1.0 A 0.2,0.2 0.0 1,1 0.7,1.0 " />
+    <path fill="deepskyblue" stroke="skyblue" stroke-width="0.01" stroke-linecap="round" d="M 0.47,0.0 A 3.0e-2,3.0e-2 0.0 1,0 0.53,0.0 M 0.47,1.0 A 3.0e-2,3.0e-2 0.0 1,1 0.53,1.0 " />
+    <path fill="none" stroke="deeppink" stroke-width="0.03" stroke-linecap="round" d="M 0.25,0.8 L 0.25,0.85 M 0.75,0.8 L 0.75,0.85 M 0.25,0.1 L 0.25,0.15 M 0.75,0.1 L 0.75,0.15 " />
+    <circle fill="purple" r="0.03" cx="0" cy="0" />
+    <circle fill="purple" r="0.03" cx="1" cy="0" />
+    <circle fill="purple" r="0.03" cx="0" cy="1" />
+    <circle fill="purple" r="0.03" cx="1" cy="1" />
+</svg>

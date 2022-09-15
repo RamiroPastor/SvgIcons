@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="none" stroke="black" stroke-width="0.04">
+        <circle cx="0.0" cy="0.0" r="0.3" />
+        <circle cx="-0.64" cy="0.0" r="0.2" />
+        <circle cx="0.56" cy="-0.4" r="0.2" />
+        <circle cx="0.56" cy="0.4" r="0.2" />
+        <circle cx="-0.64" cy="-0.6" r="0.12" />
+        <circle cx="-0.82" cy="0.4" r="0.12" />
+        <circle cx="-0.4" cy="0.7" r="0.12" />
+        <circle cx="0.1" cy="-0.74" r="0.12" />
+        <circle cx="0.8" cy="-0.8" r="0.12" />
+        <circle cx="0.56" cy="0.8" r="0.12" />
+        <path fill="none" d="M -0.44,0.0 L -0.3,0.0 M 0.39725333,-0.28375238 L 0.24412005,-0.17437147 M 0.39725333,0.28375238 L 0.24412005,0.17437147 M -0.64,-0.48000002 L -0.64,-0.2 M -0.77075624,0.29056942 L -0.72207296,0.1823843 M -0.4389189,0.58648646 L -0.5751351,0.18918918 M 0.19650114,-0.6686731 L 0.39916477,-0.5188782 M 0.7382605,-0.6971009 L 0.66289914,-0.5714986 M 0.56,0.68 L 0.56,0.6 " />
+    </g>
+</svg>

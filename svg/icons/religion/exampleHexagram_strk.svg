@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="none" stroke="black" stroke-width="0.04">
+        <path d="M -0.7,-0.71428573 L 0.7,-0.71428573 M -0.7,-0.42857146 L 0.7,-0.42857146 M -0.7,-0.14285715 L -0.1,-0.14285715 M 0.1,-0.14285715 L 0.7,-0.14285715 M -0.7,0.14285715 L 0.7,0.14285715 M -0.7,0.42857146 L -0.1,0.42857146 M 0.1,0.42857146 L 0.7,0.42857146 M -0.7,0.71428573 L -0.1,0.71428573 M 0.1,0.71428573 L 0.7,0.71428573 " />
+        <g>
+            <text x="0.85" y="-0.71428573" dominant-baseline="central" text-anchor="middle" font-family="Times New Roman, serif" font-size="0.2" stroke-width="0">
+                7
+            </text>
+            <text x="0.85" y="-0.42857146" dominant-baseline="central" text-anchor="middle" font-family="Times New Roman, serif" font-size="0.2" stroke-width="0">
+                7
+            </text>
+            <text x="0.85" y="-0.14285715" dominant-baseline="central" text-anchor="middle" font-family="Times New Roman, serif" font-size="0.2" stroke-width="0">
+                8
+            </text>
+            <text x="0.85" y="0.14285715" dominant-baseline="central" text-anchor="middle" font-family="Times New Roman, serif" font-size="0.2" stroke-width="0">
+                7
+            </text>
+            <text x="0.85" y="0.42857146" dominant-baseline="central" text-anchor="middle" font-family="Times New Roman, serif" font-size="0.2" stroke-width="0">
+                8
+            </text>
+            <text x="0.85" y="0.71428573" dominant-baseline="central" text-anchor="middle" font-family="Times New Roman, serif" font-size="0.2" stroke-width="0">
+                8
+            </text>
+        </g>
+    </g>
+</svg>

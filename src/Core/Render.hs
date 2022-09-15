@@ -14,7 +14,10 @@ import Core.Utils
 
 
 
-
+{- |
+  `renderSvgFiles` takes a folder path `folder` 
+  and a list of 
+-}
 renderSvgFiles :: FilePath -> [ (FilePath , Svg) ] -> IO ()
 renderSvgFiles folder svgs = 
   do

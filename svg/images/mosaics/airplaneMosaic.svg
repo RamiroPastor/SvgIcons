@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path stroke="none" fill="deepskyblue" d="M 0.0,0.5 L 0.2928932188134524,0.5 A 0.7071067811865476,0.7071067811865476 0.0 0,1 0.5,0.0 A 0.7071067811865476,0.7071067811865476 0.0 0,1 0.7071067811865476,0.5 L 1.0,0.5 L 1.0,0.7928932188134524 A 0.7071067811865476,0.7071067811865476 0.0 0,0 0.5,1.0 A 0.7071067811865476,0.7071067811865476 0.0 0,0 0.0,0.7928932188134524 Z" id="HaskellSvgIcons-planeTile" />
+    </defs>
+    <use xlink:href="#HaskellSvgIcons-planeTile" transform="translate(1.0 -0.5)" />
+    <use xlink:href="#HaskellSvgIcons-planeTile" transform="translate(0.0 0.5)" />
+    <use xlink:href="#HaskellSvgIcons-planeTile" transform="translate(1.0 1.5)" />
+    <use xlink:href="#HaskellSvgIcons-planeTile" transform="translate(0.0 -0.5)matrix(1,0,0,-1,0,1)" />
+    <use xlink:href="#HaskellSvgIcons-planeTile" transform="translate(1.0 0.5)matrix(1,0,0,-1,0,1)" />
+    <use xlink:href="#HaskellSvgIcons-planeTile" transform="translate(0.0 1.5)matrix(1,0,0,-1,0,1)" />
+</svg>

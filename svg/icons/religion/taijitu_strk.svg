@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="none" stroke="black" stroke-width="0.04">
+        <circle cx="0.0" cy="0.0" r="0.92" fill="white" />
+        <path fill="black" d="M -0.92,0.0 A 0.46,0.46 0.0 1,0 0.0,0.0 A 0.46,0.46 0.0 1,1 0.92,0.0 A 0.92,0.92 0.0 1,1 -0.92,0.0 Z" />
+        <circle cx="0.46" cy="0.0" r="0.15333334" stroke="none" fill="white" />
+        <circle cx="-0.46" cy="0.0" r="0.15333334" stroke="none" fill="black" />
+    </g>
+</svg>
