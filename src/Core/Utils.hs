@@ -32,8 +32,8 @@ evenOddSplit (x:xs) = (x:o, e)
 
 {- |
 Takes some `Svg` entity and adds two attributes:
-* xmlns=http://www.w3.org/2000/svg
-* xmlns:xlink=http://www.w3.org/1999/xlink
+* @xmlns="http://www.w3.org/2000/svg"@
+* @xmlns:xlink="http://www.w3.org/1999/xlink"@
 -}
 addXmlns :: Svg -> Svg
 addXmlns svg =
@@ -58,7 +58,7 @@ f .: x = f $ S.toValue x
 
 
 {- |
-Euclidian distance between two points
+Euclidian distance between two points.
 -}
 distance :: (Float, Float) -> (Float, Float) -> Float
 distance (ax,ay) (bx,by) =
@@ -82,7 +82,7 @@ horizontalMirrorMatrix =
 Matrix for the vertical symmetry __respect to the axis @y=0@__.
 Use it with the transform `Attribute`:
 >S.path
->  ! A.transform verticalMirrorMatrix
+>  ! A.transform (verticalMirrorMatrix <> rotateAround 45 0 0)
 -}
 verticalMirrorMatrix :: AttributeValue
 verticalMirrorMatrix =
@@ -120,7 +120,7 @@ frame x y w h =
 
 -- Takes a number n and a string s, 
 -- and returns a string equal to s except that every decimal
--- number inside s will its decimal part capped at n digits
+-- number inside s will have its decimal part capped at n digits
 cleanDecimals :: Int -> String -> String
 cleanDecimals n s = 
     f [] [] s

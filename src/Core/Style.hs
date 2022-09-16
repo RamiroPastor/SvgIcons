@@ -18,8 +18,8 @@ import qualified Text.Blaze.Svg11.Attributes as A
 
 {- |
 `stdDims` takes some svg content and wraps it with the
-`svg` tag, with attributes viewbox "-1 -1 2 2", height "300px"
-and width "300px" 
+`svg` tag, with attributes @viewbox="-1 -1 2 2"@, @height="300px"@
+and @width="300px"@ 
 -}
 stdDims :: S.Svg -> S.Svg
 stdDims content =
@@ -32,9 +32,9 @@ stdDims content =
 
 {- |
 Handy shortcut for the following attributes:
-* fill: "none"
-* stroke: "black"
-* stroke-width: "0.04"
+* @fill="none"@
+* @stroke="black"@
+* @stroke-width="0.04"@
 -}
 strkStyle :: S.Svg -> S.Svg
 strkStyle svg =
@@ -47,9 +47,9 @@ strkStyle svg =
 
 {- |
 Handy shortcut for the following attributes:
-* fill: "black"
-* stroke: "none"
-* stroke-width: "0"
+* @fill="black"@
+* @stroke="none"@
+* @stroke-width="0"@
 -}
 fillStyle :: S.Svg -> S.Svg
 fillStyle svg =
@@ -62,9 +62,9 @@ fillStyle svg =
 
 {- |
 Handy shortcut for the following attributes:
-* fill: "silver"
-* stroke: "black"
-* stroke-width: "0.03"
+* @fill="silver"@
+* @stroke="black"@
+* @stroke-width="0.03"@
 -}
 fullStyle :: S.Svg -> S.Svg
 fullStyle svg =
