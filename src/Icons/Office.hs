@@ -12,6 +12,24 @@ import Core.Utils
 
 
 
+{- |
+A list with all the icons of this module, 
+together with appropriate names.
+
+>svgOffice :: [ (String , S.Svg) ]
+>svgOffice =
+>  [ (,) "envelope"   envelope
+>  , (,) "pencil"     pencil
+>  , (,) "document"   document
+>  , (,) "archive"    archive
+>  , (,) "pin"        pin
+>  , (,) "clip"       paperclip
+>  , (,) "clipboard"  clipboard
+>  , (,) "printer"    printer
+>  , (,) "lupe"       lupe
+>  , (,) "briefcase"  briefcase
+>  ]
+-}
 svgOffice :: [ (String , S.Svg) ]
 svgOffice =
   [ (,) "envelope"   envelope

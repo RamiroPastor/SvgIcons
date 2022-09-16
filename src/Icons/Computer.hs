@@ -12,6 +12,23 @@ import Core.Utils
 
 
 
+{- |
+A list with all the icons of this module, 
+together with appropriate names.
+
+>svgComputer :: [ (String , S.Svg) ]
+>svgComputer =
+>  [ (,) "plus"        plus
+>  , (,) "cancel"      cancel
+>  , (,) "accept"      accept
+>  , (,) "warning"     warning
+>  , (,) "minimize"    minimize
+>  , (,) "maximize"    maximize
+>  , (,) "menuDots"    menuDots
+>  , (,) "menuLines"   menuLines
+>  , (,) "powerButton" powerButton 
+>  ]
+-}
 svgComputer :: [ (String , S.Svg) ]
 svgComputer =
   [ (,) "plus"        plus

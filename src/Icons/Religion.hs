@@ -14,6 +14,21 @@ import Core.Utils
 
 
 
+{- |
+A list with all the icons of this module, 
+together with appropriate names.
+
+>svgReligion :: [ (String , S.Svg) ]
+>svgReligion =
+>  [ (,) "xp"               xp
+>  , (,) "taijitu"         (taijitu "black" "white")
+>  , (,) "crossLatin"       crossLatin
+>  , (,) "crossOrthodox"    crossOrthodox
+>  , (,) "crescentAndStar"  crescentAndStar
+>  , (,) "starOfDavid"      starOfDavid
+>  , (,) "exampleHexagram" (iChingHexagram (8,8,7,8,7,7))
+>  ]
+-}
 svgReligion :: [ (String , S.Svg) ]
 svgReligion =
   [ (,) "xp"               xp

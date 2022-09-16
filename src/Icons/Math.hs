@@ -12,6 +12,16 @@ import Core.Utils
 
 
 
+{- |
+A list with all the icons of this module, 
+together with appropriate names.
+
+>svgMath :: [ (String , S.Svg) ]
+>svgMath =
+>  [ (,) "lambda"     lambda
+>  , (,) "lemniscate" lemniscate
+>  ]
+-}
 svgMath :: [ (String , S.Svg) ]
 svgMath =
   [ (,) "lambda"     lambda

@@ -11,7 +11,30 @@ import           Text.Blaze.Svg11.Attributes as A
 import Core.Utils
 
 
+{- |
+A list with all the icons of this module, 
+together with appropriate names.
+This module contains icons suitable for the 
+tool bars of a text editor (bold, italic, etc.)
 
+>svgTextarea :: [ (String , S.Svg) ]
+>svgTextarea =
+>  [ (,) "bold"       bold
+>  , (,) "italic"     italic
+>  , (,) "link"       link
+>  , (,) "image"      imageIcon
+>  , (,) "video"      video
+>  , (,) "bulletList" bulletList
+>  , (,) "numberList" numberList
+>  , (,) "header"     header
+>  , (,) "hr"         horizontalRule
+>  , (,) "undo"       undo
+>  , (,) "redo"       redo
+>  , (,) "help"       questionMark
+>  , (,) "fullscreen" fullscreen
+>  , (,) "preview"    preview
+>  ]
+-}
 svgTextarea :: [ (String , S.Svg) ]
 svgTextarea =
   [ (,) "bold"       bold

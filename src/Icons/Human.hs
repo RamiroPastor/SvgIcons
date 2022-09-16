@@ -11,7 +11,22 @@ import           Text.Blaze.Svg11.Attributes as A
 import Core.Utils
 
 
+{- |
+A list with all the icons of this module, 
+together with appropriate names.
 
+>svgHuman :: [ (String , S.Svg) ]
+>svgHuman =
+>  [ (,) "eyeOpened"   eyeOpened
+>  , (,) "eyeStriked"  eyeStriked
+>  , (,) "person"      person
+>  , (,) "people"      people
+>  , (,) "carnet"      carnet
+>  , (,) "heartFat"    heartFat
+>  , (,) "heartSlim"   heartSlim
+>  , (,) "talk"        talk
+>  ]
+-}
 svgHuman :: [ (String , S.Svg) ]
 svgHuman =
   [ (,) "eyeOpened"   eyeOpened

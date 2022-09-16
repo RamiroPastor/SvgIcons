@@ -12,6 +12,19 @@ import Core.Utils
 
 
 
+{- |
+A list with all the icons of this module, 
+together with appropriate names.
+
+>svgTools :: [ (String , S.Svg) ]
+>svgTools =
+>  [ (,) "lock"       lock
+>  , (,) "key"        key
+>  , (,) "keyWithArc" keyWithArc
+>  , (,) "cog6"       cog6
+>  , (,) "cog9"       cog9
+>  ]
+-}
 svgTools :: [ (String , S.Svg) ]
 svgTools =
   [ (,) "lock"       lock

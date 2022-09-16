@@ -12,6 +12,17 @@ import Core.Utils
 
 
 
+{- |
+A list with all the icons of this module, 
+together with appropriate names.
+
+>svgCosmos :: [ (String , S.Svg) ]
+>svgCosmos =
+>  [ (,) "sun"      (sun 14)
+>  , (,) "moon"      moon
+>  , (,) "crescent"  crescent
+>  ]
+-}
 svgCosmos :: [ (String , S.Svg) ]
 svgCosmos =
   [ (,) "sun"      (sun 14)

@@ -2,7 +2,13 @@
 
 
 
-module Icons.Business where
+module Icons.Business 
+  ( svgBusiness
+  , company
+  , connections
+  , analytics
+  , bullseye
+  ) where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -12,6 +18,18 @@ import Core.Utils
 
 
 
+{- |
+A list with all the icons of this module, 
+together with appropriate names.
+
+>svgBusiness :: [ (String , S.Svg) ]
+>svgBusiness =
+>  [ (,) "company"     company
+>  , (,) "connections" connections
+>  , (,) "analytics"   analytics
+>  , (,) "bullseye"    bullseye
+>  ]
+-}
 svgBusiness :: [ (String , S.Svg) ]
 svgBusiness =
   [ (,) "company"     company
