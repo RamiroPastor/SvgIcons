@@ -38,6 +38,12 @@ svgTools =
 --------------------------------------------------------------------------------
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/lock_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/lock_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/lock_strk.svg)
+-}
 lock :: S.Svg
 lock =
   S.g $ do
@@ -84,6 +90,12 @@ lock =
       S.z
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/key_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/key_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/key_strk.svg)
+-}
 key :: S.Svg
 key =
   S.path
@@ -114,6 +126,12 @@ key =
       S.z
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/keyWithArc_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/keyWithArc_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/keyWithArc_strk.svg)
+-}
 keyWithArc :: S.Svg
 keyWithArc =
     S.g $ do
@@ -141,6 +159,19 @@ keyWithArc =
       S.z
     
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_strk.svg)
+
+Takes a natural number @n@ which is the number of cogs, 
+and a real number @eps@ which controls how 'pointy' the cogs are. 
+-}
 cogwheel :: Int -> Float -> S.Svg
 cogwheel n eps =
     S.path
@@ -171,9 +202,17 @@ cogwheel n eps =
       f outer inner
 
 
+
+{- |
+prop> cog6 = cogwheel 6 0.18
+-}
 cog6 :: S.Svg
 cog6 = cogwheel 6 0.18
 
 
+
+{- |
+prop> cog = cogwheel 9 0.12
+-}
 cog9 :: S.Svg
 cog9 = cogwheel 9 0.12

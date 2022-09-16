@@ -41,7 +41,11 @@ svgBusiness =
 
 --------------------------------------------------------------------------------
 
-
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/company_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/company_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/company_strk.svg)
+-}
 company :: S.Svg
 company =
   S.g $ do
@@ -117,6 +121,12 @@ company =
         l   (x4 + 3*k2)  y6
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/connections_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/connections_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/connections_strk.svg)
+-}
 connections :: Svg
 connections = 
     S.g $ do
@@ -170,7 +180,13 @@ connections =
       connect (x2,y2,r2) (x8,y8,r8)
       connect (x3,y3,r3) (x9,y9,r9)
 
-    
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/analytics_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/analytics_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/analytics_strk.svg)
+-}
 analytics :: Svg
 analytics = 
     S.g $ do
@@ -202,6 +218,12 @@ analytics =
       S.z
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/bullseye_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/bullseye_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/bullseye_strk.svg)
+-}
 bullseye :: Svg
 bullseye = 
     S.g $ do

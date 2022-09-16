@@ -33,7 +33,15 @@ svgCosmos =
 
 --------------------------------------------------------------------------------
 
--- n is half the number of rays
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/sun_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/sun_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/sun_strk.svg)
+
+Takes a natural number @n@ which draws @2*n@ rays.
+-}
 sun :: Int -> Svg
 sun n =
     S.g $ do
@@ -60,6 +68,12 @@ sun n =
       l   (r  * cos β)  (r  * sin β)
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moon_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moon_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moon_strk.svg)
+-}
 moon :: Svg
 moon =
     S.path
@@ -76,7 +90,13 @@ moon =
       aa    r2    r2   0  True  True  ( kx) (-ky)
       S.z
 
-  
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/crescent_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/crescent_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/crescent_strk.svg)
+-}
 crescent :: Svg
 crescent =
     S.path

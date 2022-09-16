@@ -44,6 +44,12 @@ svgReligion =
 --------------------------------------------------------------------------------
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/xp_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/xp_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/xp_strk.svg)
+-}
 xp :: Svg
 xp = 
   S.g $ do
@@ -121,6 +127,14 @@ xp =
       l  ( 0.7+a/2)  ( a/2)
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/taijitu_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/taijitu_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/taijitu_strk.svg)
+
+You must provide both yin and yang colors
+-}
 taijitu :: String -> String -> Svg
 taijitu yinColor yangColor =
     S.g $ do
@@ -163,7 +177,13 @@ taijitu yinColor yangColor =
         ! A.stroke "none"
         ! A.fill (S.toValue yinColor)
 
-  
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossLatin_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossLatin_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossLatin_strk.svg)
+-}
 crossLatin :: Svg
 crossLatin =
     S.path
@@ -189,6 +209,12 @@ crossLatin =
       S.z
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossOrthodox_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossOrthodox_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossOrthodox_strk.svg)
+-}
 crossOrthodox :: Svg
 crossOrthodox =
     S.path
@@ -239,6 +265,12 @@ crossOrthodox =
       S.z
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crescentAndStar_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crescentAndStar_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crescentAndStar_strk.svg)
+-}
 crescentAndStar :: Svg
 crescentAndStar =
     S.g $ do
@@ -257,14 +289,28 @@ crescentAndStar =
       aa    r2    r2   0  True  True  ( kx) (-ky)
       S.z
 
-  
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/starOfDavid_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/starOfDavid_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/starOfDavid_strk.svg)
+-}
 starOfDavid :: Svg
 starOfDavid =
   starPolygonFirstSpecies 6 0.9 (0,0)
 
 
--- If all six numbers belong to {0,1} it draws only the hexagram lines
--- Otherwise, the numbers are printed right to their line
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/exampleHexagram_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/exampleHexagram_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/exampleHexagram_strk.svg)
+
+Function to draw a hexagram from the Yi Ching (the Book of Mutations).
+If all six numbers belong to {0,1} it draws only the hexagram lines.
+Otherwise, the numbers are printed right to their line
+-}
 iChingHexagram :: (Int,Int,Int,Int,Int,Int) -> Svg
 iChingHexagram (n1,n2,n3,n4,n5,n6) =
     S.g $ do

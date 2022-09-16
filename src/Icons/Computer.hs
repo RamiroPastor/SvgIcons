@@ -46,6 +46,12 @@ svgComputer =
 --------------------------------------------------------------------------------
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/plus_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/plus_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/plus_strk.svg)
+-}
 plus :: Svg
 plus =
     S.path 
@@ -70,6 +76,11 @@ plus =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/cancel_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/cancel_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/cancel_strk.svg)
+-}
 cancel :: Svg
 cancel =
   S.g $ 
@@ -77,6 +88,11 @@ cancel =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_strk.svg)
+-}
 accept :: Svg
 accept =
   S.g $ do
@@ -99,6 +115,11 @@ accept =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/warning_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/warning_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/warning_strk.svg)
+-}
 warning :: Svg
 warning = 
     S.g $ do
@@ -138,6 +159,12 @@ warning =
       S.z
       
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/minimize_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/minimize_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/minimize_strk.svg)
+-}
 minimize :: Svg
 minimize =
   S.path
@@ -154,6 +181,11 @@ minimize =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/maximize_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/maximize_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/maximize_strk.svg)
+-}
 maximize :: Svg
 maximize =
   S.g $ do
@@ -184,6 +216,12 @@ maximize =
       l   ( 0.5*w + k)  ( 0.5*w - k)
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuDots_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuDots_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuDots_strk.svg)
+-}
 menuDots :: Svg
 menuDots =
     S.g $ do
@@ -197,7 +235,13 @@ menuDots =
         ! A.cx "0"
         ! A.r  "0.2"
 
-  
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuLines_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuLines_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuLines_strk.svg)
+-}
 menuLines :: Svg
 menuLines =
     S.g $ do
@@ -215,6 +259,12 @@ menuLines =
       S.z
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/powerButton_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/powerButton_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/powerButton_strk.svg)
+-}
 powerButton :: S.Svg
 powerButton =
   S.g $ do

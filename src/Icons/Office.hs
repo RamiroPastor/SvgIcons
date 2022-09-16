@@ -37,7 +37,7 @@ svgOffice =
   , (,) "document"   document
   , (,) "archive"    archive
   , (,) "pin"        pin
-  , (,) "clip"       paperclip
+  , (,) "paperclip"  paperclip
   , (,) "clipboard"  clipboard
   , (,) "printer"    printer
   , (,) "lupe"       lupe
@@ -49,6 +49,11 @@ svgOffice =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/envelope_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/envelope_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/envelope_strk.svg)
+-}
 envelope :: Svg
 envelope =
     S.path
@@ -73,6 +78,12 @@ envelope =
       S.z
       
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pencil_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pencil_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pencil_strk.svg)
+-}
 pencil :: Svg
 pencil =
     S.path
@@ -110,6 +121,12 @@ pencil =
       l   x2  y2
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/document_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/document_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/document_strk.svg)
+-}
 document :: Svg
 document = 
     S.g $ do
@@ -158,6 +175,12 @@ document =
       l    0   ( m1)
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/archive_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/archive_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/archive_strk.svg)
+-}
 archive :: S.Svg
 archive = 
   S.g $ do
@@ -194,7 +217,13 @@ archive =
       l   ( hx - hr) (h)
       aa  hr  hr  0  False False ( hx)      (h - hr)
 
-  
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pin_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pin_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pin_strk.svg)
+-}
 pin :: Svg
 pin =
   S.g $
@@ -235,6 +264,12 @@ pin =
       l   ( w2)  y4
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/paperclip_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/paperclip_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/paperclip_strk.svg)
+-}
 paperclip :: Svg
 paperclip =
     S.g $ 
@@ -273,6 +308,12 @@ paperclip =
       S.z
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/clipboard_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/clipboard_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/clipboard_strk.svg)
+-}
 clipboard :: Svg
 clipboard =
   S.g $ do
@@ -311,6 +352,12 @@ clipboard =
       S.z
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/printer_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/printer_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/printer_strk.svg)
+-}
 printer :: Svg
 printer =
     S.g $ do
@@ -385,6 +432,12 @@ printer =
           ! A.fill "deepskyblue"
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/lupe_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/lupe_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/lupe_strk.svg)
+-}
 lupe :: S.Svg
 lupe =
     S.g $ do
@@ -416,6 +469,12 @@ lupe =
       S.z
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/briefcase_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/briefcase_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/briefcase_strk.svg)
+-}
 briefcase :: Svg
 briefcase = 
     S.g $ do

@@ -56,6 +56,13 @@ svgTextarea =
 
 --------------------------------------------------------------------------------
 
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/bold_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/bold_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/bold_strk.svg)
+-}
 bold :: S.Svg
 bold =
     S.path 
@@ -93,6 +100,11 @@ bold =
       
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/italic_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/italic_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/italic_strk.svg)
+-}
 italic :: S.Svg
 italic =
     S.path
@@ -132,6 +144,11 @@ italic =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/link_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/link_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/link_strk.svg)
+-}
 link :: S.Svg
 link =
     g $ do
@@ -162,6 +179,11 @@ link =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/image_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/image_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/image_strk.svg)
+-}
 imageIcon :: S.Svg
 imageIcon =
     S.g $ do
@@ -216,6 +238,11 @@ imageIcon =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/video_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/video_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/video_strk.svg)
+-}
 video :: S.Svg
 video =
     S.path ! A.d boxPath
@@ -242,6 +269,9 @@ video =
 
 
 
+{- |
+Helper for both list icons
+-}
 horizontalBars :: S.Svg
 horizontalBars =
     S.g $ do
@@ -276,6 +306,11 @@ horizontalBars =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/bulletList_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/bulletList_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/bulletList_strk.svg)
+-}
 bulletList :: S.Svg
 bulletList =
     S.g $ do
@@ -293,6 +328,12 @@ bulletList =
       circle ! (cx .: x1) ! (cy .: y3) ! (r .: radius) 
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/numberList_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/numberList_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/numberList_strk.svg)
+-}
 numberList :: Svg
 numberList =
     S.g $ do
@@ -320,6 +361,11 @@ numberList =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/header_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/header_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/header_strk.svg)
+-}
 header :: S.Svg
 header =
     S.g $ do
@@ -368,6 +414,11 @@ header =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/hr_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/hr_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/hr_strk.svg)
+-}
 horizontalRule :: S.Svg
 horizontalRule =
     S.g $ do
@@ -422,18 +473,33 @@ horizontalRule =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/undo_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/undo_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/undo_strk.svg)
+-}
 undo :: S.Svg
 undo =
   curvyArrowLeft
     ! A.transform (translate 0 0.1)
 
 
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/redo_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/redo_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/redo_strk.svg)
+-}
 redo :: S.Svg
 redo =
   curvyArrowLeft
     ! A.transform (translate 0 0.1 <> horizontalMirrorMatrix)
 
 
+
+{- |
+Helper for both undo and redo icons
+-}
 curvyArrowLeft :: S.Svg
 curvyArrowLeft =
   S.path
@@ -460,7 +526,11 @@ curvyArrowLeft =
 
 
 
-
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/help_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/help_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/help_strk.svg)
+-}
 questionMark :: S.Svg
 questionMark =
     S.path
@@ -487,6 +557,11 @@ questionMark =
 
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/fullscreen_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/fullscreen_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/fullscreen_strk.svg)
+-}
 fullscreen :: S.Svg
 fullscreen =
     S.g $ do
@@ -514,6 +589,11 @@ fullscreen =
      
 
 
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/preview_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/preview_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/textarea/preview_strk.svg)
+-}
 preview :: S.Svg
 preview = 
     S.g $ do

@@ -31,6 +31,13 @@ svgMath =
 
 --------------------------------------------------------------------------------
 
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lambda_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lambda_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lambda_strk.svg)
+-}
 lambda :: S.Svg
 lambda = 
     S.g $ do
@@ -72,7 +79,13 @@ lambda =
       S.c r1 r2 s1 s2 t1 t2
       S.l d1 d2
 
-  
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lemniscate_fill.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lemniscate_full.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lemniscate_strk.svg)
+-}
 lemniscate :: Svg
 lemniscate = 
     S.path
