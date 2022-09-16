@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g fill="black" stroke="none" stroke-width="0">
         <path stroke-linejoin="round" stroke-linecap="round" fill="none" d="M 0.5871,-0.16 L 0.5871,-0.95 L -0.5871,-0.95 L -0.5871,0.95 L 0.5871,0.95 L 0.5871,0.7 " />
         <path stroke-linecap="round" d="M -0.4,-0.65 L 0.4,-0.65 M -0.4,-0.35 L 0.4,-0.35 M -0.4,-5.0e-2 L 0.4,-5.0e-2 " />

@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g fill="silver" stroke="black" stroke-width="0.03">
         <path d="M -0.9,-0.7666666666666666 L 0.9,-0.7666666666666666 L 0.9,-0.5666666666666667 L -0.9,-0.5666666666666667 Z" />
         <path d="M -0.5,-0.43333333333333335 L 0.5,-0.43333333333333335 L 0.5,-0.2333333333333333 L -0.5,-0.2333333333333333 Z" />

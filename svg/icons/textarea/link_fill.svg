@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg viewBox="-1 -1 2 2" height="300px" width="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g fill="black" stroke="none" stroke-width="0">
         <path d="M -0.4,-0.3 L -0.4,-0.76 A 0.4,0.4 0.0 1,1 0.4,-0.76 L 0.4,-0.13999999999999996 A 0.4,0.4 0.0 0,1 0.0,0.3 A 8.000000000000002e-2,8.000000000000002e-2 0.0 0,1 0.0,0.13999999999999996 A 0.24,0.24 0.0 0,0 0.24,-0.13999999999999996 L 0.24,-0.76 A 0.24,0.24 0.0 1,0 -0.24,-0.76 L -0.24,-0.4 Z" transform="rotate(45,0,0)" />
         <path d="M -0.4,-0.3 L -0.4,-0.76 A 0.4,0.4 0.0 1,1 0.4,-0.76 L 0.4,-0.13999999999999996 A 0.4,0.4 0.0 0,1 0.0,0.3 A 8.000000000000002e-2,8.000000000000002e-2 0.0 0,1 0.0,0.13999999999999996 A 0.24,0.24 0.0 0,0 0.24,-0.13999999999999996 L 0.24,-0.76 A 0.24,0.24 0.0 1,0 -0.24,-0.76 L -0.24,-0.4 Z" transform="rotate(45,0,0)rotate(180,0,0)" />
