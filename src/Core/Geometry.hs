@@ -28,11 +28,13 @@ import Core.Utils
 `regularPolygon` builds a regular polygon.
 
 You can customize fill and stroke using the
-usual `blaze-svg` functions. For example:
+usual [blaze-svg](https://hackage.haskell.org/package/blaze-svg) functions. For example:
+
 >regularPolygon 5 100 (200,300)
 >  ! A.fill "pink"
 >  ! A.stroke "#0000FF"
 >  ! A.strokeWidth "10"
+
 will return a path element corresponding to a 
 regular pentagon of radius 100 centered at point
 (200,300) filled in pink, green stroke and stroke

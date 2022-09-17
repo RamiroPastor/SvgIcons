@@ -221,7 +221,9 @@ analytics =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/bullseye_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/bullseye_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/bullseye_strk.svg)
 -}
 bullseye :: Svg
