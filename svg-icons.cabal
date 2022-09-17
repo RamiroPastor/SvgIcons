@@ -1,5 +1,5 @@
 cabal-version:      2.4
-name:               SvgIcons
+name:               svg-icons
 version:            0.1.0.0
 homepage:           https://github.com/RamiroPastor/SvgIcons
 license:            BSD-3-Clause
@@ -50,11 +50,11 @@ library
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
   build-depends:    
-    base ^>=4.15.0.0,
+    base >=4.15.0.0 && <5.0.0,
     blaze-markup >=0.5 && <0.9,
-    blaze-svg ^>= 0.3.3.0,
-    directory ^>= 1.3.7.0,
-    text ^>= 2.0
+    blaze-svg >= 0.3.3.0 && < 1.0,
+    directory >= 1.3.7.0 && <2.0.0,
+    text >= 2.0 && < 3.0
   hs-source-dirs:   src
   default-language: Haskell2010
 
@@ -63,11 +63,11 @@ executable SvgIcons-exe
   hs-source-dirs: src
   main-is: Main.hs
   build-depends:
-    base ^>=4.15.0.0,
+    base >=4.15.0.0 && <5.0.0,
     blaze-markup >=0.5 && <0.9,
-    blaze-svg ^>= 0.3.3.0,
-    directory ^>= 1.3.7.0,
-    text ^>= 2.0,
+    blaze-svg >= 0.3.3.0 && < 1.0,
+    directory >= 1.3.7.0 && <2.0.0,
+    text >= 2.0 && < 3.0
   other-modules:
     Core.Geometry,
     Core.Render,
@@ -87,11 +87,11 @@ executable SvgIcons-exe
     Images.Mosaics
     
 
-test-suite SvgIcons-test
-    default-language: Haskell2010
-    type:             exitcode-stdio-1.0
-    hs-source-dirs:   test
-    main-is:          TestRender.hs
-    build-depends:    
-      base ^>=4.15.0.0,
-      SvgIcons
+-- test-suite SvgIcons-test
+--     default-language: Haskell2010
+--     type:             exitcode-stdio-1.0
+--     hs-source-dirs:   test
+--     main-is:          TestRender.hs
+--     build-depends:    
+--       base ^>=4.15.0.0,
+--       SvgIcons

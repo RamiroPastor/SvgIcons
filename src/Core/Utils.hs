@@ -1,6 +1,10 @@
 {-# LANGUAGE     OverloadedStrings       #-}
 
 
+{- |
+Module      : Core.Utils
+Description : Utilities for svg coding
+-}
 module Core.Utils 
   ( evenOddSplit
   , addXmlns
