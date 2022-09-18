@@ -1,2 +1,2 @@
 cabal build
-cabal exec SvgIcons-exe
+cabal exec svg-icons-exe

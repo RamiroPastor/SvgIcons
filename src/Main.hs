@@ -17,8 +17,8 @@ import Icons.Office   (svgOffice)
 import Icons.Religion (svgReligion)
 import Icons.Textarea (svgTextarea)
 import Icons.Tools    (svgTools)
-import Images.Flags   (flags)
-import Images.Mosaics (mosaicSample)
+import Images.CountryFlags (countryFlags)
+import Images.Mosaics      (mosaicSample)
 
 
 
@@ -37,7 +37,7 @@ renderAll svgFolder = do
   createDirectory                svgFolder
   renderIcons   (svgFolder ++ "/icons/")
   createDirectory (svgFolder ++ "/images")
-  renderFlags   (svgFolder ++ "/images/flags/")
+  renderCountryFlags (svgFolder ++ "/images/countryFlags/")
   renderMosaics (svgFolder ++ "/images/mosaics/")
   renderTest    (svgFolder ++ "/test/") (starRegular 7 0.9 (0,0))
   putStrLn "Svg files compiled correctly"
@@ -101,10 +101,10 @@ renderIcons path =
     
 
 
-renderFlags :: FilePath -> IO ()
-renderFlags path = do
+renderCountryFlags :: FilePath -> IO ()
+renderCountryFlags path = do
   createDirectory path
-  renderSvgFiles path flags
+  renderSvgFiles path countryFlags
 
 
 

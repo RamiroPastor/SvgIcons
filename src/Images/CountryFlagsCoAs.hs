@@ -1,8 +1,11 @@
 {-# LANGUAGE     OverloadedStrings       #-}
 
 
-
-module Images.FlagsCoA where
+{- |
+Coat of Arms for flags (or more generally, 
+anything hard to draw which should be put inside a flag)
+-}
+module Images.CountryFlagsCoAs where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S

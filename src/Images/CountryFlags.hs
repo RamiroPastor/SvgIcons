@@ -1,8 +1,17 @@
 {-# LANGUAGE     OverloadedStrings       #-}
 
 
+{- |
+Country flags (only Europe at this moment) and the European Union flag.
 
-module Images.Flags where
+All flags are built on a @viewbox "0 0 w h"@ 
+where @w@ and @h@ are particular to each flag (according to official ratios)
+
+Flags are named with the 2-letter ISO code of each country, with very few exceptions, 
+named with the 3-letter ISO code to avoid name collision with some HTML or `Attribute` functions 
+like @hr@ or @cy@.
+-}
+module Images.CountryFlags where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -10,12 +19,66 @@ import           Text.Blaze.Svg11.Attributes as A
 
 import Core.Geometry
 import Core.Utils
-import Images.FlagsCoA
+import Images.CountryFlagsCoAs
 
 
+{- |
+A list with all the flags of this module, 
+together with appropriate names.
 
-flags :: [ (String , S.Svg) ]
-flags =
+>countryFlags :: [ (String , S.Svg) ]
+>countryFlags =
+>  [ (,) "ad" ad
+>  , (,) "af" af
+>  , (,) "al" al
+>  , (,) "at" at
+>  , (,) "ba" ba
+>  , (,) "be" be
+>  , (,) "bg" bg
+>  , (,) "by" blr
+>  , (,) "ch" ch
+>  , (,) "cy" cyp
+>  , (,) "cz" cz
+>  , (,) "de" de
+>  , (,) "dk" dk
+>  , (,) "ee" ee
+>  , (,) "es" es
+>  , (,) "eu" eu
+>  , (,) "fi" fi
+>  , (,) "fr" fr
+>  , (,) "gr" gr
+>  , (,) "hr" hrv
+>  , (,) "ie" ie
+>  , (,) "is" is
+>  , (,) "it" it
+>  , (,) "li" li
+>  , (,) "lt" lt
+>  , (,) "lu" lu
+>  , (,) "lv" lv
+>  , (,) "mc" mc
+>  , (,) "md" md
+>  , (,) "me" me
+>  , (,) "mk" mk
+>  , (,) "mt" mt
+>  , (,) "nl" nl
+>  , (,) "no" no
+>  , (,) "pl" pl
+>  , (,) "pt" pt
+>  , (,) "ro" ro
+>  , (,) "rs" rs
+>  , (,) "ru" ru
+>  , (,) "se" se
+>  , (,) "si" si
+>  , (,) "sk" sk
+>  , (,) "sm" sm
+>  , (,) "ua" ua
+>  , (,) "uk" uk
+>  , (,) "va" va
+>  , (,) "xk" xk
+>  ]
+-}
+countryFlags :: [ (String , S.Svg) ]
+countryFlags =
   [ (,) "ad" ad
   , (,) "af" af
   , (,) "al" al
@@ -66,7 +129,16 @@ flags =
   ]
 
 
-flagV3Eq :: (Float,Float) -> String -> String -> String -> Svg
+
+{- |
+Handy function to draw a flag with 3 vertical stripes of the same size.
+-}
+flagV3Eq 
+  :: (Float,Float) -- ^ @w@ and @h@ parameters for the viewbox (multiplied by 100 for width and height)
+  -> String        -- ^ color for the left stripe
+  -> String        -- ^ color for the central stripe
+  -> String        -- ^ color for the right stripe
+  -> Svg           -- ^ resulting flag
 flagV3Eq (w,h) c1 c2 c3 =
     S.svg
       ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
@@ -103,7 +175,16 @@ flagV3Eq (w,h) c1 c2 c3 =
         ! A.fill (S.toValue c3)
 
 
-flagH3Eq :: (Float,Float) -> String -> String -> String -> Svg
+
+{- |
+Handy function to draw a flag with 3 horizontal stripes of the same size.
+-}
+flagH3Eq
+  :: (Float,Float) -- ^ @w@ and @h@ parameters for the viewbox (multiplied by 100 for width and height)
+  -> String        -- ^ color for the top stripe
+  -> String        -- ^ color for the central stripe
+  -> String        -- ^ color for the bottom stripe
+  -> Svg           -- ^ resulting flag
 flagH3Eq (w,h) c1 c2 c3 =
     S.svg
       ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
@@ -142,7 +223,11 @@ flagH3Eq (w,h) c1 c2 c3 =
 
 --------------------------------------------------------------------------------
 
--- flag of Andorra
+{- |
+Flag of Andorra
+
+![flag of Andorra](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/flags/ad.svg)
+-}
 ad :: Svg
 ad = 
     S.svg
