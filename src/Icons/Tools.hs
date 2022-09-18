@@ -5,6 +5,8 @@
 module Icons.Tools 
   ( svgTools
   , cogwheel
+  , cog6
+  , cog9
   , key
   , keyWithArc
   , lock
@@ -173,18 +175,6 @@ keyWithArc =
 
 
 {- |
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_fill.svg)
-
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_full.svg)
-
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_strk.svg)
-
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_fill.svg)
-
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_full.svg)
-
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_strk.svg)
-
 Takes a natural number @n@ which is the number of cogs, 
 and a real number @eps@ which controls how 'pointy' the cogs are. 
 -}
@@ -221,6 +211,12 @@ cogwheel n eps =
 
 {- |
 prop> cog6 = cogwheel 6 0.18
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_strk.svg)
 -}
 cog6 :: S.Svg
 cog6 = cogwheel 6 0.18
@@ -229,6 +225,12 @@ cog6 = cogwheel 6 0.18
 
 {- |
 prop> cog = cogwheel 9 0.12
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_strk.svg)
 -}
 cog9 :: S.Svg
 cog9 = cogwheel 9 0.12
