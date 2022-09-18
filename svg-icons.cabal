@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               svg-icons
-version:            0.4.0.0
+version:            0.4.0.1
 homepage:           https://github.com/RamiroPastor/SvgIcons
 license:            BSD-3-Clause
 license-file:       LICENSE
@@ -16,6 +16,8 @@ description:
   You can use them in your Haskell project or use the rendering module 
   to get standalone svg files or React (jsx) files.
 
+  Please check module `Icons` for instructions on
+  how to use this package.
 
 
 -- extra-source-files: CHANGELOG.md

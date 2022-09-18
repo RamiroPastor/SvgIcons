@@ -19,7 +19,7 @@ you have 2 options:
   @.jsx@ files, suitable for the [React.js](https://reactjs.org/) javascript framework.
 
 
-** Preparing the icon (a little work):
+== Preparing the icon:
 
 All icons are designed for a @viewbox "-1 -1 2 2"@ (a square centered at (0,0) and side = 2).
 However, the viewbox attribute must be assigned to the @\<svg\>@ tag, and the icons return a 
@@ -51,9 +51,9 @@ You can render the result into a @.svg@ file and you will get:
 
 ![icon example 1](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/iconExample1.svg)
 
-Note that the functions in the previous example come from the 
-[blaze-svg](https://hackage.haskell.org/package/blaze-svg)
-package, so you will need to add it to your dependencies.
+Note that the functions in the previous example come from 
+the [blaze-svg](https://hackage.haskell.org/package/blaze-svg) package, 
+so you will need to add it to your dependencies.
 
 There are some functions defined in module `Core.Style` that can make
 this process easier, in particular `stdDims`. Remember that you can avoid
@@ -79,13 +79,13 @@ the three style functions found in `Core.Style`, to expose how each icon looks
 with only stroke and no fill, only fill and no stroke, and both fill and stroke ("full" style).
 Most of them work with all 3 styles, but some are of no use in one of the three cases.
 
-** Composing Icons
+== Composing Icons
 
 As said before, all icons aim to be composable (mix icons in the same svg element).
 Again, this is achieved by not wrapping them in the @\<svg\>@ tag in their definitions,
 and leaving the outmost tag of every icon (usually a @path@ or a @g@ element) free of 
 any transform attribute (and free of almost every other attribute too). Even those icons that
-have some transformation inside their code already, are wrapped with a clean @g@ tag to allow 
+have some transformation inside their code already, are wrapped with a clean @\<g\>@ tag to allow 
 for further transformations.
 
 Example:
@@ -128,12 +128,14 @@ Resulting svg composition:
 
 ![icon example 2](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/iconExample3.svg)
 
-** Multiple Fill Colors
+== Multiple Fill Colors
 
 Currently, there is no way to fill different parts of one icon with different colors
 (or more exotic, animate specific parts of some icon).
 I am reluctant to parametrize colors as arguments for every icon, but this could be achieved
-by giving a unique id or class to each component of every icon. This is not on my priority list
+by giving a unique id or class to each component of every icon, so it can be controlled with CSS.
+
+This is not on my priority list
 at this moment, but do not hesitate to ask for it if you need it. Or even better, do it yourself and
 ask for a branch merge on github.
 
@@ -143,6 +145,7 @@ module Icons
   , iconExample1
   , iconExample2
   , iconExample3
+  -- * Re-export all Icons modules
   , module Icons.Business
   , module Icons.Computer
   , module Icons.Cosmos
@@ -175,10 +178,10 @@ import Icons.Tools
 A list with all the examples of this module, 
 together with appropriate names.
 
-exampleIcons :: [(String , Svg)]
-exampleIcons =
-  [ (,) "iconExample1" iconExample1
-  ]
+>exampleIcons :: [(String , Svg)]
+>exampleIcons =
+>  [ (,) "iconExample1" iconExample1
+>  ]
 -}
 exampleIcons :: [(String , Svg)]
 exampleIcons =
