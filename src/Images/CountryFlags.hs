@@ -9,7 +9,7 @@ where @w@ and @h@ are particular to each flag (according to official ratios)
 
 Flags are named with the 2-letter ISO code of each country, with very few exceptions, 
 named with the 3-letter ISO code to avoid name collision with some HTML or `Attribute` functions 
-like @hr@ or @cy@.
+like `hr` or `cy`.
 -}
 module Images.CountryFlags where
 
@@ -226,7 +226,7 @@ flagH3Eq (w,h) c1 c2 c3 =
 {- |
 Flag of Andorra
 
-![flag of Andorra](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/flags/ad.svg)
+![flag of Andorra](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ad.svg)
 -}
 ad :: Svg
 ad = 
@@ -265,7 +265,12 @@ ad =
         ! A.fill "#D50032"
 
 
--- flag of Afghanistan
+
+{- |
+Flag of Afghanistan
+
+![flag of Afghanistan](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/af.svg)
+-}
 af :: Svg
 af =
   flagV3Eq
@@ -275,7 +280,12 @@ af =
     "rgb(0,122,54)"
 
 
--- flag of Albania
+
+{- |
+Flag of Albania
+
+![flag of Albania](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/al.svg)
+-}
 al :: Svg
 al =
     S.svg
@@ -296,7 +306,12 @@ al =
         ! A.fill "#FF0000"
 
 
--- flag of Austria
+
+{- |
+Flag of Austria
+
+![flag of Austria](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/at.svg)
+-}
 at :: Svg
 at = 
   flagH3Eq
@@ -306,7 +321,12 @@ at =
     "#C8102E"
 
 
--- flag of Bosnia and Herzegovina
+
+{- |
+Flag of Bosnia and Herzegovina
+
+![flag of Bosnia and Herzegovina](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ba.svg)
+-}
 ba :: Svg
 ba = 
     S.svg
@@ -360,7 +380,12 @@ ba =
         ! A.xlinkHref "#HaskellSvgIcons-baFlagStar"
 
 
--- flag of Belgium
+
+{- |
+Flag of Belgium
+
+![flag of Belgium](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/be.svg)
+-}
 be :: Svg
 be =
   flagV3Eq
@@ -370,7 +395,12 @@ be =
     "#FF0F21"
 
 
--- flag of Bulgaria
+
+{- |
+Flag of Bulgaria
+
+![flag of Bulgaria](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/bg.svg)
+-}
 bg :: Svg
 bg =
   flagH3Eq
@@ -380,7 +410,12 @@ bg =
     "#D01C1F"
 
 
--- flag of Belarus
+
+{- |
+Flag of Belarus
+
+![flag of Belarus](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/by.svg)
+-}
 blr :: Svg
 blr = 
     S.svg
@@ -483,7 +518,12 @@ blr =
         ) [0 .. 10]
 
 
--- flag of Switzerland
+
+{- |
+Flag of Switzerland
+
+![flag of Switzerland](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ch.svg)
+-}
 ch :: S.Svg
 ch =
     S.svg
@@ -515,7 +555,12 @@ ch =
       l  26 16
 
 
--- flag of Cyprus
+
+{- |
+Flag of Cyprus
+
+![flag of Cyprus](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/cy.svg)
+-}
 cyp :: S.Svg
 cyp =
     S.svg
@@ -536,7 +581,12 @@ cyp =
         ! A.fill "#FFFFFF"
 
 
--- flag of Czech Republic
+
+{- |
+Flag of Czech Republic
+
+![flag of Czech Republic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/cz.svg)
+-}
 cz :: S.Svg
 cz =
     S.svg
@@ -582,7 +632,12 @@ cz =
       S.z
 
 
--- flag of Germany
+
+{- |
+Flag of Germany
+
+![flag of Germany](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/de.svg)
+-}
 de :: Svg
 de =
   flagH3Eq
@@ -592,7 +647,12 @@ de =
     "rgb(255,204,0)"
 
 
--- flag of Denmark
+
+{- |
+Flag of Denmark
+
+![flag of Denmark](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/dk.svg)
+-}
 dk :: Svg
 dk =
     S.svg
@@ -624,7 +684,12 @@ dk =
       l  37 14
 
 
--- flag of Estonia
+
+{- |
+Flag of Estonia
+
+![flag of Estonia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ee.svg)
+-}
 ee :: Svg
 ee =
   flagH3Eq
@@ -634,7 +699,12 @@ ee =
     "#FFFFFF"
 
 
--- flag of Spain
+
+{- |
+Flag of Spain
+
+![flag of Spain](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/es.svg)
+-}
 es :: Svg
 es =
     S.svg
@@ -674,7 +744,12 @@ es =
         ! A.fill colRed
 
 
--- flag of the European Union
+
+{- |
+Flag of the European Union
+
+![flag of the European Union](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/eu.svg)
+-}
 eu :: Svg
 eu =
     S.svg
@@ -703,7 +778,12 @@ eu =
         ! A.id_ "HaskellSvgIcons-euFlagStar"
 
 
--- flag of Finland
+
+{- |
+Flag of Finland
+
+![flag of Finland](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/fi.svg)
+-}
 fi :: S.Svg
 fi =
     S.svg
@@ -735,7 +815,12 @@ fi =
       l  36 11
 
 
--- flag of France
+
+{- |
+Flag of France
+
+![flag of France](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/fr.svg)
+-}
 fr :: S.Svg
 fr =
   flagV3Eq
@@ -745,7 +830,12 @@ fr =
     "rgb(239,65,53)"
 
 
--- flag of Greece
+
+{- |
+Flag of Greece
+
+![flag of Greece](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/gr.svg)
+-}
 gr :: Svg
 gr =
     S.svg
@@ -802,7 +892,12 @@ gr =
       l  10   5
 
 
--- flag of Croatia
+
+{- |
+Flag of Croatia
+
+![flag of Croatia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/hr.svg)
+-}
 hrv :: Svg
 hrv =
   flagH3Eq
@@ -812,7 +907,12 @@ hrv =
     "#171796"
 
 
--- flag of Ireland
+
+{- |
+Flag of Ireland
+
+![flag of Ireland](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ie.svg)
+-}
 ie :: S.Svg
 ie =
   flagV3Eq
@@ -822,7 +922,12 @@ ie =
     "rgb(255,136,62)"
 
 
--- flag of Iceland
+
+{- |
+Flag of Iceland
+
+![flag of Iceland](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/is.svg)
+-}
 is :: S.Svg
 is = 
     S.svg 
@@ -861,7 +966,12 @@ is =
       l   9  18
 
 
--- flag of Italy
+
+{- |
+Flag of Italy
+
+![flag of Italy](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/it.svg)
+-}
 it :: Svg
 it = 
   flagV3Eq
@@ -871,7 +981,12 @@ it =
     "rgb(205,33,42)" 
 
 
---flag of Liechtenstein
+
+{- |
+Flag of Liechtenstein
+
+![flag of Liechtenstein](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/li.svg)
+-}
 li :: Svg
 li = 
     S.svg
@@ -900,7 +1015,12 @@ li =
         ! A.fill "#CF0921"
 
 
--- flag of Lithuania
+
+{- |
+Flag of Lithuania
+
+![flag of Lithuania](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/lt.svg)
+-}
 lt :: Svg
 lt =
   flagH3Eq
@@ -910,7 +1030,12 @@ lt =
     "#BE3A34"
 
 
--- flag of Luxembourg
+
+{- |
+Flag of Luxembourg
+
+![flag of Luxembourg](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/lu.svg)
+-}
 lu :: S.Svg
 lu =
   flagH3Eq
@@ -920,7 +1045,12 @@ lu =
     "#51ADDA"
 
 
--- flag of Latvia
+
+{- |
+Flag of Latvia
+
+![flag of Latvia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/lv.svg)
+-}
 lv :: S.Svg
 lv = 
     S.svg
@@ -958,7 +1088,12 @@ lv =
         ! A.fill "#A4343A"
 
 
--- flag of Monaco
+
+{- |
+Flag of Monaco
+
+![flag of Monaco](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/mc.svg)
+-}
 mc :: S.Svg
 mc =
     S.svg
@@ -987,7 +1122,12 @@ mc =
         ! A.fill "#FFFFFF"
 
 
--- flag of Moldova
+
+{- |
+Flag of Moldova
+
+![flag of Moldova](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/md.svg)
+-}
 md :: Svg
 md =
   flagV3Eq
@@ -997,7 +1137,12 @@ md =
     "#C8102E"
 
 
--- flag of Montenegro
+
+{- |
+Flag of Montenegro
+
+![flag of Montenegro](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/me.svg)
+-}
 me :: Svg
 me = 
     S.svg
@@ -1033,7 +1178,12 @@ me =
       S.z
 
 
--- flag of North Macedonia
+
+{- |
+Flag of North Macedonia
+
+![flag of North Macedonia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/mk.svg)
+-}
 mk :: Svg
 mk =
     S.svg
@@ -1107,7 +1257,12 @@ mk =
       S.z
 
 
--- flag of Malta
+
+{- |
+Flag of Malta
+
+![flag of Malta](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/mt.svg)
+-}
 mt :: Svg
 mt =
     S.svg
@@ -1136,7 +1291,12 @@ mt =
         ! A.fill "#C01B22"
 
 
--- flag of Netherlands
+
+{- |
+Flag of the Netherlands
+
+![flag of the Netherlands](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/nl.svg)
+-}
 nl :: S.Svg
 nl =
   flagH3Eq
@@ -1146,7 +1306,12 @@ nl =
     "#21468B"
 
 
--- flag of Norway
+
+{- |
+Flag of Norway
+
+![flag of Norway](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/no.svg)
+-}
 no :: S.Svg
 no =
     S.svg
@@ -1185,7 +1350,12 @@ no =
       l  22  8
 
 
---flag of Poland
+
+{- |
+Flag of Polonia
+
+![flag of Polonia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/pl.svg)
+-}
 pl :: Svg
 pl =
     S.svg
@@ -1214,7 +1384,12 @@ pl =
         ! A.fill "#DC143C"
 
 
--- flag of Portugal
+
+{- |
+Flag of Portugal
+
+![flag of Portugal](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/pt.svg)
+-}
 pt :: S.Svg
 pt =
     S.svg
@@ -1243,7 +1418,12 @@ pt =
         ! A.fill "rgb(255,0,0)"
 
 
--- flag of Romania
+
+{- |
+Flag of Romania
+
+![flag of Romania](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ro.svg)
+-}
 ro :: Svg
 ro =
   flagV3Eq
@@ -1253,7 +1433,12 @@ ro =
     "#CE1126"
 
 
--- flag of Serbia
+
+{- |
+Flag of Serbia
+
+![flag of Serbia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/rs.svg)
+-}
 rs :: Svg
 rs =
   flagH3Eq
@@ -1263,7 +1448,12 @@ rs =
     "#FFFFFF"
 
 
--- flag of Russia
+
+{- |
+Flag of Russia
+
+![flag of Russia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ru.svg)
+-}
 ru :: S.Svg
 ru =
   flagH3Eq
@@ -1273,7 +1463,12 @@ ru =
     "#E4181C"
 
 
--- flag of Sweden
+
+{- |
+Flag of Sweden
+
+![flag of Sweden](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/se.svg)
+-}
 se :: S.Svg
 se =
     S.svg
@@ -1305,7 +1500,12 @@ se =
       l  16  5
 
 
--- flag of Slovenia
+
+{- |
+Flag of Slovenia
+
+![flag of Slovenia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/si.svg)
+-}
 si :: Svg
 si =
   flagH3Eq
@@ -1315,7 +1515,12 @@ si =
     "#FF0000"
 
 
--- flag of Slovakia
+
+{- |
+Flag of Slovakia
+
+![flag of Slovakia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/sk.svg)
+-}
 sk :: Svg
 sk =
     S.svg
@@ -1353,7 +1558,12 @@ sk =
         ! A.fill "#EE1C25"
     
 
--- flag of San Marino
+
+{- |
+Flag of San Marino
+
+![flag of San Marino](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/sm.svg)
+-}
 sm :: Svg
 sm =
     S.svg
@@ -1382,7 +1592,12 @@ sm =
         ! A.fill "#73E6F2"
 
 
--- flag of Ukraine
+
+{- |
+Flag of Ukraine
+
+![flag of Ukraine](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ua.svg)
+-}
 ua :: S.Svg
 ua =
     S.svg
@@ -1411,7 +1626,12 @@ ua =
         ! A.fill "#FFDD00"
 
 
--- flag of Great Britain
+
+{- |
+Flag of Great Britain
+
+![flag of Great Britain](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/uk.svg)
+-}
 uk :: S.Svg
 uk =
     S.svg
@@ -1502,7 +1722,12 @@ uk =
       l   0         (my - 4)
 
 
--- flag of the Holy See
+
+{- |
+Flag of the Holy See (Vatican City)
+
+![flag of the Holy See (Vatican City)](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/va.svg)
+-}
 va :: S.Svg
 va = 
     S.svg 
@@ -1532,7 +1757,11 @@ va =
 
 
 
--- flag of Kosovo
+{- |
+Flag of Kosovo
+
+![flag of Kosovo](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/xk.svg)
+-}
 xk :: Svg
 xk =
     S.svg
