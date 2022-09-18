@@ -35,7 +35,7 @@ usual [blaze-svg](https://hackage.haskell.org/package/blaze-svg) functions. For 
 >  ! A.stroke "#0000FF"
 >  ! A.strokeWidth "10"
 
-will return a path element corresponding to a 
+will return a __path element__ corresponding to a 
 regular pentagon of radius 100 centered at point
 (200,300) filled in pink, green stroke and stroke
 width 10.
@@ -67,6 +67,8 @@ regularPolygon n r (x0,y0) =
 First species means that one vertice is skipped when joining vertices.
 The number of vertices must be strictly greater than 4.
 Can be customized with the usual [blaze-svg](https://hackage.haskell.org/package/blaze-svg) functions.
+
+__Returns a path__
 -}
 starPolygonFirstSpecies 
   :: Int             -- ^ number of vertices 
@@ -110,6 +112,8 @@ the previous function's stroke runs inside the figure
 (so it would draw a pentagram), while this function's stroke
 runs outside the shape (so it would draw a star).
 There is no visual difference if you only fill the paths (with no stroke).
+
+__Returns a path__
 -}
 starOutline 
   :: Int             -- ^ number of vertices

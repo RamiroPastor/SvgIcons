@@ -8,6 +8,7 @@ import Core.Geometry
 import Core.Render
 import Core.Style
 import Core.Utils
+import Icons (exampleIcons)
 import Icons.Business (svgBusiness)
 import Icons.Computer (svgComputer)
 import Icons.Cosmos   (svgCosmos)
@@ -35,12 +36,18 @@ renderAll svgFolder = do
   createDirectoryIfMissing False svgFolder
   removeDirectoryRecursive       svgFolder
   createDirectory                svgFolder
-  renderIcons   (svgFolder ++ "/icons/")
-  createDirectory (svgFolder ++ "/images")
-  renderCountryFlags (svgFolder ++ "/images/countryFlags/")
-  renderMosaics (svgFolder ++ "/images/mosaics/")
-  renderTest    (svgFolder ++ "/test/") (starRegular 7 0.9 (0,0))
+  renderExamples (svgFolder ++ "/examples/")
+  renderIcons    (svgFolder ++ "/icons/")
+  renderImages   (svgFolder ++ "/images/")
+  renderTest     (svgFolder ++ "/test/") (starRegular 7 0.9 (0,0))
   putStrLn "Svg files compiled correctly"
+
+
+
+renderExamples :: FilePath -> IO ()
+renderExamples path = do
+  createDirectory path
+  renderSvgFiles path exampleIcons
 
 
 
@@ -98,20 +105,19 @@ renderIcons path =
     religionPath = path ++ "religion/"
     textareaPath = path ++ "textarea/"
     toolsPath    = path ++ "tools/"
-    
-
-
-renderCountryFlags :: FilePath -> IO ()
-renderCountryFlags path = do
-  createDirectory path
-  renderSvgFiles path countryFlags
 
 
 
-renderMosaics :: FilePath -> IO ()
-renderMosaics path = do
-  createDirectory path
-  renderSvgFiles path mosaicSample
+renderImages :: FilePath -> IO ()
+renderImages path = do
+    createDirectory path
+    createDirectory countryFlagsPath
+    createDirectory mosaicsPath
+    renderSvgFiles countryFlagsPath countryFlags
+    renderSvgFiles mosaicsPath      mosaicSample
+  where
+    countryFlagsPath = path ++ "countryFlags/"
+    mosaicsPath      = path ++ "mosaics/"
 
 
 
