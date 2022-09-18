@@ -2,7 +2,11 @@
 
 
 
-module Icons.Math where
+module Icons.Math 
+  ( svgMath
+  , lambda
+  , lemniscate
+  ) where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -35,7 +39,9 @@ svgMath =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lambda_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lambda_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lambda_strk.svg)
 -}
 lambda :: S.Svg
@@ -83,7 +89,9 @@ lambda =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lemniscate_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lemniscate_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/math/lemniscate_strk.svg)
 -}
 lemniscate :: Svg

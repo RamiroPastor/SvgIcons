@@ -2,7 +2,16 @@
 
 
 
-module Icons.Religion where
+module Icons.Religion 
+  ( svgReligion
+  , xp
+  , taijitu
+  , crossLatin
+  , crossOrthodox
+  , crescentAndStar
+  , starOfDavid
+  , iChingHexagram
+  ) where
 
 import           Data.String
 import           Text.Blaze.Svg11 ((!))
@@ -47,7 +56,9 @@ svgReligion =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/xp_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/xp_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/xp_strk.svg)
 -}
 xp :: Svg
@@ -130,7 +141,9 @@ xp =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/taijitu_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/taijitu_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/taijitu_strk.svg)
 
 You must provide both yin and yang colors
@@ -181,7 +194,9 @@ taijitu yinColor yangColor =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossLatin_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossLatin_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossLatin_strk.svg)
 -}
 crossLatin :: Svg
@@ -212,7 +227,9 @@ crossLatin =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossOrthodox_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossOrthodox_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossOrthodox_strk.svg)
 -}
 crossOrthodox :: Svg
@@ -268,7 +285,9 @@ crossOrthodox =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crescentAndStar_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crescentAndStar_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crescentAndStar_strk.svg)
 -}
 crescentAndStar :: Svg
@@ -293,7 +312,9 @@ crescentAndStar =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/starOfDavid_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/starOfDavid_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/starOfDavid_strk.svg)
 -}
 starOfDavid :: Svg
@@ -304,7 +325,9 @@ starOfDavid =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/exampleHexagram_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/exampleHexagram_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/exampleHexagram_strk.svg)
 
 Function to draw a hexagram from the Yi Ching (the Book of Mutations).

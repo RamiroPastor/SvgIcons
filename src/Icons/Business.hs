@@ -4,10 +4,10 @@
 
 module Icons.Business 
   ( svgBusiness
-  , company
-  , connections
   , analytics
   , bullseye
+  , company
+  , connections
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -24,18 +24,18 @@ together with appropriate names.
 
 >svgBusiness :: [ (String , S.Svg) ]
 >svgBusiness =
->  [ (,) "company"     company
->  , (,) "connections" connections
->  , (,) "analytics"   analytics
+>  [ (,) "analytics"   analytics
 >  , (,) "bullseye"    bullseye
+>  , (,) "company"     company
+>  , (,) "connections" connections
 >  ]
 -}
 svgBusiness :: [ (String , S.Svg) ]
 svgBusiness =
-  [ (,) "company"     company
-  , (,) "connections" connections
-  , (,) "analytics"   analytics
+  [ (,) "analytics"   analytics
   , (,) "bullseye"    bullseye
+  , (,) "company"     company
+  , (,) "connections" connections
   ]
 
 
@@ -43,7 +43,9 @@ svgBusiness =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/company_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/company_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/company_strk.svg)
 -}
 company :: S.Svg
@@ -124,7 +126,9 @@ company =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/connections_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/connections_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/connections_strk.svg)
 -}
 connections :: Svg
@@ -184,7 +188,9 @@ connections =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/analytics_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/analytics_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/analytics_strk.svg)
 -}
 analytics :: Svg

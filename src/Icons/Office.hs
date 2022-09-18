@@ -2,7 +2,19 @@
 
 
 
-module Icons.Office where
+module Icons.Office 
+  ( svgOffice
+  , archive
+  , briefcase
+  , clipboard
+  , document
+  , envelope
+  , lupe
+  , paperclip
+  , pencil
+  , pin
+  , printer
+  ) where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -18,30 +30,30 @@ together with appropriate names.
 
 >svgOffice :: [ (String , S.Svg) ]
 >svgOffice =
->  [ (,) "envelope"   envelope
->  , (,) "pencil"     pencil
->  , (,) "document"   document
->  , (,) "archive"    archive
->  , (,) "pin"        pin
->  , (,) "clip"       paperclip
->  , (,) "clipboard"  clipboard
->  , (,) "printer"    printer
->  , (,) "lupe"       lupe
+>  [ (,) "archive"    archive
 >  , (,) "briefcase"  briefcase
+>  , (,) "clipboard"  clipboard
+>  , (,) "document"   document
+>  , (,) "envelope"   envelope
+>  , (,) "lupe"       lupe
+>  , (,) "paperclip"  paperclip
+>  , (,) "pencil"     pencil
+>  , (,) "pin"        pin
+>  , (,) "printer"    printer
 >  ]
 -}
 svgOffice :: [ (String , S.Svg) ]
 svgOffice =
-  [ (,) "envelope"   envelope
-  , (,) "pencil"     pencil
-  , (,) "document"   document
-  , (,) "archive"    archive
-  , (,) "pin"        pin
-  , (,) "paperclip"  paperclip
-  , (,) "clipboard"  clipboard
-  , (,) "printer"    printer
-  , (,) "lupe"       lupe
+  [ (,) "archive"    archive
   , (,) "briefcase"  briefcase
+  , (,) "clipboard"  clipboard
+  , (,) "document"   document
+  , (,) "envelope"   envelope
+  , (,) "lupe"       lupe
+  , (,) "paperclip"  paperclip
+  , (,) "pencil"     pencil
+  , (,) "pin"        pin
+  , (,) "printer"    printer
   ]
 
 
@@ -51,7 +63,9 @@ svgOffice =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/envelope_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/envelope_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/envelope_strk.svg)
 -}
 envelope :: Svg
@@ -81,7 +95,9 @@ envelope =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pencil_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pencil_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pencil_strk.svg)
 -}
 pencil :: Svg
@@ -124,7 +140,9 @@ pencil =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/document_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/document_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/document_strk.svg)
 -}
 document :: Svg
@@ -178,7 +196,9 @@ document =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/archive_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/archive_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/archive_strk.svg)
 -}
 archive :: S.Svg
@@ -221,7 +241,9 @@ archive =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pin_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pin_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/pin_strk.svg)
 -}
 pin :: Svg
@@ -267,7 +289,9 @@ pin =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/paperclip_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/paperclip_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/paperclip_strk.svg)
 -}
 paperclip :: Svg
@@ -311,7 +335,9 @@ paperclip =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/clipboard_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/clipboard_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/clipboard_strk.svg)
 -}
 clipboard :: Svg
@@ -355,7 +381,9 @@ clipboard =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/printer_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/printer_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/printer_strk.svg)
 -}
 printer :: Svg
@@ -435,7 +463,9 @@ printer =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/lupe_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/lupe_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/lupe_strk.svg)
 -}
 lupe :: S.Svg
@@ -472,7 +502,9 @@ lupe =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/briefcase_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/briefcase_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/briefcase_strk.svg)
 -}
 briefcase :: Svg

@@ -2,7 +2,18 @@
 
 
 
-module Icons.Computer where
+module Icons.Computer 
+  ( svgComputer
+  , accept
+  , cancel
+  , plus
+  , maximize
+  , minimize
+  , menuDots
+  , menuLines
+  , powerButton 
+  , warning
+  ) where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -18,28 +29,28 @@ together with appropriate names.
 
 >svgComputer :: [ (String , S.Svg) ]
 >svgComputer =
->  [ (,) "plus"        plus
+>  [ (,) "accept"      accept
 >  , (,) "cancel"      cancel
->  , (,) "accept"      accept
->  , (,) "warning"     warning
->  , (,) "minimize"    minimize
+>  , (,) "plus"        plus
 >  , (,) "maximize"    maximize
+>  , (,) "minimize"    minimize
 >  , (,) "menuDots"    menuDots
 >  , (,) "menuLines"   menuLines
 >  , (,) "powerButton" powerButton 
+>  , (,) "warning"     warning
 >  ]
 -}
 svgComputer :: [ (String , S.Svg) ]
 svgComputer =
-  [ (,) "plus"        plus
+  [ (,) "accept"      accept
   , (,) "cancel"      cancel
-  , (,) "accept"      accept
-  , (,) "warning"     warning
-  , (,) "minimize"    minimize
+  , (,) "plus"        plus
   , (,) "maximize"    maximize
+  , (,) "minimize"    minimize
   , (,) "menuDots"    menuDots
   , (,) "menuLines"   menuLines
   , (,) "powerButton" powerButton 
+  , (,) "warning"     warning
   ]
 
 
@@ -49,7 +60,9 @@ svgComputer =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/plus_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/plus_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/plus_strk.svg)
 -}
 plus :: Svg
@@ -78,7 +91,9 @@ plus =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/cancel_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/cancel_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/cancel_strk.svg)
 -}
 cancel :: Svg
@@ -90,7 +105,9 @@ cancel =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_strk.svg)
 -}
 accept :: Svg
@@ -117,7 +134,9 @@ accept =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/warning_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/warning_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/warning_strk.svg)
 -}
 warning :: Svg
@@ -162,7 +181,9 @@ warning =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/minimize_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/minimize_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/minimize_strk.svg)
 -}
 minimize :: Svg
@@ -183,7 +204,9 @@ minimize =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/maximize_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/maximize_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/maximize_strk.svg)
 -}
 maximize :: Svg
@@ -219,7 +242,9 @@ maximize =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuDots_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuDots_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuDots_strk.svg)
 -}
 menuDots :: Svg
@@ -239,7 +264,9 @@ menuDots =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuLines_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuLines_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/menuLines_strk.svg)
 -}
 menuLines :: Svg
@@ -262,7 +289,9 @@ menuLines =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/powerButton_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/powerButton_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/powerButton_strk.svg)
 -}
 powerButton :: S.Svg

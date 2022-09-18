@@ -2,7 +2,12 @@
 
 
 
-module Icons.Cosmos where
+module Icons.Cosmos 
+  ( svgCosmos
+  , moonCrescent
+  , moonFull
+  , sun
+  ) where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -18,16 +23,16 @@ together with appropriate names.
 
 >svgCosmos :: [ (String , S.Svg) ]
 >svgCosmos =
->  [ (,) "sun"      (sun 14)
->  , (,) "moon"      moon
->  , (,) "crescent"  crescent
+>  [ (,) "moonCrescent"  moonCrescent
+>  , (,) "moonFull"      moonFull
+>  , (,) "sun"          (sun 14)
 >  ]
 -}
 svgCosmos :: [ (String , S.Svg) ]
 svgCosmos =
-  [ (,) "sun"      (sun 14)
-  , (,) "moon"      moon
-  , (,) "crescent"  crescent
+  [ (,) "moonCrescent"  moonCrescent
+  , (,) "moonFull"      moonFull
+  , (,) "sun"          (sun 14)
   ]
 
 
@@ -37,7 +42,9 @@ svgCosmos =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/sun_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/sun_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/sun_strk.svg)
 
 Takes a natural number @n@ which draws @2*n@ rays.
@@ -70,12 +77,14 @@ sun n =
 
 
 {- |
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moon_fill.svg)
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moon_full.svg)
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moon_strk.svg)
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonFull_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonFull_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonFull_strk.svg)
 -}
-moon :: Svg
-moon =
+moonFull :: Svg
+moonFull =
     S.path
       ! A.strokeLinejoin "round"
       ! A.d moonDirs
@@ -93,12 +102,14 @@ moon =
 
 
 {- |
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/crescent_fill.svg)
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/crescent_full.svg)
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/crescent_strk.svg)
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonCrescent_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonCrescent_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonCrescent_strk.svg)
 -}
-crescent :: Svg
-crescent =
+moonCrescent :: Svg
+moonCrescent =
     S.path
       ! A.strokeLinejoin "round"
       ! A.d moonDirs

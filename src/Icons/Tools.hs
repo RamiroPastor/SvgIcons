@@ -2,7 +2,13 @@
 
 
 
-module Icons.Tools where
+module Icons.Tools 
+  ( svgTools
+  , cogwheel
+  , key
+  , keyWithArc
+  , lock
+  ) where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -18,20 +24,20 @@ together with appropriate names.
 
 >svgTools :: [ (String , S.Svg) ]
 >svgTools =
->  [ (,) "lock"       lock
+>  [ (,) "cog6"       cog6
+>  , (,) "cog9"       cog9
 >  , (,) "key"        key
 >  , (,) "keyWithArc" keyWithArc
->  , (,) "cog6"       cog6
->  , (,) "cog9"       cog9
+>  , (,) "lock"       lock
 >  ]
 -}
 svgTools :: [ (String , S.Svg) ]
 svgTools =
-  [ (,) "lock"       lock
+  [ (,) "cog6"       cog6
+  , (,) "cog9"       cog9
   , (,) "key"        key
   , (,) "keyWithArc" keyWithArc
-  , (,) "cog6"       cog6
-  , (,) "cog9"       cog9
+  , (,) "lock"       lock
   ]
 
 
@@ -41,7 +47,9 @@ svgTools =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/lock_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/lock_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/lock_strk.svg)
 -}
 lock :: S.Svg
@@ -93,7 +101,9 @@ lock =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/key_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/key_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/key_strk.svg)
 -}
 key :: S.Svg
@@ -129,7 +139,9 @@ key =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/keyWithArc_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/keyWithArc_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/keyWithArc_strk.svg)
 -}
 keyWithArc :: S.Svg
@@ -162,11 +174,15 @@ keyWithArc =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog6_strk.svg)
 
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/cog9_strk.svg)
 
 Takes a natural number @n@ which is the number of cogs, 

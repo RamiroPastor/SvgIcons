@@ -1,10 +1,7 @@
 {-# LANGUAGE     OverloadedStrings       #-}
 
 
-{- |
-Module      : Core.Utils
-Description : Utilities for svg coding
--}
+
 module Core.Utils 
   ( evenOddSplit
   , addXmlns
@@ -13,6 +10,7 @@ module Core.Utils
   , horizontalMirrorMatrix
   , verticalMirrorMatrix
   , frame
+  , cleanDecimals
   ) where
 
 import Data.Char
@@ -24,6 +22,7 @@ import           Text.Blaze.Svg11.Attributes as A
 
 {- |
 Splits a list into two lists:
+
 * The first one contains all the elements in odd positions
 * The second one contains all the elements in even positions
 -}
@@ -36,6 +35,7 @@ evenOddSplit (x:xs) = (x:o, e)
 
 {- |
 Takes some `Svg` entity and adds two attributes:
+
 * @xmlns="http://www.w3.org/2000/svg"@
 * @xmlns:xlink="http://www.w3.org/1999/xlink"@
 -}
@@ -50,8 +50,8 @@ addXmlns svg =
 {- |
 Handy operator that converts a `Float` number
 into an `AttributeValue` and feeds it to the `Attribute` function.
-
 Example:
+
 >S.path 
 >  ! (A.strokeWidth .: 0.1) 
 -}
@@ -73,6 +73,7 @@ distance (ax,ay) (bx,by) =
 {- |
 Matrix for the horizontal symmetry __respect to the axis @x=0@__.
 Use it with the transform `Attribute`:
+
 >S.path
 >  ! A.transform horizontalMirrorMatrix
 -}
@@ -85,6 +86,7 @@ horizontalMirrorMatrix =
 {- |
 Matrix for the vertical symmetry __respect to the axis @y=0@__.
 Use it with the transform `Attribute`:
+
 >S.path
 >  ! A.transform (verticalMirrorMatrix <> rotateAround 45 0 0)
 -}
@@ -97,7 +99,7 @@ verticalMirrorMatrix =
 {- |
 `frame` is mainly used for testing purposes.
 
-Takes the 4 numbers of the viewbox (x0, y0, width, height)
+Takes the 4 numbers of the viewbox @(x0, y0, width, height)@
 and returns a path with a very thin stroke which connects all 
 consecutive corners of the viewbox and also connects opposite
 middle points.
@@ -125,6 +127,9 @@ frame x y w h =
 -- Takes a number n and a string s, 
 -- and returns a string equal to s except that every decimal
 -- number inside s will have its decimal part capped at n digits
+{- |
+Please ignore this function.
+-}
 cleanDecimals :: Int -> String -> String
 cleanDecimals n s = 
     f [] [] s

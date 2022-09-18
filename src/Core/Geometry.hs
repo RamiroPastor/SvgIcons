@@ -2,7 +2,7 @@
 
 
 
-{-
+{- |
 Module for geometrical shapes.
 -}
 
@@ -61,7 +61,7 @@ regularPolygon n r (x0,y0) =
 
 
 
-{-
+{- |
 `starPolygonFirstSpecies` builds a first species regular star polygon.
 
 First species means that one vertice is skipped when joining vertices.
@@ -106,7 +106,7 @@ starPolygonFirstSpecies n r (c1,c2) =
 `starOutline` builds a first species irregular star polygon.
 
 The difference with the previous function is the stroke:
-The previous function's stroke runs inside the figure 
+the previous function's stroke runs inside the figure 
 (so it would draw a pentagram), while this funtion's stroke
 runs outside the shape (so it would draw a star).
 There is no visual difference if you only fill the paths (with no stroke).

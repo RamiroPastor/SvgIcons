@@ -4,9 +4,9 @@
 
 module Core.Style 
   ( stdDims
-  , strkStyle
   , fillStyle
   , fullStyle
+  , strkStyle
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -18,8 +18,11 @@ import qualified Text.Blaze.Svg11.Attributes as A
 
 {- |
 `stdDims` takes some svg content and wraps it with the
-`svg` tag, with attributes @viewbox="-1 -1 2 2"@, @height="300px"@
-and @width="300px"@ 
+@svg@ tag, with attributes: 
+
+* @viewbox="-1 -1 2 2"@
+* @height="300px"@
+* @width="300px"@ 
 -}
 stdDims :: S.Svg -> S.Svg
 stdDims content =
@@ -32,6 +35,7 @@ stdDims content =
 
 {- |
 Handy shortcut for the following attributes:
+
 * @fill="none"@
 * @stroke="black"@
 * @stroke-width="0.04"@
@@ -47,6 +51,7 @@ strkStyle svg =
 
 {- |
 Handy shortcut for the following attributes:
+
 * @fill="black"@
 * @stroke="none"@
 * @stroke-width="0"@
@@ -62,6 +67,7 @@ fillStyle svg =
 
 {- |
 Handy shortcut for the following attributes:
+
 * @fill="silver"@
 * @stroke="black"@
 * @stroke-width="0.03"@

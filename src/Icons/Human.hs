@@ -2,7 +2,17 @@
 
 
 
-module Icons.Human where
+module Icons.Human 
+  ( svgHuman
+  , carnet
+  , eyeOpened
+  , eyeStriked
+  , heartFat
+  , heartSlim
+  , people
+  , person
+  , talk
+  ) where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
@@ -17,25 +27,25 @@ together with appropriate names.
 
 >svgHuman :: [ (String , S.Svg) ]
 >svgHuman =
->  [ (,) "eyeOpened"   eyeOpened
+>  [ (,) "carnet"      carnet
+>  , (,) "eyeOpened"   eyeOpened
 >  , (,) "eyeStriked"  eyeStriked
->  , (,) "person"      person
->  , (,) "people"      people
->  , (,) "carnet"      carnet
 >  , (,) "heartFat"    heartFat
 >  , (,) "heartSlim"   heartSlim
+>  , (,) "people"      people
+>  , (,) "person"      person
 >  , (,) "talk"        talk
 >  ]
 -}
 svgHuman :: [ (String , S.Svg) ]
 svgHuman =
-  [ (,) "eyeOpened"   eyeOpened
+  [ (,) "carnet"      carnet
+  , (,) "eyeOpened"   eyeOpened
   , (,) "eyeStriked"  eyeStriked
-  , (,) "person"      person
-  , (,) "people"      people
-  , (,) "carnet"      carnet
   , (,) "heartFat"    heartFat
   , (,) "heartSlim"   heartSlim
+  , (,) "people"      people
+  , (,) "person"      person
   , (,) "talk"        talk
   ]
 
@@ -46,7 +56,9 @@ svgHuman =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/eyeOpened_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/eyeOpened_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/eyeOpened_strk.svg)
 -}
 eyeOpened :: S.Svg
@@ -91,7 +103,9 @@ eyeOpened =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/eyeStriked_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/eyeStriked_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/eyeStriked_strk.svg)
 -}
 eyeStriked :: S.Svg
@@ -113,7 +127,9 @@ eyeStriked =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/person_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/person_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/person_strk.svg)
 -}
 person :: S.Svg
@@ -143,7 +159,9 @@ person =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/people_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/people_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/people_strk.svg)
 -}
 people :: S.Svg
@@ -157,7 +175,9 @@ people =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/carnet_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/carnet_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/carnet_strk.svg)
 -}
 carnet :: S.Svg
@@ -206,7 +226,9 @@ carnet =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/heartFat_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/heartFat_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/heartFat_strk.svg)
 -}
 heartFat :: Svg
@@ -237,7 +259,9 @@ heartFat =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/heartSlim_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/heartSlim_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/heartSlim_strk.svg)
 -}
 heartSlim :: Svg
@@ -267,7 +291,9 @@ heartSlim =
 
 {- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/talk_fill.svg)
+
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/talk_full.svg)
+
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/talk_strk.svg)
 -}
 talk :: Svg
