@@ -331,8 +331,12 @@ starOfDavid =
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/exampleHexagram_strk.svg)
 
 Function to draw a hexagram from the Yi Ching (the Book of Mutations).
+
 If all six numbers belong to {0,1} it draws only the hexagram lines.
 Otherwise, the numbers are printed right to their line
+
+__NOTE:__ as always with the Yi Ching, numbers go from bottom to top 
+(the first number of the tuple corresponds to the lowest line)
 -}
 iChingHexagram :: (Int,Int,Int,Int,Int,Int) -> Svg
 iChingHexagram (n1,n2,n3,n4,n5,n6) =
