@@ -332,7 +332,7 @@ starOfDavid =
 
 Function to draw a hexagram from the Yi Ching (the Book of Mutations).
 
-If all six numbers belong to {0,1} it draws only the hexagram lines.
+If all six numbers belong to @{0,1}@ it draws only the hexagram lines.
 Otherwise, the numbers are printed right to their line
 
 __NOTE:__ as always with the Yi Ching, numbers go from bottom to top 
