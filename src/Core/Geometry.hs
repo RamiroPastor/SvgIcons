@@ -66,7 +66,7 @@ regularPolygon n r (x0,y0) =
 
 First species means that one vertice is skipped when joining vertices.
 The number of vertices must be strictly greater than 4.
-Can be customized with the usual `blaze-svg` functions.
+Can be customized with the usual [blaze-svg](https://hackage.haskell.org/package/blaze-svg) functions.
 -}
 starPolygonFirstSpecies 
   :: Int             -- ^ number of vertices 
@@ -107,7 +107,7 @@ starPolygonFirstSpecies n r (c1,c2) =
 
 The difference with the previous function is the stroke:
 the previous function's stroke runs inside the figure 
-(so it would draw a pentagram), while this funtion's stroke
+(so it would draw a pentagram), while this function's stroke
 runs outside the shape (so it would draw a star).
 There is no visual difference if you only fill the paths (with no stroke).
 -}

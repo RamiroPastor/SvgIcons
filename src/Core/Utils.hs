@@ -21,10 +21,10 @@ import           Text.Blaze.Svg11.Attributes as A
 
 
 {- |
-Splits a list into two lists:
+Splits a list @xs@ into two lists:
 
-* The first one contains all the elements in odd positions
-* The second one contains all the elements in even positions
+* The first one contains all odd positioned elements of @xs@
+* The second one contains all even positioned elements of @xs@
 -}
 evenOddSplit :: [a] -> ([a], [a])
 evenOddSplit [] = ([], [])
@@ -102,7 +102,7 @@ verticalMirrorMatrix =
 Takes the 4 numbers of the viewbox @(x0, y0, width, height)@
 and returns a path with a very thin stroke which connects all 
 consecutive corners of the viewbox and also connects opposite
-middle points.
+middle points of the sides of the viewbox.
 -}
 frame :: Float -> Float -> Float -> Float -> S.Svg
 frame x y w h =

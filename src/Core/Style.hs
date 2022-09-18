@@ -18,7 +18,7 @@ import qualified Text.Blaze.Svg11.Attributes as A
 
 {- |
 `stdDims` takes some svg content and wraps it with the
-@svg@ tag, with attributes: 
+@\<svg\>@ tag, with attributes: 
 
 * @viewbox="-1 -1 2 2"@
 * @height="300px"@

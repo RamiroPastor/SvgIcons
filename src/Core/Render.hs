@@ -22,7 +22,7 @@ import Core.Utils
 `renderSvgFiles` renders svg code to .svg files.
 
 Takes a folder path in your computer and a list
-of pairs `(String, Svg)` and renders the svg code of every
+of pairs @(String, Svg)@ and renders the svg code of every
 second element into a svg file named as the first element.
 You should not write the .svg file extension in the first element.
 This function also adds the correct DOCTYPE and xml:ns
@@ -31,13 +31,13 @@ Example use:
 
 >renderSvgFiles
 >  "./assets/img/"
->  [ (,) "sun"      (sun 14)
->  , (,) "moon"      moon
->  , (,) "crescent"  crescent
+>  [ (,) "moonCrescent"  moonCrescent
+>  , (,) "moonHalf"      moonHalf
+>  , (,) "sun"          (sun 14)
 >  ]
 
-This will create 3 files inside the ./assets/svg/ folder,
-namely sun.svg, moon.svg and crescent.svg
+This will create 3 files inside the @.\/assets\/svg\/@ folder,
+namely @sun.svg@, @moonHalf.svg@ and @moonCrescent.svg@
 -}
 renderSvgFiles :: FilePath -> [ (FilePath , Svg) ] -> IO ()
 renderSvgFiles folder svgs = 
@@ -53,7 +53,7 @@ renderSvgFiles folder svgs =
 
 
 {- |
-`renderSvgReact` renders svg code to .jsx files
+`renderSvgReact` renders svg code to .jsx files (React.js files)
 
 Works as the previous function but creates .jsx files
 instead of .svg files. This function does not prepend
@@ -74,7 +74,7 @@ Example use:
 >  [ (,) "cancel" myCancelIcon
 >  ]
 
-This call will create a cancel.jsx file inside the ./assets/svg/ folder
+This call will create a cancel.jsx file inside the @.\/assets\/svg\/@ folder
 with the following code inside:
 
 >import React from 'react';
@@ -105,7 +105,7 @@ renderSvgReact folder svgs =
 so you don't have to call it manually.
 
 This function writes the @import React from 'react';@ line
-and the export line; and more importantly, changes all hyphen-joined
+and the export line. And more importantly, changes all hyphen-joined
 attributes to camelCase, because React will complain otherwise.
 For example, @stroke-width@ changes to @strokeWidth@ and @text-anchor@
 changes to @textAnchor@.
