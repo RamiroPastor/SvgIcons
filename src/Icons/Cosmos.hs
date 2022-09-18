@@ -5,7 +5,7 @@
 module Icons.Cosmos 
   ( svgCosmos
   , moonCrescent
-  , moonFull
+  , moonHalf
   , sun
   ) where
 
@@ -24,14 +24,14 @@ together with appropriate names.
 >svgCosmos :: [ (String , S.Svg) ]
 >svgCosmos =
 >  [ (,) "moonCrescent"  moonCrescent
->  , (,) "moonFull"      moonFull
+>  , (,) "moonHalf"      moonHalf
 >  , (,) "sun"          (sun 14)
 >  ]
 -}
 svgCosmos :: [ (String , S.Svg) ]
 svgCosmos =
   [ (,) "moonCrescent"  moonCrescent
-  , (,) "moonFull"      moonFull
+  , (,) "moonHalf"      moonHalf
   , (,) "sun"          (sun 14)
   ]
 
@@ -77,14 +77,14 @@ sun n =
 
 
 {- |
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonFull_fill.svg)
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonHalf_fill.svg)
 
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonFull_full.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonHalf_full.svg)
 
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonFull_strk.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/cosmos/moonHalf_strk.svg)
 -}
-moonFull :: Svg
-moonFull =
+moonHalf :: Svg
+moonHalf =
     S.path
       ! A.strokeLinejoin "round"
       ! A.d moonDirs
