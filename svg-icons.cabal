@@ -15,8 +15,8 @@ description:
   Svg icons made with the blaze-svg package. 
   You can use them in your Haskell project or use the rendering module 
   to get standalone svg files or React (jsx) files.
-
-  Please check module `Icons` for instructions on
+  .
+  Please check the module `Icons` for instructions on
   how to use this package.
 
 

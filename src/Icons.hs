@@ -81,7 +81,7 @@ Most of them work with all 3 styles, but some are of no use in one of the three 
 
 == Composing Icons
 
-As said before, all icons aim to be composable (mix icons in the same svg element).
+As said before, all icons aim to be composable (mixing icons in the same svg element).
 Again, this is achieved by not wrapping them in the @\<svg\>@ tag in their definitions,
 and leaving the outmost tag of every icon (usually a @path@ or a @g@ element) free of 
 any transform attribute (and free of almost every other attribute too). Even those icons that
