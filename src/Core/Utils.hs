@@ -103,6 +103,8 @@ Takes the 4 numbers of the viewbox @(x0, y0, width, height)@
 and returns a path with a very thin stroke which connects all 
 consecutive corners of the viewbox and also connects opposite
 middle points of the sides of the viewbox.
+
+![framed svg](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/test/test_strk.svg)
 -}
 frame :: Float -> Float -> Float -> Float -> S.Svg
 frame x y w h =

@@ -1,3 +1,10 @@
+
+
+{- |
+The main purpose of this module is 
+generating the images found within the haddock documentation
+of this package.
+-}
 module Main where
 
 import           System.Directory
@@ -25,12 +32,25 @@ import Images.Mosaics      (mosaicSample)
 
 
 
-
+{- |
+prop> main = renderAll "./svg"
+-}
 main :: IO ()
 main = renderAll "./svg"
 
 
+{- |
+Renders all icons and images from this package into 
+the target directory. This is used to generate the 
+example SVGs found in this documentation.
 
+The directory is created if it does not exist, and
+some subdirectories are created to distinguish between
+icons or images.
+
+__WARNING:__ this function __deletes the target directory__
+and then creates it again. Be careful.
+-}
 renderAll :: FilePath -> IO ()
 renderAll svgFolder = do
   createDirectoryIfMissing False svgFolder
@@ -43,7 +63,10 @@ renderAll svgFolder = do
   putStrLn "Svg files compiled correctly"
 
 
-
+{- |
+Renders the examples from `Icons` module
+into the targeted directory.
+-}
 renderExamples :: FilePath -> IO ()
 renderExamples path = do
   createDirectory path
@@ -51,6 +74,17 @@ renderExamples path = do
 
 
 
+{- |
+Renders all icons into the 
+targeted directory.
+
+All icons are rendered in a @viewbox "-1 -1 2 2" and
+with 3 style variants:
+
+  * Black fill and no stroke
+  * Black stroke and no fill
+  * Silver fill and black stroke
+-}
 renderIcons :: FilePath -> IO ()
 renderIcons path = 
   do
@@ -108,6 +142,9 @@ renderIcons path =
 
 
 
+{- |
+Renders all images into the targeted directory.
+-}
 renderImages :: FilePath -> IO ()
 renderImages path = do
     createDirectory path
@@ -121,6 +158,12 @@ renderImages path = do
 
 
 
+{- |
+Takes an icon as second argument and renders it with all
+3 styles (fill, full and stroke) into the targeted directory.
+
+The `frame` function is used for testing purposes.
+-}
 renderTest :: FilePath -> Svg -> IO ()
 renderTest path svgTest = do
     createDirectory path
