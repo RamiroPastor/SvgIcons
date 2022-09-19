@@ -21,8 +21,8 @@ import qualified Text.Blaze.Svg11.Attributes as A
 @\<svg\>@ tag, with attributes: 
 
 * @viewbox="-1 -1 2 2"@
-* @height="300px"@
-* @width="300px"@ 
+* @height="100px"@
+* @width="100px"@ 
 -}
 stdDims :: S.Svg -> S.Svg
 stdDims content =

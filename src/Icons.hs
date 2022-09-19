@@ -28,6 +28,7 @@ the `svg` function from the @blaze-svg@ package.
 
 For example, if you want to use the `warning` icon from `Icons.Computer`:
 
+>
 >{-# LANGUAGE     OverloadedStrings       #-}
 >
 >import           Text.Blaze.Svg11 ((!))
