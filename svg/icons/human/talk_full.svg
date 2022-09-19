@@ -4,7 +4,7 @@
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g fill="silver" stroke="black" stroke-width="0.03">
-        <path d="M -0.56,0.62 A 0.94,0.78 0.0 1,1 0.0,0.78 L -0.6,0.9 Z" />
+        <path fill="none" d="M -0.56,0.62 A 0.94,0.78 0.0 1,1 0.0,0.78 L -0.6,0.9 Z" />
         <text x="0" y="0.18" text-anchor="middle" font-family="Verdana" font-size="0.57" font-weight="bold" letter-spacing="0.05" stroke-linejoin="round" stroke-linecap="round">
             ABC
         </text>

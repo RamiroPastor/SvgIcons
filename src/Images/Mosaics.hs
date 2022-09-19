@@ -2,7 +2,35 @@
 
 
 
-module Images.Mosaics where
+{- |
+This module exports images that can be used as 
+base tile to build a mosaic. This can be achieved 
+using them with CSS as @background-image@ 
+with @background-repeat: repeat@
+
+They are already wrapped in the @\<svg\>@ tag, which means:
+
+  * They are not composible.
+  * They are ready for use, no wrapping work needed.
+  * To build a perfectly matching mosaic, you must respect
+  the width-to-height ratio (specific for every tile function), otherwise
+  the resulting will have undesired gaps inbetween.
+-}
+module Images.Mosaics 
+  ( mosaicSample
+  , nazariMosaic
+  , triReligiousMosaic
+  , hexagonsMosaic
+  , beehiveMosaic
+  , lemonsMosaic
+  , arabicMosaic
+  , peopleMosaic
+  , hexMosaic
+  , arrowsMosaic
+  , wiresMosaic
+  , curvesMosaic
+  , airplaneMosaic
+  ) where
 
 import           Data.List (intersperse)
 import           Text.Blaze.Svg11 ((!))
@@ -13,7 +41,27 @@ import Core.Geometry
 import Core.Utils
 
 
+{- |
+A list of all mosaics from this module, evaluated with
+test colors. Please use more sensible colors in order to
+avoid eye injuries on the viewer.
 
+>mosaicSample :: [ (String , S.Svg) ]
+>mosaicSample =
+>  [ (,) "nazariMosaic"       (nazariMosaic "orange" "purple")
+>  , (,) "triReligiousMosaic" (triReligiousMosaic "blue" "orange" "green")
+>  , (,) "hexagonsMosaic"     (hexagonsMosaic "navy" "none")
+>  , (,) "beehiveMosaic"       beehiveMosaic
+>  , (,) "lemonsMosaic"       (lemonsMosaic "gold")
+>  , (,) "arabicMosaic"       (arabicMosaic "blue" "brown")
+>  , (,) "peopleMosaic"       (peopleMosaic "silver" "white")
+>  , (,) "hexMosaic"          (hexMosaic    "limegreen")
+>  , (,) "arrowsMosaic"       (arrowsMosaic "orange")
+>  , (,) "wiresMosaic"        (wiresMosaic  "gray")
+>  , (,) "curvesMosaic"        curvesMosaic
+>  , (,) "airplaneMosaic"     (airplaneMosaic "deepskyblue")
+>  ]
+-}
 mosaicSample :: [ (String , S.Svg) ]
 mosaicSample =
   [ (,) "nazariMosaic"       (nazariMosaic "orange" "purple")
@@ -34,7 +82,11 @@ mosaicSample =
 
 --------------------------------------------------------------------------------
 
+{- |
+![nazari mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/nazariMosaic.svg)
 
+Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
+-}
 nazariMosaic :: String -> String -> Svg
 nazariMosaic colorUpper colorLower =
     svg
@@ -102,9 +154,12 @@ nazariMosaic colorUpper colorLower =
         S.z
 
 
---------------------------------------------------------------------------------
 
+{- |
+![tri-religious mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/triReligiousMosaic.svg)
 
+Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
+-}
 triReligiousMosaic :: String -> String -> String -> Svg
 triReligiousMosaic fill1 fill2 fill3 =
     S.svg
@@ -201,8 +256,12 @@ triReligiousMosaic fill1 fill2 fill3 =
         S.z
 
 
--------------------------------------------------------------------------------
 
+{- |
+![hexagons mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/hexagonsMosaic.svg)
+
+Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
+-}
 hexagonsMosaic :: String -> String -> Svg
 hexagonsMosaic strkColor fillColor = do
     S.svg
@@ -233,9 +292,12 @@ hexagonsMosaic strkColor fillColor = do
       l   0.5  (0.5 * rad)
 
 
--------------------------------------------------------------------------------
 
+{- |
+![beehive mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/beehiveMosaic.svg)
 
+Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
+-}
 beehiveMosaic :: Svg
 beehiveMosaic = do
     S.svg
@@ -292,9 +354,12 @@ beehiveMosaic = do
             ! A.style  "stop-color: rgba(255,140,0,0.4)"
 
 
--------------------------------------------------------------------------------
 
+{- |
+![lemons mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/lemonsMosaic.svg)
 
+Ratio between width and height is: \(h = 0.85 \cdot w\)
+-}
 lemonsMosaic :: String -> Svg
 lemonsMosaic fillColor =
     svg
@@ -340,9 +405,12 @@ lemonsMosaic fillColor =
       S.z
 
 
---------------------------------------------------------------------------------
 
+{- |
+![arabic mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/arabicMosaic.svg)
 
+Ratio between width and height is: \(h = w\)
+-}
 arabicMosaic :: String -> String -> Svg
 arabicMosaic c1 c2 =
     svg
@@ -397,9 +465,12 @@ arabicMosaic c1 c2 =
       l   0      0.5
 
 
---------------------------------------------------------------------------------
 
+{- |
+![people mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/peopleMosaic.svg)
 
+Ratio between width and height is: \(h = w\)
+-}
 peopleMosaic :: String -> String -> Svg
 peopleMosaic strkColor fillColor =
   S.svg
@@ -425,9 +496,12 @@ peopleMosaic strkColor fillColor =
       q   (-1)   (-0.6) (-1)     0
 
 
---------------------------------------------------------------------------------
 
+{- |
+![hex mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/hexMosaic.svg)
 
+Ratio between width and height is: \(w = \sqrt{3} \cdot h\)
+-}
 hexMosaic :: String -> Svg
 hexMosaic strkColor =
   S.svg
@@ -490,9 +564,12 @@ hexMosaic strkColor =
       lr  (      k * cos30)        (      k * sin30)
 
 
---------------------------------------------------------------------------------
 
+{- |
+![arrows mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/arrowsMosaic.svg)
 
+Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
+-}
 arrowsMosaic :: String -> Svg
 arrowsMosaic strkColor =
     S.svg
@@ -549,9 +626,12 @@ arrowsMosaic strkColor =
       l   gx  gy
   
 
---------------------------------------------------------------------------------
 
+{- |
+![wires mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/wiresMosaic.svg)
 
+Ratio between width and height is: \(h = w\)
+-}
 wiresMosaic :: String -> Svg
 wiresMosaic strkColor =
   S.svg
@@ -765,9 +845,12 @@ wiresMosaic strkColor =
       l   0.28  0.36
 
 
---------------------------------------------------------------------------------
 
+{- |
+![curves mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/curvesMosaic.svg)
 
+Ratio between width and height is: \(h = w\)
+-}
 curvesMosaic :: Svg
 curvesMosaic =
   S.svg
@@ -896,9 +979,12 @@ curvesMosaic =
       l   0.75  0.15
 
 
---------------------------------------------------------------------------------
 
+{- |
+![airplane mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/airplaneMosaic.svg)
 
+Ratio between width and height is: \(h =  w\)
+-}
 airplaneMosaic :: String -> Svg
 airplaneMosaic fillColor =
   S.svg
@@ -934,6 +1020,3 @@ airplaneMosaic fillColor =
       aa  r1  r1  0  False  False  0.5  1
       aa  r1  r1  0  False  False  0    y1
       S.z
-
-  
---------------------------------------------------------------------------------
