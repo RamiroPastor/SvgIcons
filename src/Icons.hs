@@ -93,7 +93,7 @@ Example:
 (remember that svg transformations are correctly applied from right to left, 
 as it should be because it's just function composition)
 
->{-# LANGUAGE     OverloadedStrings       #-}
+>\{\-\# LANGUAGE     OverloadedStrings       \#\-\}
 >
 >import           Text.Blaze.Svg11 ((!))
 >import           Text.Blaze.Svg11 as S
