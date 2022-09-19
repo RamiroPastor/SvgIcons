@@ -4,7 +4,7 @@
 This module is only for re-exports and documentation.
 
 Unlike icons, all svg from Images modules are already
-already wrapped with @\<svg\>@ tag, with the appropriate viewbox.
+wrapped with @\<svg\>@ tag, with the appropriate viewbox.
 This means that they are not composible, but you don't have to 
 prepare the images yourself.
 
