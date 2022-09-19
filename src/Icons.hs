@@ -181,7 +181,10 @@ together with appropriate names.
 >exampleIcons :: [(String , Svg)]
 >exampleIcons =
 >  [ (,) "iconExample1" iconExample1
+>  , (,) "iconExample2" iconExample2
+>  , (,) "iconExample3" iconExample3
 >  ]
+
 -}
 exampleIcons :: [(String , Svg)]
 exampleIcons =
