@@ -300,6 +300,7 @@ talk :: Svg
 talk = 
     S.g $ do
       S.path
+        ! A.fill "none"
         ! A.d bubble
       abc
   where
