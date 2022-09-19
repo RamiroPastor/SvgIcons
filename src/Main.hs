@@ -78,7 +78,7 @@ renderExamples path = do
 Renders all icons into the 
 targeted directory.
 
-All icons are rendered in a @viewbox "-1 -1 2 2" and
+All icons are rendered in a @viewbox "-1 -1 2 2"@ and
 with 3 style variants:
 
   * Black fill and no stroke
