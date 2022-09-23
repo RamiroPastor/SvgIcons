@@ -74,22 +74,29 @@ envelope =
       ! d dirs
       ! strokeLinejoin "round"
   where
-    kx = 0.94
-    ky = 0.618 * kx
-    mx = 0
-    my = 0
-    s  = 0.03
+    w = 0.95
+    h = 0.618 * w   
+    ky = 0.16    -- y-coordinate of the middle point
+    kx = 0.2
+    (a1,a2) = (,)  (-w)  (-h)  -- top left corner
+    (b1,b2) = (,)  (-w)  ( h)  -- bottom left corner
+    (c1,c2) = (,)  ( w)  ( h)  -- bottom right corner
+    (d1,d2) = (,)  ( w)  (-h)  -- top right corner
+    (e1,e2) = (,)    0    ky   -- middle point
+    (f1,f2) = (,)  (-kx)   0
+    (g1,g2) = (,)  ( kx)   0
     dirs = mkPath $ do
-      m   (-kx)  (-ky)
-      l   ( mx)      ( my)
-      l   ( kx)  (-ky)
-      S.z
-      m   (-kx)      (-ky + s)
-      l   (-kx)      ( ky)
-      l   ( kx)      ( ky)
-      l   ( kx)      (-ky + s)
-      l   ( mx)      ( my + s)
-      S.z
+      m   a1 a2
+      l   b1 b2
+      l   c1 c2
+      l   d1 d2
+      l   a1 a2
+      l   e1 e2
+      l   d1 d2
+      m   b1 b2
+      l   f1 f2
+      m   c1 c2
+      l   g1 g2
       
 
 
