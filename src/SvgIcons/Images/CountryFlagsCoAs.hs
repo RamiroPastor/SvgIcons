@@ -5,14 +5,14 @@
 Coat of Arms for flags (or more generally, 
 anything hard to draw which should be put inside a flag)
 -}
-module Images.CountryFlagsCoAs where
+module SvgIcons.Images.CountryFlagsCoAs where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Geometry
-import Core.Utils
+import SvgIcons.Core.Geometry
+import SvgIcons.Core.Utils
 
 
 --------------------------------------------------------------------------------

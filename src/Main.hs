@@ -11,22 +11,22 @@ import           System.Directory
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 
-import Core.Geometry
-import Core.Render
-import Core.Style
-import Core.Utils
-import Icons (exampleIcons)
-import Icons.Business (svgBusiness)
-import Icons.Computer (svgComputer)
-import Icons.Cosmos   (svgCosmos)
-import Icons.Human    (svgHuman)
-import Icons.Math     (svgMath)
-import Icons.Office   (svgOffice)
-import Icons.Religion (svgReligion)
-import Icons.Textarea (svgTextarea)
-import Icons.Tools    (svgTools)
-import Images.CountryFlags (countryFlags)
-import Images.Mosaics      (mosaicSample)
+import SvgIcons.Core.Geometry
+import SvgIcons.Core.Render
+import SvgIcons.Core.Style
+import SvgIcons.Core.Utils
+import SvgIcons.Icons (exampleIcons)
+import SvgIcons.Icons.Business (svgBusiness)
+import SvgIcons.Icons.Computer (svgComputer)
+import SvgIcons.Icons.Cosmos   (svgCosmos)
+import SvgIcons.Icons.Human    (svgHuman)
+import SvgIcons.Icons.Math     (svgMath)
+import SvgIcons.Icons.Office   (svgOffice)
+import SvgIcons.Icons.Religion (svgReligion)
+import SvgIcons.Icons.Textarea (svgTextarea)
+import SvgIcons.Icons.Tools    (svgTools)
+import SvgIcons.Images.CountryFlags (countryFlags)
+import SvgIcons.Images.Mosaics      (mosaicSample)
 
 
 

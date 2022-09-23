@@ -16,7 +16,7 @@ They are already wrapped in the @\<svg\>@ tag, which means:
   the width-to-height ratio (specific for every tile function), otherwise
   the resulting will have undesired gaps inbetween.
 -}
-module Images.Mosaics 
+module SvgIcons.Images.Mosaics 
   ( mosaicSample
   , nazariMosaic
   , triReligiousMosaic
@@ -37,8 +37,8 @@ import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Geometry
-import Core.Utils
+import SvgIcons.Core.Geometry
+import SvgIcons.Core.Utils
 
 
 {- |

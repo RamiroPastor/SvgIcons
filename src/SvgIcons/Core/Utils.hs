@@ -2,7 +2,7 @@
 
 
 
-module Core.Utils 
+module SvgIcons.Core.Utils 
   ( evenOddSplit
   , addXmlns
   , (.:)

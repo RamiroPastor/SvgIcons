@@ -2,7 +2,7 @@
 
 
 
-module Icons.Business 
+module SvgIcons.Icons.Business 
   ( svgBusiness
   , analytics
   , bullseye
@@ -14,7 +14,7 @@ import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Utils
+import SvgIcons.Core.Utils
 
 
 

@@ -2,7 +2,7 @@
 
 
 
-module Core.Style 
+module SvgIcons.Core.Style 
   ( stdDims
   , fillStyle
   , fullStyle

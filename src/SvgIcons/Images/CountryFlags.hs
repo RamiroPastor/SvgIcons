@@ -11,15 +11,15 @@ Flags are named with the 2-letter ISO code of each country, with very few except
 named with the 3-letter ISO code to avoid name collision with some HTML or `Attribute` functions 
 like `hr` or `cy`.
 -}
-module Images.CountryFlags where
+module SvgIcons.Images.CountryFlags where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Geometry
-import Core.Utils
-import Images.CountryFlagsCoAs
+import SvgIcons.Core.Geometry
+import SvgIcons.Core.Utils
+import SvgIcons.Images.CountryFlagsCoAs
 
 
 {- |

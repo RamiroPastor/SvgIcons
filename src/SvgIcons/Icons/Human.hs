@@ -2,7 +2,7 @@
 
 
 
-module Icons.Human 
+module SvgIcons.Icons.Human 
   ( svgHuman
   , carnet
   , eyeOpened
@@ -18,7 +18,7 @@ import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Utils
+import SvgIcons.Core.Utils
 
 
 {- |

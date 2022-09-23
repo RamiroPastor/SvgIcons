@@ -2,7 +2,7 @@
 
 
 
-module Icons.Religion 
+module SvgIcons.Icons.Religion 
   ( svgReligion
   , xp
   , taijitu
@@ -18,8 +18,8 @@ import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Geometry
-import Core.Utils
+import SvgIcons.Core.Geometry
+import SvgIcons.Core.Utils
 
 
 

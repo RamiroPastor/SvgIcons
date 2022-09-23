@@ -35,7 +35,7 @@ For example, if you want to use the `warning` icon from `Icons.Computer`:
 >import           Text.Blaze.Svg11 as S
 >import           Text.Blaze.Svg11.Attributes as A
 >
->import Icons.Computer (warning)
+>import SvgIcons.Icons.Computer (warning)
 >
 >iconExample1 :: Svg
 >iconExample1 =
@@ -64,8 +64,8 @@ properties with CSS (but it won't work for @\<img\>@ tags)
 
 Example with Core.Style:
 
->import Core.Style
->import Icons.Computer (accept)
+>import SvgIcons.Core.Style
+>import SvgIcons.Icons.Computer (accept)
 >
 >iconExample2 :: Svg
 >iconExample2 = 
@@ -100,8 +100,8 @@ as it should be because it's just function composition)
 >import           Text.Blaze.Svg11 as S
 >import           Text.Blaze.Svg11.Attributes as A
 >
->import Core.Geometry (starPolygonFirstSpecies)
->import Icons.Cosmos (moonHalf, sun)
+>import SvgIcons.Core.Geometry (starPolygonFirstSpecies)
+>import SvgIcons.Icons.Cosmos (moonHalf, sun)
 >
 >
 >iconExample3 :: Svg
@@ -141,38 +141,38 @@ at this moment, but do not hesitate to ask for it if you need it. Or even better
 ask for a branch merge on github.
 
 -}
-module Icons 
+module SvgIcons.Icons 
   ( exampleIcons
   , iconExample1
   , iconExample2
   , iconExample3
   -- * Re-export all Icons modules
-  , module Icons.Business
-  , module Icons.Computer
-  , module Icons.Cosmos
-  , module Icons.Human
-  , module Icons.Math
-  , module Icons.Office
-  , module Icons.Religion
-  , module Icons.Textarea
-  , module Icons.Tools
+  , module SvgIcons.Icons.Business
+  , module SvgIcons.Icons.Computer
+  , module SvgIcons.Icons.Cosmos
+  , module SvgIcons.Icons.Human
+  , module SvgIcons.Icons.Math
+  , module SvgIcons.Icons.Office
+  , module SvgIcons.Icons.Religion
+  , module SvgIcons.Icons.Textarea
+  , module SvgIcons.Icons.Tools
   ) where
 
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Geometry
-import Core.Style
-import Icons.Business
-import Icons.Computer
-import Icons.Cosmos
-import Icons.Human
-import Icons.Math
-import Icons.Office
-import Icons.Religion
-import Icons.Textarea
-import Icons.Tools
+import SvgIcons.Core.Geometry
+import SvgIcons.Core.Style
+import SvgIcons.Icons.Business
+import SvgIcons.Icons.Computer
+import SvgIcons.Icons.Cosmos
+import SvgIcons.Icons.Human
+import SvgIcons.Icons.Math
+import SvgIcons.Icons.Office
+import SvgIcons.Icons.Religion
+import SvgIcons.Icons.Textarea
+import SvgIcons.Icons.Tools
 
 
 {- |

@@ -2,7 +2,7 @@
 
 
 
-module Icons.Cosmos 
+module SvgIcons.Icons.Cosmos 
   ( svgCosmos
   , moonCrescent
   , moonHalf
@@ -13,7 +13,7 @@ import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Utils
+import SvgIcons.Core.Utils
 
 
 

@@ -2,7 +2,7 @@
 
 
 
-module Icons.Computer 
+module SvgIcons.Icons.Computer 
   ( svgComputer
   , accept
   , cancel
@@ -19,7 +19,7 @@ import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Utils
+import SvgIcons.Core.Utils
 
 
 

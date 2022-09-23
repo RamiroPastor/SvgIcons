@@ -12,11 +12,11 @@ Height to width ratios vary for every image. In particular,
 all flags follow their official proportions; and ratios for mosaics
 are specified for each mosaic.
 -}
-module Images 
-  ( module Images.CountryFlags
-  , module Images.Mosaics
+module SvgIcons.Images 
+  ( module SvgIcons.Images.CountryFlags
+  , module SvgIcons.Images.Mosaics
   ) where
 
 
-import Images.CountryFlags
-import Images.Mosaics
+import SvgIcons.Images.CountryFlags
+import SvgIcons.Images.Mosaics

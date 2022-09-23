@@ -1,7 +1,7 @@
 {-# LANGUAGE     OverloadedStrings       #-}
 
 
-module Core.Render 
+module SvgIcons.Core.Render 
   ( renderSvgFiles
   , renderSvgReact
   , svgToReact
@@ -14,7 +14,7 @@ import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 import           Text.Blaze.Svg.Renderer.Pretty
 
-import Core.Utils
+import SvgIcons.Core.Utils
 
 
 

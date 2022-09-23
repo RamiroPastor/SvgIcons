@@ -2,7 +2,7 @@
 
 
 
-module Icons.Textarea 
+module SvgIcons.Icons.Textarea 
   ( svgTextarea
   , bold
   , italic
@@ -26,7 +26,7 @@ import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
-import Core.Utils
+import SvgIcons.Core.Utils
 
 
 {- |
