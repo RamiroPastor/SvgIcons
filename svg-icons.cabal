@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               svg-icons
-version:            2.0.1.0
+version:            2.0.2.0
 homepage:           https://github.com/RamiroPastor/SvgIcons
 license:            BSD-3-Clause
 license-file:       LICENSE
@@ -45,6 +45,7 @@ library
     SvgIcons.Images,
     SvgIcons.Images.CountryFlags,
     SvgIcons.Images.CountryFlagsCoAs,
+    SvgIcons.Images.Logos,
     SvgIcons.Images.Mosaics,
     Main
 
@@ -90,6 +91,7 @@ executable svg-icons-exe
     SvgIcons.Images,
     SvgIcons.Images.CountryFlags,
     SvgIcons.Images.CountryFlagsCoAs,
+    SvgIcons.Images.Logos,
     SvgIcons.Images.Mosaics
     
 

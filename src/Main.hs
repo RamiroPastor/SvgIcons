@@ -26,6 +26,7 @@ import SvgIcons.Icons.Religion (svgReligion)
 import SvgIcons.Icons.Textarea (svgTextarea)
 import SvgIcons.Icons.Tools    (svgTools)
 import SvgIcons.Images.CountryFlags (countryFlags)
+import SvgIcons.Images.Logos        (logos)
 import SvgIcons.Images.Mosaics      (mosaicSample)
 
 
@@ -149,11 +150,14 @@ renderImages :: FilePath -> IO ()
 renderImages path = do
     createDirectory path
     createDirectory countryFlagsPath
+    createDirectory logosPath
     createDirectory mosaicsPath
     renderSvgFiles countryFlagsPath countryFlags
+    renderSvgFiles logosPath        logos
     renderSvgFiles mosaicsPath      mosaicSample
   where
     countryFlagsPath = path ++ "countryFlags/"
+    logosPath        = path ++ "logos/"
     mosaicsPath      = path ++ "mosaics/"
 
 

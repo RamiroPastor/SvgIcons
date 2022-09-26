@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 17 12" height="120px" width="170px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path fill="#453a62" d="M 0,0 L 3,0 L 7,6 L 3,12 L 0,12 L 4,6 Z" id="HaskellSvgIcons-haskellLogo-left" />
+    <path fill="#5e5086" d="M 4,0 L 7,0 L 15,12 L 12,12 L 9.5,8.25 L 7,12 L 4,12 L 8,6 Z" id="HaskellSvgIcons-haskellLogo-mid" />
+    <path fill="#8f4e8b" d="M 11.66,5.5 L 10.33,3.5 L 17.0,3.5 L 17.0,5.5 ZM 13.66,8.5 L 12.33,6.5 L 17.0,6.5 L 17.0,8.5 Z" id="HaskellSvgIcons-haskellLogo-right" />
+</svg>
