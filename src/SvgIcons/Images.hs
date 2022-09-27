@@ -11,6 +11,10 @@ prepare the images yourself.
 Height to width ratios vary for every image. In particular, 
 all flags follow their official proportions; and ratios for mosaics
 are specified for each mosaic.
+
+__Note:__ In modern browsers, nesting some @\<svg\>@ inside 
+another @\<svg\>@ tag DOES work, but the mechanics of the nested 
+viewbox and dimensions are not trivial. Do it under your own responsibility.
 -}
 module SvgIcons.Images 
   ( module SvgIcons.Images.CountryFlags
