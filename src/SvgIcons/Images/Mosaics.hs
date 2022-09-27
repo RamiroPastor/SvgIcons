@@ -358,7 +358,7 @@ beehiveMosaic = do
 {- |
 ![lemons mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/lemonsMosaic.svg)
 
-Ratio between width and height is: \(h = 0.85 \cdot w\)
+Ratio between width and height is: \(w = 0.85 \cdot h\)
 -}
 lemonsMosaic :: String -> Svg
 lemonsMosaic fillColor =
