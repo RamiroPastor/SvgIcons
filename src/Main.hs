@@ -17,6 +17,7 @@ import SvgIcons.Core.Style
 import SvgIcons.Core.Utils
 import SvgIcons.Icons (exampleIcons)
 import SvgIcons.Icons.Business (svgBusiness)
+import SvgIcons.Icons.Coding   (svgCoding)
 import SvgIcons.Icons.Computer (svgComputer)
 import SvgIcons.Icons.Cosmos   (svgCosmos)
 import SvgIcons.Icons.Human    (svgHuman)
@@ -26,7 +27,6 @@ import SvgIcons.Icons.Religion (svgReligion)
 import SvgIcons.Icons.Textarea (svgTextarea)
 import SvgIcons.Icons.Tools    (svgTools)
 import SvgIcons.Images.CountryFlags (countryFlags)
-import SvgIcons.Images.Logos        (logos)
 import SvgIcons.Images.Mosaics      (mosaicSample)
 
 
@@ -91,6 +91,7 @@ renderIcons path =
   do
     createDirectory path
     createDirectory businessPath
+    createDirectory codingPath
     createDirectory computerPath
     createDirectory cosmosPath
     createDirectory humanPath
@@ -102,6 +103,9 @@ renderIcons path =
     renderSvgFiles businessPath (map fillIcons svgBusiness)
     renderSvgFiles businessPath (map fullIcons svgBusiness)
     renderSvgFiles businessPath (map strkIcons svgBusiness)
+    renderSvgFiles codingPath (map fillIcons svgCoding)
+    renderSvgFiles codingPath (map fullIcons svgCoding)
+    renderSvgFiles codingPath (map strkIcons svgCoding)
     renderSvgFiles computerPath (map fillIcons svgComputer)
     renderSvgFiles computerPath (map fullIcons svgComputer)
     renderSvgFiles computerPath (map strkIcons svgComputer)
@@ -132,6 +136,7 @@ renderIcons path =
     strkIcons (a,b) = (a ++ "_strk" , stdDims $ strkStyle b)
     -- test (a,b) = (a, coreSvg def $ b >> frame (-1) (-1) 2 2)
     businessPath = path ++ "business/"
+    codingPath   = path ++ "coding/"
     computerPath = path ++ "computer/"
     cosmosPath   = path ++ "cosmos/"
     humanPath    = path ++ "human/"
@@ -150,14 +155,11 @@ renderImages :: FilePath -> IO ()
 renderImages path = do
     createDirectory path
     createDirectory countryFlagsPath
-    createDirectory logosPath
     createDirectory mosaicsPath
     renderSvgFiles countryFlagsPath countryFlags
-    renderSvgFiles logosPath        logos
     renderSvgFiles mosaicsPath      mosaicSample
   where
     countryFlagsPath = path ++ "countryFlags/"
-    logosPath        = path ++ "logos/"
     mosaicsPath      = path ++ "mosaics/"
 
 
@@ -179,4 +181,4 @@ renderTest path svgTest = do
       , (,) "test_strk" (stdDims $ strkStyle svgFramed)
       ]
     svgFramed = 
-      S.g $ svgTest >> frame (-1) (-1) 2 2
+      S.g $ svgTest >> frame 0.05 "black" (-1) (-1) 2 2

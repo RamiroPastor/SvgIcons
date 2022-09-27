@@ -14,11 +14,9 @@ are specified for each mosaic.
 -}
 module SvgIcons.Images 
   ( module SvgIcons.Images.CountryFlags
-  , module SvgIcons.Images.Logos
   , module SvgIcons.Images.Mosaics
   ) where
 
 
 import SvgIcons.Images.CountryFlags
-import SvgIcons.Images.Logos
 import SvgIcons.Images.Mosaics
