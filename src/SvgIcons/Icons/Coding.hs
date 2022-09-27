@@ -19,10 +19,10 @@ import SvgIcons.Core.Utils
 A list with all the icons from this module,
 together with appropriate names.
 
-svgCoding :: [ (String , S.Svg) ]
-svgCoding =
-  [ (,) "haskell" haskell
-  ]
+>svgCoding :: [ (String , S.Svg) ]
+>svgCoding =
+>  [ (,) "haskell" haskell
+>  ]
 -}
 svgCoding :: [ (String , S.Svg) ]
 svgCoding =
@@ -36,6 +36,12 @@ svgCoding =
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/haskell_full.svg)
 
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/haskell_strk.svg)
+
+Note: you can remove fill colors with CSS:
+
+>path {
+>  fill: none;
+>}
 -}
 haskell :: Svg
 haskell =
