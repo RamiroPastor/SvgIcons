@@ -17,7 +17,6 @@ They are already wrapped in the @\<svg\>@ tag, which means:
   the resulting will have undesired gaps inbetween.
 
 To fully grasp the potential, check this page:
-
 [https://ramiropastor.es/svg-icons](https://ramiropastor.es/svg-icons)
 -}
 module SvgIcons.Images.Mosaics 
@@ -34,6 +33,7 @@ module SvgIcons.Images.Mosaics
   , wiresMosaic
   , curvesMosaic
   , airplaneMosaic
+  , octagonsMosaic
   ) where
 
 import           Data.List (intersperse)
