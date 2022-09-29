@@ -15,6 +15,10 @@ They are already wrapped in the @\<svg\>@ tag, which means:
   * To build a perfectly matching mosaic, you must respect
   the width-to-height ratio (specific for every tile function), otherwise
   the resulting will have undesired gaps inbetween.
+
+To fully grasp the potential, check this page:
+
+[https://ramiropastor.es/svg-icons](https://ramiropastor.es/svg-icons)
 -}
 module SvgIcons.Images.Mosaics 
   ( mosaicSample
@@ -60,6 +64,7 @@ avoid eye injuries on the viewer.
 >  , (,) "wiresMosaic"        (wiresMosaic  "gray")
 >  , (,) "curvesMosaic"        curvesMosaic
 >  , (,) "airplaneMosaic"     (airplaneMosaic "deepskyblue")
+>  , (,) "octagonsMosaic"     (octagonsMosaic "lightgray" "chocolate")
 >  ]
 -}
 mosaicSample :: [ (String , S.Svg) ]
@@ -76,6 +81,7 @@ mosaicSample =
   , (,) "wiresMosaic"        (wiresMosaic  "gray")
   , (,) "curvesMosaic"        curvesMosaic
   , (,) "airplaneMosaic"     (airplaneMosaic "deepskyblue")
+  , (,) "octagonsMosaic"     (octagonsMosaic "lightgray" "chocolate")
   ]
 
 
@@ -1020,3 +1026,38 @@ airplaneMosaic fillColor =
       aa  r1  r1  0  False  False  0.5  1
       aa  r1  r1  0  False  False  0    y1
       S.z
+
+
+
+{- |
+![octagons mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/octagonsMosaic.svg)
+
+Ratio between width and height is: \(h =  w\)
+-}
+octagonsMosaic :: String -> String -> Svg
+octagonsMosaic fillColor strkColor =
+    svg
+      ! A.viewbox "0 0 4 4"
+      ! A.height "300px"
+      ! A.width  "300px"
+      $ do
+        S.path
+          ! A.strokeWidth "0.2"
+          ! A.stroke (S.toValue strkColor)
+          ! A.fill   (S.toValue fillColor)
+          ! A.d dirs
+  where
+    dirs = mkPath $ do
+      m  1  1
+      l  3  1
+      l  3  3
+      l  1  3
+      S.z
+      m  1  1
+      l  0  0
+      m  3  3
+      l  4  4
+      m  3  1
+      l  4  0
+      m  1  3
+      l  0  4
