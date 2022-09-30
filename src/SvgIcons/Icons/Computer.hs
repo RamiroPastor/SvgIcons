@@ -141,20 +141,23 @@ accept =
 -}
 warning :: Svg
 warning = 
-    S.g $ do
-      S.path
-        ! d triangleDirs
-        ! strokeLinejoin "round"
-        ! fillRule "evenodd"
-      S.path
-        ! d stickPath
-      S.circle
-        ! (cx .: 0)
-        ! (cy .: 0.15)
-        ! (r  .: w)
+  S.g $ 
+    S.g 
+      ! A.transform (translate 0 0.2)
+      $ do
+        S.path
+          ! d triangleDirs
+          ! strokeLinejoin "round"
+          ! fillRule "evenodd"
+        S.path
+          ! d stickPath
+        S.circle
+          ! (cx .: 0)
+          ! (cy .: 0.15)
+          ! (r  .: w)
   where
     w  = 0.1
-    ap1 = 0.36
+    ap1 = 0.42
     ap2 = ap1 + w
     lm1 = (sqrt 3) * ap1
     lm2 = (sqrt 3) * ap2
