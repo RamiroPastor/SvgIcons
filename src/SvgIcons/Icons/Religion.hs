@@ -7,9 +7,11 @@ module SvgIcons.Icons.Religion
   , xp
   , taijitu
   , crossLatin
-  , crossOrthodox
+  , crossGreek
   , crescentAndStar
   , starOfDavid
+  , crossOrthodox
+  , dharmachakra
   , iChingHexagram
   ) where
 
@@ -32,9 +34,11 @@ together with appropriate names.
 >  [ (,) "xp"               xp
 >  , (,) "taijitu"         (taijitu "black" "white")
 >  , (,) "crossLatin"       crossLatin
->  , (,) "crossOrthodox"    crossOrthodox
+>  , (,) "crossGreek"       crossGreek
 >  , (,) "crescentAndStar"  crescentAndStar
 >  , (,) "starOfDavid"      starOfDavid
+>  , (,) "crossOrthodox"    crossOrthodox
+>  , (,) "dharmachakra"     dharmachakra
 >  , (,) "exampleHexagram" (iChingHexagram (8,8,7,8,7,7))
 >  ]
 -}
@@ -43,9 +47,11 @@ svgReligion =
   [ (,) "xp"               xp
   , (,) "taijitu"         (taijitu "black" "white")
   , (,) "crossLatin"       crossLatin
-  , (,) "crossOrthodox"    crossOrthodox
+  , (,) "crossGreek"       crossGreek
   , (,) "crescentAndStar"  crescentAndStar
   , (,) "starOfDavid"      starOfDavid
+  , (,) "crossOrthodox"    crossOrthodox
+  , (,) "dharmachakra"     dharmachakra
   , (,) "exampleHexagram" (iChingHexagram (8,8,7,8,7,7))
   ]
 
@@ -226,6 +232,37 @@ crossLatin =
 
 
 {- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossGreek_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossGreek_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossGreek_strk.svg)
+-}
+crossGreek :: Svg
+crossGreek = 
+    S.path
+      ! A.d dirs
+  where
+    w = 0.25
+    k = 0.9
+    dirs = mkPath $ do
+      m   (-w)  (-w)
+      l   (-w)  (-k)
+      l   ( w)  (-k)
+      l   ( w)  (-w)
+      l   ( k)  (-w)
+      l   ( k)  ( w)
+      l   ( w)  ( w)
+      l   ( w)  ( k)
+      l   (-w)  ( k)
+      l   (-w)  ( w)
+      l   (-k)  ( w)
+      l   (-k)  (-w)
+      S.z
+
+
+
+{- |
 ![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossOrthodox_fill.svg)
 
 ![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/crossOrthodox_full.svg)
@@ -380,3 +417,57 @@ iChingHexagram (n1,n2,n3,n4,n5,n6) =
         number n3 ( 1*ky)
         number n2 ( 3*ky)
         number n1 ( 5*ky)
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/dharmachakra_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/dharmachakra_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/dharmachakra_strk.svg)
+-}
+dharmachakra :: Svg
+dharmachakra =
+    S.path
+      ! A.fillRule "evenodd"
+      ! A.strokeLinejoin "round"
+      ! A.d dirs
+  where
+    w  = 0.07
+    k  = sqrt 2
+    k2 = 0.5 * sqrt 2 
+    r1 = 0.3
+    r2 = 0.8
+    trapezoid β = do
+      m   (r1 * (cos β) + (w * sqrt 2) * (cos $ β + pi/4))
+          (r1 * (sin β) + (w * sqrt 2) * (sin $ β + pi/4))
+      aa  (r1 + w) (r1 + w)
+          0  False  True
+          (r1 * (cos $ β + pi/4) + (w * sqrt 2) * (cos β))
+          (r1 * (sin $ β + pi/4) + (w * sqrt 2) * (sin β))
+      l   (r2 * (cos $ β + pi/4) + (w * sqrt 2) * (cos $ β - pi/2))
+          (r2 * (sin $ β + pi/4) + (w * sqrt 2) * (sin $ β - pi/2))
+      aa  (r2 - w) (r2 - w)
+          0  False  False
+          (r2 * (cos β) + (w * sqrt 2) * (cos $ β + 3*pi/4))
+          (r2 * (sin β) + (w * sqrt 2) * (sin $ β + 3*pi/4))
+      S.z
+    outerStick β = do
+      aa  w  w  0  True  True
+          (r2 * (cos β) + (w * sqrt 2) * (cos $ β + pi/4))
+          (r2 * (sin β) + (w * sqrt 2) * (sin $ β + pi/4))
+      aa  (r2 + w) (r2 + w)
+          0  False  True
+          (r2 * (cos $ β + pi/4) + (w * sqrt 2) * (cos β))
+          (r2 * (sin $ β + pi/4) + (w * sqrt 2) * (sin β))
+    dirs = mkPath $ do
+      m    0.001   (r1 - w)
+      aa  (r1 - w) (r1 - w)  0  True  False  0  (r1 - w)
+      S.z
+      mapM_ (trapezoid  . (pi/4 *)) [0..7]
+      m   (r2 + w) (-w)
+      mapM_ (outerStick . (pi/4 *)) [0..7]
+      S.z
+      
+        
