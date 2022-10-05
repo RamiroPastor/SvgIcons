@@ -13,6 +13,7 @@ module SvgIcons.Icons.Religion
   , crossOrthodox
   , dharmachakra
   , iChingHexagram
+  , ouroboros
   ) where
 
 import           Data.String
@@ -40,6 +41,7 @@ together with appropriate names.
 >  , (,) "crossOrthodox"    crossOrthodox
 >  , (,) "dharmachakra"     dharmachakra
 >  , (,) "exampleHexagram" (iChingHexagram (8,8,7,8,7,7))
+>  , (,) "ouroboros"        ouroboros
 >  ]
 -}
 svgReligion :: [ (String , S.Svg) ]
@@ -53,6 +55,7 @@ svgReligion =
   , (,) "crossOrthodox"    crossOrthodox
   , (,) "dharmachakra"     dharmachakra
   , (,) "exampleHexagram" (iChingHexagram (8,8,7,8,7,7))
+  , (,) "ouroboros"        ouroboros
   ]
 
 
@@ -470,4 +473,40 @@ dharmachakra =
       mapM_ (outerStick . (pi/4 *)) [0..7]
       S.z
       
-        
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/ouroboros_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/ouroboros_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/ouroboros_strk.svg)
+-}
+ouroboros :: Svg
+ouroboros =
+  S.g $
+    S.g 
+      ! A.transform (translate 0 0.05 <> rotateAround 30 0 0)
+      $ do
+        S.path
+          ! A.fillRule "evenodd"
+          ! A.d dirs
+        S.circle
+          ! A.cx "-0.25"
+          ! A.cy "-0.8"
+          ! A.r  " 0.01"
+  where
+    w = 0.1
+    r = 0.78
+    β = -pi/2 - pi/6
+    r1 = 0.35
+    r2 = 0.26
+    dirs = mkPath $ do
+      m    0      (- r - w)
+      aa       w         w  0  True  False  0  (- r + w)
+      aa  (r - w)   (r - w) 0  True  True   ((r-w) * cos β) ((r-w) * sin β)
+      aa   r1        r1     0  False False  0  (- r + w)
+      aa       w         w  0  True  True   0  (- r - w)
+      aa   r2        r2     0  False False  ((r+w) * cos β) ((r+w) * sin β)
+      aa  (r + w)   (r + w) 0  True  False  0  (- r - w)
+      S.z

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="black" stroke="none" stroke-width="0">
+        <g transform="translate(0.0 5.0e-2)rotate(30,0,0)">
+            <path fill-rule="evenodd" d="M 0.0,-0.88 A 0.1,0.1 0.0 1,0 0.0,-0.68 A 0.68,0.68 0.0 1,1 -0.33999999999999986,-0.5888972745734183 A 0.35,0.35 0.0 0,0 0.0,-0.68 A 0.1,0.1 0.0 1,1 0.0,-0.88 A 0.26,0.26 0.0 0,0 -0.4399999999999998,-0.762102355330306 A 0.88,0.88 0.0 1,0 0.0,-0.88 Z" />
+            <circle cx="-0.25" cy="-0.8" r=" 0.01" />
+        </g>
+    </g>
+</svg>
