@@ -14,6 +14,7 @@ module SvgIcons.Icons.Religion
   , dharmachakra
   , iChingHexagram
   , ouroboros
+  , ichthys
   ) where
 
 import           Data.String
@@ -42,6 +43,7 @@ together with appropriate names.
 >  , (,) "dharmachakra"     dharmachakra
 >  , (,) "exampleHexagram" (iChingHexagram (8,8,7,8,7,7))
 >  , (,) "ouroboros"        ouroboros
+>  , (,) "ichthys"          ichthys
 >  ]
 -}
 svgReligion :: [ (String , S.Svg) ]
@@ -56,6 +58,7 @@ svgReligion =
   , (,) "dharmachakra"     dharmachakra
   , (,) "exampleHexagram" (iChingHexagram (8,8,7,8,7,7))
   , (,) "ouroboros"        ouroboros
+  , (,) "ichthys"          ichthys
   ]
 
 
@@ -509,4 +512,44 @@ ouroboros =
       aa       w         w  0  True  True   0  (- r - w)
       aa   r2        r2     0  False False  ((r+w) * cos β) ((r+w) * sin β)
       aa  (r + w)   (r + w) 0  True  False  0  (- r - w)
+      S.z
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/ichthys_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/ichthys_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/religion/ichthys_strk.svg)
+-}
+ichthys :: Svg
+ichthys =
+    S.path
+      ! A.fillRule "evenodd"
+      ! A.d dirs
+  where
+    k1 =  0.07
+    k2 =  k1 / sqrt 2
+    x1 = -0.89
+    x2 =  0.63
+    x3 = -x1
+    y1 = -0.5
+    y2 = -y1
+    r1 =  0.93
+    r2 =  r1 + 2 * k1
+    dirs = mkPath $ do
+      m   (x1 + k1)  0
+      aa   r1   r1   0   False  True   (x2 - k1)  0
+      aa   r1   r1   0   False  True   (x1 + k1)  0
+      S.z
+      m   (x1 - k1)  0
+      aa   r2   r2   0   False  True    x2        (-k1)
+      aa   r1   r1   0   False  False  (x3 - k2)  ( y1)
+      l   (x3 + k2)  ( y1)
+      aa   r2   r2   0   False  True   (x2 + k1)    0
+      aa   r2   r2   0   False  True   (x3 + k2)  ( y2)
+      l   (x3 - k2)  ( y2)
+      aa   r1   r1   0   False  False   x2        ( k1)
+      aa   r2   r2   0   False  True   (x1 - k1)    0
       S.z
