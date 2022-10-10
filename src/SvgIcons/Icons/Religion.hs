@@ -529,9 +529,9 @@ ichthys =
       ! A.fillRule "evenodd"
       ! A.d dirs
   where
-    k1 =  0.07
+    k1 =  0.1
     k2 =  k1 / sqrt 2
-    x1 = -0.89
+    x1 = -0.85
     x2 =  0.63
     x3 = -x1
     y1 = -0.5
