@@ -143,7 +143,7 @@ cleanDecimals :: Int -> String -> String
 cleanDecimals n s = 
     f [] [] s
   where
-    f _ acc [] = reverse acc
+    f aux acc [] = reverse (aux ++ acc)
     f aux acc (c:cs) = 
       if c == '.'
         then f "." acc cs
