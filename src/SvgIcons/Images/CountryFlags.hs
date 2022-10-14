@@ -28,7 +28,8 @@ together with appropriate names.
 
 >countryFlags :: [ (String , S.Svg) ]
 >countryFlags =
->  [ (,) "ad" ad
+>  [ (,) "ad"     (ad False)
+>  , (,) "ad_CoA" (ad True )
 >  , (,) "af" af
 >  , (,) "al" al
 >  , (,) "at" at
@@ -79,7 +80,8 @@ together with appropriate names.
 -}
 countryFlags :: [ (String , S.Svg) ]
 countryFlags =
-  [ (,) "ad" ad
+  [ (,) "ad"     (ad False)
+  , (,) "ad_CoA" (ad True )
   , (,) "af" af
   , (,) "al" al
   , (,) "at" at
@@ -227,40 +229,43 @@ flagH3Eq (w,h) c1 c2 c3 =
 Flag of Andorra
 
 ![flag of Andorra](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ad.svg)
+
+![flag of Andorra with coat of arms](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ad_CoA.svg)
 -}
-ad :: Svg
-ad = 
+ad :: Bool -> Svg
+ad withCoA = 
     S.svg
-      ! A.viewbox "0 0 20 14"
+      ! A.viewbox "0 0 1000 700"
       ! A.width  "200px"
       ! A.height "140px"
       $ do
         leftStripe
         centreStripe
         rightStripe
+        if withCoA then adCoA else mempty
   where
     leftStripe =
       S.rect
         ! (A.x .: 0)
         ! (A.y .: 0)
-        ! (A.width  .: 6.4)
-        ! (A.height .: 14)
+        ! (A.width  .: 320)
+        ! (A.height .: 700)
         ! A.stroke "none"
         ! A.fill "#10069F"
     centreStripe =
       S.rect
-        ! (A.x .: 6.4)
+        ! (A.x .: 320)
         ! (A.y .: 0)
-        ! (A.width  .: 7.2)
-        ! (A.height .: 14)
+        ! (A.width  .: 360)
+        ! (A.height .: 700)
         ! A.stroke "none"
         ! A.fill "#FEDD00"
     rightStripe =
       S.rect
-        ! (A.x .: 13.6)
+        ! (A.x .: 680)
         ! (A.y .: 0)
-        ! (A.width  .: 6.4)
-        ! (A.height .: 14)
+        ! (A.width  .: 320)
+        ! (A.height .: 700)
         ! A.stroke "none"
         ! A.fill "#D50032"
 
