@@ -12,6 +12,7 @@ module SvgIcons.Core.Geometry
   , starOutline
   , starFat
   , starRegular
+  , asterisk
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -174,3 +175,32 @@ starRegular n r1 (c1,c2) =
   where
     β  = 2 * pi / (fromIntegral n)
     r2 = r1 * (2*cos(β/2) - 1/cos(β/2))
+
+
+  
+{- |
+`asterisk` builds a regular asterisk.
+
+Once again, it's a regular polygon but the stroke only joins
+opposite vertices. To ensure that an asterisk is built, the Int
+parameter gets multiplied by 2.
+-}
+asterisk
+  :: Int             -- ^ half the number of vertices 
+  -> Float           -- ^ circumradius
+  -> (Float , Float) -- ^ coordinates of the central point
+  -> Svg             -- ^ resulting svg path
+asterisk n r (c1,c2) =
+    S.path
+      ! A.d directions
+  where
+    α  = pi / (fromIntegral n)
+    directions = mkPath $ 
+      mapM_ (joinOpposites . fromIntegral) [0 .. (n-1)]
+    joinOpposites k = do
+      m
+        (c1 + sin (k * α))
+        (c2 - cos (k * α))
+      l 
+        (c1 + sin (k * α + pi))
+        (c2 - cos (k * α + pi))
