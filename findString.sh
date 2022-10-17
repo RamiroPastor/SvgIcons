@@ -1,1 +1,1 @@
-grep -Rnl "starPolygonFirstSpecies" ./src
+grep -Rnl "starRegular" ./src

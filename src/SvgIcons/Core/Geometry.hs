@@ -123,7 +123,6 @@ starOutline
   -> Svg             -- ^ resulting path
 starOutline n r1 r2 (c1,c2) =
     S.path
-      ! A.strokeMiterlimit "100"
       ! A.d directions
   where
     β  = 2 * pi / (fromIntegral n)
