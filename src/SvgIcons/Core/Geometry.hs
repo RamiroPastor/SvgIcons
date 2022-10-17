@@ -13,6 +13,7 @@ module SvgIcons.Core.Geometry
   , starFat
   , starRegular
   , asterisk
+  , asteriskStar
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -199,8 +200,44 @@ asterisk n r (c1,c2) =
       mapM_ (joinOpposites . fromIntegral) [0 .. (n-1)]
     joinOpposites k = do
       m
-        (c1 + sin (k * α))
-        (c2 - cos (k * α))
+        (c1 + r * sin (k * α))
+        (c2 - r * cos (k * α))
       l 
-        (c1 + sin (k * α + pi))
-        (c2 - cos (k * α + pi))
+        (c1 + r * sin (k * α + pi))
+        (c2 - r * cos (k * α + pi))
+
+    
+
+{- |
+`asteriskStar` builds a regular asterisk star.
+
+It's a regular star but the stroke only joins
+opposite vertices. To ensure that an asterisk is built, the Int
+parameter gets multiplied by 2.
+-}
+asteriskStar
+  :: Int             -- ^ half the number of vertices 
+  -> Float           -- ^ circumradius
+  -> (Float , Float) -- ^ coordinates of the central point
+  -> Svg             -- ^ resulting svg path
+asteriskStar n r1 (c1,c2) =
+    S.path
+      ! A.d directions
+  where
+    α  = pi / (fromIntegral n)
+    r2 = r1 * (2*cos(α/2) - 1/cos(α/2))
+    directions = mkPath $ 
+      mapM_ (joinOpposites . fromIntegral) [0 .. (n-1)]
+    joinOpposites k = do
+      m
+        (c1 + r1 * sin (k * α))
+        (c2 - r1 * cos (k * α))
+      l 
+        (c1 + r1 * sin (k * α + pi))
+        (c2 - r1 * cos (k * α + pi))
+      m 
+        (c1 + r2 * sin (0.5 * α + k * α))
+        (c2 - r2 * cos (0.5 * α + k * α))
+      l
+        (c1 + r2 * sin (0.5 * α + k * α + pi))
+        (c2 - r2 * cos (0.5 * α + k * α + pi))

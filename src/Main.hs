@@ -60,7 +60,7 @@ renderAll svgFolder = do
   renderExamples (svgFolder ++ "/examples/")
   renderIcons    (svgFolder ++ "/icons/")
   renderImages   (svgFolder ++ "/images/")
-  renderTest     (svgFolder ++ "/test/") (asterisk 3 0.3 (0.1,0.2))
+  renderTest     (svgFolder ++ "/test/") (asteriskStar 3 0.3 (0.1,0.2))
   putStrLn "Svg files compiled correctly"
 
 
