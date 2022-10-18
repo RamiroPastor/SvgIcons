@@ -28,8 +28,7 @@ together with appropriate names.
 
 >countryFlags :: [ (String , S.Svg) ]
 >countryFlags =
->  [ (,) "ad"     (ad False)
->  , (,) "ad_CoA" (ad True )
+>  [ (,) "ad" ad
 >  , (,) "af" af
 >  , (,) "al" al
 >  , (,) "at" at
@@ -80,8 +79,7 @@ together with appropriate names.
 -}
 countryFlags :: [ (String , S.Svg) ]
 countryFlags =
-  [ (,) "ad"     (ad False)
-  , (,) "ad_CoA" (ad True )
+  [ (,) "ad" ad
   , (,) "af" af
   , (,) "al" al
   , (,) "at" at
@@ -229,11 +227,9 @@ flagH3Eq (w,h) c1 c2 c3 =
 Flag of Andorra
 
 ![flag of Andorra](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ad.svg)
-
-![flag of Andorra with coat of arms](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ad_CoA.svg)
 -}
-ad :: Bool -> Svg
-ad withCoA = 
+ad :: Svg
+ad = 
     S.svg
       ! A.viewbox "0 0 1000 700"
       ! A.width  "200px"
@@ -242,7 +238,7 @@ ad withCoA =
         leftStripe
         centreStripe
         rightStripe
-        if withCoA then adCoA else mempty
+        adCoA
   where
     leftStripe =
       S.rect
@@ -905,11 +901,30 @@ Flag of Croatia
 -}
 hrv :: Svg
 hrv =
-  flagH3Eq
-    (4,2)
-    "#FF0000"
-    "#FFFFFF"
-    "#171796"
+   S.svg
+    ! A.viewbox "0 0 1200 600"
+    ! A.width  "1200px"
+    ! A.height "600px"
+    $ do
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.height "200"
+        ! A.width  "1200"
+        ! A.fill   "#FF0000"
+      S.rect
+        ! A.x "0"
+        ! A.y "200"
+        ! A.height "200"
+        ! A.width  "1200"
+        ! A.fill   "#FFFFFF"
+      S.rect
+        ! A.x "0"
+        ! A.y "400"
+        ! A.height "200"
+        ! A.width  "1200"
+        ! A.fill   "#171796"
+      hrCoA
 
 
 
