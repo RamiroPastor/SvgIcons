@@ -1010,27 +1010,28 @@ Flag of Liechtenstein
 li :: Svg
 li = 
     S.svg
-      ! A.viewbox "0 0 5 3"
-      ! A.width  "500px"
-      ! A.height "300px"
+      ! A.viewbox "0 0 1000 600"
+      ! A.width  "250px"
+      ! A.height "150px"
       $ do
         topStripe
         botStripe
+        liCoA
   where
     topStripe =
       S.rect
         ! (A.x .: 0)
         ! (A.y .: 0)
-        ! (A.width  .: 5)
-        ! (A.height .: 1.5)
+        ! (A.width  .: 1000)
+        ! (A.height .:  300)
         ! A.stroke "none"
         ! A.fill "#002780"
     botStripe =
       S.rect
-        ! (A.x .: 0)
-        ! (A.y .: 1.5)
-        ! (A.width  .: 5)
-        ! (A.height .: 1.5)
+        ! (A.x .:   0)
+        ! (A.y .: 300)
+        ! (A.width  .: 1000)
+        ! (A.height .:  300)
         ! A.stroke "none"
         ! A.fill "#CF0921"
 
