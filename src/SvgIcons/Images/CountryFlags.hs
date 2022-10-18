@@ -1151,11 +1151,30 @@ Flag of Moldova
 -}
 md :: Svg
 md =
-  flagV3Eq
-    (3,1.5)
-    "#003DA5"
-    "#FFD100"
-    "#C8102E"
+  S.svg
+    ! A.viewbox "0 0 1800 900"
+    ! A.width  "300px"
+    ! A.height "150px"
+    $ do
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "600"
+        ! A.height "900"
+        ! A.fill   "#003DA5"
+      S.rect
+        ! A.x "600"
+        ! A.y "0"
+        ! A.width  "600"
+        ! A.height "900"
+        ! A.fill   "#FFD100"
+      S.rect
+        ! A.x "1200"
+        ! A.y "0"
+        ! A.width  "600"
+        ! A.height "900"
+        ! A.fill   "#C8102E"
+      mdCoA
 
 
 
