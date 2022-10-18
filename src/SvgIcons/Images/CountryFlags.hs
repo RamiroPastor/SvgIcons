@@ -903,8 +903,8 @@ hrv :: Svg
 hrv =
    S.svg
     ! A.viewbox "0 0 1200 600"
-    ! A.width  "1200px"
-    ! A.height "600px"
+    ! A.width  "400px"
+    ! A.height "200px"
     $ do
       S.rect
         ! A.x "0"
