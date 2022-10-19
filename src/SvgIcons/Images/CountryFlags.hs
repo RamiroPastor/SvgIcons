@@ -1186,22 +1186,23 @@ Flag of Montenegro
 me :: Svg
 me = 
     S.svg
-      ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
+      ! A.viewbox "0 0 1200 600"
       ! A.width  "400px"
       ! A.height "200px"
       $ do
         background
         border
+        meCoA
   where
-    w = 400
-    h = 200
+    w = 1200
+    h =  600
     s = h / 40
     background =
       S.rect
         ! (A.x .: 0)
         ! (A.y .: 0)
-        ! (A.width  .: 400)
-        ! (A.height .: 200)
+        ! (A.width  .: w)
+        ! (A.height .: h)
         ! A.stroke "none"
         ! A.fill "#FF0000"
     border =
