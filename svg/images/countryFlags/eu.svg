@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg viewBox="0 0 3 2" width="300px" height="200px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 3 2" width="300" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect x="0.0" y="0.0" width="3.0" height="2.0" stroke="none" fill="#003399" />
     <path d="M 2.1666667,0.8888889 L 2.1916127,0.9656648 L 2.2723396,0.9656648 L 2.2070303,1.0131149 L 2.2319763,1.0898908 L 2.1666667,1.0424407 L 2.1013572,1.0898907 L 2.1263032,1.0131149 L 2.060994,0.96566474 L 2.1417208,0.96566474 Z" fill="#FFCC00" id="HaskellSvgIcons-euFlagStar" />
     <path d="M 2.0773501,1.2222222 L 2.102296,1.2989981 L 2.183023,1.2989981 L 2.1177137,1.3464483 L 2.1426597,1.4232242 L 2.0773501,1.375774 L 2.0120406,1.4232241 L 2.0369866,1.3464483 L 1.9716772,1.2989981 L 2.0524042,1.2989981 Z" fill="#FFCC00" id="HaskellSvgIcons-euFlagStar" />

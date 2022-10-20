@@ -142,8 +142,8 @@ flagV3Eq
 flagV3Eq (w,h) c1 c2 c3 =
     S.svg
       ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
-      ! (A.width  .: 100*w)
-      ! (A.height .: 100*h)
+      ! (A.width  .: 300)
+      ! (A.height .: 300*h/w)
       $ do
         leftStripe
         centralStripe
@@ -188,8 +188,8 @@ flagH3Eq
 flagH3Eq (w,h) c1 c2 c3 =
     S.svg
       ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
-      ! (A.width  .: 100*w)
-      ! (A.height .: 100*h)
+      ! (A.width  .: 300)
+      ! (A.height .: 300*h/w)
       $ do
         topStripe
         midStripe
@@ -232,8 +232,8 @@ ad :: Svg
 ad = 
     S.svg
       ! A.viewbox "0 0 1000 700"
-      ! A.width  "200px"
-      ! A.height "140px"
+      ! A.width  "300"
+      ! A.height "210"
       $ do
         leftStripe
         centreStripe
@@ -291,8 +291,8 @@ al :: Svg
 al =
     S.svg
       ! A.viewbox "0 0 980 700"
-      ! A.width  "490px"
-      ! A.height "350px"
+      ! A.width  "300"
+      ! A.height "214.285"
       $ do
         background
         alCoA
@@ -332,8 +332,8 @@ ba :: Svg
 ba = 
     S.svg
       ! A.viewbox "0 0 400 200"
-      ! A.width  "400px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "150"
       $ do
         defs $ 
           starDef
@@ -421,8 +421,8 @@ blr :: Svg
 blr = 
     S.svg
       ! A.viewbox "0 0 90 45"
-      ! A.width  "400px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "150"
       $ do
         topStripe
         botStripe
@@ -529,8 +529,8 @@ ch :: S.Svg
 ch =
     S.svg
       ! A.viewbox "0 0 32 32"
-      ! A.width  "200px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "300"
       $ do
         background
         cross
@@ -566,8 +566,8 @@ cyp :: S.Svg
 cyp =
     S.svg
       ! A.viewbox "0 0 900 600"
-      ! A.width  "300px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "200"
       $ do
         background
         cyCoA
@@ -592,8 +592,8 @@ cz :: S.Svg
 cz =
     S.svg
       ! A.viewbox "0 0 6 4"
-      ! A.width  "300px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "200"
       $ do
         topStripe
         leftTriangle
@@ -658,8 +658,8 @@ dk :: Svg
 dk =
     S.svg
       ! A.viewbox "0 0 37 28"
-      ! A.width  "370px"
-      ! A.height "280px"
+      ! A.width  "300"
+      ! A.height "227"
       $ do
         background
         cross
@@ -710,8 +710,8 @@ es :: Svg
 es =
     S.svg
       ! A.viewbox "0 0 3 2"
-      ! A.width  "300px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "200"
       $ do
         redBandTop
         yellowBand
@@ -755,8 +755,8 @@ eu :: Svg
 eu =
     S.svg
       ! A.viewbox "0 0 3 2"
-      ! A.width  "300px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "200"
       $ do
         background
         mapM_ star [0..11]
@@ -789,8 +789,8 @@ fi :: S.Svg
 fi =
     S.svg
       ! A.viewbox "0 0 36 22"
-      ! A.width  "360px"
-      ! A.height "220px"
+      ! A.width  "300"
+      ! A.height "183.33"
       $ do
         background
         cross
@@ -841,8 +841,8 @@ gr :: Svg
 gr =
     S.svg
       ! A.viewbox "0 0 27 18"
-      ! A.width  "300px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "200"
       $ do
         blueLines
         whiteLines
@@ -903,8 +903,8 @@ hrv :: Svg
 hrv =
    S.svg
     ! A.viewbox "0 0 1200 600"
-    ! A.width  "400px"
-    ! A.height "200px"
+    ! A.width  "300"
+    ! A.height "150"
     $ do
       S.rect
         ! A.x "0"
@@ -952,8 +952,8 @@ is :: S.Svg
 is = 
     S.svg 
       ! A.viewbox "0 0 25 18"
-      ! A.width  "250px"
-      ! A.height "180px"
+      ! A.width  "300"
+      ! A.height "216"
       $ do
         background
         whiteCross
@@ -1011,8 +1011,8 @@ li :: Svg
 li = 
     S.svg
       ! A.viewbox "0 0 1000 600"
-      ! A.width  "250px"
-      ! A.height "150px"
+      ! A.width  "300"
+      ! A.height "180"
       $ do
         topStripe
         botStripe
@@ -1076,8 +1076,8 @@ lv :: S.Svg
 lv = 
     S.svg
       ! A.viewbox "0 0 20 10"
-      ! A.width  "300px"
-      ! A.height "150px"
+      ! A.width  "300"
+      ! A.height "150"
       $ do
         topStripe
         midStripe
@@ -1119,8 +1119,8 @@ mc :: S.Svg
 mc =
     S.svg
       ! A.viewbox "0 0 5 4"
-      ! A.width  "500px"
-      ! A.height "400px"
+      ! A.width  "300"
+      ! A.height "240"
       $ do
         topStripe
         botStripe
@@ -1153,8 +1153,8 @@ md :: Svg
 md =
   S.svg
     ! A.viewbox "0 0 1800 900"
-    ! A.width  "300px"
-    ! A.height "150px"
+    ! A.width  "300"
+    ! A.height "150"
     $ do
       S.rect
         ! A.x "0"
@@ -1187,8 +1187,8 @@ me :: Svg
 me = 
     S.svg
       ! A.viewbox "0 0 1200 600"
-      ! A.width  "400px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "150"
       $ do
         background
         border
@@ -1229,8 +1229,8 @@ mk :: Svg
 mk =
     S.svg
       ! A.viewbox "0 0 2 1"
-      ! A.width  "400px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "150"
       $ do
         background
         rays
@@ -1308,8 +1308,8 @@ mt :: Svg
 mt =
     S.svg
       ! A.viewbox "0 0 3 2"
-      ! A.width  "300px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "200"
       $ do
         leftStripe
         rightStripe
@@ -1357,8 +1357,8 @@ no :: S.Svg
 no =
     S.svg
       ! A.viewbox "0 0 22 16"
-      ! A.width  "330px"
-      ! A.height "240px"
+      ! A.width  "300"
+      ! A.height "218.18"
       $ do
         background
         whiteCross
@@ -1401,8 +1401,8 @@ pl :: Svg
 pl =
     S.svg
       ! A.viewbox "0 0 8 5"
-      ! A.width  "400px"
-      ! A.height "250px"
+      ! A.width  "300"
+      ! A.height "187.5"
       $ do
         topStripe
         botStripe
@@ -1435,8 +1435,8 @@ pt :: S.Svg
 pt =
     S.svg
       ! A.viewbox "0 0 3 2"
-      ! A.width  "300px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "200"
       $ do
         greenBand
         redBand
@@ -1514,8 +1514,8 @@ se :: S.Svg
 se =
     S.svg
       ! A.viewbox "0 0 16 10"
-      ! A.width  "320px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "187.5"
       $ do
         background
         cross
@@ -1566,8 +1566,8 @@ sk :: Svg
 sk =
     S.svg
       ! A.viewbox "0 0 18 12"
-      ! A.width  "360px"
-      ! A.height "240px"
+      ! A.width  "300"
+      ! A.height "200"
       $ do
         topStripe
         midStripe
@@ -1609,8 +1609,8 @@ sm :: Svg
 sm =
     S.svg
       ! A.viewbox "0 0 4 3"
-      ! A.width  "400px"
-      ! A.height "300px"
+      ! A.width  "300"
+      ! A.height "225"
       $ do
         topStripe
         botStripe
@@ -1643,8 +1643,8 @@ ua :: S.Svg
 ua =
     S.svg
       ! A.viewbox "0 0 3 2"
-      ! A.width  "300px"
-      ! A.height "200px"
+      ! A.width  "300"
+      ! A.height "200"
       $ do
         topStripe
         botStripe
@@ -1677,8 +1677,8 @@ uk :: S.Svg
 uk =
     S.svg
       ! A.viewbox "0 0 50 30"
-      ! A.width  "250px"
-      ! A.height "150px"
+      ! A.width  "300"
+      ! A.height "180"
       $ do
         scotland
         irelandBase
@@ -1773,8 +1773,8 @@ va :: S.Svg
 va = 
     S.svg 
       ! A.viewbox "0 0 1 1"
-      ! A.width  "300px"
-      ! A.height "300px"
+      ! A.width  "300"
+      ! A.height "300"
       $ do
         leftStripe
         rightStripe
@@ -1807,8 +1807,8 @@ xk :: Svg
 xk =
     S.svg
       ! A.viewbox "0 0 840 600"
-      ! A.width  "420px"
-      ! A.height "300px"
+      ! A.width  "300"
+      ! A.height "214.285"
       $ do
         background
         xkCoA
