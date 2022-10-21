@@ -1307,27 +1307,28 @@ Flag of Malta
 mt :: Svg
 mt =
     S.svg
-      ! A.viewbox "0 0 3 2"
+      ! A.viewbox "0 0 900 600"
       ! A.width  "300"
       ! A.height "200"
       $ do
         leftStripe
         rightStripe
+        mtCoA
   where
     leftStripe =
       S.rect
         ! (A.x .: 0)
         ! (A.y .: 0)
-        ! (A.width  .: 1.5)
-        ! (A.height .: 2)
+        ! (A.width  .: 450)
+        ! (A.height .: 600)
         ! A.stroke "none"
         ! A.fill "#FFFFFF"
     rightStripe =
       S.rect
-        ! (A.x .: 1.5)
+        ! (A.x .: 450)
         ! (A.y .: 0)
-        ! (A.width  .: 1.5)
-        ! (A.height .: 2)
+        ! (A.width  .: 450)
+        ! (A.height .: 600)
         ! A.stroke "none"
         ! A.fill "#C01B22"
 
