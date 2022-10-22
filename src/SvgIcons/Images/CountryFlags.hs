@@ -1587,36 +1587,37 @@ Flag of Slovakia
 sk :: Svg
 sk =
     S.svg
-      ! A.viewbox "0 0 18 12"
+      ! A.viewbox "0 0 900 600"
       ! A.width  "300"
       ! A.height "200"
       $ do
         topStripe
         midStripe
         botStripe
+        skCoA
   where
     topStripe =
       S.rect
         ! (A.x .: 0)
         ! (A.y .: 0)
-        ! (A.width  .: 18)
-        ! (A.height .:  4)
+        ! (A.width  .: 900)
+        ! (A.height .: 200)
         ! A.stroke "none"
         ! A.fill "#FFFFFF"
     midStripe =
       S.rect
-        ! (A.x .: 0)
-        ! (A.y .: 4)
-        ! (A.width  .: 18)
-        ! (A.height .:  4)
+        ! (A.x .:   0)
+        ! (A.y .: 200)
+        ! (A.width  .: 900)
+        ! (A.height .: 200)
         ! A.stroke "none"
         ! A.fill "#0B4EA2"
     botStripe =
       S.rect
-        ! (A.x .: 0)
-        ! (A.y .: 8)
-        ! (A.width  .: 18)
-        ! (A.height .:  4)
+        ! (A.x .:   0)
+        ! (A.y .: 400)
+        ! (A.width  .: 900)
+        ! (A.height .: 200)
         ! A.stroke "none"
         ! A.fill "#EE1C25"
     
