@@ -1551,11 +1551,31 @@ Flag of Slovenia
 -}
 si :: Svg
 si =
-  flagH3Eq
-    (4,2)
-    "#FFFFFF"
-    "#0000FF"
-    "#FF0000"
+  S.svg
+    ! A.viewbox "0 0 240 120"
+    ! A.width  "300"
+    ! A.height "150"
+    $ do
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "240"
+        ! A.height " 40"
+        ! A.fill "#FFFFFF"
+      S.rect
+        ! A.x "0"
+        ! A.y "40"
+        ! A.width  "240"
+        ! A.height " 40"
+        ! A.fill "#0000FF"
+      S.rect
+        ! A.x "0"
+        ! A.y "80"
+        ! A.width  "240"
+        ! A.height " 40"
+        ! A.fill "#FF0000"
+      siCoA
+
 
 
 
