@@ -1435,27 +1435,28 @@ Flag of Portugal
 pt :: S.Svg
 pt =
     S.svg
-      ! A.viewbox "0 0 3 2"
+      ! A.viewbox "0 0 600 400"
       ! A.width  "300"
       ! A.height "200"
       $ do
         greenBand
         redBand
+        ptCoA
   where
     greenBand =
       S.rect 
         ! (A.x .: 0)
         ! (A.y .: 0)
-        ! (A.width  .: 6/5)
-        ! (A.height .: 2)
+        ! (A.width  .: 240)
+        ! (A.height .: 400)
         ! A.stroke "none"
         ! A.fill "rgb(0,102,0)"
     redBand =
       S.rect
-        ! (A.x .: 6/5)
-        ! (A.y .: 0)
-        ! (A.width  .: 9/5)
-        ! (A.height .: 2)
+        ! (A.x .: 240)
+        ! (A.y .:   0)
+        ! (A.width  .: 360)
+        ! (A.height .: 400)
         ! A.stroke "none"
         ! A.fill "rgb(255,0,0)"
 
