@@ -1631,29 +1631,30 @@ Flag of San Marino
 sm :: Svg
 sm =
     S.svg
-      ! A.viewbox "0 0 4 3"
+      ! A.viewbox "0 0 800 600"
       ! A.width  "300"
       ! A.height "225"
       $ do
         topStripe
         botStripe
+        smCoA
   where
     topStripe =
       S.rect
         ! (A.x .: 0)
         ! (A.y .: 0)
-        ! (A.width  .: 4)
-        ! (A.height .: 1.5)
+        ! (A.width  .: 800)
+        ! (A.height .: 300)
         ! A.stroke "none"
         ! A.fill "#FFFFFF"
     botStripe =
       S.rect
         ! (A.x .: 0)
-        ! (A.y .: 1.5)
-        ! (A.width  .: 4)
-        ! (A.height .: 1.5)
+        ! (A.y .: 300)
+        ! (A.width  .: 800)
+        ! (A.height .: 300)
         ! A.stroke "none"
-        ! A.fill "#73E6F2"
+        ! A.fill "#5EB6E4"
 
 
 
