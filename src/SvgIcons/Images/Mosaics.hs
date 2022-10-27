@@ -27,7 +27,7 @@ module SvgIcons.Images.Mosaics
   , beehiveMosaic
   , lemonsMosaic
   , arabicMosaic
-  , peopleMosaic
+  , cloudsMosaic
   , hexMosaic
   , arrowsMosaic
   , wiresMosaic
@@ -58,7 +58,7 @@ avoid eye injuries on the viewer.
 >  , (,) "beehiveMosaic"       beehiveMosaic
 >  , (,) "lemonsMosaic"       (lemonsMosaic "gold")
 >  , (,) "arabicMosaic"       (arabicMosaic "blue" "brown")
->  , (,) "peopleMosaic"       (peopleMosaic "silver" "white")
+>  , (,) "cloudsMosaic"       (cloudsMosaic "silver" "white")
 >  , (,) "hexMosaic"          (hexMosaic    "limegreen")
 >  , (,) "arrowsMosaic"       (arrowsMosaic "orange")
 >  , (,) "wiresMosaic"        (wiresMosaic  "gray")
@@ -75,7 +75,7 @@ mosaicSample =
   , (,) "beehiveMosaic"       beehiveMosaic
   , (,) "lemonsMosaic"       (lemonsMosaic "gold")
   , (,) "arabicMosaic"       (arabicMosaic "blue" "brown")
-  , (,) "peopleMosaic"       (peopleMosaic "silver" "white")
+  , (,) "cloudsMosaic"       (cloudsMosaic "silver" "white")
   , (,) "hexMosaic"          (hexMosaic    "limegreen")
   , (,) "arrowsMosaic"       (arrowsMosaic "orange")
   , (,) "wiresMosaic"        (wiresMosaic  "gray")
@@ -473,12 +473,12 @@ arabicMosaic c1 c2 =
 
 
 {- |
-![people mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/peopleMosaic.svg)
+![clouds mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/cloudsMosaic.svg)
 
 Ratio between width and height is: \(h = w\)
 -}
-peopleMosaic :: String -> String -> Svg
-peopleMosaic strkColor fillColor =
+cloudsMosaic :: String -> String -> Svg
+cloudsMosaic strkColor fillColor =
   S.svg
     ! A.viewbox "-1 -1 2 2"
     ! A.height "300"
