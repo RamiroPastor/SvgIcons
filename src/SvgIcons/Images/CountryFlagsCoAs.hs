@@ -3,7 +3,7 @@
 
 {- |
 Coat of Arms for flags (or more generally, 
-anything hard to draw which should be put inside a flag)
+anything hard to draw which should be inside a flag)
 -}
 module SvgIcons.Images.CountryFlagsCoAs where
 
@@ -19,7 +19,7 @@ import SvgIcons.Core.Utils
 
 {- |
 Flag of Andorra coat of arms.
-Drawn for a viewbox 0 0 1000 700
+Drawn for a @viewbox 0 0 1000 700@
 -}
 adCoA :: Svg
 adCoA =
@@ -129,7 +129,7 @@ adCoA =
 
 {- |
 Flag of Albania coat of arms.
-Drawn for a viewbox 0 0 980 700
+Drawn for a @viewbox 0 0 980 700@
 -}
 alCoA :: Svg
 alCoA =
@@ -147,7 +147,7 @@ alCoA =
 
 {- |
 Flag of Cyprus coat of arms.
-Drawn for a viewbox 0 0 900 600
+Drawn for a @viewbox 0 0 900 600@
 -}
 cyCoA :: Svg
 cyCoA = 
@@ -178,7 +178,7 @@ cyCoA =
 
 {- |
 Flag of Croatia coat of arms.
-Drawn for a viewbox 0 0 1200 600
+Drawn for a @viewbox 0 0 1200 600@
 -}
 hrCoA :: Svg
 hrCoA =
@@ -329,7 +329,7 @@ hrCoA =
 
 {- |
 Flag of Liechtenstein coat of arms.
-Drawn for a viewbox 0 0 1000 600
+Drawn for a @viewbox 0 0 1000 600@
 -}
 liCoA :: Svg
 liCoA =
@@ -421,7 +421,7 @@ liCoA =
 
 {- |
 Flag of Moldova coat of arms.
-Drawn for a viewbox 0 0 1800 900
+Drawn for a @viewbox 0 0 1800 900@
 -}
 mdCoA :: Svg
 mdCoA = 
@@ -608,7 +608,7 @@ mdCoA =
 
 {- |
 Flag of Montenegro coat of arms.
-Drawn for a viewbox 0 0 1200 600
+Drawn for a @viewbox 0 0 1200 600@
 -}
 meCoA :: Svg
 meCoA =
@@ -940,7 +940,7 @@ meCoA =
 
 {- |
 Flag of Malta coat of arms.
-Drawn for a viewbox 0 0 900 600
+Drawn for a @viewbox 0 0 900 600@
 -}
 mtCoA :: Svg
 mtCoA = 
@@ -1282,7 +1282,7 @@ mtCoA =
 
 {- |
 Flag of Portugal coat of arms.
-Drawn for a viewbox 0 0 600 400
+Drawn for a @viewbox 0 0 600 400@
 -}
 ptCoA :: Svg
 ptCoA = do
@@ -1404,7 +1404,7 @@ ptCoA = do
 
 {- |
 Flag of Slovenia coat of arms.
-Drawn for a viewbox 0 0 240 120
+Drawn for a @viewbox 0 0 240 120@
 -}
 siCoA :: Svg
 siCoA =
@@ -1447,7 +1447,7 @@ siCoA =
 
 {- |
 Flag of Slovakia coat of arms.
-Drawn for a viewbox 0 0 900 600
+Drawn for a @viewbox 0 0 900 600@
 -}
 skCoA :: Svg
 skCoA = 
@@ -1469,7 +1469,7 @@ skCoA =
 
 {- |
 Flag of San Marino coat of arms.
-Drawn for a viewbox 0 0 800 600
+Drawn for a @viewbox 0 0 800 600@
 -}
 smCoA :: Svg
 smCoA =
@@ -2470,7 +2470,7 @@ smCoA =
 
 {- |
 Flag of Kosovo coat of arms.
-Drawn for a viewbox 0 0 840 600
+Drawn for a @viewbox 0 0 840 600@
 -}
 xkCoA :: Svg
 xkCoA = 
