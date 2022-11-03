@@ -16,8 +16,7 @@ They are already wrapped in the @\<svg\>@ tag, which means:
   the width-to-height ratio (specific for every tile function), otherwise
   the resulting will have undesired gaps inbetween.
 
-To fully grasp the potential, check this page:
-[https://ramiropastor.es/svg-icons](https://ramiropastor.es/svg-icons)
+To fully grasp the potential, check this page: [https://ramiropastor.es/svg-icons](https://ramiropastor.es/svg-icons)
 -}
 module SvgIcons.Images.Mosaics 
   ( mosaicSample
