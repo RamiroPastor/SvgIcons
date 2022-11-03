@@ -21,7 +21,7 @@ you have 2 options:
 
 == Preparing the icon:
 
-All icons are designed for a @viewbox "-1 -1 2 2"@ (a square centered at (0,0) and side = 2).
+All icons are designed for a @viewbox "-1 -1 2 2"@ (a square centered at (0,0) and side 2).
 However, the viewbox attribute must be assigned to the @\<svg\>@ tag, and the icons return a 
 @path@ or @g@ element (to allow composability of icons) so you must wrap it yourself with 
 the `svg` function from the @blaze-svg@ package. 
