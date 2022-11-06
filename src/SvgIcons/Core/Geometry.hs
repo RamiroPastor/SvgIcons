@@ -40,10 +40,8 @@ Some examples for this module.
 >  , (,) "star_fat_6"        $ starFat 6 0.9 (0,0)
 >  , (,) "star_regular_5"    $ starRegular 5 0.9 (0,0)
 >  , (,) "star_regular_6"    $ starRegular 6 0.9 (0,0)
->  , (,) "asterisk_5"        $ asterisk 5 0.9 (0,0)
->  , (,) "asterisk_6"        $ asterisk 6 0.9 (0,0)
->  , (,) "asterisk_star_5"   $ asteriskStar 5 0.9 (0,0)
->  , (,) "asterisk_star_6"   $ asteriskStar 6 0.9 (0,0)
+>  , (,) "asterisk_3"        $ asterisk 3 0.9 (0,0)
+>  , (,) "asterisk_star_3"   $ asteriskStar 3 0.9 (0,0)
 >  ]
 -}
 geometryExamples :: [ (String, Svg) ]
@@ -56,10 +54,8 @@ geometryExamples =
   , (,) "star_fat_6"        $ starFat 6 0.9 (0,0)
   , (,) "star_regular_5"    $ starRegular 5 0.9 (0,0)
   , (,) "star_regular_6"    $ starRegular 6 0.9 (0,0)
-  , (,) "asterisk_5"        $ asterisk 5 0.9 (0,0)
-  , (,) "asterisk_6"        $ asterisk 6 0.9 (0,0)
-  , (,) "asterisk_star_5"   $ asteriskStar 5 0.9 (0,0)
-  , (,) "asterisk_star_6"   $ asteriskStar 6 0.9 (0,0)
+  , (,) "asterisk_3"        $ asterisk 3 0.9 (0,0)
+  , (,) "asterisk_star_3"   $ asteriskStar 3 0.9 (0,0)
   ]
 
 
@@ -280,17 +276,11 @@ parameter gets multiplied by 2.
 
 Examples:
 
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_5_fill.svg)
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_3_fill.svg)
 
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_5_full.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_3_full.svg)
 
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_5_strk.svg)
-
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_6_fill.svg)
-
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_6_full.svg)
-
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_6_strk.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_3_strk.svg)
 -}
 asterisk
   :: Int             -- ^ half the number of vertices 
@@ -323,17 +313,11 @@ parameter gets multiplied by 2.
 
 Examples:
 
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_5_fill.svg)
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_3_fill.svg)
 
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_5_full.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_3_full.svg)
 
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_5_strk.svg)
-
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_6_fill.svg)
-
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_6_full.svg)
-
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_6_strk.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_3_strk.svg)
 -}
 asteriskStar
   :: Int             -- ^ half the number of vertices 
