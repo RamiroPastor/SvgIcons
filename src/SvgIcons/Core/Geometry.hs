@@ -79,6 +79,20 @@ will return a __path element__ corresponding to a
 regular pentagon of radius 100 centered at point
 (200,300) filled in pink, green stroke and stroke
 width 10.
+
+Examples:
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/regular_polygon_5_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/regular_polygon_5_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/regular_polygon_5_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/regular_polygon_6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/regular_polygon_6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/regular_polygon_6_strk.svg)
 -}
 regularPolygon 
   :: Int             -- ^ number of vertices
@@ -108,7 +122,19 @@ First species means that one vertice is skipped when joining vertices.
 The number of vertices must be strictly greater than 4.
 Can be customized with the usual [blaze-svg](https://hackage.haskell.org/package/blaze-svg) functions.
 
-__Returns a path__
+Examples:
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_5_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_5_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_5_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_6_strk.svg)
 -}
 starPolygonFirstSpecies 
   :: Int             -- ^ number of vertices 
@@ -153,7 +179,7 @@ the previous function's stroke runs inside the figure
 runs outside the shape (so it would draw a star).
 There is no visual difference if you only fill the paths (with no stroke).
 
-__Returns a path__
+
 -}
 starOutline 
   :: Int             -- ^ number of vertices
@@ -190,6 +216,20 @@ starOutline n r1 r2 (c1,c2) =
 Works as `starOutline` but you don't need to specify
 the inner radius, it is already coded so that you get a
 "fat" star.
+
+Examples:
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_fat_5_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_fat_5_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_fat_5_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_fat_6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_fat_6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_fat_6_strk.svg)
 -}
 starFat ::
   Int -> Float -> (Float , Float) -> Svg
@@ -206,6 +246,20 @@ starFat n r1 (c1,c2) =
 
 Works as `starOutline` but you don't need to specify 
 the inner radius, and you will get a regular star.
+
+Examples:
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_regular_5_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_regular_5_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_regular_5_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_regular_6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_regular_6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_regular_6_strk.svg)
 -}
 starRegular ::
   Int -> Float -> (Float , Float) -> Svg
@@ -223,6 +277,20 @@ starRegular n r1 (c1,c2) =
 Once again, it's a regular polygon but the stroke only joins
 opposite vertices. To ensure that an asterisk is built, the Int
 parameter gets multiplied by 2.
+
+Examples:
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_5_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_5_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_5_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_6_strk.svg)
 -}
 asterisk
   :: Int             -- ^ half the number of vertices 
@@ -252,6 +320,20 @@ asterisk n r (c1,c2) =
 It's a regular star but the stroke only joins
 opposite vertices. To ensure that an asterisk is built, the Int
 parameter gets multiplied by 2.
+
+Examples:
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_5_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_5_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_5_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/asterisk_star_6_strk.svg)
 -}
 asteriskStar
   :: Int             -- ^ half the number of vertices 
