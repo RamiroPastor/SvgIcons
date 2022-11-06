@@ -7,7 +7,8 @@ Module for geometrical shapes.
 -}
 
 module SvgIcons.Core.Geometry 
-  ( regularPolygon
+  ( geometryExamples
+  , regularPolygon
   , starPolygonFirstSpecies
   , starOutline
   , starFat
@@ -25,6 +26,43 @@ import SvgIcons.Core.Utils
 
 
 --------------------------------------------------------------------------------
+
+{- |
+Some examples for this module.
+
+>geometryExamples :: [ (String, Svg) ]
+>geometryExamples =
+>  [ (,) "regular_polygon_5" $ regularPolygon 5 0.9 (0,0)
+>  , (,) "regular_polygon_6" $ regularPolygon 6 0.9 (0,0)
+>  , (,) "star_polygon_5"    $ starPolygonFirstSpecies 5 0.9 (0,0)
+>  , (,) "star_polygon_6"    $ starPolygonFirstSpecies 6 0.9 (0,0)
+>  , (,) "star_fat_5"        $ starFat 5 0.9 (0,0)
+>  , (,) "star_fat_6"        $ starFat 6 0.9 (0,0)
+>  , (,) "star_regular_5"    $ starRegular 5 0.9 (0,0)
+>  , (,) "star_regular_6"    $ starRegular 6 0.9 (0,0)
+>  , (,) "asterisk_5"        $ asterisk 5 0.9 (0,0)
+>  , (,) "asterisk_6"        $ asterisk 6 0.9 (0,0)
+>  , (,) "asterisk_star_5"   $ asteriskStar 5 0.9 (0,0)
+>  , (,) "asterisk_star_6"   $ asteriskStar 6 0.9 (0,0)
+>  ]
+-}
+geometryExamples :: [ (String, Svg) ]
+geometryExamples =
+  [ (,) "regular_polygon_5" $ regularPolygon 5 0.9 (0,0)
+  , (,) "regular_polygon_6" $ regularPolygon 6 0.9 (0,0)
+  , (,) "star_polygon_5"    $ starPolygonFirstSpecies 5 0.9 (0,0)
+  , (,) "star_polygon_6"    $ starPolygonFirstSpecies 6 0.9 (0,0)
+  , (,) "star_fat_5"        $ starFat 5 0.9 (0,0)
+  , (,) "star_fat_6"        $ starFat 6 0.9 (0,0)
+  , (,) "star_regular_5"    $ starRegular 5 0.9 (0,0)
+  , (,) "star_regular_6"    $ starRegular 6 0.9 (0,0)
+  , (,) "asterisk_5"        $ asterisk 5 0.9 (0,0)
+  , (,) "asterisk_6"        $ asterisk 6 0.9 (0,0)
+  , (,) "asterisk_star_5"   $ asteriskStar 5 0.9 (0,0)
+  , (,) "asterisk_star_6"   $ asteriskStar 6 0.9 (0,0)
+  ]
+
+
 
 {- |
 `regularPolygon` builds a regular polygon.

@@ -1,1 +1,1 @@
-grep -Rnl "starRegular" ./src
+grep -Rnl "asterisk" ./src

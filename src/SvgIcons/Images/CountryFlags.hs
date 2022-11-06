@@ -709,40 +709,31 @@ Flag of Spain
 es :: Svg
 es =
     S.svg
-      ! A.viewbox "0 0 3 2"
+      ! A.viewbox "0 0 750 500"
       ! A.width  "300"
       ! A.height "200"
       $ do
-        redBandTop
+        redBand
         yellowBand
-        redBandBot
   where
     colRed = "rgb(198,11,30)"
     colYellow = "rgb(255,196,0)"
-    redBandTop =
+    redBand =
       S.rect
         ! (A.x .: 0)
         ! (A.y .: 0)
-        ! (A.width  .: 3)
-        ! (A.height .: 0.5)
+        ! (A.width  .: 750)
+        ! (A.height .: 500)
         ! A.stroke "none"
         ! A.fill colRed
     yellowBand =
       S.rect 
         ! (A.x .: 0)
-        ! (A.y .: 0.5)
-        ! (A.width  .: 3)
-        ! (A.height .: 1)
+        ! (A.y .: 125)
+        ! (A.width  .: 750)
+        ! (A.height .: 250)
         ! A.stroke "none"
         ! A.fill colYellow
-    redBandBot =
-      S.rect
-        ! (A.x .: 0)
-        ! (A.y .: 1.5)
-        ! (A.width  .: 3)
-        ! (A.height .: 0.5)
-        ! A.stroke "none"
-        ! A.fill colRed
 
 
 

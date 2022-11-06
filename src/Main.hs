@@ -72,7 +72,24 @@ renderExamples :: FilePath -> IO ()
 renderExamples path = do
   createDirectory path
   renderSvgFiles path exampleIcons
+  renderGeometryExamples path
 
+
+{- |
+Renders the examples from `Core.Geometry` module
+into the targeted directory.
+-}
+renderGeometryExamples :: FilePath -> IO ()
+renderGeometryExamples path = do
+    createDirectory p
+    renderSvgFiles p (map fillIcons geometryExamples)
+    renderSvgFiles p (map fullIcons geometryExamples)
+    renderSvgFiles p (map strkIcons geometryExamples)
+  where
+    p = path ++ "/geometry/"
+    fillIcons (a,b) = (a ++ "_fill" , stdDims $ fillStyle b)
+    fullIcons (a,b) = (a ++ "_full" , stdDims $ fullStyle b)
+    strkIcons (a,b) = (a ++ "_strk" , stdDims $ strkStyle b)
 
 
 {- |
