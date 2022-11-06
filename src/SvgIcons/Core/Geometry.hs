@@ -4,6 +4,8 @@
 
 {- |
 Module for geometrical shapes.
+
+Tip: you may want to use @stroke-miterlimit@
 -}
 
 module SvgIcons.Core.Geometry 
@@ -46,16 +48,18 @@ Some examples for this module.
 -}
 geometryExamples :: [ (String, Svg) ]
 geometryExamples =
-  [ (,) "regular_polygon_5" $ regularPolygon 5 0.9 (0,0)
-  , (,) "regular_polygon_6" $ regularPolygon 6 0.9 (0,0)
-  , (,) "star_polygon_5"    $ starPolygonFirstSpecies 5 0.9 (0,0)
-  , (,) "star_polygon_6"    $ starPolygonFirstSpecies 6 0.9 (0,0)
-  , (,) "star_fat_5"        $ starFat 5 0.9 (0,0)
-  , (,) "star_fat_6"        $ starFat 6 0.9 (0,0)
-  , (,) "star_regular_5"    $ starRegular 5 0.9 (0,0)
-  , (,) "star_regular_6"    $ starRegular 6 0.9 (0,0)
-  , (,) "asterisk_3"        $ asterisk 3 0.9 (0,0)
-  , (,) "asterisk_star_3"   $ asteriskStar 3 0.9 (0,0)
+  [ (,) "regular_polygon_5"     $ regularPolygon 5 0.9 (0,0)
+  , (,) "regular_polygon_6"     $ regularPolygon 6 0.9 (0,0)
+  , (,) "star_polygon_5"        $ starPolygonFirstSpecies 5 0.9 (0,0)
+  , (,) "star_polygon_6"        $ starPolygonFirstSpecies 6 0.9 (0,0)
+  , (,) "star_polygon_border_5" $ starPolygonWithBorder 5 0.9 0.1 (0,0)
+  , (,) "star_polygon_border_6" $ starPolygonWithBorder 6 0.9 0.1 (0,0)
+  , (,) "star_fat_5"            $ starFat 5 0.9 (0,0)
+  , (,) "star_fat_6"            $ starFat 6 0.9 (0,0)
+  , (,) "star_regular_5"        $ starRegular 5 0.9 (0,0)
+  , (,) "star_regular_6"        $ starRegular 6 0.9 (0,0)
+  , (,) "asterisk_3"            $ asterisk 3 0.9 (0,0)
+  , (,) "asterisk_star_3"       $ asteriskStar 3 0.9 (0,0)
   ]
 
 
@@ -165,12 +169,76 @@ starPolygonFirstSpecies n r (c1,c2) =
             S.z
 
 
+{- |
+`starPolygonWithBorder` builds a first species regular star polygon with border.
+
+First species means that one vertice is skipped when joining vertices.
+The number of vertices must be strictly greater than 4.
+
+Examples:
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_border_5_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_border_5_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_border_5_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_border_6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_border_6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_border_6_strk.svg)
+-}
+starPolygonWithBorder
+  :: Int             -- ^ number of vertices 
+  -> Float           -- ^ circumradius
+  -> Float           -- ^ width of the line
+  -> (Float , Float) -- ^ coordinates of the central point
+  -> Svg             -- ^ resulting svg path
+starPolygonWithBorder n r1 w (c1,c2) =
+    S.path
+      ! A.d directions
+  where
+    β = 2 * pi / (fromIntegral n)
+    ɣ = pi / 2 - β
+    r2 = r1 - (w / tan ɣ)
+    outerV k = (,)
+      (c1 + r1 * sin (β * fromIntegral k))
+      (c2 - r1 * cos (β * fromIntegral k))
+    innerV k = (,)
+      (c1 + r2 * sin (β * fromIntegral k))
+      (c2 - r2 * cos (β * fromIntegral k))
+    directions = 
+      if even n
+        then
+          mkPath $ do
+            (uncurry S.m)  (outerV 0)
+            mapM_  (uncurry S.l) (map outerV [2, 4 .. n])
+            S.z
+            (uncurry S.m)  (outerV 1)
+            mapM_  (uncurry S.l) (map outerV [3, 5 .. n])
+            S.z
+            (uncurry S.m)  (innerV 0)
+            mapM_  (uncurry S.l) (reverse $ map innerV [2, 4 .. n])
+            S.z
+            (uncurry S.m)  (innerV 1)
+            mapM_  (uncurry S.l) (reverse $ map innerV [3, 5 .. n])
+            S.z
+        else
+          mkPath $ do
+            (uncurry S.m)  (outerV 0)
+            mapM_  (uncurry S.l) (map outerV [2, 4 .. (2*n-1)])
+            S.z
+            (uncurry S.m)  (innerV 0)
+            mapM_  (uncurry S.l) (reverse $ map innerV [2, 4 .. (2*n-1)])
+            S.z
+
 
 {- |
 `starOutline` builds a first species irregular star polygon.
 
-The difference with the previous function is the stroke:
-the previous function's stroke runs inside the figure 
+The difference with function `starPolygonFirstSpecies` is the stroke:
+that function's stroke runs inside the figure 
 (so it would draw a pentagram), while this function's stroke
 runs outside the shape (so it would draw a star).
 There is no visual difference if you only fill the paths (with no stroke).
