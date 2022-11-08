@@ -12,6 +12,8 @@ module SvgIcons.Core.Geometry
   ( geometryExamples
   , regularPolygon
   , starPolygonFirstSpecies
+  , starPolygonWithBorder
+  , starPolygonOverlap
   , starOutline
   , starFat
   , starRegular
@@ -34,32 +36,42 @@ Some examples for this module.
 
 >geometryExamples :: [ (String, Svg) ]
 >geometryExamples =
->  [ (,) "regular_polygon_5" $ regularPolygon 5 0.9 (0,0)
->  , (,) "regular_polygon_6" $ regularPolygon 6 0.9 (0,0)
->  , (,) "star_polygon_5"    $ starPolygonFirstSpecies 5 0.9 (0,0)
->  , (,) "star_polygon_6"    $ starPolygonFirstSpecies 6 0.9 (0,0)
->  , (,) "star_fat_5"        $ starFat 5 0.9 (0,0)
->  , (,) "star_fat_6"        $ starFat 6 0.9 (0,0)
->  , (,) "star_regular_5"    $ starRegular 5 0.9 (0,0)
->  , (,) "star_regular_6"    $ starRegular 6 0.9 (0,0)
->  , (,) "asterisk_3"        $ asterisk 3 0.9 (0,0)
->  , (,) "asterisk_star_3"   $ asteriskStar 3 0.9 (0,0)
+>  [ (,) "regular_polygon_5"      $ regularPolygon 5 0.9 (0,0)
+>  , (,) "regular_polygon_6"      $ regularPolygon 6 0.9 (0,0)
+>  , (,) "star_polygon_5"         $ starPolygonFirstSpecies 5 0.9 (0,0)
+>  , (,) "star_polygon_6"         $ starPolygonFirstSpecies 6 0.9 (0,0)
+>  , (,) "star_polygon_border_5"  $ starPolygonWithBorder 5 0.9 0.1 (0,0)
+>  , (,) "star_polygon_border_6"  $ starPolygonWithBorder 6 0.9 0.1 (0,0)
+>  , (,) "star_polygon_overlap_5" $ starPolygonOverlap 5 0.9 0.1 (0,0)
+>  , (,) "star_polygon_overlap_6" $ starPolygonOverlap 6 0.9 0.1 (0,0)
+>  , (,) "star_fat_5"             $ starFat 5 0.9 (0,0)
+>  , (,) "star_fat_6"             $ starFat 6 0.9 (0,0)
+>  , (,) "star_regular_5"         $ starRegular 5 0.9 (0,0)
+>  , (,) "star_regular_6"         $ starRegular 6 0.9 (0,0)
+>  , (,) "star_slim_5"            $ starSlim 5 0.9 (0,0)
+>  , (,) "star_slim_6"            $ starSlim 6 0.9 (0,0)
+>  , (,) "asterisk_3"             $ asterisk 3 0.9 (0,0)
+>  , (,) "asterisk_star_3"        $ asteriskStar 3 0.9 (0,0)
 >  ]
 -}
 geometryExamples :: [ (String, Svg) ]
 geometryExamples =
-  [ (,) "regular_polygon_5"     $ regularPolygon 5 0.9 (0,0)
-  , (,) "regular_polygon_6"     $ regularPolygon 6 0.9 (0,0)
-  , (,) "star_polygon_5"        $ starPolygonFirstSpecies 5 0.9 (0,0)
-  , (,) "star_polygon_6"        $ starPolygonFirstSpecies 6 0.9 (0,0)
-  , (,) "star_polygon_border_5" $ starPolygonWithBorder 5 0.9 0.1 (0,0)
-  , (,) "star_polygon_border_6" $ starPolygonWithBorder 6 0.9 0.1 (0,0)
-  , (,) "star_fat_5"            $ starFat 5 0.9 (0,0)
-  , (,) "star_fat_6"            $ starFat 6 0.9 (0,0)
-  , (,) "star_regular_5"        $ starRegular 5 0.9 (0,0)
-  , (,) "star_regular_6"        $ starRegular 6 0.9 (0,0)
-  , (,) "asterisk_3"            $ asterisk 3 0.9 (0,0)
-  , (,) "asterisk_star_3"       $ asteriskStar 3 0.9 (0,0)
+  [ (,) "regular_polygon_5"      $ regularPolygon 5 0.9 (0,0)
+  , (,) "regular_polygon_6"      $ regularPolygon 6 0.9 (0,0)
+  , (,) "star_polygon_5"         $ starPolygonFirstSpecies 5 0.9 (0,0)
+  , (,) "star_polygon_6"         $ starPolygonFirstSpecies 6 0.9 (0,0)
+  , (,) "star_polygon_border_5"  $ starPolygonWithBorder 5 0.9 0.1 (0,0)
+  , (,) "star_polygon_border_6"  $ starPolygonWithBorder 6 0.9 0.1 (0,0)
+  , (,) "star_polygon_overlap_5" $ starPolygonOverlap 5 0.9 0.1 (0,0)
+  , (,) "star_polygon_overlap_6" $ starPolygonOverlap 6 0.9 0.1 (0,0)
+  , (,) "star_fat_5"             $ starFat 5 0.9 (0,0)
+  , (,) "star_fat_6"             $ starFat 6 0.9 (0,0)
+  , (,) "star_regular_5"         $ starRegular 5 0.9 (0,0)
+  , (,) "star_regular_6"         $ starRegular 6 0.9 (0,0)
+  , (,) "star_slim_5"            $ starSlim 5 0.9 (0,0)
+  , (,) "star_slim_6"            $ starSlim 6 0.9 (0,0)
+  , (,) "asterisk_3"             $ asterisk 3 0.9 (0,0)
+  , (,) "asterisk_star_3"        $ asteriskStar 3 0.9 (0,0)
   ]
 
 
@@ -234,6 +246,173 @@ starPolygonWithBorder n r1 w (c1,c2) =
             S.z
 
 
+
+{- |
+`starPolygonOverlap` builds a first species regular star polygon with overlapping sides. 
+
+Visually, it only difers from the previous function when both fill and stroke are enabled.
+
+First species means that one vertice is skipped when joining vertices.
+The number of vertices must be strictly greater than 4.
+
+Examples:
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_overlap_5_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_overlap_5_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_overlap_5_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_overlap_6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_overlap_6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_polygon_overlap_6_strk.svg)
+
+-}
+starPolygonOverlap
+  :: Int             -- ^ number of vertices 
+  -> Float           -- ^ circumradius
+  -> Float           -- ^ width of the line
+  -> (Float , Float) -- ^ coordinates of the central point
+  -> Svg             -- ^ resulting svg path
+starPolygonOverlap n r1 w (c1,c2) = 
+    S.g $ do
+      starPolygonWithBorder n r1 w (c1,c2)
+        ! A.stroke "none"
+      mapM_ (makeSide . fromIntegral . ((-1)*)) [0 .. (n-1)]
+      fixFirstSide
+  where
+    β = 2 * pi / (fromIntegral n)
+    r2 = r1 - w * tan β
+    r3   = r1 * (2*cos(β/2) - 1/cos(β/2))
+    apt3 = r3 * cos (β/2)
+    r4   = r2 * (2*cos(β/2) - 1/cos(β/2))
+    apt4 = r4 * cos (β/2)
+    outerV k = (,)
+      (c1 + r1 * sin (β * fromIntegral k))
+      (c2 - r1 * cos (β * fromIntegral k))
+    innerV k = (,)
+      (c1 + r2 * sin (β * fromIntegral k))
+      (c2 - r2 * cos (β * fromIntegral k))
+    fixFirstSide = 
+      let
+        (om1,om2) = (c1 + apt3 * sin(-β) , c2 - apt3 * cos(-β))
+        (im1,im2) = (c1 + apt4 * sin(-β) , c2 - apt4 * cos(-β))
+        fillFix = mkPath $ do
+          uncurry S.m $ outerV 0
+          uncurry S.l $ (om1,om2)
+          uncurry S.l $ (im1,im2)
+          uncurry S.l $ innerV 0
+          S.z
+        strokeFix = mkPath $ do
+          uncurry S.m $ outerV 0
+          uncurry S.l $ (om1,om2)
+          uncurry S.m $ (im1,im2)
+          uncurry S.l $ innerV 0
+      in
+        S.g $ do
+          S.path
+            ! A.stroke "none"
+            ! A.d fillFix
+          S.path
+            ! A.strokeLinecap "round"
+            ! A.d strokeFix
+    makeSide k =
+      S.g $ do
+        S.path
+          ! A.d (sideDirs1 k)
+          ! A.stroke "none"
+        S.path
+          ! A.d (sideDirs2 k)
+          ! A.strokeLinecap "round"
+    sideDirs1 k = mkPath $ do
+      uncurry S.m $ outerV k
+      uncurry S.l $ outerV (k-2)
+      uncurry S.l $ innerV (k-2)
+      uncurry S.l $ innerV k
+      S.z
+    sideDirs2 k = mkPath $ do
+      uncurry S.m $ outerV k
+      uncurry S.l $ outerV (k-2)
+      uncurry S.m $ innerV (k-2)
+      uncurry S.l $ innerV k
+
+
+
+
+{-
+starPolygonBorderOverlap
+  :: Int             -- ^ number of vertices 
+  -> Float           -- ^ circumradius
+  -> Float           -- ^ width of the line
+  -> (Float , Float) -- ^ coordinates of the central point
+  -> Svg             -- ^ resulting svg path
+starPolygonBorderOverlap n r1 w (c1,c2) = do
+    S.path
+      ! A.d directions
+  where
+    β = 2 * pi / (fromIntegral n)
+    ɣ = pi / 2 - β
+    -- r2 = r1 - (w / tan ɣ)
+    r2 = r1 - w * tan β
+    -- r3 = r1 * (2*cos(β/2) - 1/cos(β/2))
+    r3 = r1 * (cos β) / cos (β/2)
+    -- r4 = r2 * (2*cos(β/2) - 1/cos(β/2))
+    r4 = (r1 * cos β - w * sin β) / (cos (β/2))
+    apt0 = r4 * cos (β/2)
+    h0 = r2 - w - apt0
+    y0 = h0 * sin ɣ
+    r5 = sqrt $ y0^2 + (apt0 + w)^2
+    θ = atan $ y0 / (apt0 + w)
+    rMad = (r2 - w - apt0) / cos ɣ
+    outerV k = (,)
+      (c1 + r1 * sin (β * fromIntegral k))
+      (c2 - r1 * cos (β * fromIntegral k))
+    innerV k = (,)
+      (c1 + r2 * sin (β * fromIntegral k))
+      (c2 - r2 * cos (β * fromIntegral k))
+    shortLegOuterV k = (,)
+      (c1 + r3 * sin (β/2 + β * fromIntegral k))
+      (c2 - r3 * cos (β/2 + β * fromIntegral k))
+    longLegInnerV k = (,)
+      (c1 + r4 * sin (-3*β/2 + β * fromIntegral k))
+      (c2 - r4 * cos (-3*β/2 + β * fromIntegral k))
+    -- shortLegInnerV k = (,)
+    --   (c1 + r5 * sin (β * (fromIntegral k) + θ))
+    --   (c2 - r5 * cos (β * (fromIntegral k) + θ))
+    shortLegInnerV k = 
+      let
+        (i1,i2) = innerV k
+      in
+        (,)
+          (i1 + rMad * sin (ɣ - β * fromIntegral k))
+          (i2 + rMad * cos (ɣ - β * fromIntegral k))
+    longLegOuterV k =
+      let
+        (i1,i2) = innerV (k-1)
+      in
+        (,)
+          (i1 - rMad * sin (ɣ + β * fromIntegral (k-1)))
+          (i2 + rMad * cos (ɣ + β * fromIntegral (k-1)))
+    -- longLegOuterV k = (,)
+    --   (c1 + r5 * sin (β * (fromIntegral $ k-1) - θ))
+    --   (c2 - r5 * cos (β * (fromIntegral $ k-1) - θ))
+    makeCorner k = do
+      (uncurry S.m) (shortLegOuterV k)
+      (uncurry S.l) (outerV         k)
+      (uncurry S.l) (longLegOuterV  k)
+      (uncurry S.l) (longLegInnerV  k)
+      (uncurry S.l) (innerV         k)
+      (uncurry S.l) (shortLegInnerV k)
+      S.z
+    directions = 
+      mkPath $ mapM_ (makeCorner . fromIntegral . ((-1)*)) [0 .. (n-1)]
+-}
+
+
+
+
 {- |
 `starOutline` builds a first species irregular star polygon.
 
@@ -331,7 +510,38 @@ starRegular n r1 (c1,c2) =
     starOutline n r1 r2 (c1,c2)
   where
     β  = 2 * pi / (fromIntegral n)
-    r2 = r1 * (2*cos(β/2) - 1/cos(β/2))
+    r2 = r1 * (2*cos(β/2) - 1/cos(β/2))  -- = r1 * (cos(β/2) - tan(β/2)*sin(β/2))
+
+
+
+{- |
+`starSlim` builds a first species irregular star polygon.
+
+Works as `starOutline` but you don't need to specify
+the inner radius, it is already coded so that you get a
+"slim" star.
+
+Examples:
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_slim_5_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_slim_5_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_slim_5_strk.svg)
+
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_slim_6_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_slim_6_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/star_slim_6_strk.svg)
+-}
+starSlim :: 
+  Int -> Float -> (Float, Float) -> Svg
+starSlim n r1 (c1,c2) =
+   starOutline n r1 r2 (c1,c2)
+  where
+    β  = 2 * pi / (fromIntegral n)
+    r2 = r1 * cos β
 
 
   

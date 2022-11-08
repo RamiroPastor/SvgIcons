@@ -1,4 +1,4 @@
-
+{-# LANGUAGE     OverloadedStrings       #-}
 
 {- |
 The main purpose of this module is 
@@ -10,6 +10,7 @@ module Main where
 import           System.Directory
 import           Text.Blaze.Svg11 ((!))
 import           Text.Blaze.Svg11 as S
+import           Text.Blaze.Svg11.Attributes as A
 
 import SvgIcons.Core.Geometry
 import SvgIcons.Core.Render
@@ -60,7 +61,7 @@ renderAll svgFolder = do
   renderExamples (svgFolder ++ "/examples/")
   renderIcons    (svgFolder ++ "/icons/")
   renderImages   (svgFolder ++ "/images/")
-  renderTest     (svgFolder ++ "/test/") (starPolygonFirstSpecies 4 0.3 (0.1,0.2))
+  renderTest     (svgFolder ++ "/test/") (starPolygonOverlap 7 900 50 (0,0))
   putStrLn "Svg files compiled correctly"
 
 
@@ -192,10 +193,18 @@ renderTest path svgTest = do
     createDirectory path
     renderSvgFiles path test
   where
-    test = 
-      [ (,) "test_fill" (stdDims $ fillStyle svgFramed)
-      , (,) "test_full" (stdDims $ fullStyle svgFramed)
-      , (,) "test_strk" (stdDims $ strkStyle svgFramed)
-      ]
-    svgFramed = 
-      S.g $ svgTest >> frame 0.01 "black" (-1) (-1) 2 2
+    -- test = 
+    --   [ (,) "test_fill" (stdDims $ fillStyle svgFramed)
+    --   , (,) "test_full" (stdDims $ fullStyle svgFramed)
+    --   , (,) "test_strk" (stdDims $ strkStyle svgFramed)
+    --   ]
+    test =
+      [ ("test", svgFramed)]
+    svgFramed =
+      S.svg
+        ! A.viewbox "-1000 -1000 2000 2000"
+        $ do 
+          S.g (svgTest >> frame 0.1 "black" (-1) (-1) 2 2)
+            ! A.stroke "black"
+            ! A.strokeWidth "10"
+            ! A.fill "white"
