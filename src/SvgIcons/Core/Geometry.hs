@@ -17,6 +17,7 @@ module SvgIcons.Core.Geometry
   , starOutline
   , starFat
   , starRegular
+  , starSlim
   , asterisk
   , asteriskStar
   ) where
