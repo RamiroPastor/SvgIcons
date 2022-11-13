@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 60 40" width="300" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect x="0" y="0" width="60" height="40" fill="#E70013" />
+    <circle cx="30" cy="20" r="10" fill="#FFFFFF" />
+    <path fill="#E70013" d="M 36.0625,24.415438115295014 A 7.5,7.5 0.0 1,1 36.0625,15.584561884704986 A 6.0,6.0 0.0 1,0 36.0625,24.415438115295014 Z" />
+    <path d="M 32.0,15.5 L 33.01031,18.609423 L 36.279755,18.609425 L 33.63472,20.531153 L 34.645035,23.640577 L 32.0,21.718847 L 29.354965,23.640575 L 30.36528,20.531153 L 27.720245,18.609423 L 30.989687,18.609423 Z" fill="#E70013" transform="rotate(-90,32,20)" />
+</svg>

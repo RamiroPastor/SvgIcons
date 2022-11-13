@@ -41,7 +41,9 @@ together with appropriate names.
 >  , (,) "cz" cz
 >  , (,) "de" de
 >  , (,) "dk" dk
+>  , (,) "dz" dz
 >  , (,) "ee" ee
+>  , (,) "eg" eg
 >  , (,) "es" es
 >  , (,) "eu" eu
 >  , (,) "fi" fi
@@ -55,6 +57,8 @@ together with appropriate names.
 >  , (,) "lt" lt
 >  , (,) "lu" lu
 >  , (,) "lv" lv
+>  , (,) "ly" ly
+>  , (,) "ma" ma
 >  , (,) "mc" mc
 >  , (,) "md" md
 >  , (,) "me" me
@@ -71,6 +75,7 @@ together with appropriate names.
 >  , (,) "si" si
 >  , (,) "sk" sk
 >  , (,) "sm" sm
+>  , (,) "tn" tn
 >  , (,) "ua" ua
 >  , (,) "uk" uk
 >  , (,) "va" va
@@ -92,7 +97,9 @@ countryFlags =
   , (,) "cz" cz
   , (,) "de" de
   , (,) "dk" dk
+  , (,) "dz" dz
   , (,) "ee" ee
+  , (,) "eg" eg
   , (,) "es" es
   , (,) "eu" eu
   , (,) "fi" fi
@@ -106,6 +113,8 @@ countryFlags =
   , (,) "lt" lt
   , (,) "lu" lu
   , (,) "lv" lv
+  , (,) "ly" ly
+  , (,) "ma" ma
   , (,) "mc" mc
   , (,) "md" md
   , (,) "me" me
@@ -122,6 +131,7 @@ countryFlags =
   , (,) "si" si
   , (,) "sk" sk
   , (,) "sm" sm
+  , (,) "tn" tn
   , (,) "ua" ua
   , (,) "uk" uk
   , (,) "va" va
@@ -687,6 +697,58 @@ dk =
 
 
 {- |
+Flag of Algeria
+
+![flag of Algeria](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/dz.svg)
+-}
+dz :: Svg
+dz =
+    S.svg
+      ! A.viewbox "0 0 30 20"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        leftBand
+        rightBand
+        moon
+        star
+  where
+    leftBand = 
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "15"
+        ! A.height "20"
+        ! A.fill "#006633"
+    rightBand =
+      S.rect
+        ! A.x "15"
+        ! A.y "0"
+        ! A.width  "15"
+        ! A.height "20"
+        ! A.fill "#FFFFFF"
+    x1 = 2.5 / tan (pi/6)
+    y1 = 2.5
+    r1 = 5
+    r2 = 4
+    moon =
+      S.path
+        ! A.fill "#D21034"
+        ! A.d moonDirs
+    moonDirs = mkPath $ do
+      m   (15 + x1)  (10 - y1)
+      aa  r1   r1   0   True  False (15 + x1)  (10 + y1)
+      aa  r2   r2   0   True  True  (15 + x1)  (10 - y1)
+      S.z
+    b = (5 + 5 * sqrt 5) / 8
+    star = 
+      starRegular 5 2.5 (15 + b, 10)
+        ! A.fill "#D21034"
+        ! A.transform (rotateAround 90 (15 + b) 10)
+
+
+
+{- |
 Flag of Estonia
 
 ![flag of Estonia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ee.svg)
@@ -698,6 +760,47 @@ ee =
     "#0072CE"
     "#000000"
     "#FFFFFF"
+
+
+
+{- |
+Flag of Egypt
+
+![flag of Egypt](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/eg.svg)
+-}
+eg :: Svg
+eg =
+    S.svg
+      ! A.viewbox "0 0 900 600"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        topBand
+        midBand
+        botBand
+        egCoA
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "900"
+        ! A.height "200"
+        ! A.fill "#CE1126"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "200"
+        ! A.width  "900"
+        ! A.height "200"
+        ! A.fill "#FFFFFF"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "400"
+        ! A.width  "900"
+        ! A.height "200"
+        ! A.fill "#000000"
 
 
 
@@ -1098,6 +1201,99 @@ lv =
         ! (A.height .: 4)
         ! A.stroke "none"
         ! A.fill "#A4343A"
+
+
+
+{- |
+Flag of Libya
+
+![flag of Libya](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ly.svg)
+-}
+ly :: Svg
+ly =
+    S.svg
+      ! A.viewbox "0 0 48 24"
+      ! A.width  "300"
+      ! A.height "150"
+      $ do
+        topBand
+        midBand
+        botBand
+        moon
+        star
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "48"
+        ! A.height "6"
+        ! A.fill "#E70013"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "6"
+        ! A.width  "48"
+        ! A.height "12"
+        ! A.fill "#000000"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "18"
+        ! A.width  "48"
+        ! A.height "6"
+        ! A.fill "#239E46"
+    x1 = 24 + 3 * cos(pi/4)
+    y1 = 12 - 3 * sin(pi/4)
+    y2 = 12 + 3 * sin(pi/4)
+    a  = 0.5 * sqrt (706 - 480 * sqrt 2)
+    c  = (1/5) * (15 - 3 * sqrt 5) * sqrt (5 + sqrt 5)
+    d  = 3 + (c/8) * (-1 + sqrt 5)
+    moon =
+      S.path
+        ! A.fill "#FFFFFF"
+        ! A.d moonDirs
+    moonDirs = mkPath $ do
+      m   x1  y1
+      aa  3   3   0   True  False x1  y2
+      aa  a   a   0   True  True  x1  y1
+      S.z
+    star =
+      starRegular 5 (c/2) (24 + d , 12)
+        ! A.fill "#FFFFFF"
+        ! A.transform (rotateAround (-90) (24 + d) 12)
+
+
+
+{- |
+Flag of Morocco
+
+![flag of Morocco](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ma.svg)
+-}
+ma :: Svg
+ma =
+    S.svg
+      ! A.viewbox "0 0 6 4"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        back
+        centralStar
+  where
+    back =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "300"
+        ! A.height "200"
+        ! A.fill "#C1272D"
+    a = 0.5 * sqrt (10 + 2 * sqrt 5)
+    b = a / 20
+    centralStar =
+      starPolygonOverlap 5 1 b (3,2)
+        ! A.fill "#006233"
+        ! A.stroke "#000000"
+        ! A.strokeWidth "0.01"
 
 
 
@@ -1646,6 +1842,57 @@ sm =
         ! (A.height .: 300)
         ! A.stroke "none"
         ! A.fill "#5EB6E4"
+
+
+
+{- |
+Flag of Tunisia
+
+![flag of Tunisia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/tn.svg)
+-}
+tn :: Svg
+tn =
+    S.svg
+      ! A.viewbox "0 0 60 40"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        redBackground
+        whiteCircle
+        moon
+        star
+  where
+    redBackground =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "60"
+        ! A.height "40"
+        ! A.fill "#E70013"
+    whiteCircle =
+      S.circle
+        ! A.cx "30"
+        ! A.cy "20"
+        ! A.r  "10"
+        ! A.fill "#FFFFFF"
+    x1 = 31 + 81/16
+    b = -40
+    c = x1^2 - 64*x1 + 32^2 + 20^2 - 36
+    y1 = 0.5 * (-b + sqrt (b^2 - 4*c))
+    y2 = 0.5 * (-b - sqrt (b^2 - 4*c))
+    moon =
+      S.path
+        ! A.fill "#E70013"
+        ! A.d moonDirs
+    moonDirs = mkPath $ do
+      m   x1   y1
+      aa  7.5  7.5  0  True  True  x1  y2
+      aa  6    6    0  True  False x1  y1
+      S.z
+    star =
+      starRegular 5 4.5 (32,20)
+        ! A.fill "#E70013"
+        ! A.transform (rotateAround (-90) 32 20)
 
 
 
