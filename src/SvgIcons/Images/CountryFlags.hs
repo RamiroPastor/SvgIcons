@@ -63,7 +63,10 @@ together with appropriate names.
 >  , (,) "md" md
 >  , (,) "me" me
 >  , (,) "mk" mk
+>  , (,) "ml" ml
+>  , (,) "mr" mrt
 >  , (,) "mt" mt
+>  , (,) "ne" ne
 >  , (,) "nl" nl
 >  , (,) "no" no
 >  , (,) "pl" pl
@@ -71,10 +74,12 @@ together with appropriate names.
 >  , (,) "ro" ro
 >  , (,) "rs" rs
 >  , (,) "ru" ru
+>  , (,) "sd" sd
 >  , (,) "se" se
 >  , (,) "si" si
 >  , (,) "sk" sk
 >  , (,) "sm" sm
+>  , (,) "td" td
 >  , (,) "tn" tn
 >  , (,) "ua" ua
 >  , (,) "uk" uk
@@ -119,7 +124,10 @@ countryFlags =
   , (,) "md" md
   , (,) "me" me
   , (,) "mk" mk
+  , (,) "ml" ml
+  , (,) "mr" mrt
   , (,) "mt" mt
+  , (,) "ne" ne
   , (,) "nl" nl
   , (,) "no" no
   , (,) "pl" pl
@@ -127,10 +135,12 @@ countryFlags =
   , (,) "ro" ro
   , (,) "rs" rs
   , (,) "ru" ru
+  , (,) "sd" sd
   , (,) "se" se
   , (,) "si" si
   , (,) "sk" sk
   , (,) "sm" sm
+  , (,) "td" td
   , (,) "tn" tn
   , (,) "ua" ua
   , (,) "uk" uk
@@ -144,7 +154,7 @@ countryFlags =
 Handy function to draw a flag with 3 vertical stripes of the same size.
 -}
 flagV3Eq 
-  :: (Float,Float) -- ^ @w@ and @h@ parameters for the viewbox (multiplied by 100 for width and height)
+  :: (Float,Float) -- ^ @w@ and @h@ parameters for the viewbox
   -> String        -- ^ color for the left stripe
   -> String        -- ^ color for the central stripe
   -> String        -- ^ color for the right stripe
@@ -190,7 +200,7 @@ flagV3Eq (w,h) c1 c2 c3 =
 Handy function to draw a flag with 3 horizontal stripes of the same size.
 -}
 flagH3Eq
-  :: (Float,Float) -- ^ @w@ and @h@ parameters for the viewbox (multiplied by 100 for width and height)
+  :: (Float,Float) -- ^ @w@ and @h@ parameters for the viewbox
   -> String        -- ^ color for the top stripe
   -> String        -- ^ color for the central stripe
   -> String        -- ^ color for the bottom stripe
@@ -1487,6 +1497,82 @@ mk =
 
 
 {- |
+Flag of Mali
+
+![flag of Mali](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ml.svg)
+-}
+ml :: Svg
+ml =
+  flagV3Eq
+    (3,2)
+    "#14B53A"
+    "#FCD116"
+    "#CE1126"
+
+
+
+{- |
+Flag of Mauritania
+
+![flag of Mauritania](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/mr.svg)
+-}
+mrt :: Svg
+mrt = 
+    S.svg
+      ! A.viewbox "0 0 1500 1000"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        topBand
+        midBand
+        botBand
+        moon
+        star
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "1500"
+        ! A.height " 200"
+        ! A.fill "#D01C1F"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "200"
+        ! A.width  "1500"
+        ! A.height " 600"
+        ! A.fill "#00A95C"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "800"
+        ! A.width  "1500"
+        ! A.height " 200"
+        ! A.fill "#D01C1F"
+    x1 = 750 - 375
+    x2 = 750 + 375
+    y1 = 325
+    r1 = 375
+    r2 = (273^2 + 375^2) / (2 * 273)
+    moon =
+      S.path
+        ! A.fill "#FFD700"
+        ! A.d moonDirs
+    moonDirs = mkPath $ do
+      m   x1  y1
+      aa  r1  r1  0  True  False x2  y1
+      aa  r2  r2  0  False True  x1  y1
+      S.z 
+    r3  = 191 / (1 + cos (pi/5))
+    y3  = 300 + r3
+    star =
+      starRegular 5 r3 (750 , y3)
+        ! A.fill "#FFD700"
+
+
+
+{- |
 Flag of Malta
 
 ![flag of Malta](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/mt.svg)
@@ -1518,6 +1604,53 @@ mt =
         ! (A.height .: 600)
         ! A.stroke "none"
         ! A.fill "#C01B22"
+
+
+
+{- |
+Flag of Niger
+
+![flag of Niger](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ne.svg)
+-}
+ne :: Svg
+ne =
+    S.svg
+      ! A.viewbox "0 0 7 6"
+      ! A.width  "300"
+      ! (A.height .: 300 * 6 / 7)
+      $ do
+        topBand
+        midBand
+        botBand
+        centralCircle
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "7"
+        ! A.height "2"
+        ! A.fill "#E05206"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "2"
+        ! A.width  "7"
+        ! A.height "2"
+        ! A.fill "#FFFFFF"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "4"
+        ! A.width  "7"
+        ! A.height "2"
+        ! A.fill "#0DB02B"
+    centralCircle =
+      S.circle
+        ! A.fill "#E05206"
+        ! A.cx "3.5"
+        ! A.cy "3"
+        ! A.r  "0.85"
 
 
 
@@ -1695,6 +1828,56 @@ ru =
 
 
 {- |
+Flag of Sudan
+
+![flag of Sudan](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/sd.svg)
+-}
+sd :: Svg
+sd =
+    S.svg
+      ! A.viewbox "0 0 6 3"
+      ! A.width  "300"
+      ! A.height "150"
+      $ do
+        topBand
+        midBand
+        botBand
+        leftTriangle
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "6"
+        ! A.height "1"
+        ! A.fill "#D21034"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "1"
+        ! A.width  "6"
+        ! A.height "1"
+        ! A.fill "#FFFFFF"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "2"
+        ! A.width  "6"
+        ! A.height "1"
+        ! A.fill "#000000"
+    leftTriangle =
+      S.path
+        ! A.fill "#007229"
+        ! A.d triangleDirs
+    triangleDirs = mkPath $ do
+      m  0  0
+      l  2  1.5
+      l  0  3
+      S.z
+
+
+
+{- |
 Flag of Sweden
 
 ![flag of Sweden](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/se.svg)
@@ -1842,6 +2025,21 @@ sm =
         ! (A.height .: 300)
         ! A.stroke "none"
         ! A.fill "#5EB6E4"
+
+
+
+{- |
+Flag of Chad
+
+![flag of Chad](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/td.svg)
+-}
+td :: Svg
+td =
+  flagV3Eq
+    (3,2)
+    "#002669"
+    "#FFCC00"
+    "#D20F36"
 
 
 
