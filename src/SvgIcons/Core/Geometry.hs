@@ -83,7 +83,7 @@ geometryExamples =
 involved in regular polygons and first species star polygons of @n@ vertices:
 
   (1) In black: central angle of a regular polygon.
-  (2) In blue: inner angles of a regular polygon.
+  (2) In blue: inner angle of a regular polygon.
   (3) In red: outer angle of a first species star polygon.
   (4) In green: inner angle of a first species star polygon.
 
