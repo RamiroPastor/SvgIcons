@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 12 6" width="300" height="150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect x="0" y="0" width="12" height="3" fill="#FCD116" />
+    <rect x="0" y="3" width="12" height="3" fill="#009E49" />
+    <rect x="0" y="0" width="4" height="6" fill="#CE1126" />
+    <path d="M 2.0,2.0 L 2.224514,2.690983 L 2.9510565,2.690983 L 2.3632712,3.118034 L 2.5877852,3.8090172 L 2.0,3.381966 L 1.4122146,3.809017 L 1.6367288,3.1180341 L 1.0489435,2.6909828 L 1.7754861,2.6909828 Z" fill="#000000" />
+</svg>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" width="500" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path fill="white" stroke="silver" stroke-width="0.02" d="M 0.0,-0.9 L 0.7036483,-0.5611408 L 0.8774351,0.20026885 L 0.39049542,0.81087196 L -0.39049536,0.81087196 L -0.8774352,0.20026849 L -0.70364845,-0.5611407 Z" />
+    <g stroke="black" fill="black">
+        <path fill="none" stroke-width="0.01" d="M 0.39049542,0.81087196 L 0,0 L -0.39049536,0.81087196 " />
+        <text stroke="none" x="0.0" y="0.25" font-size="0.09" font-weight="bold" dominant-baseline="middle" text-anchor="middle">
+            2π/n
+        </text>
+    </g>
+    <g stroke="blue" fill="blue">
+        <path fill="none" stroke-width="0.01" d="M 0.0,-0.9 L -0.70364845,-0.5611407 L -0.8774352,0.20026849 " />
+        <text stroke="none" x="-0.52364844" y="-0.5111407" font-size="0.09" font-weight="bold" dominant-baseline="middle" text-anchor="middle">
+            π - 2π/n
+        </text>
+    </g>
+    <g stroke="red" fill="red">
+        <path fill="none" stroke-width="0.01" d="M 0.7036483,-0.5611408 L 0.0,-0.9 L 0.8774351,0.20026885 " />
+        <text stroke="none" x="0.3" y="-0.65" font-size="0.09" font-weight="bold" dominant-baseline="middle" text-anchor="middle">
+            π/n
+        </text>
+    </g>
+    <g stroke="green" fill="green">
+        <path fill="none" stroke-width="0.01" d="M 0.7036483,-0.5611408 L 0.39049542,0.81087196 L -0.8774352,0.20026849 " />
+        <text stroke="none" x="0.3404954" y="0.31087196" font-size="0.09" font-weight="bold" dominant-baseline="middle" text-anchor="middle">
+            π - 4π/n
+        </text>
+    </g>
+    <text stroke="none" x="0.0" y="-0.2" font-size="0.09" font-weight="bold" dominant-baseline="middle" text-anchor="middle" fill="indigo">
+        apothema = r cos(π/n)
+    </text>
+</svg>

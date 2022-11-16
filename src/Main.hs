@@ -83,6 +83,7 @@ into the targeted directory.
 renderGeometryExamples :: FilePath -> IO ()
 renderGeometryExamples path = do
     createDirectory p
+    renderSvgFiles p [("anglesHelp", anglesHelp)]
     renderSvgFiles p (map fillIcons geometryExamples)
     renderSvgFiles p (map fullIcons geometryExamples)
     renderSvgFiles p (map strkIcons geometryExamples)

@@ -10,6 +10,7 @@ Tip: you may want to use @stroke-miterlimit@
 
 module SvgIcons.Core.Geometry 
   ( geometryExamples
+  , anglesHelp
   , regularPolygon
   , starPolygonFirstSpecies
   , starPolygonWithBorder
@@ -74,6 +75,126 @@ geometryExamples =
   , (,) "asterisk_3"             $ asterisk 3 0.9 (0,0)
   , (,) "asterisk_star_3"        $ asteriskStar 3 0.9 (0,0)
   ]
+
+
+
+{- |
+`anglesHelp` is just a helpful graphic showing some angles (in radians)
+involved in regular polygons and first species star polygons of @n@ vertices:
+
+  (1) In black: central angle of a regular polygon.
+  (2) In blue: inner angles of a regular polygon.
+  (3) In red: outer angle of a first species star polygon.
+  (4) In green: inner angle of a first species star polygon.
+
+![angles help](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/examples/geometry/anglesHelp.svg)
+-}
+anglesHelp :: Svg
+anglesHelp =
+    S.svg
+      ! A.viewbox "-1 -1 2 2"
+      ! A.width  "500"
+      ! A.height "500"
+      $ do
+        pentagon
+        centralAngle
+        internalAngle
+        starOuterAngle
+        starInnerAngle
+        mkText "apothema = r cos(π/n)" (0 , -0.2)
+          ! A.fill "indigo"
+  where
+    r1 = 0.9
+    vertice k =
+      (r1 * sin(k*2*pi/7) , -r1 * cos(k*2*pi/7))
+    pentagon = 
+      S.path
+        ! A.fill "white"
+        ! A.stroke "silver"
+        ! A.strokeWidth "0.02"
+        ! A.d pentagonDirs
+    pentagonDirs = mkPath $ do
+      uncurry S.m $ vertice 0
+      mapM_ ((uncurry S.l) . vertice . fromIntegral) [1 .. 6]
+      S.z
+    mkText txt (t1,t2) =
+      S.text_ txt
+        ! A.stroke "none"
+        ! (A.x .: t1)
+        ! (A.y .: t2)
+        ! A.fontSize "0.09"
+        ! A.fontWeight "bold"
+        ! A.dominantBaseline "middle"
+        ! A.textAnchor "middle"
+    centralAngle =
+      S.g
+        ! A.stroke "black"
+        ! A.fill "black"
+        $ do
+          S.path
+            ! A.fill "none"
+            ! A.strokeWidth "0.01"
+            ! A.d centralDirs
+          mkText "2π/n" (0 , 0.25)
+    centralDirs = mkPath $ do
+      uncurry S.m $ vertice 3
+      uncurry S.l $ (0,0)
+      uncurry S.l $ vertice 4
+    internalAngle =
+      S.g
+        ! A.stroke "blue"
+        ! A.fill "blue"
+        $ do
+          S.path
+            ! A.fill "none"
+            ! A.strokeWidth "0.01"
+            ! A.d internalDirs
+          mkText 
+            "π - 2π/n"
+            ( 0.18 + (fst $ vertice 6)
+            , 0.05 + (snd $ vertice 6)
+            )
+    internalDirs = mkPath $ do
+      uncurry S.m $ vertice 0
+      uncurry S.l $ vertice 6
+      uncurry S.l $ vertice 5  
+    starOuterAngle =
+      S.g
+        ! A.stroke "red"
+        ! A.fill "red"
+        $ do
+          S.path
+            ! A.fill "none"
+            ! A.strokeWidth "0.01"
+            ! A.d starOuterAngleDirs
+          mkText
+            "π/n"
+            ( 0.3  + (fst $ vertice 0)
+            , 0.25 + (snd $ vertice 0)
+            )
+    starOuterAngleDirs = mkPath $ do
+      uncurry S.m $ vertice 1
+      uncurry S.l $ vertice 0
+      uncurry S.l $ vertice 2
+    starInnerAngle =
+      S.g
+        ! A.stroke "green"
+        ! A.fill "green"
+        $ do
+          S.path
+            ! A.fill "none"
+            ! A.strokeWidth "0.01"
+            ! A.d starInnerAngleDirs
+          mkText
+            "π - 4π/n"
+            ( -0.05 + (fst $ vertice 3)
+            , -0.5  + (snd $ vertice 3)
+            )
+    starInnerAngleDirs = mkPath $ do
+      uncurry S.m $ vertice 1
+      uncurry S.l $ vertice 3
+      uncurry S.l $ vertice 5   
+
 
 
 
