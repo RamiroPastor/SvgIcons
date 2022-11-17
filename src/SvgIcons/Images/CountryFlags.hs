@@ -34,24 +34,36 @@ together with appropriate names.
 >  , (,) "at" at
 >  , (,) "ba" ba
 >  , (,) "be" be
+>  , (,) "bf" bf
 >  , (,) "bg" bg
+>  , (,) "bj" bj
 >  , (,) "by" blr
+>  , (,) "cd" cd
+>  , (,) "cf" cf
+>  , (,) "cg" cg
 >  , (,) "ch" ch
+>  , (,) "ci" ci
+>  , (,) "cm" cm
 >  , (,) "cv" cv
 >  , (,) "cy" cyp
 >  , (,) "cz" cz
 >  , (,) "de" de
+>  , (,) "dj" dj
 >  , (,) "dk" dk
 >  , (,) "dz" dz
 >  , (,) "ee" ee
 >  , (,) "eg" eg
 >  , (,) "er" er
 >  , (,) "es" es
+>  , (,) "et" et
 >  , (,) "eu" eu
 >  , (,) "fi" fi
 >  , (,) "fr" fr
+>  , (,) "ga" ga
+>  , (,) "gh" gh
 >  , (,) "gm" gm
 >  , (,) "gn" gn
+>  , (,) "gq" gq
 >  , (,) "gr" gr
 >  , (,) "gw" gw
 >  , (,) "hr" hrv
@@ -73,6 +85,7 @@ together with appropriate names.
 >  , (,) "mr" mrt
 >  , (,) "mt" mt
 >  , (,) "ne" ne
+>  , (,) "ng" ng
 >  , (,) "nl" nl
 >  , (,) "no" no
 >  , (,) "pl" pl
@@ -87,9 +100,14 @@ together with appropriate names.
 >  , (,) "sl" sl
 >  , (,) "sm" sm
 >  , (,) "sn" sn
+>  , (,) "so" so
+>  , (,) "ss" ss
+>  , (,) "st" st
 >  , (,) "td" td
+>  , (,) "tg" tg
 >  , (,) "tn" tn
 >  , (,) "ua" ua
+>  , (,) "ug" ug
 >  , (,) "uk" uk
 >  , (,) "va" va
 >  , (,) "xk" xk
@@ -103,24 +121,36 @@ countryFlags =
   , (,) "at" at
   , (,) "ba" ba
   , (,) "be" be
+  , (,) "bf" bf
   , (,) "bg" bg
+  , (,) "bj" bj
   , (,) "by" blr
+  , (,) "cd" cd
+  , (,) "cf" cf
+  , (,) "cg" cg
   , (,) "ch" ch
+  , (,) "ci" ci
+  , (,) "cm" cm
   , (,) "cv" cv
   , (,) "cy" cyp
   , (,) "cz" cz
   , (,) "de" de
+  , (,) "dj" dj
   , (,) "dk" dk
   , (,) "dz" dz
   , (,) "ee" ee
   , (,) "eg" eg
   , (,) "er" er
   , (,) "es" es
+  , (,) "et" et
   , (,) "eu" eu
   , (,) "fi" fi
   , (,) "fr" fr
+  , (,) "ga" ga
+  , (,) "gh" gh
   , (,) "gm" gm
   , (,) "gn" gn
+  , (,) "gq" gq
   , (,) "gr" gr
   , (,) "gw" gw
   , (,) "hr" hrv
@@ -142,6 +172,7 @@ countryFlags =
   , (,) "mr" mrt
   , (,) "mt" mt
   , (,) "ne" ne
+  , (,) "ng" ng
   , (,) "nl" nl
   , (,) "no" no
   , (,) "pl" pl
@@ -156,9 +187,14 @@ countryFlags =
   , (,) "sl" sl
   , (,) "sm" sm
   , (,) "sn" sn
+  , (,) "so" so
+  , (,) "ss" ss
+  , (,) "st" st
   , (,) "td" td
+  , (,) "tg" tg
   , (,) "tn" tn
   , (,) "ua" ua
+  , (,) "ug" ug
   , (,) "uk" uk
   , (,) "va" va
   , (,) "xk" xk
@@ -434,6 +470,43 @@ be =
 
 
 {- |
+Flag of Burkina Faso
+
+![flag of Burkina Faso](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/bf.svg)
+-}
+bf :: Svg
+bf =
+    S.svg
+      ! A.viewbox "0 0 18 12"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        topBand
+        botBand
+        star
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "18"
+        ! A.height "6"
+        ! A.fill "#EF2B2D"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "6"
+        ! A.width  "18"
+        ! A.height "6"
+        ! A.fill "#009E49"
+    star =
+      starRegular 5 2 (9,6)
+        ! A.fill "#FCD116"
+
+
+
+
+{- |
 Flag of Bulgaria
 
 ![flag of Bulgaria](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/bg.svg)
@@ -445,6 +518,46 @@ bg =
     "#FFFFFF"
     "#009B74"
     "#D01C1F"
+
+
+
+{- |
+Flag of Benin
+
+![flag of Benin](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/bj.svg)
+-}
+bj :: Svg
+bj =
+    S.svg
+      ! A.viewbox "0 0 300 200"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        topBand
+        botBand
+        leftStripe
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "300"
+        ! A.height "100"
+        ! A.fill "#FCD20F"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "100"
+        ! A.width  "300"
+        ! A.height "100"
+        ! A.fill "#E90929"
+    leftStripe =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "120"
+        ! A.height "200"
+        ! A.fill "#008850"
 
 
 
@@ -557,6 +670,167 @@ blr =
 
 
 {- |
+Flag of the Democratic Republic of the Congo
+
+![flag of the Democratic Republic of the Congo](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/cd.svg)
+-}
+cd :: Svg
+cd =
+    S.svg
+      ! A.viewbox "0 0 800 600"
+      ! A.width  "300"
+      ! A.height "225"
+      $ do
+        back
+        yellowBand
+        redBand
+        star
+  where
+    back =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "800"
+        ! A.height "600"
+        ! A.fill "#007FFF"
+    yellowBand =
+      S.path
+        ! A.fill "#F7D618"
+        ! A.d yellowDirs
+    yellowDirs = mkPath $ do
+      m   750    0
+      l     0  450
+      l     0  600
+      l    50  600
+      l   800  150
+      l   800    0
+      S.z
+    redBand =
+      S.path
+        ! A.fill "#CE1021"
+        ! A.d redDirs
+    redDirs = mkPath $ do
+      m   800    0
+      l     0  480
+      l     0  600
+      l   800  120
+      S.z
+    r1 = 220 / (1 + cos(pi/5))
+    star = 
+      starRegular 5 r1 (146, 36 + r1)
+        ! A.fill "#F7D618"
+
+
+
+{- |
+Flag of the Central African Republic
+
+![flag of the Central African Republic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/cf.svg)
+-}
+cf :: Svg
+cf =
+    S.svg
+      ! A.viewbox "0 0 60 40"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        band1
+        band2
+        band3
+        band4
+        centralStripe
+        star
+  where
+    band1 =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "60"
+        ! A.height "10"
+        ! A.fill "#003082"
+    band2 =
+      S.rect
+        ! A.x "0"
+        ! A.y "10"
+        ! A.width  "60"
+        ! A.height "10"
+        ! A.fill "#FFFFFF"
+    band3 =
+      S.rect
+        ! A.x "0"
+        ! A.y "20"
+        ! A.width  "60"
+        ! A.height "10"
+        ! A.fill "#289728"
+    band4 =
+      S.rect
+        ! A.x "0"
+        ! A.y "30"
+        ! A.width  "60"
+        ! A.height "10"
+        ! A.fill "#FFCE00"
+    centralStripe =
+      S.rect
+        ! A.x "25"
+        ! A.y "0"
+        ! A.width  "10"
+        ! A.height "40"
+        ! A.fill "#D21034"
+    a = (107 - 9 * sqrt 5) / 16
+    star =
+      starRegular 5 4.5 (10 , a)
+        ! A.fill "#FFCE00"
+
+
+
+{- |
+Flag of Congo
+
+![flag of Congo](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/cg.svg)
+-}
+cg :: Svg
+cg =
+    S.svg
+      ! A.viewbox "0 0 300 200"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        leftTriangle
+        midBand
+        rightTriangle
+  where
+    leftTriangle =
+      S.path
+        ! A.fill "#009543"
+        ! A.d leftDirs
+    midBand =
+      S.path
+        ! A.fill "#FBDE4A"
+        ! A.d midDirs
+    rightTriangle =
+      S.path
+        ! A.fill "#DC241F"
+        ! A.d rightDirs
+    leftDirs = mkPath $ do
+      m    0   0
+      l  200   0
+      l    0 200
+      S.z
+    midDirs = mkPath $ do
+      m  200   0
+      l  300   0
+      l  100 200
+      l    0 200
+      S.z
+    rightDirs = mkPath $ do
+      m  300   0
+      l  300 200
+      l  100 200
+      S.z
+
+
+
+{- |
 Flag of Switzerland
 
 ![flag of Switzerland](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ch.svg)
@@ -590,6 +864,65 @@ ch =
       l  16 26
       m   6 16
       l  26 16
+
+
+
+{- |
+Flag of Côte d'Ivoire
+
+![flag of Côte d'Ivoire](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ci.svg)
+-}
+ci :: Svg
+ci =
+  flagV3Eq
+    (3,2)
+    "#FF8200"
+    "#FFFFFF"
+    "#009A44"
+
+
+
+{- |
+Flag of Cameroon
+
+![flag of Cameroon](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/cm.svg)
+-}
+cm :: Svg
+cm =
+    S.svg
+      ! A.viewbox "0 0 300 200"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        leftBand
+        midBand
+        rightBand
+        star
+  where
+    leftBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "100"
+        ! A.height "200"
+        ! A.fill "#007A5E"
+    midBand =
+      S.rect
+        ! A.x "100"
+        ! A.y "0"
+        ! A.width  "100"
+        ! A.height "200"
+        ! A.fill "#CE1126"
+    rightBand =
+      S.rect
+        ! A.x "200"
+        ! A.y "0"
+        ! A.width  "100"
+        ! A.height "200"
+        ! A.fill "#FCD116"
+    star =
+      starRegular 5 27 (150,100)
+        ! A.fill "#FCD116"
 
 
 
@@ -732,6 +1065,52 @@ de =
     "rgb(0,0,0)"
     "rgb(255,0,0)"
     "rgb(255,204,0)"
+
+
+
+{- |
+Flag of Djibouti
+
+![flag of Djibouti](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/dj.svg)
+-}
+dj :: Svg
+dj =
+    S.svg
+      ! A.viewbox "0 0 300 200"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        topBand
+        botBand
+        leftTriangle
+        star
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "300"
+        ! A.height "100"
+        ! A.fill "#6AB2E7"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "100"
+        ! A.width  "300"
+        ! A.height "100"
+        ! A.fill "#12AD2B"
+    leftTriangle =
+      S.path
+        ! A.fill "#FFFFFF"
+        ! A.d triangleDirs
+    triangleDirs = mkPath $ do
+      m   0   0
+      l  (100 * tan(pi/3))  100
+      l   0   200
+      S.z
+    star =
+      starRegular 5 (100/3) (100 * tan(pi/6) , 100)
+        ! A.fill "#D7141A"
 
 
 
@@ -960,6 +1339,47 @@ es =
 
 
 {- |
+Flag of the Ethiopia
+
+![flag of the Ethiopia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/et.svg)
+-}
+et :: Svg
+et =
+    S.svg
+      ! A.viewbox "0 0 1200 600"
+      ! A.width  "300"
+      ! A.height "150"
+      $ do
+        topBand
+        midBand
+        botBand
+        etCoA
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "1200"
+        ! A.height "200"
+        ! A.fill "#078930"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "200"
+        ! A.width  "1200"
+        ! A.height "200"
+        ! A.fill "#FCDD09"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "400"
+        ! A.width  "1200"
+        ! A.height "200"
+        ! A.fill "#DA121A"
+
+
+
+{- |
 Flag of the European Union
 
 ![flag of the European Union](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/eu.svg)
@@ -1046,6 +1466,68 @@ fr =
 
 
 {- |
+Flag of Gabon
+
+![flag of Gabon](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ga.svg)
+-}
+ga :: Svg
+ga =
+  flagH3Eq
+    (4,3)
+    "#009E60"
+    "#FCD116"
+    "#3A75C4"
+
+
+
+{- |
+Flag of Ghana
+
+![flag of Ghana](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/gh.svg)
+-}
+gh :: Svg
+gh =
+    S.svg
+      ! A.viewbox "0 0 18 12"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        topBand
+        midBand
+        botBand
+        star
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "18"
+        ! A.height "4"
+        ! A.fill "#CF0921"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "4"
+        ! A.width  "18"
+        ! A.height "4"
+        ! A.fill "#FCD20F"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "8"
+        ! A.width  "18"
+        ! A.height "4"
+        ! A.fill "#006B3D"
+    d = 8 - (8/5) * sqrt 5
+    a = d/2 - 2
+    star =
+      starRegular 5 (d/2) (9 , 6+a)
+        ! A.fill "#000000"
+
+
+
+
+{- |
 Flag of Gambia
 
 ![flag of Gambia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/gm.svg)
@@ -1105,6 +1587,57 @@ gn =
     "#CE1126"
     "#FCD116"
     "#009460"
+
+
+
+{- |
+Flag of Equatorial Guinea
+
+![flag of Equatorial Guinea](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/gq.svg)
+-}
+gq :: Svg
+gq =
+    S.svg
+      ! A.viewbox "0 0 3600 2400"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        topBand
+        midBand
+        botBand
+        leftTriangle
+        gqCoA
+  where
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "3600"
+        ! A.height "800"
+        ! A.fill "#3E9A00"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "800"
+        ! A.width  "3600"
+        ! A.height "800"
+        ! A.fill "#FFFFFF"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "1600"
+        ! A.width  "3600"
+        ! A.height "800"
+        ! A.fill "#E32118"
+    leftTriangle =
+      S.path
+        ! A.fill "#0073CE"
+        ! A.d triangleDirs
+    triangleDirs = mkPath $ do
+      m    0    0
+      l  900 1200
+      l    0 2400
+      S.z
 
 
 
@@ -1918,6 +2451,21 @@ ne =
 
 
 {- |
+Flag of the Nigeria
+
+![flag of the Nigeria](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ng.svg)
+-}
+ng :: Svg
+ng =
+  flagV3Eq
+    (2,1)
+    "#008753"
+    "#FFFFFF"
+    "#008753"
+
+
+
+{- |
 Flag of the Netherlands
 
 ![flag of the Netherlands](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/nl.svg)
@@ -2349,6 +2897,148 @@ sn =
 
 
 {- |
+Flag of Somalia
+
+![flag of Somalia](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/so.svg)
+-}
+so :: Svg
+so =
+    S.svg
+      ! A.viewbox "0 0 300 200"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        back
+        star
+  where
+    back =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "300"
+        ! A.height "200"
+        ! A.fill "#4189DD"
+    r1 = 13/54 * 200
+    star =
+      starRegular 5 r1 (150,100)
+        ! A.fill "#FFFFFF"
+
+
+
+{- |
+Flag of South Sudan
+
+![flag of South Sudan](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ss.svg)
+-}
+ss :: Svg
+ss =
+    S.svg
+      ! A.viewbox "0 0 114 57"
+      ! A.width  "300"
+      ! A.height "150"
+      $ do
+        whiteBackground
+        topBand
+        midBand
+        botBand
+        leftTriangle
+        star
+  where
+    whiteBackground =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "114"
+        ! A.height "57"
+        ! A.fill "#FFFFFF"
+    topBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "114"
+        ! A.height "17"
+        ! A.fill "#000000"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "20"
+        ! A.width  "114"
+        ! A.height "17"
+        ! A.fill "#DB0A13"
+    botBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "40"
+        ! A.width  "114"
+        ! A.height "17"
+        ! A.fill "#018A2C"
+    leftTriangle =
+      S.path
+        ! A.fill "#0645B1"
+        ! A.d triangleDirs
+    triangleDirs = mkPath $ do
+      m    0    0
+      l   (57 * cos(pi/6))   28.5
+      l    0   57
+      S.z
+    (c1,c2) = (28.5 * tan(pi/6) , 28.5)
+    star =
+      starRegular 5 9.5 (c1,c2)
+        ! A.fill "#FCDE02"
+        ! A.transform (rotateAround (-90) c1 c2)
+
+
+
+{- |
+Flag of São Tomé and Príncipe
+
+![flag of São Tomé and Príncipe](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/st.svg)
+-}
+st :: Svg
+st =
+    S.svg
+      ! A.viewbox "0 0 28 14"
+      ! A.width  "300"
+      ! A.height "150"
+      $ do
+        back
+        midBand
+        leftTriangle
+        leftStar
+        rightStar
+  where
+    back =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "28"
+        ! A.height "14"
+        ! A.fill "#009739"
+    midBand =
+      S.rect
+        ! A.x "0"
+        ! A.y "4"
+        ! A.width  "28"
+        ! A.height "6"
+        ! A.fill "#FFD100"
+    leftTriangle =
+      S.path
+        ! A.fill "#EF3340"
+        ! A.d triangleDirs
+    triangleDirs = mkPath $ do
+      m   0   0
+      l   7   7
+      l   0  14
+      S.z
+    leftStar =
+      starRegular 5 2 (14,7)
+        ! A.fill "#000000"
+    rightStar =
+      starRegular 5 2 (21,7)
+        ! A.fill "#000000"
+
+
+{- |
 Flag of Chad
 
 ![flag of Chad](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/td.svg)
@@ -2360,6 +3050,61 @@ td =
     "#002669"
     "#FFCC00"
     "#D20F36"
+
+
+
+{- |
+Flag of Togo
+
+![flag of Togo](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/tg.svg)
+-}
+tg :: Svg
+tg =
+    S.svg
+      ! A.viewbox (S.toValue $ "0 0 " ++ show w ++ " " ++ show h)
+      ! A.width  "300"
+      ! A.height (S.toValue (300 / φ))
+      $ do
+        greenBackground
+        topStripe
+        botStripe
+        redSquare
+        star
+  where
+    φ = (1 + sqrt 5) / 2
+    h = 500
+    w = h * φ
+    greenBackground =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! (A.width  .: w)
+        ! (A.height .: h)
+        ! A.fill "#006A4E"
+    topStripe =
+      S.rect
+        ! A.x "0"
+        ! A.y "100"
+        ! (A.width  .: w)
+        ! (A.height .: h/5)
+        ! A.fill "#FFCE00"
+    botStripe =
+      S.rect
+        ! A.x "0"
+        ! A.y "300"
+        ! (A.width  .: w)
+        ! (A.height .: h/5)
+        ! A.fill "#FFCE00"
+    redSquare =
+      S.rect
+        ! A.x "0"
+        ! A.y "0"
+        ! A.width  "300"
+        ! A.height "300"
+        ! A.fill "#D21034"
+    star =
+      starRegular 5 100 (150,150)
+        ! A.fill "#FFFFFF"
 
 
 
@@ -2445,6 +3190,37 @@ ua =
         ! (A.height .: 1)
         ! A.stroke "none"
         ! A.fill "#FFDD00"
+
+
+
+{- |
+Flag of the Uganda
+
+![flag of the Uganda](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/countryFlags/ug.svg)
+-}
+ug :: Svg
+ug =
+    S.svg
+      ! A.viewbox "0 0 900 600"
+      ! A.width  "300"
+      ! A.height "200"
+      $ do
+        mkRect "  0" "#000000"
+        mkRect "100" "#FCDC04"
+        mkRect "200" "#D90000"
+        mkRect "300" "#000000"
+        mkRect "400" "#FCDC04"
+        mkRect "500" "#D90000"
+  where
+    mkRect ky color =
+      S.rect
+        ! A.x "0"
+        ! A.y ky
+        ! A.width  "900"
+        ! A.height "100"
+        ! A.fill color
+
+
 
 
 

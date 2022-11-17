@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 1200 600" width="300" height="150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect x="0" y="0" width="1200" height="200" fill="#078930" />
+    <rect x="0" y="200" width="1200" height="200" fill="#FCDD09" />
+    <rect x="0" y="400" width="1200" height="200" fill="#DA121A" />
+    <g transform="matrix(1.6666666666666667,0.0,0.0,1.6666666666666667,600.0,300.0)">
+        <circle cx="0" cy="0" r="120" fill="#0F47AF" />
+        <g id="HaskellSvgIcons-etCoA-fifth">
+            <path fill="#FCDD09" d="m 0,-96 -4.205849,12.944272 17.347494,53.390097 H -9.987258 l -2.599358,8 h 74.162668 l 11.011056,-8 H 21.553343 Z" />
+            <path stroke-width="4" stroke="#FCDD09" transform="rotate(-144)" d="M 0,44 V 96" />
+        </g>
+        <use xlink:href="#HaskellSvgIcons-etCoA-fifth" transform="rotate(72)" />
+        <use xlink:href="#HaskellSvgIcons-etCoA-fifth" transform="rotate(144)" />
+        <use xlink:href="#HaskellSvgIcons-etCoA-fifth" transform="rotate(-144)" />
+        <use xlink:href="#HaskellSvgIcons-etCoA-fifth" transform="rotate(-72)" />
+    </g>
+</svg>
