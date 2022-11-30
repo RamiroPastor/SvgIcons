@@ -362,7 +362,7 @@ crescentAndStar =
 -}
 starOfDavid :: Svg
 starOfDavid =
-  starPolygonFirstSpecies 6 0.9 (0,0)
+  starPolygonOverlap 6 0.9 0.1 (0,0)
 
 
 
