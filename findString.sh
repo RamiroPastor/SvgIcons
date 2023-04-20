@@ -1,1 +1,1 @@
-grep -Rnl "asterisk" ./src
+grep -Rnl "cleanDecimals" ./src

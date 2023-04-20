@@ -10,7 +10,6 @@ module SvgIcons.Core.Utils
   , horizontalMirrorMatrix
   , verticalMirrorMatrix
   , frame
-  , cleanDecimals
   ) where
 
 import Data.Char
@@ -104,7 +103,7 @@ and returns a path which connects all
 consecutive corners of the viewbox and also connects opposite
 middle points of the sides of the viewbox.
 
-![framed svg](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/test/test_strk.svg)
+![framed svg](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/test/test.svg)
 -}
 frame 
   :: Float    -- ^ stroke-width
@@ -131,26 +130,3 @@ frame s color x y w h =
       l  (x + w/2) (y + h)
       m   x        (y + h/2)
       l  (x + w)   (y + h/2)
-
-
--- Takes a number n and a string s, 
--- and returns a string equal to s except that every decimal
--- number inside s will have its decimal part capped at n digits
-{- |
-Please ignore this function.
--}
-cleanDecimals :: Int -> String -> String
-cleanDecimals n s = 
-    f [] [] s
-  where
-    f aux acc [] = reverse (aux ++ acc)
-    f aux acc (c:cs) = 
-      if c == '.'
-        then f "." acc cs
-        else if aux == []
-          then f [] (c : acc) cs
-          else if (not $ isDigit c)
-            then f [] (c : aux ++ acc) cs
-            else if (length aux < n)
-              then f (c : aux) acc cs
-              else f aux acc cs
