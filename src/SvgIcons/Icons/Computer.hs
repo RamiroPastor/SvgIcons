@@ -4,6 +4,7 @@
 
 module SvgIcons.Icons.Computer 
   ( svgComputer
+  , circulo
   , accept
   , cancel
   , plus
@@ -29,7 +30,8 @@ together with appropriate names.
 
 >svgComputer :: [ (String , S.Svg) ]
 >svgComputer =
->  [ (,) "accept"      accept
+>  [ (,) "circulo"     circulo
+>  , (,) "accept"      accept
 >  , (,) "cancel"      cancel
 >  , (,) "plus"        plus
 >  , (,) "maximize"    maximize
@@ -42,7 +44,8 @@ together with appropriate names.
 -}
 svgComputer :: [ (String , S.Svg) ]
 svgComputer =
-  [ (,) "accept"      accept
+  [ (,) "circulo"     circulo
+  , (,) "accept"      accept
   , (,) "cancel"      cancel
   , (,) "plus"        plus
   , (,) "maximize"    maximize
@@ -55,6 +58,61 @@ svgComputer =
 
 
 --------------------------------------------------------------------------------
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/circulo_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/circulo_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/circulo_strk.svg)
+-}
+circulo :: Svg
+circulo =
+  S.g $ do
+    S.path
+      ! A.d dirs
+  where
+    r1 = 0.8
+    r2 = 0.9
+    dirs = mkPath $ do
+      m   r1  0
+      aa  r1  r1  0  True  False  r1  0.0001
+      S.z
+      m   r2  0
+      aa  r2  r2  0  True  True   r2  (-0.0001)
+      S.z
+
+
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_strk.svg)
+-}
+accept :: Svg
+accept =
+  S.g $ do
+    S.path
+      ! A.strokeLinejoin "round"
+      ! d dirs
+      ! A.transform (translate (-0.3) 0.3 <> rotateAround 45 0 0)
+  where
+    k1 = 0.1
+    k2 = 0.5
+    k3 = 1.3
+    dirs = mkPath $ do
+      m   (-k1) (-k1)
+      l   (-k2) (-k1)
+      aa    k1    k1   0  True  False (-k2) ( k1)
+      l   ( k1) ( k1)
+      l   ( k1) (-k3)
+      aa    k1    k1   0  True  False (-k1) (-k3)
+      S.z
 
 
 
@@ -100,35 +158,6 @@ cancel :: Svg
 cancel =
   S.g $ 
     plus ! A.transform (rotateAround 45 0 0)
-
-
-
-{- |
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_fill.svg)
-
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_full.svg)
-
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/accept_strk.svg)
--}
-accept :: Svg
-accept =
-  S.g $ do
-    S.path
-      ! A.strokeLinejoin "round"
-      ! d dirs
-      ! A.transform (translate (-0.3) 0.3 <> rotateAround 45 0 0)
-  where
-    k1 = 0.1
-    k2 = 0.5
-    k3 = 1.3
-    dirs = mkPath $ do
-      m   (-k1) (-k1)
-      l   (-k2) (-k1)
-      aa    k1    k1   0  True  False (-k2) ( k1)
-      l   ( k1) ( k1)
-      l   ( k1) (-k3)
-      aa    k1    k1   0  True  False (-k1) (-k3)
-      S.z
 
 
 
