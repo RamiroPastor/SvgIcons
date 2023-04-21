@@ -4,7 +4,7 @@
 
 module SvgIcons.Icons.Computer 
   ( svgComputer
-  , circulo
+  , ring
   , accept
   , cancel
   , plus
@@ -30,7 +30,7 @@ together with appropriate names.
 
 >svgComputer :: [ (String , S.Svg) ]
 >svgComputer =
->  [ (,) "circulo"     circulo
+>  [ (,) "ring"     ring
 >  , (,) "accept"      accept
 >  , (,) "cancel"      cancel
 >  , (,) "plus"        plus
@@ -44,7 +44,7 @@ together with appropriate names.
 -}
 svgComputer :: [ (String , S.Svg) ]
 svgComputer =
-  [ (,) "circulo"     circulo
+  [ (,) "ring"     ring
   , (,) "accept"      accept
   , (,) "cancel"      cancel
   , (,) "plus"        plus
@@ -61,20 +61,20 @@ svgComputer =
 
 
 {- |
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/circulo_fill.svg)
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/ring_fill.svg)
 
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/circulo_full.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/ring_full.svg)
 
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/circulo_strk.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/ring_strk.svg)
 -}
-circulo :: Svg
-circulo =
+ring :: Svg
+ring =
   S.g $ do
     S.path
       ! A.d dirs
   where
-    r1 = 0.8
-    r2 = 0.9
+    r1 = 0.75
+    r2 = 0.95
     dirs = mkPath $ do
       m   r1  0
       aa  r1  r1  0  True  False  r1  0.0001
