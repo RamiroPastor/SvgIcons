@@ -136,3 +136,5 @@ svgToReact name svgCode =
       . (T.replace "stroke-width"      "strokeWidth")
       . (T.replace "text-anchor"       "textAnchor")
       . (T.replace "xmlns:xlink"       "xmlnsXlink")
+      . (T.replace "xlink:href"        "xlinkHref")
+      . (T.replace "sketch:type"       "sketchType")
