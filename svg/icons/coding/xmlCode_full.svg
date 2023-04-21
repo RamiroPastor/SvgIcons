@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="silver" stroke="black" stroke-width="0.03">
+        <defs>
+            <path id="HaskellSvgIcons-xmlCode-triangle" d="M 0.5,0.5 L 0.1,0.5 A 9.999999999999998e-2,9.999999999999998e-2 0.0 1,0 0.1,0.7 L 0.7,0.7 L 0.7,0.1 A 9.999999999999998e-2,9.999999999999998e-2 0.0 1,0 0.5,0.1 Z" stroke-linejoin="round" />
+        </defs>
+        <use xlink:href="#HaskellSvgIcons-xmlCode-triangle" transform="rotate(315,0,0)" />
+        <use xlink:href="#HaskellSvgIcons-xmlCode-triangle" transform="rotate(135,0,0)" />
+        <path d="M -9.999999999999998e-2,0.55 A 9.999999999999998e-2,9.999999999999998e-2 0.0 1,0 9.999999999999998e-2,0.55 L 9.999999999999998e-2,-0.55 A 9.999999999999998e-2,9.999999999999998e-2 0.0 1,0 -9.999999999999998e-2,-0.55 Z" transform="rotate(11,0,0)" />
+    </g>
+</svg>
