@@ -5,6 +5,7 @@
 module SvgIcons.Icons.Office 
   ( svgOffice
   , archive
+  , bookOpen
   , briefcase
   , clipboard
   , document
@@ -31,6 +32,7 @@ together with appropriate names.
 >svgOffice :: [ (String , S.Svg) ]
 >svgOffice =
 >  [ (,) "archive"    archive
+>  , (,) "bookOpen"   bookOpen
 >  , (,) "briefcase"  briefcase
 >  , (,) "clipboard"  clipboard
 >  , (,) "document"   document
@@ -45,6 +47,7 @@ together with appropriate names.
 svgOffice :: [ (String , S.Svg) ]
 svgOffice =
   [ (,) "archive"    archive
+  , (,) "bookOpen"   bookOpen
   , (,) "briefcase"  briefcase
   , (,) "clipboard"  clipboard
   , (,) "document"   document
@@ -577,3 +580,74 @@ briefcase =
         ! (A.cy .: (y5 + y4)/2)
         ! (A.rx .: rx2)
         ! (A.ry .: ry2)
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/bookOpen_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/bookOpen_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/bookOpen_strk.svg)
+-}
+bookOpen :: Svg
+bookOpen =
+  S.g $ do
+    S.defs $ do
+      S.path
+        ! A.id_ "HaskellSvgIcons-bookOpen-cover"
+        ! A.d coverDirs
+        ! A.fill "none"
+      S.path
+        ! A.id_ "HaskellSvgIcons-bookOpen-pages"
+        ! A.d pagesDirs
+        ! A.strokeLinejoin "round"
+    S.use
+      ! A.xlinkHref "#HaskellSvgIcons-bookOpen-cover"
+    S.use
+      ! A.xlinkHref "#HaskellSvgIcons-bookOpen-cover"
+      ! A.transform (horizontalMirrorMatrix)
+    S.use
+      ! A.xlinkHref "#HaskellSvgIcons-bookOpen-pages"
+    S.use
+      ! A.xlinkHref "#HaskellSvgIcons-bookOpen-pages"
+      ! A.transform (horizontalMirrorMatrix)
+    S.path
+      ! A.d spineDirs
+      ! A.strokeLinejoin "round"
+  where
+    y1 = 0.55
+    y2 = 0.65
+    y3 = 0.75
+    y4 = -0.65
+    y5 = -0.7
+    y6 = -0.75
+    y7 = y5
+    x1 = 0
+    x2 = 0.75
+    x3 = 0.85
+    x4 = 0.95
+    (q1x,q1y) = (0.5 , 0.55)
+    (q2x,q2y) = (0.4 , 0.45)
+    (q3x,q3y) = (0.4 ,-1.00)
+    coverDirs = mkPath $ do
+      m   x1   y3
+      l   x4   y3
+      l   x4   y4
+      l   x3   y4
+      m   x1   y3
+      q   q1x  q1y  x3  y2
+      l   x3   y5
+      l   x2   y5
+    pagesDirs = mkPath $ do
+      m   x1   y3
+      q   q2x  q2y  x2  y1
+      l   x2   y6
+      q   q3x  q3y  x1  y7
+      S.z
+    spineDirs = mkPath $ do
+      m   (x1 - 0.07)  (y3 + 0.02)
+      l   (x1 + 0.07)  (y3 + 0.02)
+      l   (x1 + 0.07)   y3
+      l   (x1 - 0.07)   y3
+      S.z
