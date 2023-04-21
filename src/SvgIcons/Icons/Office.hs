@@ -614,6 +614,7 @@ bookOpen =
       ! A.transform (horizontalMirrorMatrix)
     S.path
       ! A.d spineDirs
+      ! A.fill "none"
       ! A.strokeLinejoin "round"
   where
     y1 = 0.55
