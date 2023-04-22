@@ -5,8 +5,8 @@
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g fill="silver" stroke="black" stroke-width="0.03">
         <defs>
-            <path id="HaskellSvgIcons-bookOpen2-cover" d="M 0.0,0.7 Q 0.5,0.55 0.9,0.7 L 0.9,-0.5 L 0.65,-0.5 " fill="none" stroke-linejoin="round" stroke-width="0.14" />
-            <path id="HaskellSvgIcons-bookOpen2-pages" d="M 0.0,0.7 Q 0.2,0.35000000000000003 0.65,0.4 L 0.65,-0.7 Q 0.2,-0.75 0.0,-0.5 Z" stroke-linejoin="round" stroke-width="0.14" />
+            <path id="HaskellSvgIcons-bookOpen2-cover" d="M 0.0,0.7 Q 0.5,0.55 0.9,0.7 L 0.9,-0.5 L 0.65,-0.5 " fill="none" stroke-linejoin="round" />
+            <path id="HaskellSvgIcons-bookOpen2-pages" d="M 0.0,0.7 Q 0.2,0.35000000000000003 0.65,0.4 L 0.65,-0.7 Q 0.2,-0.75 0.0,-0.5 Z" stroke-linejoin="round" />
         </defs>
         <use xlink:href="#HaskellSvgIcons-bookOpen2-cover" />
         <use xlink:href="#HaskellSvgIcons-bookOpen2-cover" transform="matrix(-1,0,0,1,0,0)" />

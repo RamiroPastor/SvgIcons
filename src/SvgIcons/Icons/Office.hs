@@ -676,12 +676,10 @@ bookOpen2 =
         ! A.d coverDirs
         ! A.fill "none"
         ! A.strokeLinejoin "round"
-        ! A.strokeWidth "0.14"
       S.path
         ! A.id_ "HaskellSvgIcons-bookOpen2-pages"
         ! A.d pagesDirs
         ! A.strokeLinejoin "round"
-        ! A.strokeWidth "0.14"
     S.use
       ! A.xlinkHref "#HaskellSvgIcons-bookOpen2-cover"
     S.use
