@@ -33,6 +33,7 @@ module SvgIcons.Images.Mosaics
   , curvesMosaic
   , airplaneMosaic
   , octagonsMosaic
+  , pentagonsMosaic
   ) where
 
 import           Data.List (intersperse)
@@ -81,6 +82,7 @@ mosaicSample =
   , (,) "curvesMosaic"        curvesMosaic
   , (,) "airplaneMosaic"     (airplaneMosaic "deepskyblue")
   , (,) "octagonsMosaic"     (octagonsMosaic "lightgray" "chocolate")
+  , (,) "pentagonsMosaic"    (pentagonsMosaic "deeppink" "black")
   ]
 
 
@@ -1060,3 +1062,158 @@ octagonsMosaic fillColor strkColor =
       l  4  0
       m  1  3
       l  0  4
+
+
+
+{- |
+![pentagons mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/pentagonsMosaic.svg)
+
+Ratio between width and height is: \(w = \sqrt{3} \cdot h\)
+-}
+pentagonsMosaic :: String -> String -> Svg
+pentagonsMosaic fillColor strkColor =
+    svg
+      ! A.viewbox (S.toValue $ "0 0 " ++ (show x0) ++ " " ++ (show y0))
+      ! A.height "300px"
+      ! A.width  (S.toValue $ (show $ 300 * sqrt 3) ++ "px")
+      $ do
+        S.defs $
+          S.path
+            ! A.fill   (S.toValue fillColor)
+            ! A.strokeWidth "0.15"
+            ! A.stroke (S.toValue strkColor)
+            ! A.strokeLinejoin "round"
+            ! A.id_ "HaskellSvgIcons-pentagonTile"
+            ! A.d pentagonDirs
+        S.g $ do
+          ---
+          pentagon
+          pentagon ! A.transform ((translate     h0  ( 5*l0/2)) <> S.rotate 120)
+          pentagon ! A.transform ((translate     h0  ( 5*l0/2)) <> S.rotate  60)
+          pentagon ! A.transform ((translate (  -h0) ( 9*l0/2)) <> S.rotate 240)
+          pentagon ! A.transform ((translate (  -h0) ( 9*l0/2)) <> S.rotate 300)
+          pentagon ! A.transform ((translate      0  ( 7*l0  )) <> S.rotate 180)
+          --- 
+          pentagon ! A.transform (                                 S.rotate 300)
+          pentagon ! A.transform ((translate     h0  ( 5*l0/2)) <> S.rotate 180)
+          pentagon ! A.transform ((translate     h0  ( 5*l0/2))                )
+          pentagon ! A.transform ((translate ( 2*h0) ( 5*l0  )) <> S.rotate 120)
+          pentagon ! A.transform ((translate ( 2*h0) ( 5*l0  )) <> S.rotate  60)
+          pentagon ! A.transform ((translate      0  ( 7*l0  )) <> S.rotate 240)
+          --- 
+          pentagon ! A.transform ((translate ( 3*h0) (   l0/2)) <> S.rotate 120)
+          pentagon ! A.transform ((translate ( 3*h0) (   l0/2)) <> S.rotate  60)
+          pentagon ! A.transform ((translate     h0  ( 5*l0/2)) <> S.rotate 240)
+          pentagon ! A.transform ((translate     h0  ( 5*l0/2)) <> S.rotate 300)
+          pentagon ! A.transform ((translate ( 2*h0) ( 5*l0  )) <> S.rotate 180)
+          pentagon ! A.transform ((translate ( 2*h0) ( 5*l0  ))                )
+          pentagon ! A.transform ((translate ( 3*h0) (15*l0/2)) <> S.rotate 120)
+          --- 
+          pentagon ! A.transform ((translate ( 3*h0) (   l0/2)) <> S.rotate 180)
+          pentagon ! A.transform ((translate ( 3*h0) (   l0/2))                )
+          pentagon ! A.transform ((translate ( 4*h0) ( 3*l0  )) <> S.rotate 120)
+          pentagon ! A.transform ((translate ( 4*h0) ( 3*l0  )) <> S.rotate  60)
+          pentagon ! A.transform ((translate ( 2*h0) ( 5*l0  )) <> S.rotate 240)
+          pentagon ! A.transform ((translate ( 2*h0) ( 5*l0  )) <> S.rotate 300)
+          pentagon ! A.transform ((translate ( 3*h0) (15*l0/2)) <> S.rotate 180)
+          --- 
+          pentagon ! A.transform ((translate ( 3*h0) (   l0/2)) <> S.rotate 240)
+          pentagon ! A.transform ((translate ( 3*h0) (   l0/2)) <> S.rotate 300)
+          pentagon ! A.transform ((translate ( 4*h0) ( 3*l0  )) <> S.rotate 180)
+          pentagon ! A.transform ((translate ( 4*h0) ( 3*l0  ))                )
+          pentagon ! A.transform ((translate ( 5*h0) (11*l0/2)) <> S.rotate 120)
+          pentagon ! A.transform ((translate ( 5*h0) (11*l0/2)) <> S.rotate  60)
+          pentagon ! A.transform ((translate ( 3*h0) (15*l0/2)) <> S.rotate 240)
+          --- 
+          pentagon ! A.transform ((translate ( 6*h0) (   l0  )) <> S.rotate 120)
+          pentagon ! A.transform ((translate ( 6*h0) (   l0  )) <> S.rotate  60)
+          pentagon ! A.transform ((translate ( 4*h0) ( 3*l0  )) <> S.rotate 240)
+          pentagon ! A.transform ((translate ( 4*h0) ( 3*l0  )) <> S.rotate 300)
+          pentagon ! A.transform ((translate ( 5*h0) (11*l0/2)) <> S.rotate 180)
+          pentagon ! A.transform ((translate ( 5*h0) (11*l0/2))                )
+          --- 
+          pentagon ! A.transform ((translate ( 6*h0) (   l0  )) <> S.rotate 180)
+          pentagon ! A.transform ((translate ( 6*h0) (   l0  ))                )
+          pentagon ! A.transform ((translate ( 7*h0) ( 7*l0/2)) <> S.rotate 120)
+          pentagon ! A.transform ((translate ( 7*h0) ( 7*l0/2)) <> S.rotate  60)
+          pentagon ! A.transform ((translate ( 5*h0) (11*l0/2)) <> S.rotate 240)
+          pentagon ! A.transform ((translate ( 5*h0) (11*l0/2)) <> S.rotate 300)
+          pentagon ! A.transform ((translate ( 6*h0) ( 8*l0  )) <> S.rotate 180)
+          --- 
+          pentagon ! A.transform ((translate ( 6*h0) (   l0  )) <> S.rotate 240)
+          pentagon ! A.transform ((translate ( 6*h0) (   l0  )) <> S.rotate 300)
+          pentagon ! A.transform ((translate ( 7*h0) ( 7*l0/2)) <> S.rotate 180)
+          pentagon ! A.transform ((translate ( 7*h0) ( 7*l0/2))                )
+          pentagon ! A.transform ((translate ( 8*h0) ( 6*l0  )) <> S.rotate 120)
+          pentagon ! A.transform ((translate ( 8*h0) ( 6*l0  )) <> S.rotate  60)
+          --- 
+          pentagon ! A.transform ((translate ( 8*h0) (  -l0  ))                )
+          pentagon ! A.transform ((translate ( 9*h0) ( 3*l0/2)) <> S.rotate 120)
+          pentagon ! A.transform ((translate ( 9*h0) ( 3*l0/2)) <> S.rotate  60)
+          pentagon ! A.transform ((translate ( 7*h0) ( 7*l0/2)) <> S.rotate 240)
+          pentagon ! A.transform ((translate ( 7*h0) ( 7*l0/2)) <> S.rotate 300)
+          pentagon ! A.transform ((translate ( 8*h0) ( 6*l0  )) <> S.rotate 180)
+          pentagon ! A.transform ((translate ( 8*h0) ( 6*l0  ))                )
+          --- 
+          pentagon ! A.transform ((translate ( 9*h0) ( 3*l0/2)) <> S.rotate 180)
+          pentagon ! A.transform ((translate ( 9*h0) ( 3*l0/2))                )
+          pentagon ! A.transform ((translate (10*h0) ( 4*l0  )) <> S.rotate 120)
+          pentagon ! A.transform ((translate (10*h0) ( 4*l0  )) <> S.rotate  60)
+          pentagon ! A.transform ((translate ( 8*h0) ( 6*l0  )) <> S.rotate 240)
+          pentagon ! A.transform ((translate ( 8*h0) ( 6*l0  )) <> S.rotate 300)
+          ---
+          pentagon ! A.transform ((translate (11*h0) (  -l0/2)) <> S.rotate  60)
+          pentagon ! A.transform ((translate ( 9*h0) ( 3*l0/2)) <> S.rotate 240)
+          pentagon ! A.transform ((translate ( 9*h0) ( 3*l0/2)) <> S.rotate 300)
+          pentagon ! A.transform ((translate (10*h0) ( 4*l0  )) <> S.rotate 180)
+          pentagon ! A.transform ((translate (10*h0) ( 4*l0  ))                )
+          pentagon ! A.transform ((translate (11*h0) (13*l0/2)) <> S.rotate 120)
+          pentagon ! A.transform ((translate (11*h0) (13*l0/2)) <> S.rotate  60)
+          ---
+          pentagon ! A.transform ((translate (11*h0) (  -l0/2))                )
+          pentagon ! A.transform ((translate (12*h0) ( 2*l0  )) <> S.rotate 120)
+          pentagon ! A.transform ((translate (12*h0) ( 2*l0  )) <> S.rotate  60)
+          pentagon ! A.transform ((translate (10*h0) ( 4*l0  )) <> S.rotate 240)
+          pentagon ! A.transform ((translate (10*h0) ( 4*l0  )) <> S.rotate 300)
+          pentagon ! A.transform ((translate (11*h0) (13*l0/2)) <> S.rotate 180)
+          pentagon ! A.transform ((translate (11*h0) (13*l0/2))                )
+          ---
+          pentagon ! A.transform ((translate (11*h0) (  -l0/2)) <> S.rotate 300)
+          pentagon ! A.transform ((translate (12*h0) ( 2*l0  )) <> S.rotate 180)
+          pentagon ! A.transform ((translate (12*h0) ( 2*l0  ))                )
+          pentagon ! A.transform ((translate (13*h0) ( 9*l0/2)) <> S.rotate 120)
+          pentagon ! A.transform ((translate (13*h0) ( 9*l0/2)) <> S.rotate  60)
+          pentagon ! A.transform ((translate (11*h0) (13*l0/2)) <> S.rotate 240)
+          pentagon ! A.transform ((translate (11*h0) (13*l0/2)) <> S.rotate 300)
+          ---
+          pentagon ! A.transform ((translate (14*h0) ( 0*l0  )) <> S.rotate  60)
+          pentagon ! A.transform ((translate (12*h0) ( 2*l0  )) <> S.rotate 240)
+          pentagon ! A.transform ((translate (12*h0) ( 2*l0  )) <> S.rotate 300)
+          pentagon ! A.transform ((translate (13*h0) ( 9*l0/2)) <> S.rotate 180)
+          pentagon ! A.transform ((translate (13*h0) ( 9*l0/2))                )
+          pentagon ! A.transform ((translate (14*h0) ( 7*l0  )) <> S.rotate 120)
+          ---
+          pentagon ! A.transform ((translate (14*h0) ( 0*l0  ))                )
+          pentagon ! A.transform ((translate (15*h0) ( 5*l0/2)) <> S.rotate 120)
+          pentagon ! A.transform ((translate (15*h0) ( 5*l0/2)) <> S.rotate  60)
+          pentagon ! A.transform ((translate (13*h0) ( 9*l0/2)) <> S.rotate 240)
+          pentagon ! A.transform ((translate (13*h0) ( 9*l0/2)) <> S.rotate 300)
+          pentagon ! A.transform ((translate (14*h0) ( 7*l0  )) <> S.rotate 180)
+  where
+    pentagon = 
+      S.use ! A.xlinkHref "#HaskellSvgIcons-pentagonTile"
+    r0 = 1
+    a0 = r0 / 2
+    l0 = r0 * sqrt 3
+    h0 = r0 + a0
+    y0 = l0 * 7
+    x0 = y0 * sqrt 3
+    pentagonDirs = mkPath $ do
+      m     0     0
+      lr (-r0)   l0
+      lr   a0   (l0/2)
+      lr   r0     0
+      lr   a0  (-l0/2)
+      lr (-r0) (-l0)
+      S.z
+      

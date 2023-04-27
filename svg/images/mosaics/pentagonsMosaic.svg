@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 21.0 12.12435565298214" height="300px" width="519.6152422706632px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path fill="deeppink" stroke-width="0.15" stroke="black" stroke-linejoin="round" id="HaskellSvgIcons-pentagonTile" d="M 0,0 l -1.0,1.7320508075688772 l 0.5,0.8660254037844386 l 1.0,0.0 l 0.5,-0.8660254037844386 l -1.0,-1.7320508075688772 Z" />
+    </defs>
+    <g>
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(1.5 4.330127018922193)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(1.5 4.330127018922193)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(-1.5 7.794228634059947)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(-1.5 7.794228634059947)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(0.0 12.12435565298214)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(1.5 4.330127018922193)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(1.5 4.330127018922193)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(3.0 8.660254037844386)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(3.0 8.660254037844386)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(0.0 12.12435565298214)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(4.5 0.8660254037844386)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(4.5 0.8660254037844386)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(1.5 4.330127018922193)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(1.5 4.330127018922193)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(3.0 8.660254037844386)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(3.0 8.660254037844386)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(4.5 12.990381056766578)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(4.5 0.8660254037844386)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(4.5 0.8660254037844386)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(6.0 5.196152422706632)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(6.0 5.196152422706632)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(3.0 8.660254037844386)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(3.0 8.660254037844386)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(4.5 12.990381056766578)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(4.5 0.8660254037844386)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(4.5 0.8660254037844386)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(6.0 5.196152422706632)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(6.0 5.196152422706632)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(7.5 9.526279441628825)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(7.5 9.526279441628825)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(4.5 12.990381056766578)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(9.0 1.7320508075688772)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(9.0 1.7320508075688772)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(6.0 5.196152422706632)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(6.0 5.196152422706632)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(7.5 9.526279441628825)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(7.5 9.526279441628825)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(9.0 1.7320508075688772)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(9.0 1.7320508075688772)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(10.5 6.06217782649107)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(10.5 6.06217782649107)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(7.5 9.526279441628825)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(7.5 9.526279441628825)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(9.0 13.856406460551018)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(9.0 1.7320508075688772)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(9.0 1.7320508075688772)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(10.5 6.06217782649107)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(10.5 6.06217782649107)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(12.0 10.392304845413264)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(12.0 10.392304845413264)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(12.0 -1.7320508075688772)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(13.5 2.598076211353316)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(13.5 2.598076211353316)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(10.5 6.06217782649107)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(10.5 6.06217782649107)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(12.0 10.392304845413264)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(12.0 10.392304845413264)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(13.5 2.598076211353316)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(13.5 2.598076211353316)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(15.0 6.928203230275509)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(15.0 6.928203230275509)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(12.0 10.392304845413264)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(12.0 10.392304845413264)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(16.5 -0.8660254037844386)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(13.5 2.598076211353316)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(13.5 2.598076211353316)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(15.0 6.928203230275509)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(15.0 6.928203230275509)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(16.5 11.258330249197702)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(16.5 11.258330249197702)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(16.5 -0.8660254037844386)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(18.0 3.4641016151377544)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(18.0 3.4641016151377544)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(15.0 6.928203230275509)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(15.0 6.928203230275509)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(16.5 11.258330249197702)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(16.5 11.258330249197702)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(16.5 -0.8660254037844386)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(18.0 3.4641016151377544)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(18.0 3.4641016151377544)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(19.5 7.794228634059947)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(19.5 7.794228634059947)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(16.5 11.258330249197702)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(16.5 11.258330249197702)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(21.0 0.0)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(18.0 3.4641016151377544)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(18.0 3.4641016151377544)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(19.5 7.794228634059947)rotate(180)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(19.5 7.794228634059947)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(21.0 12.12435565298214)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(21.0 0.0)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(22.5 4.330127018922193)rotate(120)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(22.5 4.330127018922193)rotate(60)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(19.5 7.794228634059947)rotate(240)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(19.5 7.794228634059947)rotate(300)" />
+        <use xlink:href="#HaskellSvgIcons-pentagonTile" transform="translate(21.0 12.12435565298214)rotate(180)" />
+    </g>
+</svg>
