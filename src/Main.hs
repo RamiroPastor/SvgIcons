@@ -17,6 +17,7 @@ import SvgIcons.Core.Render
 import SvgIcons.Core.Style
 import SvgIcons.Core.Utils
 import SvgIcons.Icons (exampleIcons)
+import SvgIcons.Icons.Arrows   (svgArrows)
 import SvgIcons.Icons.Business (svgBusiness)
 import SvgIcons.Icons.Coding   (svgCoding)
 import SvgIcons.Icons.Computer (svgComputer)
@@ -109,6 +110,7 @@ renderIcons :: FilePath -> IO ()
 renderIcons path = 
   do
     createDirectory path
+    createDirectory arrowsPath
     createDirectory businessPath
     createDirectory codingPath
     createDirectory computerPath
@@ -119,6 +121,9 @@ renderIcons path =
     createDirectory religionPath
     createDirectory textareaPath
     createDirectory toolsPath
+    renderSvgFiles arrowsPath (map fillIcons svgArrows)
+    renderSvgFiles arrowsPath (map fullIcons svgArrows)
+    renderSvgFiles arrowsPath (map strkIcons svgArrows)
     renderSvgFiles businessPath (map fillIcons svgBusiness)
     renderSvgFiles businessPath (map fullIcons svgBusiness)
     renderSvgFiles businessPath (map strkIcons svgBusiness)
@@ -154,6 +159,7 @@ renderIcons path =
     fullIcons (a,b) = (a ++ "_full" , stdDims $ fullStyle b)
     strkIcons (a,b) = (a ++ "_strk" , stdDims $ strkStyle b)
     -- test (a,b) = (a, coreSvg def $ b >> frame (-1) (-1) 2 2)
+    arrowsPath   = path ++ "arrows/"
     businessPath = path ++ "business/"
     codingPath   = path ++ "coding/"
     computerPath = path ++ "computer/"

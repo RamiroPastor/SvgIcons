@@ -14,7 +14,6 @@ module SvgIcons.Icons.Textarea
   , numberList
   , header
   , horizontalRule
-  , curvyArrowLeft
   , undo
   , redo
   , questionMark
@@ -518,8 +517,9 @@ horizontalRule =
 -}
 undo :: S.Svg
 undo =
-  curvyArrowLeft
-    ! A.transform (translate 0 0.1)
+  S.g $ do
+    curvyArrowLeft
+      ! A.transform (translate 0 0.1)
 
 
 
@@ -532,8 +532,9 @@ undo =
 -}
 redo :: S.Svg
 redo =
-  curvyArrowLeft
-    ! A.transform (translate 0 0.1 <> horizontalMirrorMatrix)
+  S.g $ do
+    curvyArrowLeft
+      ! A.transform (translate 0 0.1 <> horizontalMirrorMatrix)
 
 
 

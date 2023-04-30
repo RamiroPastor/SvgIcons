@@ -1,1 +1,1 @@
-grep -Rnl "cleanDecimals" ./src
+grep -Rnl "evenOddSplit" ./src

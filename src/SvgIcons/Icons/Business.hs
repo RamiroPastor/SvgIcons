@@ -8,6 +8,9 @@ module SvgIcons.Icons.Business
   , bullseye
   , company
   , connections
+  , creditCard
+  , creditIn
+  , creditOut
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -15,6 +18,7 @@ import           Text.Blaze.Svg11 as S
 import           Text.Blaze.Svg11.Attributes as A
 
 import SvgIcons.Core.Utils
+import SvgIcons.Icons.Arrows (bigArrowLeft, bigArrowRight)
 
 
 
@@ -28,6 +32,9 @@ together with appropriate names.
 >  , (,) "bullseye"    bullseye
 >  , (,) "company"     company
 >  , (,) "connections" connections
+>  , (,) "creditCard"  creditCard
+>  , (,) "creditIn"    creditIn
+>  , (,) "creditOut"   creditOut
 >  ]
 -}
 svgBusiness :: [ (String , S.Svg) ]
@@ -36,6 +43,9 @@ svgBusiness =
   , (,) "bullseye"    bullseye
   , (,) "company"     company
   , (,) "connections" connections
+  , (,) "creditCard"  creditCard
+  , (,) "creditIn"    creditIn
+  , (,) "creditOut"   creditOut
   ]
 
 
@@ -281,3 +291,104 @@ bullseye =
       l   q3         (q3 - fl)
       m   q3         q3
       l   (q3 - fl)  q3
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditCard_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditCard_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditCard_strk.svg)
+-}
+creditCard :: Svg
+creditCard =
+    S.g $ do
+      S.path
+        ! A.fill "none"
+        ! A.d cardPath
+      S.path
+        ! A.d cardBand
+      S.path
+        ! A.fill "none"
+        ! A.strokeLinejoin "round"
+        ! A.d chip
+  where
+    x0 = 0.93
+    y0 = x0 * 0.618
+    r0 = 0.1
+    y1 = -0.4
+    y2 = -0.15
+    cw = 1.618 * ch
+    ch = 0.3
+    cx = -0.7
+    cy = 0.5 * (y0 + y2) - 0.5 * ch
+    cardPath = mkPath $ do
+      m    0          y0
+      l  ( x0 - r0)   y0
+      aa   r0   r0    0   False  False    x0        ( y0 - r0)
+      l    x0       (-y0 + r0)
+      aa   r0   r0    0   False  False  ( x0 - r0)  (-y0)
+      l  (-x0 + r0) (-y0)
+      aa   r0   r0    0   False  False  (-x0)       (-y0 + r0)
+      l  (-x0)      ( y0 - r0)
+      aa   r0   r0    0   False  False  (-x0 + r0)    y0
+      S.z
+    cardBand = mkPath $ do
+      m   (-x0)  y1
+      l   ( x0)  y1
+      l   ( x0)  y2
+      l   (-x0)  y2
+      S.z
+    chip = mkPath $ do
+      m     cx      cy
+      lr    cw      0
+      lr    0       ch
+      lr  (-cw)     0
+      S.z
+      ---
+      mr  ( cw/3)   0
+      lr    0       ch
+      mr    0     (-ch/3)
+      lr  (-cw/3)   0
+      mr    0     (-ch/3)
+      lr  ( cw/3)   0
+      ---
+      mr  ( cw/3) (-ch/3)
+      lr    0       ch
+      mr    0     (-ch/3)
+      lr  ( cw/3)   0
+      mr    0     (-ch/3)
+      lr  (-cw/3)   0
+    
+  
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditIn_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditIn_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditIn_strk.svg)
+-}
+creditIn :: Svg
+creditIn =
+    S.g $ do
+      creditCard
+      bigArrowLeft 
+        ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditOut_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditOut_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditOut_strk.svg)
+-}
+creditOut :: Svg
+creditOut =
+    S.g $ do
+      creditCard
+      bigArrowRight 
+        ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)
