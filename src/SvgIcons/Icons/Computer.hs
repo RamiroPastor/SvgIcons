@@ -14,6 +14,8 @@ module SvgIcons.Icons.Computer
   , menuLines
   , powerButton 
   , warning
+  , diskette
+  , save
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -30,7 +32,7 @@ together with appropriate names.
 
 >svgComputer :: [ (String , S.Svg) ]
 >svgComputer =
->  [ (,) "ring"     ring
+>  [ (,) "ring"        ring
 >  , (,) "accept"      accept
 >  , (,) "cancel"      cancel
 >  , (,) "plus"        plus
@@ -40,11 +42,13 @@ together with appropriate names.
 >  , (,) "menuLines"   menuLines
 >  , (,) "powerButton" powerButton 
 >  , (,) "warning"     warning
+>  , (,) "diskette"    diskette
+>  , (,) "save"        save
 >  ]
 -}
 svgComputer :: [ (String , S.Svg) ]
 svgComputer =
-  [ (,) "ring"     ring
+  [ (,) "ring"        ring
   , (,) "accept"      accept
   , (,) "cancel"      cancel
   , (,) "plus"        plus
@@ -54,6 +58,8 @@ svgComputer =
   , (,) "menuLines"   menuLines
   , (,) "powerButton" powerButton 
   , (,) "warning"     warning
+  , (,) "diskette"    diskette
+  , (,) "save"        save
   ]
 
 
@@ -356,3 +362,59 @@ powerButton =
         l   (-w) ( y1)
         aa    w    w   0   True  False ( w) ( y1)
         S.z
+      
+    
+  
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/diskette_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/diskette_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/diskette_strk.svg)
+-}
+diskette :: Svg
+diskette =
+    S.path
+      ! A.d shell
+      ! A.fillRule "evenodd"
+  where
+    k0 = 0.9
+    r0 = 0.06
+    r1 = 3*r0
+    (px,py) = (0    ,-0.55)
+    (pw,ph) = (0.5  , 0.29)
+    (qx,qy) = (0    , 0.35)
+    (qw,qh) = (0.65 , 0.45)
+    (tx,ty) = (0.2  ,-0.54)
+    (tw,th) = (0.1  , 0.23)
+    rq = 0.05
+    shell = mkPath $ do
+      m       0     (-k0     )
+      l  (-k0 + r0) (-k0     )
+      aa   r0   r0   0   False  False  (-k0     ) (-k0 + r0)
+      l  (-k0     ) ( k0 - r0)
+      aa   r0   r0   0   False  False  (-k0 + r0) ( k0     )
+      l  ( k0 - r0) ( k0     )
+      aa   r0   r0   0   False  False  ( k0     ) ( k0 - r0)
+      l  ( k0     ) (-k0 + r1)
+      l  ( k0 - r1) (-k0     )
+      S.z
+      rectangleWithRoundCorners rq   (qw,qh) (qx,qy)
+      rectangleWithRoundCorners rq   (pw,ph) (px,py)
+      rectangleWithRoundCorners 0.01 (tw,th) (tx,ty)
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/save_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/save_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/save_strk.svg)
+-}
+save :: Svg
+save =
+  S.g $ do
+    diskette
+    accept 
+      ! A.transform (translate 0 0.4 <> S.scale 0.5 0.5)

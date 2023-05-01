@@ -10,6 +10,7 @@ module SvgIcons.Core.Utils
   , horizontalMirrorMatrix
   , verticalMirrorMatrix
   , frame
+  , rectangleWithRoundCorners
   ) where
 
 import Data.Char
@@ -96,7 +97,7 @@ verticalMirrorMatrix =
 
 
 {- |
-`frame` is mainly used for testing purposes.
+`frame` is mainly used for testing purposes. It draws coordinate axis.
 
 Takes the 4 numbers of the viewbox @(x0, y0, width, height)@
 and returns a path which connects all 
@@ -130,3 +131,30 @@ frame s color x y w h =
       l  (x + w/2) (y + h)
       m   x        (y + h/2)
       l  (x + w)   (y + h/2)
+
+
+{- |
+Path of a rectangle with rounded corners.
+-}
+rectangleWithRoundCorners 
+  :: Float              -- ^ corner radius
+  -> (Float, Float)     -- ^ (semiwidth, semiheight)
+  -> (Float, Float)     -- ^ central point (intersection of diagonals)
+  -> S.Path             -- ^ resulting path
+rectangleWithRoundCorners r0 (w0,h0) (px,py) =
+  let
+    x1 = px - w0
+    x2 = px + w0
+    y1 = py - h0
+    y2 = py + h0
+  in
+    do
+      m   (x1 + r0)  (y1     )
+      aa   r0   r0   0   False  False  (x1     ) (y1 + r0)
+      l   (x1     )  (y2 - r0)
+      aa   r0   r0   0   False  False  (x1 + r0) (y2     )
+      l   (x2 - r0)  (y2     )
+      aa   r0   r0   0   False  False  (x2     ) (y2 - r0)
+      l   (x2     )  (y1 + r0)
+      aa   r0   r0   0   False  False  (x2 - r0) (y1     )
+      S.z
