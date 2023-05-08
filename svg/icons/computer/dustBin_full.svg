@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="silver" stroke="black" stroke-width="0.03">
+        <path d="M -0.69075,-0.7 L -0.54075,-0.7 L -0.54075,0.85 L 0.54075,0.85 L 0.54075,-0.7 L 0.69075,-0.7 Z" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M -0.1351875,-0.7 L -0.1351875,-0.9 L 0.1351875,-0.9 L 0.1351875,-0.7 " stroke-linejoin="round" fill="none" />
+        <path d="M -0.270375,-0.5 L -0.270375,0.6 M 0.0,-0.5 L 0.0,0.6 M 0.2703749999999999,-0.5 L 0.2703749999999999,0.6 " stroke-linecap="round" />
+    </g>
+</svg>

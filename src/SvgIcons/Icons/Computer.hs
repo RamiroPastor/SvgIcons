@@ -16,6 +16,7 @@ module SvgIcons.Icons.Computer
   , warning
   , diskette
   , save
+  , dustBin
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -44,6 +45,7 @@ together with appropriate names.
 >  , (,) "warning"     warning
 >  , (,) "diskette"    diskette
 >  , (,) "save"        save
+>  , (,) "dustBin"     dustBin
 >  ]
 -}
 svgComputer :: [ (String , S.Svg) ]
@@ -60,6 +62,7 @@ svgComputer =
   , (,) "warning"     warning
   , (,) "diskette"    diskette
   , (,) "save"        save
+  , (,) "dustBin"     dustBin
   ]
 
 
@@ -418,3 +421,62 @@ save =
     diskette
     accept 
       ! A.transform (translate 0 0.4 <> S.scale 0.5 0.5)
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/dustBin_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/dustBin_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/computer/dustBin_strk.svg)
+-}
+dustBin :: Svg
+dustBin =
+    S.g $ do
+      S.path
+        ! A.d binDirs
+        ! A.strokeLinecap "round"
+        ! A.strokeLinejoin "round"
+      S.path
+        ! A.d handleDirs
+        ! A.strokeLinejoin "round"
+        ! A.fill "none"
+      S.path
+        ! A.d linesDirs
+        ! A.strokeLinecap "round"
+  where
+    x0 = x1 - 0.15
+    x8 = x7 + 0.15
+    x1 = (y0 - y4) * 0.5 * 0.618 
+    x7 = -x1
+    x2 = x1 + 1 * (x7 - x1) / 4
+    x4 = x1 + 2 * (x7 - x1) / 4
+    x6 = x1 + 3 * (x7 - x1) / 4
+    x3 = x4 - (x7 - x1) / 8
+    x5 = x4 + (x7 - x1) / 8
+    y0 = -0.9
+    y1 = -0.7
+    y2 = -0.5
+    y3 =  0.6
+    y4 =  0.85
+    binDirs = mkPath $ do
+      m   x0  y1
+      l   x1  y1
+      l   x1  y4
+      l   x7  y4
+      l   x7  y1
+      l   x8  y1
+      S.z
+    handleDirs = mkPath $ do
+      m   x3  y1
+      l   x3  y0
+      l   x5  y0
+      l   x5  y1
+    linesDirs = mkPath $ do
+      m   x2  y2
+      l   x2  y3
+      m   x4  y2
+      l   x4  y3
+      m   x6  y2
+      l   x6  y3
