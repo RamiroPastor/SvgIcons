@@ -23,7 +23,7 @@ together with appropriate names.
 >svgCoding :: [ (String , S.Svg) ]
 >svgCoding =
 >  [ (,) "haskell" haskell
-<  , (,) "xmlCode" xmlCode
+>  , (,) "xmlCode" xmlCode
 >  ]
 -}
 svgCoding :: [ (String , S.Svg) ]
