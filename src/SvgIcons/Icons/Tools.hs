@@ -10,6 +10,7 @@ module SvgIcons.Icons.Tools
   , key
   , keyWithArc
   , lock
+  , key1
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -31,6 +32,7 @@ together with appropriate names.
 >  , (,) "key"        key
 >  , (,) "keyWithArc" keyWithArc
 >  , (,) "lock"       lock
+>  , (,) "key1"       key1
 >  ]
 -}
 svgTools :: [ (String , S.Svg) ]
@@ -40,6 +42,7 @@ svgTools =
   , (,) "key"        key
   , (,) "keyWithArc" keyWithArc
   , (,) "lock"       lock
+  , (,) "key1"       key1
   ]
 
 
@@ -234,3 +237,47 @@ prop> cog = cogwheel 9 0.12
 -}
 cog9 :: S.Svg
 cog9 = cogwheel 9 0.12
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/key1_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/key1_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/key1_strk.svg)
+-}
+key1 :: S.Svg
+key1 =
+    S.g $
+      S.path
+        ! A.d keyPath
+        ! A.transform (rotateAround 45 0 0)
+  where
+    x1 = -0.1
+    y1 =  0.2
+    r1 =  0.51
+    x2 =  1.05
+    x3 =  x2 + y1
+    x0 = -0.6
+    r0 =  0.15
+    keyPath = mkPath $ do
+      m   x1   y1
+      aa  r1   r1   0   True   True    x1  (-y1)
+      l   x2 (-y1)
+      l   x3    0
+      l   x2   y1
+      lr (-0.1)    0
+      lr (-0.1)  (-0.1)
+      lr (-0.1)  ( 0.1)
+      lr (-0.1)  (-0.1)
+      lr (-0.1)  ( 0.1)
+      lr (-0.1)  (-0.1)
+      lr (-0.1)  ( 0.1)
+      lr (-0.1)  (-0.1)
+      lr (-0.15) ( 0.15)
+      lr (-0.05) (-0.05)
+      S.z
+      m   x0    0
+      aa  r0   r0   0   True   False   x0   0.001
+      S.z
