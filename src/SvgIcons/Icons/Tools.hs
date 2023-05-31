@@ -11,6 +11,7 @@ module SvgIcons.Icons.Tools
   , keyWithArc
   , lock
   , key1
+  , bell
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -33,6 +34,7 @@ together with appropriate names.
 >  , (,) "keyWithArc" keyWithArc
 >  , (,) "lock"       lock
 >  , (,) "key1"       key1
+>  , (,) "bell"       bell
 >  ]
 -}
 svgTools :: [ (String , S.Svg) ]
@@ -43,6 +45,7 @@ svgTools =
   , (,) "keyWithArc" keyWithArc
   , (,) "lock"       lock
   , (,) "key1"       key1
+  , (,) "bell"       bell
   ]
 
 
@@ -280,4 +283,35 @@ key1 =
       S.z
       m   x0    0
       aa  r0   r0   0   True   False   x0   0.001
+      S.z
+    
+  
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/bell_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/bell_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/bell_strk.svg)
+-}
+bell :: S.Svg
+bell =
+    S.path
+      ! A.d dirs
+  where
+    r1 =  0.5
+    x1 =  r1 + 0.25
+    y0 = -0.3
+    y1 =  0.5
+    y01 = (y1 + y0) / 2
+    x2 =  0.1
+    r2 =  0.17
+    dirs = mkPath $ do
+      m    x1   y1
+      c    x1   y01   r1   y01   r1   y0
+      aa   r1   r1    0   True   False  (-r1)  y0
+      c  (-r1)  y01 (-x1)  y01 (-x1)  y1
+      S.z
+      m  (-x2)  y1
+      aa   r2   r2    0   True   False    x2   y1
       S.z
