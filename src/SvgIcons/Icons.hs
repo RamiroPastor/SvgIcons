@@ -154,6 +154,7 @@ module SvgIcons.Icons
   , module SvgIcons.Icons.Human
   , module SvgIcons.Icons.Math
   , module SvgIcons.Icons.Office
+  , module SvgIcons.Icons.Outdoors
   , module SvgIcons.Icons.Religion
   , module SvgIcons.Icons.Textarea
   , module SvgIcons.Icons.Tools
@@ -172,6 +173,7 @@ import SvgIcons.Icons.Cosmos
 import SvgIcons.Icons.Human
 import SvgIcons.Icons.Math
 import SvgIcons.Icons.Office
+import SvgIcons.Icons.Outdoors
 import SvgIcons.Icons.Religion
 import SvgIcons.Icons.Textarea
 import SvgIcons.Icons.Tools

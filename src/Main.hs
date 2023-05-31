@@ -25,6 +25,7 @@ import SvgIcons.Icons.Cosmos   (svgCosmos)
 import SvgIcons.Icons.Human    (svgHuman)
 import SvgIcons.Icons.Math     (svgMath)
 import SvgIcons.Icons.Office   (svgOffice)
+import SvgIcons.Icons.Outdoors (svgOutdoors)
 import SvgIcons.Icons.Religion (svgReligion)
 import SvgIcons.Icons.Textarea (svgTextarea)
 import SvgIcons.Icons.Tools    (svgTools)
@@ -118,6 +119,7 @@ renderIcons path =
     createDirectory humanPath
     createDirectory mathPath
     createDirectory officePath
+    createDirectory outdoorsPath
     createDirectory religionPath
     createDirectory textareaPath
     createDirectory toolsPath
@@ -145,6 +147,9 @@ renderIcons path =
     renderSvgFiles officePath (map fillIcons svgOffice)
     renderSvgFiles officePath (map fullIcons svgOffice)
     renderSvgFiles officePath (map strkIcons svgOffice)
+    renderSvgFiles outdoorsPath (map fillIcons svgOutdoors)
+    renderSvgFiles outdoorsPath (map fullIcons svgOutdoors)
+    renderSvgFiles outdoorsPath (map strkIcons svgOutdoors)
     renderSvgFiles religionPath (map fillIcons svgReligion)
     renderSvgFiles religionPath (map fullIcons svgReligion)
     renderSvgFiles religionPath (map strkIcons svgReligion)
@@ -167,6 +172,7 @@ renderIcons path =
     humanPath    = path ++ "human/"
     mathPath     = path ++ "math/"
     officePath   = path ++ "office/"
+    outdoorsPath = path ++ "outdoors/"
     religionPath = path ++ "religion/"
     textareaPath = path ++ "textarea/"
     toolsPath    = path ++ "tools/"
