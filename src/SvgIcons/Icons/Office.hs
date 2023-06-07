@@ -16,6 +16,7 @@ module SvgIcons.Icons.Office
   , pencil
   , pin
   , printer
+  , boxClosed
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -44,6 +45,7 @@ together with appropriate names.
 >  , (,) "pencil"     pencil
 >  , (,) "pin"        pin
 >  , (,) "printer"    printer
+>  , (,) "boxClosed"  boxClosed
 >  ]
 -}
 svgOffice :: [ (String , S.Svg) ]
@@ -60,6 +62,7 @@ svgOffice =
   , (,) "pencil"     pencil
   , (,) "pin"        pin
   , (,) "printer"    printer
+  , (,) "boxClosed"  boxClosed
   ]
 
 
@@ -712,3 +715,70 @@ bookOpen2 =
       l   x2   y4
       q   q3x  q3y  x1  y3
       S.z
+
+
+    
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/boxClosed_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/boxClosed_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/boxClosed_strk.svg)
+-}
+boxClosed :: Svg
+boxClosed =
+    S.g $ do
+      S.path
+        ! A.d backSide
+        ! A.strokeLinecap  "round"
+        ! A.strokeLinejoin "round"
+      S.path
+        ! A.d frontSide
+        ! A.strokeLinecap  "round"
+        ! A.strokeLinejoin "round"
+  where
+    lm = 0.7
+    k  = 0.2
+    (ax,ay) = (-lm + k , -lm - k)
+    (bx,by) = ( lm + k , -lm - k)
+    (cx,cy) = ( lm + k ,  lm - k)
+    (dx,dy) = (-lm + k ,  lm - k)
+    (ex,ey) = (-lm - k , -lm + k)
+    (fx,fy) = ( lm - k , -lm + k)
+    (gx,gy) = ( lm - k ,  lm + k)
+    (hx,hy) = (-lm - k ,  lm + k)
+    backSide = mkPath $ do
+      m   ax  ay
+      l   bx  by
+      l   cx  cy
+      l   dx  dy
+      S.z
+      m   ax  ay
+      l   dx  dy
+      l   hx  hy
+      l   ex  ey
+      S.z
+      m   dx  dy
+      l   cx  cy
+      l   gx  gy
+      l   hx  hy
+      S.z
+    frontSide = mkPath $ do
+      m   ex  ey
+      l   fx  fy
+      l   gx  gy
+      l   hx  hy
+      S.z
+      m   bx  by
+      l   cx  cy
+      l   gx  gy
+      l   fx  fy
+      S.z
+      m   ax  ay
+      l   bx  by
+      l   fx  fy
+      l   ex  ey
+      S.z
+      m  ((ax+bx)/2) ((ay+by)/2)
+      l  ((ex+fx)/2) ((ey+fy)/2)
+    
