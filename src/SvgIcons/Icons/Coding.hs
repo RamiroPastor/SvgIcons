@@ -4,8 +4,9 @@
 
 module SvgIcons.Icons.Coding
   ( svgCoding
-  , haskell
   , xmlCode
+  , haskell
+  , git
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -22,15 +23,65 @@ together with appropriate names.
 
 >svgCoding :: [ (String , S.Svg) ]
 >svgCoding =
->  [ (,) "haskell" haskell
->  , (,) "xmlCode" xmlCode
+>  [ (,) "xmlCode" xmlCode
+>  , (,) "haskell" haskell
+>  , (,) "git"     git
 >  ]
 -}
 svgCoding :: [ (String , S.Svg) ]
 svgCoding =
-  [ (,) "haskell" haskell
-  , (,) "xmlCode" xmlCode
+  [ (,) "xmlCode" xmlCode
+  , (,) "haskell" haskell
+  , (,) "git"     git
   ]
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/xmlCode_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/xmlCode_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/xmlCode_strk.svg)
+-}
+xmlCode :: Svg
+xmlCode =
+    S.g $ do
+      S.defs $ 
+        S.path
+          ! A.id_ "HaskellSvgIcons-xmlCode-triangle"
+          ! A.d triangleDirs
+          ! A.strokeLinejoin "round"
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-xmlCode-triangle"
+        ! A.transform (rotateAround 315 0 0)
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-xmlCode-triangle"
+        ! A.transform (rotateAround 135 0 0)
+      S.path
+        ! A.d barDirs
+        ! A.transform (rotateAround  11 0 0)
+  where
+    k0 = 0.1
+    k1 = 0.5
+    k2 = 0.7
+    r1 = (k2 - k1) / 2
+    k3 = 0.55
+    triangleDirs = mkPath $ do
+      m   k1   k1
+      l   k0   k1
+      aa  r1   r1  0  True  False k0  k2
+      l   k2   k2
+      l   k2   k0
+      aa  r1   r1  0  True  False k1  k0
+      S.z
+    barDirs = mkPath $ do
+      m  (-r1)  k3
+      aa   r1   r1  0  True  False   r1    k3
+      l    r1 (-k3)
+      aa   r1   r1  0  True  False (-r1) (-k3)
+      S.z
+
 
 
 {- |
@@ -119,51 +170,59 @@ haskell =
       l   x13  y7
       S.z
 
-    
+
+
 {- |
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/xmlCode_fill.svg)
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/git_fill.svg)
 
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/xmlCode_full.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/git_full.svg)
 
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/xmlCode_strk.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/git_strk.svg)
+
+Note: if you want to use a stroked version, you can embed this icon in a bigger viewbox (like "-1.2 -1.2 2.4 2.4") or scale down:
+> git
+>   ! A.transform (S.scale 0.8 0.8)
 -}
-xmlCode :: Svg
-xmlCode =
-    S.g $ do
-      S.defs $ 
-        S.path
-          ! A.id_ "HaskellSvgIcons-xmlCode-triangle"
-          ! A.d triangleDirs
-          ! A.strokeLinejoin "round"
-      S.use
-        ! A.xlinkHref "#HaskellSvgIcons-xmlCode-triangle"
-        ! A.transform (rotateAround 315 0 0)
-      S.use
-        ! A.xlinkHref "#HaskellSvgIcons-xmlCode-triangle"
-        ! A.transform (rotateAround 135 0 0)
+git :: Svg
+git = 
+    S.g $
       S.path
-        ! A.d barDirs
-        ! A.transform (rotateAround  11 0 0)
+        ! A.d dirs
+        ! A.fill "#F03C2E"
+        ! A.transform (rotateAround 45 0 0)
   where
-    k0 = 0.1
-    k1 = 0.5
-    k2 = 0.7
-    r1 = (k2 - k1) / 2
-    k3 = 0.55
-    triangleDirs = mkPath $ do
-      m   k1   k1
-      l   k0   k1
-      aa  r1   r1  0  True  False k0  k2
-      l   k2   k2
-      l   k2   k0
-      aa  r1   r1  0  True  False k1  k0
+    r0 =  0.13
+    r1 =  0.153
+    r2 =  0.149
+    m0 =  0.745
+    y1 = -0.355
+    y2 = -0.23
+    x1 = -0.42
+    x2 = -0.145
+    x3 =  0.17
+    k0 = (y2 - y1)
+    k1 =  0.38
+    dirs = mkPath $ do
+      m  (-m0)        y2
+      l  (-m0)      ( m0 - r0)
+      aa   r0   r0    0  False False (-m0 + r0)   m0
+      l  ( m0 - r0)   m0
+      aa   r0   r0    0  False False   m0       ( m0 - r0)
+      l    m0       (-m0 + r0)
+      aa   r0   r0    0  False False ( m0 - r0) (-m0) 
+      l  (-m0 + r0) (-m0)
+      aa   r0   r0    0  False False (-m0)      (-m0 + r0)
+      ---
+      l  (-m0)  y1
+      l    x1   y1
+      aa   r2   r2    0  False True   x2  y1
+      l    x3   y1
+      aa   r1   r1    0  True  True   x3  y2
+      l  ( x2 + 0.02) y2
+      lr   k1   k1
+      ar   r1   r1    0  True  True  (-0.5 * k0 * sqrt 2) ( 0.5 * k0 * sqrt 2)
+      lr (-k1 - 0.01) (-k1 - 0.01)
+      aa   r2   r2    0  False True   x1  y2
       S.z
-    barDirs = mkPath $ do
-      m  (-r1)  k3
-      aa   r1   r1  0  True  False   r1    k3
-      l    r1 (-k3)
-      aa   r1   r1  0  True  False (-r1) (-k3)
-      S.z
-
 
 
