@@ -179,7 +179,8 @@ haskell =
 
 ![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/coding/git_strk.svg)
 
-Note: if you want to use a stroked version, you can embed this icon in a bigger viewbox (like "-1.2 -1.2 2.4 2.4") or scale down:
+Note: if you want to use a stroked version, you can embed this icon in a bigger viewbox such as @"-1.2 -1.2 2.4 2.4"@ or scale down:
+
 > git
 >   ! A.transform (S.scale 0.8 0.8)
 -}
