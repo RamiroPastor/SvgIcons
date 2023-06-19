@@ -3,7 +3,7 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g fill="black" stroke="none" stroke-width="0">
+    <g class="HaskellSvgIcons__xmlCode" fill="black" stroke="none" stroke-width="0">
         <defs>
             <path id="HaskellSvgIcons-xmlCode-triangle" d="M 0.5,0.5 L 0.1,0.5 A 9.999999999999998e-2,9.999999999999998e-2 0.0 1,0 0.1,0.7 L 0.7,0.7 L 0.7,0.1 A 9.999999999999998e-2,9.999999999999998e-2 0.0 1,0 0.5,0.1 Z" stroke-linejoin="round" />
         </defs>

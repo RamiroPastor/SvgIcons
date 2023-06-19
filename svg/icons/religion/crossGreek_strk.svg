@@ -3,5 +3,5 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <path d="M -0.25,-0.25 L -0.25,-0.9 L 0.25,-0.9 L 0.25,-0.25 L 0.9,-0.25 L 0.9,0.25 L 0.25,0.25 L 0.25,0.9 L -0.25,0.9 L -0.25,0.25 L -0.9,0.25 L -0.9,-0.25 Z" fill="none" stroke="black" stroke-width="0.04" />
+    <path class="HaskellSvgIcons__crossGreek" d="M -0.25,-0.25 L -0.25,-0.9 L 0.25,-0.9 L 0.25,-0.25 L 0.9,-0.25 L 0.9,0.25 L 0.25,0.25 L 0.25,0.9 L -0.25,0.9 L -0.25,0.25 L -0.9,0.25 L -0.9,-0.25 Z" fill="none" stroke="black" stroke-width="0.04" />
 </svg>

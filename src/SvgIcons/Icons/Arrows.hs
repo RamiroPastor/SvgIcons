@@ -53,6 +53,7 @@ svgArrows =
 curvyArrowLeft :: S.Svg
 curvyArrowLeft =
     S.path
+      ! A.class_ "HaskellSvgIcons__curvyArrowLeft"
       ! d dirs
       ! strokeLinejoin "round"
   where
@@ -86,6 +87,7 @@ curvyArrowLeft =
 curvyArrowRight :: S.Svg
 curvyArrowRight =
     S.path
+      ! A.class_ "HaskellSvgIcons__curvyArrowRight"
       ! d dirs
       ! strokeLinejoin "round"
   where
@@ -119,6 +121,7 @@ curvyArrowRight =
 bigArrowLeft :: S.Svg
 bigArrowLeft =
     S.path
+      ! A.class_ "HaskellSvgIcons__bigArrowLeft"
       ! d dirs
       ! strokeLinejoin "round"
   where
@@ -152,6 +155,7 @@ bigArrowLeft =
 bigArrowRight :: S.Svg
 bigArrowRight =
     S.path
+      ! A.class_ "HaskellSvgIcons__bigArrowRight"
       ! d dirs
       ! strokeLinejoin "round"
   where

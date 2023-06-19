@@ -123,7 +123,8 @@ svgToReact name svgCode =
   where
     render = T.unpack . adaptToReact . T.pack . renderSvg 
     adaptToReact =
-        (T.replace "dominant-baseline" "dominantBaseline")
+        (T.replace "class"             "className")
+      . (T.replace "dominant-baseline" "dominantBaseline")
       . (T.replace "fill-rule"         "fillRule")
       . (T.replace "font-family"       "fontFamily")
       . (T.replace "font-size"         "fontSize")

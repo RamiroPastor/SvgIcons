@@ -41,11 +41,13 @@ svgOutdoors =
 -}
 flag :: Svg
 flag =
-    S.g $ do
-      S.path 
-        ! A.d staff
-      S.path
-        ! A.d field
+    S.g 
+      ! A.class_ "HaskellSvgIcons__flag"
+      $ do
+        S.path 
+          ! A.d staff
+        S.path
+          ! A.d field
   where
     x1  = -0.85
     x2  = -0.7

@@ -46,11 +46,13 @@ svgMath =
 -}
 lambda :: S.Svg
 lambda = 
-    S.g $ do
-      S.path
-        ! A.strokeLinejoin "round"
-        ! A.d (mkPath $ rightLeg >> leftLeg >> arm)
-        ! A.transform (translate 0 (-0.02))
+    S.g 
+      ! A.class_ "HaskellSvgIcons__lambda"
+      $ do
+        S.path
+          ! A.strokeLinejoin "round"
+          ! A.d (mkPath $ rightLeg >> leftLeg >> arm)
+          ! A.transform (translate 0 (-0.02))
   where
     (c1,c2) = (,) ( 0    ) ( 0    )
     (a1,a2) = (,) (-0.376) ( 0.962)
@@ -97,6 +99,7 @@ lambda =
 lemniscate :: Svg
 lemniscate = 
     S.path
+      ! A.class_ "HaskellSvgIcons__lemniscate"
       ! A.d dirs
   where
     k = 0.5

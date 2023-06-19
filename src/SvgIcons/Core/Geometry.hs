@@ -235,6 +235,7 @@ regularPolygon
   -> Svg             -- ^ resulting svg path
 regularPolygon n r (x0,y0) =
     S.path
+      ! A.class_ "HaskellSvgIcons__regularPolygon"
       ! A.d directions
   where
     α  = 2 * pi / (fromIntegral n)
@@ -277,6 +278,7 @@ starPolygonFirstSpecies
   -> Svg             -- ^ resulting svg path
 starPolygonFirstSpecies n r (c1,c2) =
     S.path
+      ! A.class_ "HaskellSvgIcons__starPolygonFirstSpecies"
       ! A.d directions
   where
     α  = 2 * pi / (fromIntegral n)
@@ -331,6 +333,7 @@ starPolygonWithBorder
   -> Svg             -- ^ resulting svg path
 starPolygonWithBorder n r1 w (c1,c2) =
     S.path
+      ! A.class_ "HaskellSvgIcons__starPolygonWithBorder"
       ! A.d directions
   where
     β = 2 * pi / (fromIntegral n)
@@ -399,11 +402,13 @@ starPolygonOverlap
   -> (Float , Float) -- ^ coordinates of the central point
   -> Svg             -- ^ resulting svg path
 starPolygonOverlap n r1 w (c1,c2) = 
-    S.g $ do
-      starPolygonWithBorder n r1 w (c1,c2)
-        ! A.stroke "none"
-      mapM_ (makeSide . fromIntegral . ((-1)*)) [0 .. (n-1)]
-      fixFirstSide
+    S.g 
+      ! A.class_ "HaskellSvgIcons__starPolygonOverlap"
+      $ do
+        starPolygonWithBorder n r1 w (c1,c2)
+          ! A.stroke "none"
+        mapM_ (makeSide . fromIntegral . ((-1)*)) [0 .. (n-1)]
+        fixFirstSide
   where
     β = 2 * pi / (fromIntegral n)
     r2 = r1 - w * tan β
@@ -554,6 +559,7 @@ starOutline
   -> Svg             -- ^ resulting path
 starOutline n r1 r2 (c1,c2) =
     S.path
+      ! A.class_ "HaskellSvgIcons__starOutline"
       ! A.d directions
   where
     β  = 2 * pi / (fromIntegral n)
@@ -689,6 +695,7 @@ asterisk
   -> Svg             -- ^ resulting svg path
 asterisk n r (c1,c2) =
     S.path
+      ! A.class_ "HaskellSvgIcons__asterisk"
       ! A.d directions
   where
     α  = pi / (fromIntegral n)
@@ -726,6 +733,7 @@ asteriskStar
   -> Svg             -- ^ resulting svg path
 asteriskStar n r1 (c1,c2) =
     S.path
+      ! A.class_ "HaskellSvgIcons__asteriskStar"
       ! A.d directions
   where
     α  = pi / (fromIntegral n)

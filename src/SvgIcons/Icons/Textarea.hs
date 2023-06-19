@@ -85,6 +85,7 @@ svgTextarea =
 bold :: S.Svg
 bold =
     S.path 
+      ! A.class_ "HaskellSvgIcons__bold"
       ! d dirs
   where
     k0 = 0.2
@@ -129,6 +130,7 @@ bold =
 italic :: S.Svg
 italic =
     S.path
+      ! A.class_ "HaskellSvgIcons__italic"
       ! d dirs
   where
     k1 = 0.12  -- half width of the line
@@ -174,9 +176,11 @@ italic =
 -}
 link :: S.Svg
 link =
-    g $ do
-      topPart ! A.transform (rotateAround 45 0 0)
-      topPart ! A.transform (rotateAround 45 0 0 <> rotateAround 180 0 0)
+    S.g
+      ! A.class_ "HaskellSvgIcons__link" 
+      $ do
+        topPart ! A.transform (rotateAround 45 0 0)
+        topPart ! A.transform (rotateAround 45 0 0 <> rotateAround 180 0 0)
   where
     topPart = S.path ! d topPath 
     -----------------
@@ -211,11 +215,13 @@ link =
 -}
 imageIcon :: S.Svg
 imageIcon =
-    S.g $ do
-      sun
-      mountain
-      imageFrameStroked
-      imageFrameFilled
+    S.g 
+      ! A.class_ "HaskellSvgIcons__imageIcon"
+      $ do
+        sun
+        mountain
+        imageFrameStroked
+        imageFrameFilled
   where
     sun =
       circle
@@ -272,7 +278,9 @@ imageIcon =
 -}
 video :: S.Svg
 video =
-    S.path ! A.d boxPath
+    S.path 
+      ! A.class_ "HaskellSvgIcons__video"
+      ! A.d boxPath
   where
     h  = 1.2
     w  = 1.618 * h
@@ -301,10 +309,12 @@ Helper for both list icons
 -}
 horizontalBars :: S.Svg
 horizontalBars =
-    S.g $ do
-      S.path ! d topLine
-      S.path ! d midLine
-      S.path ! d botLine
+    S.g 
+      ! A.class_ "HaskellSvgIcons__horizontalBars"
+      $ do
+        S.path ! d topLine
+        S.path ! d midLine
+        S.path ! d botLine
   where
     w  =  0.20
     x1 = -0.4
@@ -342,9 +352,11 @@ horizontalBars =
 -}
 bulletList :: S.Svg
 bulletList =
-    S.g $ do
-      horizontalBars
-      bullets 
+    S.g 
+      ! A.class_ "HaskellSvgIcons__bulletList"
+      $ do
+        horizontalBars
+        bullets 
   where
     radius = 0.12
     x1 = -0.75
@@ -367,9 +379,11 @@ bulletList =
 -}
 numberList :: Svg
 numberList =
-    S.g $ do
-      horizontalBars
-      numbers
+    S.g 
+      ! A.class_ "HaskellSvgIcons__numberList"
+      $ do
+        horizontalBars
+        numbers
   where
     x1 = -0.75
     y1 = -0.6
@@ -401,12 +415,14 @@ numberList =
 -}
 header :: S.Svg
 header =
-    S.g $ do
-      S.path ! d line1
-      S.path ! d line2
-      S.path ! d line3 ! opacity "0.4"
-      S.path ! d line4 ! opacity "0.4"
-      S.path ! d line5 ! opacity "0.4"
+    S.g 
+      ! A.class_ "HaskellSvgIcons__header"
+      $ do
+        S.path ! d line1
+        S.path ! d line2
+        S.path ! d line3 ! opacity "0.4"
+        S.path ! d line4 ! opacity "0.4"
+        S.path ! d line5 ! opacity "0.4"
   where
     l1 = -0.9
     l2 = -0.5
@@ -456,12 +472,14 @@ header =
 -}
 horizontalRule :: S.Svg
 horizontalRule =
-    S.g $ do
-      S.path ! d line1 ! opacity "0.4"
-      S.path ! d line2 ! opacity "0.4"
-      line3 
-      S.path ! d line4 ! opacity "0.4"
-      S.path ! d line5 ! opacity "0.4"
+    S.g 
+      ! A.class_ "HaskellSvgIcons__horizontalRule"
+      $ do
+        S.path ! d line1 ! opacity "0.4"
+        S.path ! d line2 ! opacity "0.4"
+        line3 
+        S.path ! d line4 ! opacity "0.4"
+        S.path ! d line5 ! opacity "0.4"
   where
     l1 = -0.9
     l2 = -0.5
@@ -517,9 +535,11 @@ horizontalRule =
 -}
 undo :: S.Svg
 undo =
-  S.g $ do
-    curvyArrowLeft
-      ! A.transform (translate 0 0.1)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__undo"
+    $ do
+      curvyArrowLeft
+        ! A.transform (translate 0 0.1)
 
 
 
@@ -532,9 +552,11 @@ undo =
 -}
 redo :: S.Svg
 redo =
-  S.g $ do
-    curvyArrowLeft
-      ! A.transform (translate 0 0.1 <> horizontalMirrorMatrix)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__redo"
+    $ do
+      curvyArrowLeft
+        ! A.transform (translate 0 0.1 <> horizontalMirrorMatrix)
 
 
 
@@ -544,6 +566,7 @@ Helper for both undo and redo icons
 curvyArrowLeft :: S.Svg
 curvyArrowLeft =
   S.path
+    ! A.class_ "HaskellSvgIcons__curvyArrowLeft"
     ! d dirs
     ! strokeLinejoin "round"
   where
@@ -577,6 +600,7 @@ curvyArrowLeft =
 questionMark :: S.Svg
 questionMark =
     S.path
+      ! A.class_ "HaskellSvgIcons__questionMark"
       ! A.d dirs
       ! A.transform (translate 0 (-0.35))
   where
@@ -609,11 +633,13 @@ questionMark =
 -}
 fullscreen :: S.Svg
 fullscreen =
-    S.g $ do
-      corner
-      corner ! A.transform (rotateAround  90 0 0)
-      corner ! A.transform (rotateAround 180 0 0)
-      corner ! A.transform (rotateAround 270 0 0)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__fullscreen"
+      $ do
+        corner
+        corner ! A.transform (rotateAround  90 0 0)
+        corner ! A.transform (rotateAround 180 0 0)
+        corner ! A.transform (rotateAround 270 0 0)
  where
    k1 = 0.9
    k2 = 0.7
@@ -643,9 +669,11 @@ fullscreen =
 -}
 preview :: S.Svg
 preview = 
-    S.g $ do
-      lines
-      rectangle
+    S.g 
+      ! A.class_ "HaskellSvgIcons__preview"
+      $ do
+        lines
+        rectangle
   where
     kx = 0.2
     ky = 0.4

@@ -51,14 +51,16 @@ Takes a natural number @n@ which draws @2*n@ rays.
 -}
 sun :: Int -> Svg
 sun n =
-    S.g $ do
-      S.circle
-        ! A.x "0"
-        ! A.y "0"
-        ! A.r "0.5"
-      S.path
-        ! A.strokeLinecap "round"
-        ! A.d rays
+    S.g 
+      ! A.class_ "HaskellSvgIcons__sun"
+      $ do
+        S.circle
+          ! A.x "0"
+          ! A.y "0"
+          ! A.r "0.5"
+        S.path
+          ! A.strokeLinecap "round"
+          ! A.d rays
   where
     r1 = 0.6
     r2 = 0.78
@@ -86,6 +88,7 @@ sun n =
 moonHalf :: Svg
 moonHalf =
     S.path
+      ! A.class_ "HaskellSvgIcons__moonHalf"
       ! A.strokeLinejoin "round"
       ! A.d moonDirs
   where
@@ -111,6 +114,7 @@ moonHalf =
 moonCrescent :: Svg
 moonCrescent =
     S.path
+      ! A.class_ "HaskellSvgIcons__moonCrescent"
       ! A.strokeLinejoin "round"
       ! A.d moonDirs
   where

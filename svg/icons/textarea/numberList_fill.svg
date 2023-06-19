@@ -3,8 +3,8 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g fill="black" stroke="none" stroke-width="0">
-        <g>
+    <g class="HaskellSvgIcons__numberList" fill="black" stroke="none" stroke-width="0">
+        <g class="HaskellSvgIcons__horizontalBars">
             <path d="M -0.4,-0.7 L 0.92,-0.7 L 0.92,-0.5 L -0.4,-0.5 Z" />
             <path d="M -0.4,-0.1 L 0.92,-0.1 L 0.92,0.1 L -0.4,0.1 Z" />
             <path d="M -0.4,0.5 L 0.92,0.5 L 0.92,0.7 L -0.4,0.7 Z" />

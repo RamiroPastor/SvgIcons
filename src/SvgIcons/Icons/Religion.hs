@@ -75,23 +75,25 @@ svgReligion =
 -}
 xp :: Svg
 xp = 
-  S.g $ do
-    S.path
-      ! A.d rho
-      ! A.fillRule "evenodd"
-    S.path 
-      ! A.d chi
-      ! A.transform (rotateAround 45 0 0)
-    S.path
-      ! A.d alpha
-      ! A.fill "none"
-      ! A.strokeLinecap  "round"
-      ! A.strokeLinejoin "round"
-    S.path
-      ! A.d omega
-      ! A.fill "none"
-      ! A.strokeLinecap  "round"
-      ! A.strokeLinejoin "round"
+  S.g 
+    ! A.class_ "HaskellSvgIcons__xp"
+    $ do
+      S.path
+        ! A.d rho
+        ! A.fillRule "evenodd"
+      S.path 
+        ! A.d chi
+        ! A.transform (rotateAround 45 0 0)
+      S.path
+        ! A.d alpha
+        ! A.fill "none"
+        ! A.strokeLinecap  "round"
+        ! A.strokeLinejoin "round"
+      S.path
+        ! A.d omega
+        ! A.fill "none"
+        ! A.strokeLinecap  "round"
+        ! A.strokeLinejoin "round"
   where
     w = 0.07
     k1 = 0.5
@@ -162,11 +164,13 @@ You must provide both yin and yang colors
 -}
 taijitu :: String -> String -> Svg
 taijitu yinColor yangColor =
-    S.g $ do
-      outerCircle
-      yin
-      yangDot
-      yinDot
+    S.g 
+      ! A.class_ "HaskellSvgIcons__taijitu"
+      $ do
+        outerCircle
+        yin
+        yangDot
+        yinDot
   where
     r1  = 0.92
     r1m = 0.5 * r1
@@ -214,6 +218,7 @@ taijitu yinColor yangColor =
 crossLatin :: Svg
 crossLatin =
     S.path
+      ! A.class_ "HaskellSvgIcons__crossLatin"
       ! A.d dirs
   where
     w  = 0.1
@@ -247,6 +252,7 @@ crossLatin =
 crossGreek :: Svg
 crossGreek = 
     S.path
+      ! A.class_ "HaskellSvgIcons__crossGreek"
       ! A.d dirs
   where
     w = 0.25
@@ -278,6 +284,7 @@ crossGreek =
 crossOrthodox :: Svg
 crossOrthodox =
     S.path
+      ! A.class_ "HaskellSvgIcons__crossOrthodox"
       ! A.d dirs
   where
     w = 0.1
@@ -335,11 +342,13 @@ crossOrthodox =
 -}
 crescentAndStar :: Svg
 crescentAndStar =
-    S.g $ do
-      S.path
-        ! A.strokeLinejoin "round"
-        ! A.d moonDirs
-      starRegular 5 0.3 (0.55, 0.05)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__crescentAndStar"
+      $ do
+        S.path
+          ! A.strokeLinejoin "round"
+          ! A.d moonDirs
+        starRegular 5 0.3 (0.55, 0.05)
   where
     kx = 0.55
     ky = 0.55
@@ -362,7 +371,9 @@ crescentAndStar =
 -}
 starOfDavid :: Svg
 starOfDavid =
-  starPolygonOverlap 6 0.9 0.1 (0,0)
+  S.g
+    ! A.class_ "HaskellSvgIcons__starOfDavid"
+    $ starPolygonOverlap 6 0.9 0.1 (0,0)
 
 
 
@@ -383,12 +394,14 @@ __NOTE:__ as always with the Yi Ching, numbers go from bottom to top
 -}
 iChingHexagram :: (Int,Int,Int,Int,Int,Int) -> Svg
 iChingHexagram (n1,n2,n3,n4,n5,n6) =
-    S.g $ do
-      S.path
-        ! A.d lines
-      if doNotPrintNumbers
-        then mempty
-        else numbers
+    S.g 
+      ! A.class_ "HaskellSvgIcons__iChingHexagram"
+      $ do
+        S.path
+          ! A.d lines
+        if doNotPrintNumbers
+          then mempty
+          else numbers
   where
     doNotPrintNumbers =
       (\k -> k == 0 || k == 1) `all` [n1,n2,n3,n4,n5,n6]
@@ -436,6 +449,7 @@ iChingHexagram (n1,n2,n3,n4,n5,n6) =
 dharmachakra :: Svg
 dharmachakra =
     S.path
+      ! A.class_ "HaskellSvgIcons__dharmachakra"
       ! A.fillRule "evenodd"
       ! A.strokeLinejoin "round"
       ! A.d dirs
@@ -487,17 +501,18 @@ dharmachakra =
 -}
 ouroboros :: Svg
 ouroboros =
-  S.g $
-    S.g 
-      ! A.transform (translate 0 0.05 <> rotateAround 30 0 0)
-      $ do
-        S.path
-          ! A.fillRule "evenodd"
-          ! A.d dirs
-        S.circle
-          ! A.cx "-0.25"
-          ! A.cy "-0.8"
-          ! A.r  " 0.01"
+  S.g 
+    ! A.class_ "HaskellSvgIcons__ouroboros"
+    $ S.g 
+        ! A.transform (translate 0 0.05 <> rotateAround 30 0 0)
+        $ do
+          S.path
+            ! A.fillRule "evenodd"
+            ! A.d dirs
+          S.circle
+            ! A.cx "-0.25"
+            ! A.cy "-0.8"
+            ! A.r  " 0.01"
   where
     w = 0.1
     r = 0.78
@@ -526,6 +541,7 @@ ouroboros =
 ichthys :: Svg
 ichthys =
     S.path
+      ! A.class_ "HaskellSvgIcons__ichthys"
       ! A.fillRule "evenodd"
       ! A.d dirs
   where

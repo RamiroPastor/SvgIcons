@@ -3,7 +3,7 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g fill="silver" stroke="black" stroke-width="0.03">
+    <g class="HaskellSvgIcons__heartSlim" fill="silver" stroke="black" stroke-width="0.03">
         <path d="M 0.0,-0.6 L -0.2,-0.8 A 0.42426407,0.42426407 0.0 0,0 -0.8,-0.2 Q -0.1,0.4 0.0,0.9 Q 0.1,0.4 0.8,-0.2 A 0.42426407,0.42426407 0.0 0,0 0.2,-0.8 Z" stroke-linejoin="round" />
     </g>
 </svg>

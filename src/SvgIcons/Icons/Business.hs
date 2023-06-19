@@ -60,17 +60,19 @@ svgBusiness =
 -}
 company :: S.Svg
 company =
-  S.g $ do
-    S.path
-      ! d leftBuildingPath
-    S.path
-      ! d leftWindowsPath
-      ! strokeDasharray "0.12 0.06"
-    S.path
-      ! d rightBuildingPath
-    S.path
-      ! d rightWindowsPath
-      ! strokeDasharray "0.05"
+  S.g 
+    ! A.class_ "HaskellSvgIcons__company"
+    $ do
+      S.path
+        ! d leftBuildingPath
+      S.path
+        ! d leftWindowsPath
+        ! strokeDasharray "0.12 0.06"
+      S.path
+        ! d rightBuildingPath
+      S.path
+        ! d rightWindowsPath
+        ! strokeDasharray "0.05"
   where
     x1 = -0.92
     x2 = -0.72
@@ -143,20 +145,22 @@ company =
 -}
 connections :: Svg
 connections = 
-    S.g $ do
-      circ x0 y0 r0
-      circ x1 y1 r1
-      circ x2 y2 r2
-      circ x3 y3 r3
-      circ x4 y4 r4
-      circ x5 y5 r5
-      circ x6 y6 r6
-      circ x7 y7 r7
-      circ x8 y8 r8
-      circ x9 y9 r9
-      S.path
-        ! A.fill "none"
-        ! d (mkPath connectingLines)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__connections"
+      $ do
+        circ x0 y0 r0
+        circ x1 y1 r1
+        circ x2 y2 r2
+        circ x3 y3 r3
+        circ x4 y4 r4
+        circ x5 y5 r5
+        circ x6 y6 r6
+        circ x7 y7 r7
+        circ x8 y8 r8
+        circ x9 y9 r9
+        S.path
+          ! A.fill "none"
+          ! d (mkPath connectingLines)
   where
     rad1 = 0.2
     rad2 = 0.12
@@ -205,13 +209,15 @@ connections =
 -}
 analytics :: Svg
 analytics = 
-    S.g $ do
-      S.path
-        ! A.fill "none"
-        ! A.d axesPath
-      S.path ! A.d (bar x1 y1)
-      S.path ! A.d (bar x2 y2)
-      S.path ! A.d (bar x3 y3)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__analytics"
+      $ do
+        S.path
+          ! A.fill "none"
+          ! A.d axesPath
+        S.path ! A.d (bar x1 y1)
+        S.path ! A.d (bar x2 y2)
+        S.path ! A.d (bar x3 y3)
   where
     ax =  0.96
     ay =  0.96
@@ -244,14 +250,16 @@ analytics =
 -}
 bullseye :: Svg
 bullseye = 
-    S.g $ do
-      S.path
-        ! A.strokeLinecap "round"
-        ! A.d circles
-      S.path
-        ! strokeLinecap "round"
-        ! fill "none"
-        ! A.d (mkPath $ stick >> feathers)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__bullseye"
+      $ do
+        S.path
+          ! A.strokeLinecap "round"
+          ! A.d circles
+        S.path
+          ! strokeLinecap "round"
+          ! fill "none"
+          ! A.d (mkPath $ stick >> feathers)
   where
     distanceToCenter x y = distance (x,y) (0,0)
     (p1,k1) = (,) (-0.6 )  0.1
@@ -303,16 +311,18 @@ bullseye =
 -}
 creditCard :: Svg
 creditCard =
-    S.g $ do
-      S.path
-        ! A.fill "none"
-        ! A.d cardPath
-      S.path
-        ! A.d cardBand
-      S.path
-        ! A.fill "none"
-        ! A.strokeLinejoin "round"
-        ! A.d chip
+    S.g 
+      ! A.class_ "HaskellSvgIcons__creditCard"
+      $ do
+        S.path
+          ! A.fill "none"
+          ! A.d cardPath
+        S.path
+          ! A.d cardBand
+        S.path
+          ! A.fill "none"
+          ! A.strokeLinejoin "round"
+          ! A.d chip
   where
     x0 = 0.93
     y0 = x0 * 0.618
@@ -372,10 +382,12 @@ creditCard =
 -}
 creditIn :: Svg
 creditIn =
-    S.g $ do
-      creditCard
-      bigArrowLeft 
-        ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__creditIn"
+      $ do
+        creditCard
+        bigArrowLeft 
+          ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)
 
 
 
@@ -388,7 +400,9 @@ creditIn =
 -}
 creditOut :: Svg
 creditOut =
-    S.g $ do
-      creditCard
-      bigArrowRight 
-        ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__creditOut"
+      $ do
+        creditCard
+        bigArrowRight 
+          ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)

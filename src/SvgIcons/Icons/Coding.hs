@@ -46,21 +46,23 @@ svgCoding =
 -}
 xmlCode :: Svg
 xmlCode =
-    S.g $ do
-      S.defs $ 
+    S.g 
+      ! A.class_ "HaskellSvgIcons__xmlCode"
+      $ do
+        S.defs $ 
+          S.path
+            ! A.id_ "HaskellSvgIcons-xmlCode-triangle"
+            ! A.d triangleDirs
+            ! A.strokeLinejoin "round"
+        S.use
+          ! A.xlinkHref "#HaskellSvgIcons-xmlCode-triangle"
+          ! A.transform (rotateAround 315 0 0)
+        S.use
+          ! A.xlinkHref "#HaskellSvgIcons-xmlCode-triangle"
+          ! A.transform (rotateAround 135 0 0)
         S.path
-          ! A.id_ "HaskellSvgIcons-xmlCode-triangle"
-          ! A.d triangleDirs
-          ! A.strokeLinejoin "round"
-      S.use
-        ! A.xlinkHref "#HaskellSvgIcons-xmlCode-triangle"
-        ! A.transform (rotateAround 315 0 0)
-      S.use
-        ! A.xlinkHref "#HaskellSvgIcons-xmlCode-triangle"
-        ! A.transform (rotateAround 135 0 0)
-      S.path
-        ! A.d barDirs
-        ! A.transform (rotateAround  11 0 0)
+          ! A.d barDirs
+          ! A.transform (rotateAround  11 0 0)
   where
     k0 = 0.1
     k1 = 0.5
@@ -100,6 +102,7 @@ Note: you can remove fill colors with CSS:
 haskell :: Svg
 haskell =
     S.g
+      ! A.class_ "HaskellSvgIcons__haskell"
       $ do
         S.path
           ! A.fill "#453a62"
@@ -186,11 +189,13 @@ Note: if you want to use a stroked version, you can embed this icon in a bigger 
 -}
 git :: Svg
 git = 
-    S.g $
-      S.path
-        ! A.d dirs
-        ! A.fill "#F03C2E"
-        ! A.transform (rotateAround 45 0 0)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__git"
+      $
+        S.path
+          ! A.d dirs
+          ! A.fill "#F03C2E"
+          ! A.transform (rotateAround 45 0 0)
   where
     r0 =  0.13
     r1 =  0.153

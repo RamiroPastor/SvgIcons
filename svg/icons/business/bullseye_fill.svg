@@ -3,7 +3,7 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g fill="black" stroke="none" stroke-width="0">
+    <g class="HaskellSvgIcons__bullseye" fill="black" stroke="none" stroke-width="0">
         <path stroke-linecap="round" d="M -0.5,-0.70000005 A 0.8602326,0.8602326 0.0 1,1 -0.70000005,-0.5 M -0.37,-0.51 A 0.6300793,0.6300793 0.0 1,1 -0.51,-0.37 M -0.21000001,-0.35 A 0.40816665,0.40816665 0.0 1,1 -0.35,-0.21000001 M -6.999999e-2,-0.17 A 0.18384776,0.18384776 0.0 1,1 -0.17,-6.999999e-2 " />
         <path stroke-linecap="round" fill="none" d="M -0.76,-0.76 L -1.0e-2,-1.0e-2 M -0.76,-0.76 L -0.76,-0.96 M -0.76,-0.76 L -0.96,-0.76 M -0.68,-0.68 L -0.68,-0.8800000000000001 M -0.68,-0.68 L -0.8800000000000001,-0.68 M -0.6,-0.6 L -0.6,-0.8 M -0.6,-0.6 L -0.8,-0.6 " />
     </g>

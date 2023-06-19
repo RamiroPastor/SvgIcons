@@ -116,6 +116,7 @@ frame
   -> S.Svg    -- ^ resulting svg
 frame s color x y w h =
     S.path
+      ! A.class_ "HaskellSvgIcons__frame"
       ! A.fill "none"
       ! A.stroke (S.toValue color)
       ! (A.strokeWidth .: s)

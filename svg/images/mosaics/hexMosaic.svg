@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg viewBox="-2.598076211353316 -1.5 5.196152422706632 3.0" height="300px" width="519.6152422706632px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="HaskellSvgIcons__hexMosaic" viewBox="-2.598076211353316 -1.5 5.196152422706632 3.0" height="300px" width="519.6152422706632px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <path id="HaskellSvgIcons-hexTile" fill="none" stroke="limegreen" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" d="M 0.8660254037844386,0.5 L 0,0 L 0.0,1.0 l 0.8660254037844386,0.5 M 0,0 L -0.8660254037844386,0.5 l 0.0,1.0 l 0.8660254037844386,0.5 M 0.8660254037844386,0.8333333333333333 L 0.28867513459481287,0.5 L 0.28867513459481287,0.8333333333333333 L 0.8660254037844386,1.1666666666666665 M 0.5773502691896257,1.6666666666666665 l -0.8660254037844386,-0.5 l 0.0,-0.6666666666666666 l -0.28867513459481287,0.16666666666666666 l 0.0,0.6666666666666666 l 0.8660254037844386,0.5 " />
     </defs>

@@ -78,9 +78,11 @@ svgComputer =
 -}
 ring :: Svg
 ring =
-  S.g $ do
-    S.path
-      ! A.d dirs
+  S.g 
+    ! A.class_ "HaskellSvgIcons__ring"
+    $ do
+      S.path
+        ! A.d dirs
   where
     r1 = 0.75
     r2 = 0.95
@@ -105,11 +107,13 @@ ring =
 -}
 accept :: Svg
 accept =
-  S.g $ do
-    S.path
-      ! A.strokeLinejoin "round"
-      ! d dirs
-      ! A.transform (translate (-0.3) 0.3 <> rotateAround 45 0 0)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__accept"
+    $ do
+      S.path
+        ! A.strokeLinejoin "round"
+        ! d dirs
+        ! A.transform (translate (-0.3) 0.3 <> rotateAround 45 0 0)
   where
     k1 = 0.1
     k2 = 0.5
@@ -135,6 +139,7 @@ accept =
 plus :: Svg
 plus =
     S.path 
+      ! A.class_ "HaskellSvgIcons__plus"
       ! A.d dirs
   where
     k1 = 0.1
@@ -165,8 +170,9 @@ plus =
 -}
 cancel :: Svg
 cancel =
-  S.g $ 
-    plus ! A.transform (rotateAround 45 0 0)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__cancel"
+    $ plus ! A.transform (rotateAround 45 0 0)
 
 
 
@@ -179,7 +185,9 @@ cancel =
 -}
 warning :: Svg
 warning = 
-  S.g $ 
+  S.g 
+    ! A.class_ "HaskellSvgIcons__warning"
+    $ 
     S.g 
       ! A.transform (translate 0 0.2)
       $ do
@@ -230,6 +238,7 @@ warning =
 minimize :: Svg
 minimize =
   S.path
+    ! A.class_ "HaskellSvgIcons__minimize"
     ! A.d dirs
   where
     w = 0.1
@@ -252,19 +261,21 @@ minimize =
 -}
 maximize :: Svg
 maximize =
-  S.g $ do
-    S.path
-      ! A.d dirs1
-      ! A.transform (translate (k - 0.15) (0.15 - k))
-      ! A.stroke "none"
-      ! A.opacity "0.5"
-    S.path
-      ! A.d dirs2
-      ! A.transform (translate (  - 0.15)  0.15)
-      ! A.fill "none"
-    S.path
-      ! A.d dirs1
-      ! A.transform (translate (-0.1 ) 0.1)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__maximize"
+    $ do
+      S.path
+        ! A.d dirs1
+        ! A.transform (translate (k - 0.15) (0.15 - k))
+        ! A.stroke "none"
+        ! A.opacity "0.5"
+      S.path
+        ! A.d dirs2
+        ! A.transform (translate (  - 0.15)  0.15)
+        ! A.fill "none"
+      S.path
+        ! A.d dirs1
+        ! A.transform (translate (-0.1 ) 0.1)
   where
     w = 1.4
     k = 0.25
@@ -290,7 +301,9 @@ maximize =
 -}
 menuDots :: Svg
 menuDots =
-    S.g $ do
+    S.g 
+      ! A.class_ "HaskellSvgIcons__menuDots"
+      $ do
         dot (-0.7)
         dot ( 0  )
         dot ( 0.7)
@@ -312,10 +325,12 @@ menuDots =
 -}
 menuLines :: Svg
 menuLines =
-    S.g $ do
-      S.path ! A.d (line (-0.5))
-      S.path ! A.d (line ( 0  ))
-      S.path ! A.d (line ( 0.5))
+    S.g 
+      ! A.class_ "HaskellSvgIcons__menuLines"
+      $ do
+        S.path ! A.d (line (-0.5))
+        S.path ! A.d (line ( 0  ))
+        S.path ! A.d (line ( 0.5))
   where
     kx = 0.7
     r  = 0.12
@@ -337,13 +352,15 @@ menuLines =
 -}
 powerButton :: S.Svg
 powerButton =
-  S.g $ do
-    S.path
-      ! d innerCircle
-      ! A.transform (translate 0 0.1)
-    S.path
-      ! d littleStickPath
-      ! A.transform (translate 0 (-0.42))
+  S.g 
+    ! A.class_ "HaskellSvgIcons__powerButton"
+    $ do
+      S.path
+        ! d innerCircle
+        ! A.transform (translate 0 0.1)
+      S.path
+        ! d littleStickPath
+        ! A.transform (translate 0 (-0.42))
   where
     w  = 0.08
     r1 = 0.7
@@ -378,6 +395,7 @@ powerButton =
 diskette :: Svg
 diskette =
     S.path
+      ! A.class_ "HaskellSvgIcons__diskette"
       ! A.d shell
       ! A.fillRule "evenodd"
   where
@@ -417,10 +435,12 @@ diskette =
 -}
 save :: Svg
 save =
-  S.g $ do
-    diskette
-    accept 
-      ! A.transform (translate 0 0.4 <> S.scale 0.5 0.5)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__save"
+    $ do
+      diskette
+      accept 
+        ! A.transform (translate 0 0.4 <> S.scale 0.5 0.5)
 
 
 
@@ -433,18 +453,20 @@ save =
 -}
 dustBin :: Svg
 dustBin =
-    S.g $ do
-      S.path
-        ! A.d binDirs
-        ! A.strokeLinecap "round"
-        ! A.strokeLinejoin "round"
-      S.path
-        ! A.d handleDirs
-        ! A.strokeLinejoin "round"
-        ! A.fill "none"
-      S.path
-        ! A.d linesDirs
-        ! A.strokeLinecap "round"
+    S.g 
+      ! A.class_ "HaskellSvgIcons__dustBin"
+      $ do
+        S.path
+          ! A.d binDirs
+          ! A.strokeLinecap "round"
+          ! A.strokeLinejoin "round"
+        S.path
+          ! A.d handleDirs
+          ! A.strokeLinejoin "round"
+          ! A.fill "none"
+        S.path
+          ! A.d linesDirs
+          ! A.strokeLinecap "round"
   where
     x0 = x1 - 0.15
     x8 = x7 + 0.15

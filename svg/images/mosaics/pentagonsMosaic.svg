@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg viewBox="0 0 21.0 12.12435565298214" height="300px" width="519.6152422706632px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="HaskellSvgIcons__pentagonsMosaic" viewBox="0 0 21.0 12.12435565298214" height="300px" width="519.6152422706632px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <path fill="deeppink" stroke-width="0.15" stroke="black" stroke-linejoin="round" id="HaskellSvgIcons-pentagonTile" d="M 0,0 l -1.0,1.7320508075688772 l 0.5,0.8660254037844386 l 1.0,0.0 l 0.5,-0.8660254037844386 l -1.0,-1.7320508075688772 Z" />
     </defs>

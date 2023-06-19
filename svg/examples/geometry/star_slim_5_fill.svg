@@ -3,5 +3,5 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <path d="M 0.0,-0.9 L 0.16347206,-0.22499998 L 0.8559509,-0.27811527 L 0.26450333,8.594236e-2 L 0.52900666,0.7281153 L -2.4313609e-8,0.27811527 L -0.52900684,0.7281152 L -0.26450333,8.594237e-2 L -0.85595083,-0.2781154 L -0.16347197,-0.22500005 Z" fill="black" stroke="none" stroke-width="0" />
+    <path class="HaskellSvgIcons__starOutline" d="M 0.0,-0.9 L 0.16347206,-0.22499998 L 0.8559509,-0.27811527 L 0.26450333,8.594236e-2 L 0.52900666,0.7281153 L -2.4313609e-8,0.27811527 L -0.52900684,0.7281152 L -0.26450333,8.594237e-2 L -0.85595083,-0.2781154 L -0.16347197,-0.22500005 Z" fill="black" stroke="none" stroke-width="0" />
 </svg>

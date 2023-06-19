@@ -80,6 +80,7 @@ svgOffice =
 envelope :: Svg
 envelope =
     S.path
+      ! A.class_ "HaskellSvgIcons__envelope"
       ! d dirs
       ! strokeLinejoin "round"
   where
@@ -119,6 +120,7 @@ envelope =
 pencil :: Svg
 pencil =
     S.path
+      ! A.class_ "HaskellSvgIcons__pencil"
       ! d pencilPath
       ! strokeLinejoin "round"
   where
@@ -163,18 +165,20 @@ pencil =
 -}
 document :: Svg
 document = 
-    S.g $ do
-      paperBorder
-      S.path
-        ! strokeLinecap "round"
-        ! d lines
-      S.path
-        ! A.d xMark
-        ! fill "none"
-        ! strokeLinecap "round"
-        ! transform (translate (-0.25) 0.55 <> rotateAround 45 0 0)
-      pencil 
-        ! transform (translate   0.55  0.35 <> rotateAround 45 0 0 <> S.scale 0.4 0.4)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__document"
+      $ do
+        paperBorder
+        S.path
+          ! strokeLinecap "round"
+          ! d lines
+        S.path
+          ! A.d xMark
+          ! fill "none"
+          ! strokeLinecap "round"
+          ! transform (translate (-0.25) 0.55 <> rotateAround 45 0 0)
+        pencil 
+          ! transform (translate   0.55  0.35 <> rotateAround 45 0 0 <> S.scale 0.4 0.4)
   where
     py = 0.95
     px = 0.618 * py
@@ -219,13 +223,15 @@ document =
 -}
 archive :: S.Svg
 archive = 
-  S.g $ do
-    S.path
-      ! A.strokeLinejoin "round"
-      ! A.d archiveBody
-    archiveHandle (-ky * 2/3)
-    archiveHandle  0
-    archiveHandle ( ky * 2/3)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__archive"
+    $ do
+      S.path
+        ! A.strokeLinejoin "round"
+        ! A.d archiveBody
+      archiveHandle (-ky * 2/3)
+      archiveHandle  0
+      archiveHandle ( ky * 2/3)
   where
     ky = 0.96
     kx = 0.75
@@ -264,7 +270,9 @@ archive =
 -}
 pin :: Svg
 pin =
-  S.g $
+  S.g 
+    ! A.class_ "HaskellSvgIcons__pin"
+    $
     S.path
       ! A.strokeLinejoin "arcs"
       ! A.strokeMiterlimit "8"
@@ -312,10 +320,12 @@ pin =
 -}
 paperclip :: Svg
 paperclip =
-    S.g $ 
-      S.path 
-        ! A.d clipDirs
-        ! A.transform (rotateAround 45 0 0)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__paperclip"
+      $ 
+        S.path 
+          ! A.d clipDirs
+          ! A.transform (rotateAround 45 0 0)
   where
     w  = 0.07
     x1 =  0.2
@@ -358,11 +368,13 @@ paperclip =
 -}
 clipboard :: Svg
 clipboard =
-  S.g $ do
-    S.path
-      ! d boardDirs
-    S.path
-      ! d clipDirs
+    S.g 
+      ! A.class_ "HaskellSvgIcons__clipboard"
+      $ do
+        S.path
+          ! d boardDirs
+        S.path
+          ! d clipDirs
   where
     dx1 = 0.3
     dx2 = 0.7
@@ -404,15 +416,17 @@ clipboard =
 -}
 printer :: Svg
 printer =
-    S.g $ do
-      S.path
-        ! A.d topDirs
-      S.path
-        ! A.d midDirs
-      S.path 
-        ! A.strokeLinecap "round"
-        ! A.d botDirs
-      dots
+    S.g 
+      ! A.class_ "HaskellSvgIcons__printer"
+      $ do
+        S.path
+          ! A.d topDirs
+        S.path
+          ! A.d midDirs
+        S.path 
+          ! A.strokeLinecap "round"
+          ! A.d botDirs
+        dots
   where
     x0 =  0.5
     x1 =  0.9
@@ -486,11 +500,13 @@ printer =
 -}
 lupe :: S.Svg
 lupe =
-    S.g $ do
-      S.path
-        ! A.d dirs
-        ! A.fillRule "evenodd"
-        ! A.transform (rotateAround 45 0 0)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__lupe"
+      $ do
+        S.path
+          ! A.d dirs
+          ! A.fillRule "evenodd"
+          ! A.transform (rotateAround 45 0 0)
   where
     w1 = 0.08
     w2 = 0.12
@@ -525,14 +541,16 @@ lupe =
 -}
 briefcase :: Svg
 briefcase = 
-    S.g $ do
-      S.path
-        ! A.strokeLinejoin "round"
-        ! A.d top
-      S.path
-        ! A.strokeLinejoin "round"
-        ! A.d bot
-      button
+    S.g 
+      ! A.class_ "HaskellSvgIcons__briefcase"
+      $ do
+        S.path
+          ! A.strokeLinejoin "round"
+          ! A.d top
+        S.path
+          ! A.strokeLinejoin "round"
+          ! A.d bot
+        button
   where
     r1 =  0.2
     r2 =  0.07
@@ -598,30 +616,32 @@ briefcase =
 -}
 bookOpen :: Svg
 bookOpen =
-  S.g $ do
-    S.defs $ do
+  S.g 
+    ! A.class_ "HaskellSvgIcons__bookOpen"
+    $ do
+      S.defs $ do
+        S.path
+          ! A.id_ "HaskellSvgIcons-bookOpen-cover"
+          ! A.d coverDirs
+          ! A.fill "none"
+        S.path
+          ! A.id_ "HaskellSvgIcons-bookOpen-pages"
+          ! A.d pagesDirs
+          ! A.strokeLinejoin "round"
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-bookOpen-cover"
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-bookOpen-cover"
+        ! A.transform (horizontalMirrorMatrix)
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-bookOpen-pages"
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-bookOpen-pages"
+        ! A.transform (horizontalMirrorMatrix)
       S.path
-        ! A.id_ "HaskellSvgIcons-bookOpen-cover"
-        ! A.d coverDirs
+        ! A.d spineDirs
         ! A.fill "none"
-      S.path
-        ! A.id_ "HaskellSvgIcons-bookOpen-pages"
-        ! A.d pagesDirs
         ! A.strokeLinejoin "round"
-    S.use
-      ! A.xlinkHref "#HaskellSvgIcons-bookOpen-cover"
-    S.use
-      ! A.xlinkHref "#HaskellSvgIcons-bookOpen-cover"
-      ! A.transform (horizontalMirrorMatrix)
-    S.use
-      ! A.xlinkHref "#HaskellSvgIcons-bookOpen-pages"
-    S.use
-      ! A.xlinkHref "#HaskellSvgIcons-bookOpen-pages"
-      ! A.transform (horizontalMirrorMatrix)
-    S.path
-      ! A.d spineDirs
-      ! A.fill "none"
-      ! A.strokeLinejoin "round"
   where
     y1 = 0.55
     y2 = 0.65
@@ -672,27 +692,29 @@ A wide stroke is recommended.
 -}
 bookOpen2 :: Svg
 bookOpen2 =
-  S.g $ do
-    S.defs $ do
-      S.path
-        ! A.id_ "HaskellSvgIcons-bookOpen2-cover"
-        ! A.d coverDirs
-        ! A.fill "none"
-        ! A.strokeLinejoin "round"
-      S.path
-        ! A.id_ "HaskellSvgIcons-bookOpen2-pages"
-        ! A.d pagesDirs
-        ! A.strokeLinejoin "round"
-    S.use
-      ! A.xlinkHref "#HaskellSvgIcons-bookOpen2-cover"
-    S.use
-      ! A.xlinkHref "#HaskellSvgIcons-bookOpen2-cover"
-      ! A.transform (horizontalMirrorMatrix)
-    S.use
-      ! A.xlinkHref "#HaskellSvgIcons-bookOpen2-pages"
-    S.use
-      ! A.xlinkHref "#HaskellSvgIcons-bookOpen2-pages"
-      ! A.transform (horizontalMirrorMatrix)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__bookOpen2"
+    $ do
+      S.defs $ do
+        S.path
+          ! A.id_ "HaskellSvgIcons-bookOpen2-cover"
+          ! A.d coverDirs
+          ! A.fill "none"
+          ! A.strokeLinejoin "round"
+        S.path
+          ! A.id_ "HaskellSvgIcons-bookOpen2-pages"
+          ! A.d pagesDirs
+          ! A.strokeLinejoin "round"
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-bookOpen2-cover"
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-bookOpen2-cover"
+        ! A.transform (horizontalMirrorMatrix)
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-bookOpen2-pages"
+      S.use
+        ! A.xlinkHref "#HaskellSvgIcons-bookOpen2-pages"
+        ! A.transform (horizontalMirrorMatrix)
   where
     y1 =  0.7
     y2 =  0.4
@@ -727,15 +749,17 @@ bookOpen2 =
 -}
 boxClosed :: Svg
 boxClosed =
-    S.g $ do
-      S.path
-        ! A.d backSide
-        ! A.strokeLinecap  "round"
-        ! A.strokeLinejoin "round"
-      S.path
-        ! A.d frontSide
-        ! A.strokeLinecap  "round"
-        ! A.strokeLinejoin "round"
+    S.g 
+      ! A.class_ "HaskellSvgIcons__boxClosed"
+      $ do
+        S.path
+          ! A.d backSide
+          ! A.strokeLinecap  "round"
+          ! A.strokeLinejoin "round"
+        S.path
+          ! A.d frontSide
+          ! A.strokeLinecap  "round"
+          ! A.strokeLinejoin "round"
   where
     lm = 0.7
     k  = 0.2

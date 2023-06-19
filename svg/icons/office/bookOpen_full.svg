@@ -3,7 +3,7 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g fill="silver" stroke="black" stroke-width="0.03">
+    <g class="HaskellSvgIcons__bookOpen" fill="silver" stroke="black" stroke-width="0.03">
         <defs>
             <path id="HaskellSvgIcons-bookOpen-cover" d="M 0.0,0.75 L 0.95,0.75 L 0.95,-0.65 L 0.85,-0.65 M 0.0,0.75 Q 0.5,0.55 0.85,0.65 L 0.85,-0.7 L 0.75,-0.7 " fill="none" />
             <path id="HaskellSvgIcons-bookOpen-pages" d="M 0.0,0.75 Q 0.4,0.45 0.75,0.55 L 0.75,-0.75 Q 0.4,-1.0 0.0,-0.7 Z" stroke-linejoin="round" />

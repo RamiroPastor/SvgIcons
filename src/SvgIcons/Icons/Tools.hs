@@ -62,12 +62,14 @@ svgTools =
 -}
 lock :: S.Svg
 lock =
-  S.g $ do
-    S.path 
-      ! A.d arm
-    S.path
-      ! fillRule "evenodd"
-      ! A.d body
+  S.g 
+    ! A.class_ "HaskellSvgIcons__lock"
+    $ do
+      S.path 
+        ! A.d arm
+      S.path
+        ! fillRule "evenodd"
+        ! A.d body
   where
     aw  =  0.07
     ax  =  0.4
@@ -117,6 +119,7 @@ lock =
 key :: S.Svg
 key =
   S.path
+    ! A.class_ "HaskellSvgIcons__key"
     ! fillRule "evenodd"
     ! A.d keyPath
   where
@@ -154,9 +157,11 @@ key =
 -}
 keyWithArc :: S.Svg
 keyWithArc =
-    S.g $ do
-      key ! A.transform (translate (-0.4) 0 <> S.scale 0.6 0.6)
-      arc ! A.transform (S.scale 0.6 0.6)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__keyWithArc"
+      $ do
+        key ! A.transform (translate (-0.4) 0 <> S.scale 0.6 0.6)
+        arc ! A.transform (S.scale 0.6 0.6)
   where
     w  = 0.1
     r1 = 1.3
@@ -187,6 +192,7 @@ and a real number @eps@ which controls how 'pointy' the cogs are.
 cogwheel :: Int -> Float -> S.Svg
 cogwheel n eps =
     S.path
+      ! A.class_ "HaskellSvgIcons__cogwheel"
       ! A.d cogPath
   where
     r1 = 0.4  :: Float
@@ -252,10 +258,11 @@ cog9 = cogwheel 9 0.12
 -}
 key1 :: S.Svg
 key1 =
-    S.g $
-      S.path
-        ! A.d keyPath
-        ! A.transform (rotateAround 45 0 0)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__key1"
+      $ S.path
+          ! A.d keyPath
+          ! A.transform (rotateAround 45 0 0)
   where
     x1 = -0.1
     y1 =  0.2
@@ -297,6 +304,7 @@ key1 =
 bell :: S.Svg
 bell =
     S.path
+      ! A.class_ "HaskellSvgIcons__bell"
       ! A.d dirs
   where
     r1 =  0.5

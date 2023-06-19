@@ -4,7 +4,7 @@
 
 <svg viewBox="0 0 400 200" width="300" height="150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <path d="M 68.0,-21.242645 L 72.26576,-8.113968 L 86.070076,-8.113968 L 74.90215,7.1525574e-7 L 79.167915,13.128679 L 68.0,5.0147085 L 56.832077,13.128676 L 61.097847,1.1920929e-6 L 49.929928,-8.113971 L 63.734238,-8.11397 Z" fill="#FFFFFF" stroke-width="0" id="HaskellSvgIcons-baFlagStar" />
+        <path class="HaskellSvgIcons__starOutline" d="M 68.0,-21.242645 L 72.26576,-8.113968 L 86.070076,-8.113968 L 74.90215,7.1525574e-7 L 79.167915,13.128679 L 68.0,5.0147085 L 56.832077,13.128676 L 61.097847,1.1920929e-6 L 49.929928,-8.113971 L 63.734238,-8.11397 Z" fill="#FFFFFF" stroke-width="0" id="HaskellSvgIcons-baFlagStar" />
     </defs>
     <rect x="0.0" y="0.0" width="400.0" height="200.0" stroke="none" fill="#001489" />
     <path fill="#FFCD00" stroke="none" stroke-width="0" d="M 106,0 L 306,0 L 306,200 Z" />

@@ -3,7 +3,7 @@
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g fill="black" stroke="none" stroke-width="0">
+    <g class="HaskellSvgIcons__header" fill="black" stroke="none" stroke-width="0">
         <path d="M -0.9,-0.7666666666666666 L 0.9,-0.7666666666666666 L 0.9,-0.5666666666666667 L -0.9,-0.5666666666666667 Z" />
         <path d="M -0.5,-0.43333333333333335 L 0.5,-0.43333333333333335 L 0.5,-0.2333333333333333 L -0.5,-0.2333333333333333 Z" />
         <path d="M -0.9,-0.1 L 0.9,-0.1 L 0.9,0.1 L -0.9,0.1 Z" opacity="0.4" />

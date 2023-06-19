@@ -97,6 +97,7 @@ Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
 nazariMosaic :: String -> String -> Svg
 nazariMosaic colorUpper colorLower =
     svg
+      ! A.class_ "HaskellSvgIcons__nazariMosaic"
       ! A.viewbox (S.toValue vb)
       ! A.width  "300px"
       ! A.height (S.toValue $ (show $ 300*h) ++ "px") 
@@ -170,6 +171,7 @@ Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
 triReligiousMosaic :: String -> String -> String -> Svg
 triReligiousMosaic fill1 fill2 fill3 =
     S.svg
+      ! A.class_ "HaskellSvgIcons__triReligiousMosaic"
       ! A.viewbox (S.toValue $ "0 0 1 " ++ show (2*h))
       ! A.width  "300px"
       ! A.height (S.toValue $ (show $ 300 * sqrt 3) ++ "px")
@@ -272,6 +274,7 @@ Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
 hexagonsMosaic :: String -> String -> Svg
 hexagonsMosaic strkColor fillColor = do
     S.svg
+      ! A.class_ "HaskellSvgIcons__hexagonsMosaic"
       ! A.viewbox (S.toValue $ "0 0 1 " ++ show (3*rad))
       ! A.width  "300px"
       ! A.height (S.toValue $ (show $ 300 * sqrt 3) ++ "px")
@@ -308,6 +311,7 @@ Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
 beehiveMosaic :: Svg
 beehiveMosaic = do
     S.svg
+      ! A.class_ "HaskellSvgIcons__beehiveMosaic"
       ! A.viewbox (S.toValue $ "0 0 1 " ++ show (3*rad))
       ! A.width  "300px"
       ! A.height (S.toValue $ (show $ 300 * sqrt 3) ++ "px")
@@ -370,6 +374,7 @@ Ratio between width and height is: \(w = 0.85 \cdot h\)
 lemonsMosaic :: String -> Svg
 lemonsMosaic fillColor =
     svg
+      ! A.class_ "HaskellSvgIcons__lemonsMosaic"
       ! A.viewbox "0.15 0 0.85 1"
       ! A.height "300px"
       ! A.width (S.toValue $ show (0.85 * 300) ++ "px")
@@ -421,6 +426,7 @@ Ratio between width and height is: \(h = w\)
 arabicMosaic :: String -> String -> Svg
 arabicMosaic c1 c2 =
     svg
+      ! A.class_ "HaskellSvgIcons__arabicMosaic"
       ! A.viewbox "-1 -1 2 2"
       ! A.width  "300px"
       ! A.height "300px"
@@ -481,6 +487,7 @@ Ratio between width and height is: \(h = w\)
 cloudsMosaic :: String -> String -> Svg
 cloudsMosaic strkColor fillColor =
   S.svg
+    ! A.class_ "HaskellSvgIcons__cloudsMosaic"
     ! A.viewbox "-1 -1 2 2"
     ! A.height "300"
     ! A.width  "300"
@@ -512,6 +519,7 @@ Ratio between width and height is: \(w = \sqrt{3} \cdot h\)
 hexMosaic :: String -> Svg
 hexMosaic strkColor =
   S.svg
+    ! A.class_ "HaskellSvgIcons__hexMosaic"
     ! A.viewbox (S.toValue $ concat $ intersperse " " $ map show [vbX, vbY, vbW, vbH])
     ! A.height "300px"
     ! A.width  (S.toValue $ show (300 * sqrt 3) ++ "px")
@@ -580,6 +588,7 @@ Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
 arrowsMosaic :: String -> Svg
 arrowsMosaic strkColor =
     S.svg
+      ! A.class_ "HaskellSvgIcons__arrowsMosaic"
       ! A.viewbox (S.toValue $ "0 0 1 " ++ show (2*h))
       ! A.width  "300px"
       ! A.height (S.toValue $ show (300 * sqrt 3) ++ "px")
@@ -642,6 +651,7 @@ Ratio between width and height is: \(h = w\)
 wiresMosaic :: String -> Svg
 wiresMosaic strkColor =
   S.svg
+    ! A.class_ "HaskellSvgIcons__wiresMosaic"
     ! A.viewbox "0 0 1 1"
     ! A.height "300px"
     ! A.width  "300px"
@@ -861,6 +871,7 @@ Ratio between width and height is: \(h = w\)
 curvesMosaic :: Svg
 curvesMosaic =
   S.svg
+    ! A.class_ "HaskellSvgIcons__curvesMosaic"
     ! A.viewbox "0 0 1 1"
     ! A.height "300px"
     ! A.width  "300px"
@@ -995,10 +1006,11 @@ Ratio between width and height is: \(h =  w\)
 airplaneMosaic :: String -> Svg
 airplaneMosaic fillColor =
   S.svg
-      ! A.viewbox "0 0 2 2"
-      ! A.height "300px"
-      ! A.width  "300px"
-      $ do
+    ! A.class_ "HaskellSvgIcons__airplaneMosaic"
+    ! A.viewbox "0 0 2 2"
+    ! A.height "300px"
+    ! A.width  "300px"
+    $ do
         defs $
           basicPlane ! A.id_ "HaskellSvgIcons-planeTile"
         plane ! A.transform (translate 1 (-0.5))
@@ -1038,6 +1050,7 @@ Ratio between width and height is: \(h =  w\)
 octagonsMosaic :: String -> String -> Svg
 octagonsMosaic fillColor strkColor =
     svg
+      ! A.class_ "HaskellSvgIcons__octagonsMosaic"
       ! A.viewbox "0 0 4 4"
       ! A.height "300px"
       ! A.width  "300px"
@@ -1073,6 +1086,7 @@ Ratio between width and height is: \(w = \sqrt{3} \cdot h\)
 pentagonsMosaic :: String -> String -> Svg
 pentagonsMosaic fillColor strkColor =
     svg
+      ! A.class_ "HaskellSvgIcons__pentagonsMosaic"
       ! A.viewbox (S.toValue $ "0 0 " ++ (show x0) ++ " " ++ (show y0))
       ! A.height "300px"
       ! A.width  (S.toValue $ (show $ 300 * sqrt 3) ++ "px")

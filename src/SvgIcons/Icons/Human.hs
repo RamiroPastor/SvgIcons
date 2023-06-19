@@ -63,10 +63,12 @@ svgHuman =
 -}
 eyeOpened :: S.Svg
 eyeOpened =
-  S.g $ do
-    eye
-    pupil
-    glow
+  S.g 
+    ! A.class_ "HaskellSvgIcons__eyeOpened"
+    $ do
+      eye
+      pupil
+      glow
   where
     w  = 0.9
     c1 = 0
@@ -110,9 +112,11 @@ eyeOpened =
 -}
 eyeStriked :: S.Svg
 eyeStriked =
-  S.g $ do
-    eyeOpened
-    bar
+  S.g 
+    ! A.class_ "HaskellSvgIcons__eyeStriked"
+    $ do
+      eyeOpened
+      bar
   where
     k = 0.9
     bar =
@@ -134,9 +138,11 @@ eyeStriked =
 -}
 person :: S.Svg
 person =
-  S.g $ do
-    simpleShoulders
-    simpleHead
+  S.g 
+    ! A.class_ "HaskellSvgIcons__person"
+    $ do
+      simpleShoulders
+      simpleHead
   where
     kx =  0.7
     ky =  0.52
@@ -166,10 +172,12 @@ person =
 -}
 people :: S.Svg
 people =
-  S.g $ do
-    person ! A.transform (translate   0.4  (-0.2) <> S.scale 0.8 0.8)
-    person ! A.transform (translate (-0.4) (-0.2) <> S.scale 0.8 0.8)
-    person ! A.transform (translate   0    ( 0.2) <> S.scale 0.9 0.9)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__people"
+    $ do
+      person ! A.transform (translate   0.4  (-0.2) <> S.scale 0.8 0.8)
+      person ! A.transform (translate (-0.4) (-0.2) <> S.scale 0.8 0.8)
+      person ! A.transform (translate   0    ( 0.2) <> S.scale 0.9 0.9)
 
 
 
@@ -182,10 +190,12 @@ people =
 -}
 carnet :: S.Svg
 carnet =
-  S.g $ do
-    cardBorder
-    textLines ! A.transform (translate ( 0.4) 0 <> S.scale 0.5 0.5)
-    person    ! A.transform (translate (-0.5) 0 <> S.scale 0.5 0.5)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__carnet"
+    $ do
+      cardBorder
+      textLines ! A.transform (translate ( 0.4) 0 <> S.scale 0.5 0.5)
+      person    ! A.transform (translate (-0.5) 0 <> S.scale 0.5 0.5)
   where
     w1 = 0.01
     x1 = 1.618 * y1
@@ -233,11 +243,13 @@ carnet =
 -}
 heartFat :: Svg
 heartFat =
-    S.g $ do
-      S.path
-        ! A.d heartDirs
-        ! A.strokeLinejoin "round"
-        ! A.transform (translate 0 0.1 <> S.scale 1.2 1.2)
+    S.g 
+      ! A.class_ "HaskellSvgIcons__heartFat"
+      $ do
+        S.path
+          ! A.d heartDirs
+          ! A.strokeLinejoin "round"
+          ! A.transform (translate 0 0.1 <> S.scale 1.2 1.2)
   where
     h = 0.06
     (h1x , h1y) = ( 0       , -0.6      )
@@ -266,10 +278,12 @@ heartFat =
 -}
 heartSlim :: Svg
 heartSlim =
-    S.g $ do
-      S.path
-        ! A.d heartDirs
-        ! A.strokeLinejoin "round"
+    S.g 
+      ! A.class_ "HaskellSvgIcons__heartSlim"
+      $ do
+        S.path
+          ! A.d heartDirs
+          ! A.strokeLinejoin "round"
   where
     h = 0.2
     (h1x , h1y) = ( 0       , -0.6      )
@@ -298,11 +312,13 @@ heartSlim =
 -}
 talk :: Svg
 talk = 
-    S.g $ do
-      S.path
-        ! A.fill "none"
-        ! A.d bubble
-      abc
+    S.g 
+      ! A.class_ "HaskellSvgIcons__talk"
+      $ do
+        S.path
+          ! A.fill "none"
+          ! A.d bubble
+        abc
   where
     bubble = mkPath $ do
       m   (-0.56) ( 0.62)

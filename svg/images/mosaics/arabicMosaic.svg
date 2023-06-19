@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg viewBox="-1 -1 2 2" width="300px" height="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="HaskellSvgIcons__arabicMosaic" viewBox="-1 -1 2 2" width="300px" height="300px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <g fill="none" stroke-width="0.1" stroke-linecap="round" id="HaskellSvgIcons-arabicTile">
             <path stroke="blue" d="M 0.5,1.0 L 0.65999997,0.87 L 0.65999997,0.34 " />
