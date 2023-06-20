@@ -20,12 +20,10 @@ import SvgIcons.Core.Utils
 {- |
 A list with all the icons of this module, 
 together with appropriate names.
-This module contains icons suitable for the 
-tool bars of a text editor (bold, italic, etc.)
 
 >svgArrows :: [ (String , S.Svg) ]
 >svgArrows =
->  [ (,) "curvyArrowLeft" curvyArrowLeft
+>  [ (,) "curvyArrowLeft"  curvyArrowLeft
 >  , (,) "curvyArrowRight" curvyArrowRight
 >  , (,) "bigArrowLeft"    bigArrowLeft
 >  , (,) "bigArrowRight"   bigArrowRight

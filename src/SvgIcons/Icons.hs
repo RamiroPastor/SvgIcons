@@ -147,6 +147,7 @@ module SvgIcons.Icons
   , iconExample2
   , iconExample3
   -- * Re-export all Icons modules
+  , module SvgIcons.Icons.Arrows
   , module SvgIcons.Icons.Business
   , module SvgIcons.Icons.Coding
   , module SvgIcons.Icons.Computer
@@ -166,6 +167,7 @@ import           Text.Blaze.Svg11.Attributes as A
 
 import SvgIcons.Core.Geometry
 import SvgIcons.Core.Style
+import SvgIcons.Icons.Arrows
 import SvgIcons.Icons.Business
 import SvgIcons.Icons.Coding
 import SvgIcons.Icons.Computer
