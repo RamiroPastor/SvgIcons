@@ -4,6 +4,6 @@
 
 <svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g class="HaskellSvgIcons__ring" fill="none" stroke="black" stroke-width="0.04">
-        <path d="M 0.75,0.0 A 0.75,0.75 0.0 1,0 0.75,1.0e-4 ZM 0.95,0.0 A 0.95,0.95 0.0 1,1 0.95,-1.0e-4 Z" />
+        <path d="M 0.65,0.0 A 0.65,0.65 0.0 1,0 0.65,1.0e-4 ZM 0.85,0.0 A 0.85,0.85 0.0 1,1 0.85,-1.0e-4 Z" />
     </g>
 </svg>

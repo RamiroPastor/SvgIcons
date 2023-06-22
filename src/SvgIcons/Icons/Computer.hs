@@ -84,8 +84,8 @@ ring =
       S.path
         ! A.d dirs
   where
-    r1 = 0.75
-    r2 = 0.95
+    r1 = 0.65
+    r2 = 0.85
     dirs = mkPath $ do
       m   r1  0
       aa  r1  r1  0  True  False  r1  0.0001
