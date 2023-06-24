@@ -128,6 +128,7 @@ svgToReact name svgCode =
       . (T.replace "fill-rule"         "fillRule")
       . (T.replace "font-family"       "fontFamily")
       . (T.replace "font-size"         "fontSize")
+      . (T.replace "font-weight"       "fontWeight")
       . (T.replace "letter-spacing"    "letterSpacing")
       . (T.replace "stroke-dasharray"  "strokeDasharray")
       . (T.replace "stroke-dashoffset" "strokeDashoffset")
