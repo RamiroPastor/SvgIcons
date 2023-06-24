@@ -265,7 +265,6 @@ imageIcon =
       l     0       0.55
       l     0.45    0.2
       l     0.92    0.92
-      S.z
 
 
 
@@ -282,13 +281,13 @@ video =
       ! A.class_ "HaskellSvgIcons__video"
       ! A.d boxPath
   where
-    h  = 1.2
-    w  = 1.618 * h
+    h  = 1.35
+    w  = 1.9
     y1 = -0.5 * h
     y2 =  0.5 * h
     x1 = -0.5 * w
     x2 =  0.5 * w
-    tx =  0.16
+    tx =  0.18
     th =  3 * tx
     boxPath = mkPath $ do
       m   x1  0
@@ -393,9 +392,10 @@ numberList =
       S.text_ k
         ! dominantBaseline "central"
         ! textAnchor "middle"
-        ! fontFamily "monospace"
+        ! fontFamily "Comic Sans MS, Comic Sans, cursive"
         ! fontWeight "bold"
         ! fontSize   "0.5"
+        ! stroke     "none"
         ! (A.x .: x1)
         ! (A.y .: h)
     numbers = 
@@ -687,7 +687,6 @@ preview =
         line ( 2 * ky)
     line y =
       S.path
-        ! fill "none"
         ! d (lineDirs y)
     lineDirs y = mkPath $ do
       m   (-1 + kx) (y - w/2)
