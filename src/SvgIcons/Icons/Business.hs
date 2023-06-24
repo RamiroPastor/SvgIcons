@@ -449,11 +449,11 @@ coinColumn n0 x0 y0 =
 
 
 {- |
-![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditOut_fill.svg)
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/coinPile_fill.svg)
 
-![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditOut_full.svg)
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/coinPile_full.svg)
 
-![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditOut_strk.svg)
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/coinPile_strk.svg)
 -}
 coinPile :: Svg
 coinPile =
