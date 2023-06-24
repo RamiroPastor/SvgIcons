@@ -11,6 +11,8 @@ module SvgIcons.Icons.Business
   , creditCard
   , creditIn
   , creditOut
+  , coinColumn
+  , coinPile
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -35,6 +37,7 @@ together with appropriate names.
 >  , (,) "creditCard"  creditCard
 >  , (,) "creditIn"    creditIn
 >  , (,) "creditOut"   creditOut
+>  , (,) "coinPile"    coinPile
 >  ]
 -}
 svgBusiness :: [ (String , S.Svg) ]
@@ -46,6 +49,7 @@ svgBusiness =
   , (,) "creditCard"  creditCard
   , (,) "creditIn"    creditIn
   , (,) "creditOut"   creditOut
+  , (,) "coinPile"    coinPile
   ]
 
 
@@ -382,12 +386,12 @@ creditCard =
 -}
 creditIn :: Svg
 creditIn =
-    S.g 
-      ! A.class_ "HaskellSvgIcons__creditIn"
-      $ do
-        creditCard
-        bigArrowLeft 
-          ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__creditIn"
+    $ do
+      creditCard
+      bigArrowLeft 
+        ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)
 
 
 
@@ -400,9 +404,64 @@ creditIn =
 -}
 creditOut :: Svg
 creditOut =
-    S.g 
-      ! A.class_ "HaskellSvgIcons__creditOut"
-      $ do
-        creditCard
-        bigArrowRight 
-          ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)
+  S.g 
+    ! A.class_ "HaskellSvgIcons__creditOut"
+    $ do
+      creditCard
+      bigArrowRight 
+        ! A.transform (translate 0.45 0.22 <> S.scale 0.25 0.25)
+
+
+{- |
+Helper for `coinPile` icon.
+
+Draws a column of (n+1) coins.
+-}
+coinColumn 
+  :: Int    -- ^ n
+  -> Float  -- ^ coordinate x of the center of the column
+  -> Float  -- ^ coordinate y of the lowest coin
+  -> Svg    -- ^ resulting svg
+coinColumn n0 x0 y0 =
+    S.g $ do
+      S.path
+        ! A.d (coinColumnDirs n x0 y0)
+      S.ellipse
+        ! (A.cx .: x0)
+        ! (A.cy .: y0 - (n+1)*ch)
+        ! (A.rx .: cw)
+        ! (A.ry .: ry)
+  where
+    n = fromIntegral n0
+    cw = 0.3  -- half width  of the coin 
+    ch = 0.15 -- full height of the coin
+    ry = 0.18
+    coin x0 y0 = do
+      m   (x0 - cw)  (y0 - ch)
+      l   (x0 - cw)   y0
+      aa   cw   ry  0  False False (x0 + cw) y0
+      l   (x0 + cw)  (y0 - ch)
+    coinColumnDirs n x0 y0 = mkPath $ do
+      mapM_ (coin x0) $ map (\k -> y0 - k*ch) [0..n]
+      aa   cw   ry  0  False True  (x0 - cw) (y0 - (n+1) * ch)
+      aa   cw   ry  0  False True  (x0 + cw) (y0 - (n+1) * ch)
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditOut_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditOut_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/creditOut_strk.svg)
+-}
+coinPile :: Svg
+coinPile =
+  S.g $ do
+    (coinColumn 7   0    0.5 )
+    (coinColumn 5 (-0.6) 0.55)
+    (coinColumn 3 ( 0.6) 0.55)
+    (coinColumn 1 (-0.3) 0.75)
+    (coinColumn 5 ( 0.3) 0.75)
+    
+    
