@@ -177,7 +177,7 @@ people =
     $ do
       person ! A.transform (translate   0.4  (-0.2) <> S.scale 0.8 0.8)
       person ! A.transform (translate (-0.4) (-0.2) <> S.scale 0.8 0.8)
-      person ! A.transform (translate   0    ( 0.2) <> S.scale 0.9 0.9)
+      person ! A.transform (translate   0    ( 0.1) <> S.scale 0.9 0.9)
 
 
 
