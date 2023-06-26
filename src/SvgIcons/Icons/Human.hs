@@ -12,6 +12,7 @@ module SvgIcons.Icons.Human
   , people
   , person
   , talk
+  , talk2
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -35,6 +36,7 @@ together with appropriate names.
 >  , (,) "people"      people
 >  , (,) "person"      person
 >  , (,) "talk"        talk
+>  , (,) "talk2"       talk2
 >  ]
 -}
 svgHuman :: [ (String , S.Svg) ]
@@ -47,6 +49,7 @@ svgHuman =
   , (,) "people"      people
   , (,) "person"      person
   , (,) "talk"        talk
+  , (,) "talk2"       talk2
   ]
 
 
@@ -336,3 +339,26 @@ talk =
         ! A.letterSpacing "0.05"
         ! A.strokeLinejoin "round"
         ! A.strokeLinecap  "round"
+
+      
+    
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/talk2_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/talk2_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/human/talk2_strk.svg)
+-}
+talk2 :: Svg
+talk2 = 
+    S.path
+      ! A.class_ "HaskellSvgIcons__talk2"
+      ! A.d bubble
+      ! A.fillRule "evenodd"
+      ! A.strokeMiterlimit "1000"
+  where
+    bubble = mkPath $ do
+      m   (-0.55) ( 0.45)
+      aa    0.8     0.7    0  True  True  0.15  (0.6)
+      l   (-0.55) ( 0.75)
+      S.z
