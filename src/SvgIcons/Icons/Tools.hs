@@ -12,6 +12,7 @@ module SvgIcons.Icons.Tools
   , lock
   , key1
   , bell
+  , wrench
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -35,6 +36,7 @@ together with appropriate names.
 >  , (,) "lock"       lock
 >  , (,) "key1"       key1
 >  , (,) "bell"       bell
+>  , (,) "wrench"     wrench
 >  ]
 -}
 svgTools :: [ (String , S.Svg) ]
@@ -46,6 +48,7 @@ svgTools =
   , (,) "lock"       lock
   , (,) "key1"       key1
   , (,) "bell"       bell
+  , (,) "wrench"     wrench
   ]
 
 
@@ -323,3 +326,47 @@ bell =
       m  (-x2)  y1
       aa   r2   r2    0   True   False    x2   y1
       S.z
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/wrench_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/wrench_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/tools/wrench_strk.svg)
+-}
+wrench :: S.Svg
+wrench =
+    S.path
+      ! A.class_ "HaskellSvgIcons__wrench"
+      ! A.d dirs
+      ! A.strokeLinejoin "round"
+  where
+    x0 =  0
+    x1 =  0.3
+    x2 =  0.2
+    x3 = (x1 + x2)/2
+    y0 = -0.35
+    y1 = -0.6
+    y2 = -0.95
+    y3 =  0
+    y4 =  0.7
+    r1 =  0.55
+    r2 =  x3
+    r3 =  0.1
+    dirs = mkPath $ do
+      m   x0  y0
+      l (-x1) y1
+      l (-x1) y2
+      aa  r1  r1  0  False False (-x2) y3
+      l (-x3) y4
+      aa  r2  r2  0  True  False   x3  y4
+      l   x2  y3
+      aa  r1  r1  0  False False   x1  y2
+      l   x1  y1
+      S.z
+      m  (x0 - r3) y4
+      aa  r3  r3  0  True  True   (x0 - r3) (y4 + 0.0001)
+      S.z
+    

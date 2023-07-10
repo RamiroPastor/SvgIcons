@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="-1 -1 2 2" height="100px" width="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path class="HaskellSvgIcons__wrench" d="M 0.0,-0.35 L -0.3,-0.6 L -0.3,-0.95 A 0.55,0.55 0.0 0,0 -0.2,0.0 L -0.25,0.7 A 0.25,0.25 0.0 1,0 0.25,0.7 L 0.2,0.0 A 0.55,0.55 0.0 0,0 0.3,-0.95 L 0.3,-0.6 ZM -0.1,0.7 A 0.1,0.1 0.0 1,1 -0.1,0.7001 Z" stroke-linejoin="round" fill="none" stroke="black" stroke-width="0.04" />
+</svg>
