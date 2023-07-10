@@ -344,7 +344,7 @@ wrench =
       ! A.strokeLinejoin "round"
   where
     x0 =  0
-    x1 =  0.3
+    x1 =  0.27
     x2 =  0.2
     x3 = (x1 + x2)/2
     y0 = -0.35
@@ -352,7 +352,7 @@ wrench =
     y2 = -0.95
     y3 =  0
     y4 =  0.7
-    r1 =  0.55
+    r1 =  0.52
     r2 =  x3
     r3 =  0.1
     dirs = mkPath $ do
