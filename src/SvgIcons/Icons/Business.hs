@@ -13,6 +13,7 @@ module SvgIcons.Icons.Business
   , creditOut
   , coinColumn
   , coinPile
+  , dividends
   ) where
 
 import           Text.Blaze.Svg11 ((!))
@@ -38,6 +39,7 @@ together with appropriate names.
 >  , (,) "creditIn"    creditIn
 >  , (,) "creditOut"   creditOut
 >  , (,) "coinPile"    coinPile
+>  , (,) "dividends"  (dividends "$")
 >  ]
 -}
 svgBusiness :: [ (String , S.Svg) ]
@@ -50,6 +52,7 @@ svgBusiness =
   , (,) "creditIn"    creditIn
   , (,) "creditOut"   creditOut
   , (,) "coinPile"    coinPile
+  , (,) "dividends"  (dividends "$")
   ]
 
 
@@ -458,7 +461,7 @@ coinColumn n0 x0 y0 =
 coinPile :: Svg
 coinPile =
   S.g
-    A.class_ "HaskellSvgIcons__coinPile" 
+    ! A.class_ "HaskellSvgIcons__coinPile" 
     $ do
       (coinColumn 7   0    0.5 )
       (coinColumn 5 (-0.6) 0.55)
@@ -466,4 +469,54 @@ coinPile =
       (coinColumn 1 (-0.3) 0.75)
       (coinColumn 5 ( 0.3) 0.75)
     
-    
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/dividends_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/dividends_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/business/dividends_strk.svg)
+
+Takes a string which should be the money symbol you want to use (or an empty string).
+-}
+dividends :: String -> Svg
+dividends moneySymbol =
+    S.g
+      ! A.class_ "HaskellSvgIcons__dividends"
+      $ do
+        S.path
+          ! A.d cakePath
+          ! A.fill "none"
+          ! A.strokeLinejoin "round"
+        S.text_ "%"
+          ! (A.x .: k2 + 0.5*r1)
+          ! (A.y .: k2 + 0.5*r1)
+          ! A.stroke "none"
+          ! A.dominantBaseline "middle"
+          ! A.textAnchor "middle"
+          ! A.fontFamily "Arial Black"
+          ! A.fontSize "0.45"
+        S.text_ (S.toSvg moneySymbol)
+          ! (A.x .: sx)
+          ! (A.y .: sy)
+          ! A.stroke "none"
+          ! A.dominantBaseline "middle"
+          ! A.textAnchor "middle"
+          ! A.fontFamily "Arial Black"
+          ! A.fontSize "0.75"
+  where
+    r1 =  0.78
+    k1 =  0.12
+    k2 =  0.05
+    (sx, sy) = (-0.5 , -0.1)
+    cakePath = mkPath $ do
+      m  (-k1)      (-k1)
+      l  (-k1 + r1) (-k1)
+      aa   r1   r1    0    True  False  (-k1)  (-k1 + r1)
+      S.z
+      m    k1         k1
+      l  ( k1 + r1) ( k1)
+      aa   r1   r1    0    False True   ( k1)  ( k1 + r1)
+      S.z
+      
