@@ -496,7 +496,7 @@ dividends moneySymbol =
           ! A.dominantBaseline "middle"
           ! A.textAnchor "middle"
           ! A.fontFamily "Arial Black"
-          ! A.fontSize "0.45"
+          ! A.fontSize "0.35"
         S.text_ (S.toSvg moneySymbol)
           ! (A.x .: sx)
           ! (A.y .: sy)
@@ -508,7 +508,7 @@ dividends moneySymbol =
   where
     r1 =  0.78
     k1 =  0.12
-    k2 =  0.05
+    k2 =  0.06
     (sx, sy) = (-0.5 , -0.1)
     cakePath = mkPath $ do
       m  (-k1)      (-k1)
