@@ -457,11 +457,13 @@ coinColumn n0 x0 y0 =
 -}
 coinPile :: Svg
 coinPile =
-  S.g $ do
-    (coinColumn 7   0    0.5 )
-    (coinColumn 5 (-0.6) 0.55)
-    (coinColumn 3 ( 0.6) 0.55)
-    (coinColumn 1 (-0.3) 0.75)
-    (coinColumn 5 ( 0.3) 0.75)
+  S.g
+    A.class_ "HaskellSvgIcons__coinPile" 
+    $ do
+      (coinColumn 7   0    0.5 )
+      (coinColumn 5 (-0.6) 0.55)
+      (coinColumn 3 ( 0.6) 0.55)
+      (coinColumn 1 (-0.3) 0.75)
+      (coinColumn 5 ( 0.3) 0.75)
     
     
