@@ -11,6 +11,7 @@ module SvgIcons.Icons.Office
   , clipboard
   , document
   , envelope
+  , envelope2
   , lupe
   , paperclip
   , pencil
@@ -40,6 +41,7 @@ together with appropriate names.
 >  , (,) "clipboard"  clipboard
 >  , (,) "document"   document
 >  , (,) "envelope"   envelope
+>  , (,) "envelope2"  envelope2
 >  , (,) "lupe"       lupe
 >  , (,) "paperclip"  paperclip
 >  , (,) "pencil"     pencil
@@ -57,6 +59,7 @@ svgOffice =
   , (,) "clipboard"  clipboard
   , (,) "document"   document
   , (,) "envelope"   envelope
+  , (,) "envelope2"  envelope2
   , (,) "lupe"       lupe
   , (,) "paperclip"  paperclip
   , (,) "pencil"     pencil
@@ -107,6 +110,40 @@ envelope =
       l   f1 f2
       m   c1 c2
       l   g1 g2
+
+
+
+{- |
+![fill style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/envelope2_fill.svg)
+
+![fill and stroke](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/envelope2_full.svg)
+
+![stroke style](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/icons/office/envelope2_strk.svg)
+-}
+envelope2 :: Svg
+envelope2 =
+    S.path
+      ! A.class_ "HaskellSvgIcons__envelope"
+      ! d dirs
+      ! strokeLinejoin "round"
+  where
+    w = 0.95
+    h = 0.618 * w   
+    ky = 0.16    -- y-coordinate of the middle point
+    kx = 0.2
+    (a1,a2) = (,)  (-w)  (-h)  -- top left corner
+    (b1,b2) = (,)  (-w)  ( h)  -- bottom left corner
+    (c1,c2) = (,)  ( w)  ( h)  -- bottom right corner
+    (d1,d2) = (,)  ( w)  (-h)  -- top right corner
+    (e1,e2) = (,)    0    ky   -- middle point
+    dirs = mkPath $ do
+      m   a1 a2
+      l   b1 b2
+      l   c1 c2
+      l   d1 d2
+      l   a1 a2
+      l   e1 e2
+      l   d1 d2
       
 
 

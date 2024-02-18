@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               svg-icons
-version:            3.8.1
+version:            3.8.2
 homepage:           https://github.com/RamiroPastor/SvgIcons
 license:            BSD-3-Clause
 license-file:       LICENSE
