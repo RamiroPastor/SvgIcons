@@ -123,7 +123,7 @@ envelope =
 envelope2 :: Svg
 envelope2 =
     S.path
-      ! A.class_ "HaskellSvgIcons__envelope"
+      ! A.class_ "HaskellSvgIcons__envelope2"
       ! d dirs
       ! strokeLinejoin "round"
   where
