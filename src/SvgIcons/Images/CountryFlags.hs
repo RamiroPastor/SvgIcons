@@ -3328,7 +3328,7 @@ Flag of the Holy See (Vatican City)
 va :: S.Svg
 va = 
     S.svg 
-      ! A.viewbox "0 0 2500 2500"
+      ! A.viewbox "0 0 1e3 1e3"
       ! A.width  "300"
       ! A.height "300"
       $ do
@@ -3340,16 +3340,16 @@ va =
       S.rect
         ! (A.x .: 0)
         ! (A.y .: 0)
-        ! (A.width  .: 1250)
-        ! (A.height .: 2500)
+        ! (A.width  .:  500)
+        ! (A.height .: 1000)
         ! A.stroke "none"
         ! A.fill "#FFE000"
     rightStripe =
       S.rect
-        ! (A.x .: 1250)
-        ! (A.y .:    0)
-        ! (A.width  .: 1250)
-        ! (A.height .: 2500)
+        ! (A.x .: 500)
+        ! (A.y .:   0)
+        ! (A.width  .:  500)
+        ! (A.height .: 1000)
         ! A.stroke "none"
         ! A.fill "#FFFFFF"
 
