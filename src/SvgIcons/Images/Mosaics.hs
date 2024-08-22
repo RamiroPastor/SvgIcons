@@ -34,6 +34,7 @@ module SvgIcons.Images.Mosaics
   , airplaneMosaic
   , octagonsMosaic
   , pentagonsMosaic
+  , hexCirclesMosaic
   ) where
 
 import           Data.List (intersperse)
@@ -65,6 +66,8 @@ avoid eye injuries on the viewer.
 >  , (,) "curvesMosaic"        curvesMosaic
 >  , (,) "airplaneMosaic"     (airplaneMosaic "deepskyblue")
 >  , (,) "octagonsMosaic"     (octagonsMosaic "lightgray" "chocolate")
+>  , (,) "pentagonsMosaic"    (pentagonsMosaic "deeppink" "black")
+>  , (,) "hexCirclesMosaic"   (hexCirclesMosaic "gold")
 >  ]
 -}
 mosaicSample :: [ (String , S.Svg) ]
@@ -83,6 +86,7 @@ mosaicSample =
   , (,) "airplaneMosaic"     (airplaneMosaic "deepskyblue")
   , (,) "octagonsMosaic"     (octagonsMosaic "lightgray" "chocolate")
   , (,) "pentagonsMosaic"    (pentagonsMosaic "deeppink" "black")
+  , (,) "hexCirclesMosaic"   (hexCirclesMosaic "gold")
   ]
 
 
@@ -1231,3 +1235,49 @@ pentagonsMosaic fillColor strkColor =
       lr (-r0) (-l0)
       S.z
       
+
+
+{- |
+![hexCircles mosaic](https://raw.githubusercontent.com/RamiroPastor/SvgIcons/main/svg/images/mosaics/hexCirclesMosaic.svg)
+
+Ratio between width and height is: \(h = \sqrt{3} \cdot w\)
+-}
+hexCirclesMosaic :: String -> Svg
+hexCirclesMosaic strkColor = do
+    S.svg
+      ! A.class_ "HaskellSvgIcons__hexCirclesMosaic"
+      ! A.viewbox (S.toValue $ "0 0 1 " ++ show (3*rad))
+      ! A.width  "300px"
+      ! A.height (S.toValue $ (show $ 300 * sqrt 3) ++ "px")
+      $ S.g
+        ! A.fill "none"
+        ! A.strokeWidth "0.033"
+        ! A.stroke (S.toValue strkColor)
+        $ do
+          circ ! (A.cx .: 0.5) ! (A.cy .: rad + aux  )
+          --
+          circ ! (A.cx .: 0.5) ! (A.cy .: aux        )
+          circ ! (A.cx .: 0  ) ! (A.cy .: rad        )
+          circ ! (A.cx .: 0  ) ! (A.cy .: rad + 2*aux)
+          circ ! (A.cx .: 0.5) ! (A.cy .: aux + 2*rad)
+          circ ! (A.cx .: 1  ) ! (A.cy .: rad + 2*aux)
+          circ ! (A.cx .: 1  ) ! (A.cy .: rad        )
+          --
+          circ ! (A.cx .: 0      ) ! (A.cy .: 0        )
+          circ ! (A.cx .: 0      ) ! (A.cy .: 3*rad    )
+          circ ! (A.cx .: 1      ) ! (A.cy .: 3*rad    )
+          circ ! (A.cx .: 1      ) ! (A.cy .: 0        )
+          circ ! (A.cx .: 0 - apt) ! (A.cy .: rad + aux)
+          circ ! (A.cx .: 1 + apt) ! (A.cy .: rad + aux)
+          -- 
+          circ ! (A.cx .: 0.5    ) ! (A.cy .:     0 - aux)
+          circ ! (A.cx .: 0.5    ) ! (A.cy .: 3*rad + aux)
+          circ ! (A.cx .: 0 - apt) ! (A.cy .: aux        )
+          circ ! (A.cx .: 1 + apt) ! (A.cy .: aux        )
+          circ ! (A.cx .: 0 - apt) ! (A.cy .: aux + 2*rad)
+          circ ! (A.cx .: 1 + apt) ! (A.cy .: aux + 2*rad)
+  where
+    apt = 0.5                        -- apotema
+    rad = (2 / sqrt 3) * apt         -- radio
+    aux = sqrt $ rad ^ 2 - apt ^ 2
+    circ = S.circle ! (A.r .: rad)

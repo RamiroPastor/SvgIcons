@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg class="HaskellSvgIcons__hexCirclesMosaic" viewBox="0 0 1 1.7320508" width="300px" height="519.6152422706632px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g fill="none" stroke-width="0.033" stroke="gold">
+        <circle r="0.57735026" cx="0.5" cy="0.8660253" />
+        <circle r="0.57735026" cx="0.5" cy="0.2886751" />
+        <circle r="0.57735026" cx="0.0" cy="0.57735026" />
+        <circle r="0.57735026" cx="0.0" cy="1.1547005" />
+        <circle r="0.57735026" cx="0.5" cy="1.4433756" />
+        <circle r="0.57735026" cx="1.0" cy="1.1547005" />
+        <circle r="0.57735026" cx="1.0" cy="0.57735026" />
+        <circle r="0.57735026" cx="0.0" cy="0.0" />
+        <circle r="0.57735026" cx="0.0" cy="1.7320508" />
+        <circle r="0.57735026" cx="1.0" cy="1.7320508" />
+        <circle r="0.57735026" cx="1.0" cy="0.0" />
+        <circle r="0.57735026" cx="-0.5" cy="0.8660253" />
+        <circle r="0.57735026" cx="1.5" cy="0.8660253" />
+        <circle r="0.57735026" cx="0.5" cy="-0.2886751" />
+        <circle r="0.57735026" cx="0.5" cy="2.020726" />
+        <circle r="0.57735026" cx="-0.5" cy="0.2886751" />
+        <circle r="0.57735026" cx="1.5" cy="0.2886751" />
+        <circle r="0.57735026" cx="-0.5" cy="1.4433756" />
+        <circle r="0.57735026" cx="1.5" cy="1.4433756" />
+    </g>
+</svg>
